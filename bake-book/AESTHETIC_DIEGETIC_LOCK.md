@@ -24,6 +24,14 @@ Ammo lives on the weapon:
 
 Floor/wall aftermath (spills, barrel-choir embers, Lab-Rat stamps) stays readable without softlocking the path. Locus hotspot FX language later — see `SULFUR_INFLUENCE.md`.
 
+## Grimdark Locus terraforming (wet-lab lock)
+
+Overnight aesthetic for Lab-Rat stamps + Range Tech FX contrast (2026-09-07):
+- **Hellish void spores** — Locus growth language, not cute mushrooms
+- **Cracks / edge-wear** driven by **2D mushroom density stamps**
+- **Brutalist concrete** with procedural wear as the hard backdrop
+- Range Tech: grimdark tracers / heat / muzzle on that concrete contrast; performant first
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |
