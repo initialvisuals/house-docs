@@ -2,6 +2,8 @@
 
 Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.behance.net/evanbuchanan + ArtStation Store. Public pages only — no invented projects.
 
+**Read-only while Evan pushes** (Evan peek 2026-09-07). Atelier is open for **read** — HDRI + small roughness sample landed. Crew must **not write** atelier while he pushes. Lab-Rat wires roughness → stamp on **fulcrumRust only**. See `PEEK_FINDINGS.md` Open.
+
 ## Pull first
 
 1. Store `W3np6`: **100 Seamless 4K Surface Imperfections** — Lab-Rat stamp DNA (greyscale roughness/mask/height). Already flagged; categories include Concrete, Metal, Dust, Scratches, Grunge, Tech, …
