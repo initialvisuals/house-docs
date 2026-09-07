@@ -25,7 +25,7 @@ Parked from Evan before sleep; clerk 2am shelf cook refreshes this pulse.
 |------|------|
 | **Hypha** | **#43 wider extract radius landed** (7×7 / 3 rings / 112 m / 12 544 m²; near LOD 16/8/4 unchanged). Next expand A/B = **near LOD later**. Menus/settings substrate cooking (borderless-fullscreen default; Graphics / Controls / Audio / Gameplay; post AO/AA/CA/grain/DoF) — **not done** |
 | **Augury** | FoW title/main menu layout + settings clone cooking (clone FoW OG; #41 title mark already landed) — **not done**. FoW OG input manager in scope |
-| **Range Tech** | Cooking one-click Windows `build.bat` with quality/flag options for fulcrumRust (Lab-Rat wants the same pattern for pycelium later) |
+| **Range Tech** | Quality/flag options on the #42 `build.bat` still cooking / open. **Embodied feel pass cooking** (aim-offset guns/attachments/controller → fulcrumRust outside materials/range geo; sweet medium vs CE/FoW OG controller + action audio cues) — **not done** |
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
 

@@ -100,6 +100,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Control DNA resolution
 - **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
+- **Embodied feel pass** (Evan dump 2026-09-07) is still **cooking** — Range Tech owns. Transpose aim-offset guns / attachments / controller into fulcrumRust (outside materials and range geometry); sweet medium vs CE / FoW OG controller + action audio cues. Do **not** claim this pass shipped. See section below.
 
 ## Locus Standard + Inked + distance activation (fulcrumRust #18 + #26)
 - Fightable **Locus Standard** + **Locus Inked** on the extract yard
@@ -350,11 +351,25 @@ Hypha. Honest Windows release path — not quality/flag options (those stay open
 - **`build-and-run.bat`** — builds then launches that binary **in this console** (wait on process). No `start`+detach, no `timeout /t` (feel-lab `StartServer.bat` DNA). Extra args pass through (`--host`, `--smoke`, …)
 - README: Windows double-click `build.bat`
 
+## Embodied feel pass (Range Tech — cooking, not shipped)
+
+Evan dump 2026-09-07. **Not shipped** — do not claim the feel pass as done. **Range Tech** owns it.
+
+| Lock | Detail |
+|------|--------|
+| **Steal** | Aim-offset **looks/feels correct** for guns, attachments, controller — **transpose** that work into fulcrumRust |
+| **Out of scope** | Materials and range geometry |
+| **Sweet medium** | Concrete Echo / FoW OG also has a great controller + **action audio cues**. Find a medium between aim-offset and CE/FoW for **embodied feel** |
+| **Binds stay** | #12 Evan-bind lock (Q/E lean, Ctrl+mouse height, wheel speed) is not this pass |
+
+See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
 - Menus / settings: Augury FoW title/main clone + Hypha window/settings substrate cooking (Evan dump 2026-09-07) — **not done**
 - Basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
+- Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
 
@@ -390,3 +405,4 @@ Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
 Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07) — **shipped** Hypha #43.
 Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — cooking, not shipped.
+Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
