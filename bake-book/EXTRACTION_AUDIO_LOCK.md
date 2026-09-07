@@ -15,8 +15,10 @@ Parked from Evan + seat locks (2026-09-07).
 - FX bus / gunshots get spatial first
 - Shot propagation later
 
-## Voice / Music / FX buses (fulcrumRust #21)
-Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. Procedural tones only; file slots later (`sfx.slots[id]`).
+## Voice / Music / FX buses (fulcrumRust #21 + #54)
+Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot wiring shipped **partial** via #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Placeholders only — real CE / aim-offset packs + feel polish still next. `.ogg` names reserved; decode WAV-only this beat.
+
+Range Tech owns weapon / move file slots on this bus. Augury (**Chamber**) keeps spatial / reverb (#27). Not a second mixer.
 
 ### Gains
 - Three buses into a **master**: **Voice** / **Music** / **FX**
@@ -28,14 +30,15 @@ Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. Procedural tones o
 ### Day-one routes
 | Bus | Owns |
 |-----|------|
-| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap |
+| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land |
 | **Voice** | UI confirm (title / pause / Options) |
 | **Music** | hideout / extract ambient bed stub |
 
 ### Hard checks
 - Fire SFX (SMG `playFire`) **respect the FX bus** — FX `0` is silent; half FX is quieter
-- Sample rate stub **22050** for procedural cues
-- Code: fulcrumRust `engine/src/audio.rs` + Options sheet in `engine/src/menu.rs`
+- File preferred when present; missing / bad file → procedural fallback
+- Sample rate stub **22050** for procedural cues (placeholder WAVs also ~22.05 kHz 16-bit mono)
+- Code: fulcrumRust `engine/src/audio.rs` + Options sheet in `engine/src/menu.rs` + `assets/sfx/`
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
 Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **not a fourth bus / second mixer**.
@@ -55,8 +58,8 @@ Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **
 
 ### Hard checks
 - Smoke: `audio=100% zone=EXTRACT spatial=1.00` after Standard + Inked dumps + Z/F; FX `0` still silences fire
-- File slots / shot propagation still later
+- File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking); shot propagation still later
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54
