@@ -9,13 +9,15 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Bandage**
 - Find other weapons on enemies / in boxes / loose in world
 
-## MP9-Z kit + attachments (fulcrumRust #14)
-- Day-one viewmodel is the **feel-lab MP9-Z silhouette** (procedural boxes), not the brick SMG
-- Mag chrome stays diegetic on the **MP9-Z receiver rail** (20 LEDs + stick plaque); Hold-R peek unchanged
-- **V** — cycle optic iron / holo / acog (ADS pose + FOV follow)
-- **N** — toggle .45 suppressor; muzzle / flash / tracer spawn move to can tip
+## Kit picker + attachments (fulcrumRust #14 + #22)
+- Day-one spawn is the **feel-lab MP9-Z silhouette** (procedural boxes), not the brick SMG
+- Feel-lab kit stubs also seated: **SR-25** (DMR rail + 20-rd box) + **M24** (bolt + 5-rd clip + scope tube)
+- **G** cycles MP9-Z → SR-25 → M24; **4 / 5 / 6** seat directly; **U** stays unaimed-hold cycle; **1 / 2 / 3** stay Lab-Rat curl
+- Mag chrome stays diegetic on the seated kit — well count **is** mag size (MP9-Z **20** / SR-25 **20** / M24 **5**); Hold-R peek unchanged; no HUD ammo counter
+- **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow
+- **N** — toggle .45 suppressor / can mounts; muzzle / flash / tracer spawn follow can tip when mounted
 - FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
-- Ballistics / HoB / recoil / 20-rd + 4 mags stay on the feel sheet (attachments do not invent new gameplay mags)
+- Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags)
 
 ## First playable flow
 1. **Loading screens** cover bake/hitch — player never sees hitching except true CPU/geo overload
@@ -43,8 +45,9 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Ammo peek: hold **Numpad 0** or hold **R**; double-tap **R** = emergency quick mag; press **R** = normal reload
 - Hold **`~`** = inspect weapon
 - **B** = fire mode
-- **V** = cycle optic (iron / holo / acog)
-- **N** = toggle .45 suppressor
+- **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
+- **V** = cycle optic on seated kit allow-list
+- **N** = toggle .45 suppressor / can mounts
 - **M** = map
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap
 - **X** = prone
@@ -130,3 +133,4 @@ World drop/pickup + FX draw dials: fulcrumRust PR #19 (2026-09-07).
 Void-spore grimdark + concrete wear: fulcrumRust PR #20 (2026-09-07).
 Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).
 Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).
+SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
