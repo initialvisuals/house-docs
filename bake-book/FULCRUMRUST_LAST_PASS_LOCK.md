@@ -28,7 +28,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Near-spawn **void-spore growth PoCs**: denser 2D webbing, hellish mushroom, spore-tipped creeper (curl **1 / 2 / 3** live)
 - **Smart material stamps** (Lab-Rat #15 + #20): dirt/sand/rock/concrete/organic on 8 m cells, grimdark luma + sit-on-surface (void-spore bloom / brutalist mass) + density-driven concrete wear
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
-- Hypha owns real `VoxelHost` + Transvoxel host + meshed stamped cells
+- **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 
 ## Downed / revive
 - Teammate **stabilize**, then heal with **items** (no magic heal)
@@ -110,6 +110,13 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
 
+## Transvoxel extract host (fulcrumRust #16)
+- Flat-world bake-once isosurface via crates.io **`transvoxel` 2.0** (Lengyel); **not** a globe
+- Distance LOD: center subdiv **16** · ring-1 **8** · outer **4** + transition faces
+- `TerrainHost` consumes Lab-Rat `sample_channels` + `density_stamp_2d` / `WearStamp`; skin = `VoxelMaterial::tint` (no second paint story)
+- Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze; hideout unfogged
+- Parked: live LOD recook · tunnels · runtime carve. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -122,3 +129,4 @@ Locus Standard AI: fulcrumRust PR #18 (2026-09-07).
 World drop/pickup + FX draw dials: fulcrumRust PR #19 (2026-09-07).
 Void-spore grimdark + concrete wear: fulcrumRust PR #20 (2026-09-07).
 Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).
+Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).

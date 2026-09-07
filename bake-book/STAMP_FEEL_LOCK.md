@@ -19,7 +19,7 @@ First Lab-Rat voxel-world slice. **Not** a 3D paint editor. **Not** Hypha chunk/
 | **Structures** | Sit-on-surface PoC: mushroom cap, anastomosis web, rock outcrop, concrete lip, sand ripple, grit block |
 | **Skip** | Growth yard + spawn pad overlays so plots stay readable |
 | **Append** | Stamps append after existing bake — Hypha grayboxes keep indices |
-| **Host** | `VoxelHost` / `ExtractStubHost` stub; Hypha swaps real heightfield later |
+| **Host** | `VoxelHost` — **Hypha #16** `TerrainHost` is the live heightfield + mesher |
 | **Glasses** | Off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (thin analysis-knowledge-core; labels only) |
 | **Seed** | `FULCRUM_SEED` feeds extract bake + stamp field |
 
@@ -35,7 +35,7 @@ Evan lock: terrain look is **Transvoxel** (seamless LOD). Lab-Rat does **not** o
 | **Ownership** | Hypha hosts Transvoxel + far-chunk simplify; Lab-Rat only stamps + channels |
 | **Peek leftover** | CPU boxes stay readable; consume path is the sample channels |
 
-Steal-next: Hypha evaluate ling0x vs Lengyel tables, implement real `VoxelHost`, sample into chunks, drop CPU-box overlay when mesher live. Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md`.
+Shipped: Hypha #16 `TerrainHost` + crates.io `transvoxel` 2.0 samples channels into chunks. Steal-next: live LOD recook / tunnel cutouts; Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md` + `docs/TERRAIN.md`.
 
 
 ## Void-spore terraforming + density-driven wear (PR #20)
@@ -53,7 +53,7 @@ Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void 
 | **Consume** | Wear leftovers are solid on density (`> 0`); Hypha grades verts the same way |
 | **Ownership** | Lab-Rat stamps + wear leftovers; Hypha meshes + grades; Augury avoids organic / void-spore spawn until growth-enemy pass |
 
-Detail: fulcrumRust `docs/STAMPS.md`. Steal-next: Hypha grade verts grimdark + sample wear into chunks; Augury spawn filters prefer rock/concrete.
+Detail: fulcrumRust `docs/STAMPS.md`. Shipped: Hypha #16 grades verts grimdark + samples wear into chunks. Steal-next: Augury spawn filters prefer rock/concrete.
 
 ## Near-spawn yard silhouette fidelity (PR #13)
 

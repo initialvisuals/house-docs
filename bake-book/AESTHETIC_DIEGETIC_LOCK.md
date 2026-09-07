@@ -35,6 +35,15 @@ Aesthetic lock for Lab-Rat stamps + Range Tech FX contrast (wet-lab → main via
 - Range Tech: grimdark tracers / heat / muzzle on that concrete contrast; performant first
 - Detail shelf: `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/STAMPS.md`
 
+## Grimdark extract host (shipped Hypha #16)
+
+House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/dense**, not a bright sandbox:
+- **Ashen wash / slate sides / brutalist** vertex paint from Lab-Rat `VoxelMaterial::tint` (no second material story)
+- Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
+- Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
+- Performant first — bake-once mesh, no live carve day-one
+- Detail: `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |

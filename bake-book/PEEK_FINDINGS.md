@@ -32,6 +32,16 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Glasses** — off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (labels only)
 - Yard plots + curl **1 / 2 / 3** unchanged. See fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md`.
 
+
+## Closed by fulcrumRust #16 (2026-09-07)
+
+- **Gray slab extract gone** — bake-once Transvoxel isosurface (`TerrainHost` + crates.io `transvoxel` 2.0); flat world, not a planetoid
+- **Distance LOD** — center subdiv **16** / ring-1 **8** / outer **4** + Lengyel transition faces; smoke peek `terrain_tris≈3354 lods=3`
+- **Lab-Rat consume live** — `sample_channels` + `density_stamp_2d` / `WearStamp` drive density + material; verts grade from `VoxelMaterial::tint` (no second material story)
+- **Grimdark extract lock** — ashen wash / slate sides / brutalist vertex paint, proc wear/cracks, void-spore stamp tints, cheap distance haze; hideout stays small/unfogged
+- Yard plots + curl **1 / 2 / 3** + MP9-Z / heat / Locus / menus unchanged; `AuguryLocusSpawn` reserved on a rise
+- Detail: fulcrumRust `docs/TERRAIN.md` + house `TERRAIN_NORTHSTAR.md` / `AESTHETIC_DIEGETIC_LOCK.md`
+
 ## Closed by fulcrumRust #17 (2026-09-07)
 
 - **Transvoxel consume channels** — Lab-Rat `sample_channels` / `fill_chunk_samples` expose signed density + `VoxelMaterial` for Hypha’s mesher
@@ -81,7 +91,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
+- Hypha: first Transvoxel extract host landed (#16); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: audio buses Voice / Music / FX landed (#21); next day-night clouds + HDR pairing; spatial / binaural still Augury DNA on top of these buses
