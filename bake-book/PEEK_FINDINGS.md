@@ -32,6 +32,13 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Glasses** — off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (labels only)
 - Yard plots + curl **1 / 2 / 3** unchanged. See fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md`.
 
+## Closed by fulcrumRust #17 (2026-09-07)
+
+- **Transvoxel consume channels** — Lab-Rat `sample_channels` / `fill_chunk_samples` expose signed density + `VoxelMaterial` for Hypha’s mesher
+- **Density sign lock** — `> 0` solid, `< 0` air, `0` isosurface (Hypha may flip for port)
+- **Ownership** — Hypha owns Transvoxel tables / LOD / far-chunk simplify; Lab-Rat does not paste Lengyel tables
+- CPU-box overlays remain peekable leftover until Hypha meshes. See fulcrumRust `docs/STAMPS.md` + house `TERRAIN_NORTHSTAR.md`.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -44,8 +51,8 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: real `VoxelHost` heightfield + mesh stamped cells + LOD (steal from `docs/STAMPS.md`)
+- Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
 - Augury: stamp spawn filters (prefer rock/concrete; avoid organic) + menus / load gate unless hitch
-- Lab-Rat: smart stamps + surface structures landed (#15); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Lab-Rat: consume channels landed (#17); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 
 Steal from this shelf + steal map. Not chat scroll.
