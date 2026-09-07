@@ -7,6 +7,18 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 
+## Near-spawn yard silhouette fidelity (PR #13)
+
+Peeks must read **growth**, not graybox slabs. Same three plots / cycle / curl binds:
+
+| Plot | Silhouette lock |
+|------|-----------------|
+| **2D STAMP** | Short-segment glowing webbing, slightly broken anastomosis rings, quiet grit blotches, spore core (flat overlay) |
+| **ORGANIC 3D** | Thin bent stem + volva, wide cap (gills/dome), side fruit, plume webbing — mushroom, not a brick pillar |
+| **CREEPER** | Low olive tubes on meandering tendrils with forks; soil-hugging anastomosis; short AABB steps so diagonals stay tubes |
+
+CPU boxes, no collide; mesh under existing growth buffers. Detail lives in fulcrumRust `docs/GROWTH_POC.md`.
+
 ## Curl on growth plots (PR #9)
 
 Stand on a yard plot (2D stamp / organic / creeper):

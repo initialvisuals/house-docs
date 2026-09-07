@@ -9,6 +9,14 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **No visible bullets** — feel-lab tip→impact tracers + muzzle flash + spark/mark live
 - **Wall camera / lean** — Q/E wall-clamped peek (feel-lab +lean = left); Augury glasses add `SLIDE` / `SPD` / `HT` labels only (no ammo HUD)
 
+## Closed by fulcrumRust #13 (2026-09-07)
+
+- **Yard graybox slabs** — Lab-Rat fidelity pass so peeks read **growth**, not slabs:
+  - **2D stamp** — short-segment glowing webbing + anastomosis rings + quiet grit + spore core
+  - **Organic 3D** — thin bent stem + volva, wide cap with gills, side fruit, plume webbing (mushroom silhouette)
+  - **Creeper** — low olive tubes on meandering tendrils / forks; soil-hugging anastomosis (short AABB steps)
+- CPU boxes, no collide; curl **1 / 2 / 3** and plot origins unchanged. See fulcrumRust `docs/GROWTH_POC.md`.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -23,6 +31,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 - Hypha: load gate / session path
 - Augury: menus / load gate unless hitch
-- Lab-Rat: yard graybox OK; denser webbing/mushroom/creeper silhouettes = later wet-lab beat
+- Lab-Rat: yard silhouette fidelity landed (#13); next wet-lab beats stay on STEAL_MAP (bake stamps / experiment log)
 
 Steal from this shelf + steal map. Not chat scroll.
