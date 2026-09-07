@@ -7,7 +7,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **4 mags** + one in the gun
 - **Knife**
 - **Bandage**
-- **Stim** (1) — self-revive while downed (fulcrumRust #36); not a standing heal
+- **Stim** (1) — self-revive while downed on **I** (fulcrumRust #37; stub shipped #36); not a standing heal
 - Find other weapons on enemies / in boxes / loose in world
 - Mag reload is **tap-R** (not empty-only) / **double-tap SWAP** — leftover discarded; Hold-R is peek only (fulcrumRust #32)
 
@@ -39,7 +39,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - HP→0 **downs** (prone crawl + thin bleed) — not menu death. Bleed-out ~`BLEED_SECS` **22.0**; extra hits while downed shave `BLEED_HIT_SECS` **6.0**. Clock expiry → `DEAD` + dark bag. Shipped Augury #36; death cam / teammate net / full loot loop still parked.
 - Teammate **stabilize**, then heal with **items** (no magic heal) — hold **F** (`STABILIZE_HOLD_SECS` **1.45**); self while downed, or yard dummy when standing nearby (`REACH_M` **1.85**). Glasses `STAB STUB  NO NET` / `SELF-STAB STUB`. Solo placeholder — no fake net. Teammate net stabilize still parked.
 - Equipment required — or take off the downed body
-- **Self-revive** via revive stim on person — **Y** while downed (`STIM_REVIVE_HP` **35**); day-one kit `stim: 1`; yard vial `YARD_STIM` **(3.55, 0, 3.20)** in front of dummy `YARD_DUMMY` **(3.55, 0, 4.55)** (`[F] PICK UP STIM`). Not a standing heal. Alive **Y** is Hypha listen-server host (#34) — shared KeyY; downed Y must not host; alive Y must not consume stim.
+- **Self-revive** via revive stim on person — **I** while downed (`STIM_REVIVE_HP` **35**); day-one kit `stim: 1`; yard vial `YARD_STIM` **(3.55, 0, 3.20)** in front of dummy `YARD_DUMMY` **(3.55, 0, 4.55)** (`[F] PICK UP STIM`). Not a standing heal. Alive **I** is a no-op (no consume). **Y** is Hypha listen-server host (#34), alive only — does **not** stim. Downed Y is a no-op for both host and stim.
 - Slash a downed **Locus Standard** (or similar) → **critical revive rally** — **Mouse4 / C** on a **downed or dying** Locus while you are downed or alive ≤ `RALLY_LOW_HP` **25** → `RALLY` (`RALLY_HP` **45** / `RALLY_ARMOR` **20**, stands if downed)
 - **T** bandage (+40 HP, #31) is the item heal: while downed and **not** stabilized, glasses `NEED STAB` (no consume); after stabilize, T stands you up with the heal chunk. See Down / death stub section.
 
@@ -50,10 +50,11 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Ammo peek / mag swap (fulcrumRust #32): **Hold R** (`RELOAD_PEEK_HOLD_SEC` **0.20**) lights peek chrome only — does not start a reload; release after a hold is not a tap. **Tap R** (short press, reload on RELEASE) = basic swap (`RELOAD_BASIC_SEC` **1.10**) when `in_mag < capacity` AND reserves > 0 (**NOT** empty-only). **Double-tap R** (`RELOAD_DOUBLE_TAP_SEC` **0.30** from first tap) = emergency SWAP (`RELOAD_EMERGENCY_SEC` **0.46**). Last-pass feel-lab also named hold **Numpad 0** as a peek bind — fulcrumRust shipped Hold-R peek / tap-R reload / double-tap SWAP
 - Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only; inspect still wins over reload dip)
 - **B** = fire mode
-- Hold **J** = heat-tune dump (fulcrumRust #35); **I** stays free
+- Hold **J** = heat-tune dump (fulcrumRust #35); **I** is Augury stim (#37)
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **T** = bandage use (fulcrumRust #31); **G** stays kit cycle. While downed unstabilized: `NEED STAB` (no consume); after stabilize, T stands + heals (#36)
-- **Y** = listen-server host while alive (Hypha #34); stim self-revive while downed (Augury #36). Shared KeyY — downed Y must not host; alive Y must not consume stim
+- **I** = stim self-revive while downed (Augury #37). Not a standing heal. Alive **I** is a no-op (no consume)
+- **Y** = listen-server host while alive (Hypha #34). Does **not** stim. Downed **Y** is a no-op (no host, no stim)
 - **V** = cycle optic on seated kit allow-list
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
@@ -215,13 +216,13 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Intact / do not steal: **[ / ]** stay ToD clock; **− / =** stay exposure; **9 / 0** left free; does not steal **T** / **C** / **R** / **Q** / **E** / **Z** / **B** / **V** / **N** / **U** / **`** / **F** / **X** / **H** / **1** / **2** / **3** / **G** / **Mouse4**; tip→impact tracers / muzzle / sparks stay; reload / knife / bandage / lean / inspect / ToD stay seated
 
 ## Heat-tune dump (fulcrumRust #35)
-- Bind: hold **J** = heat-tune dump. **I** stays free.
+- Bind: hold **J** = heat-tune dump. **I** is no longer free — I is Augury stim (#37).
 - Feel: sustained AUTO on the seated kit (`FeelState::try_heat_tune` / `fire_shot(..., heat_tune: true)`); uses kit `auto_interval_sec` while tuning (ignores SEMI hold gate)
 - Recoil impulse + camera punch skipped; leftover LMB punch stomped while J is down (`recoil_punch` / `recoil_rot` / `cam_recoil_p` / `cam_recoil_y` zeroed) so the gun stays still
 - Same cook path: `FeelState.barrel_energy` still climbs so tip cards + lobe go live for live dialing (no second heat cook)
 - Ammo dial cheat: mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
 - Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
-- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
+- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
 ## Listen-server + invite stub (fulcrumRust #34)
@@ -231,21 +232,22 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
 - Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
 - Solo **Deploy** unchanged (`net=off` on smoke)
-- Does **not** steal **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
-- Bind split: Hypha #34 owns **Y** while *alive*; Augury #36 owns **Y** while *downed* for stim self-revive — seats do not fight
+- Does **not** steal **I** stim (#37), **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Bind: **Y** alive host only (#34). Stim is **I** while downed (#37). Seats do not fight — downed Y is a no-op for host and stim.
 
-## Down / death stub (fulcrumRust #36)
+## Down / death stub (fulcrumRust #36 + #37 bind)
 - HP→0 **downs** (prone crawl + thin bleed) — not menu death. Glasses `DOWNED`. Bleed-out ~`BLEED_SECS` **22.0**; extra hits while downed shave `BLEED_HIT_SECS` **6.0**. Clock expiry → `DEAD` + dark bag.
 - Constants (`engine/src/down.rs`): `BLEED_SECS` **22.0** · `BLEED_HIT_SECS` **6.0** · `STABILIZE_HOLD_SECS` **1.45** · `STIM_REVIVE_HP` **35** · `RALLY_HP` **45** / `RALLY_ARMOR` **20** / `RALLY_LOW_HP` **25** · `REACH_M` **1.85**
 - Yard props: dummy `YARD_DUMMY` **(3.55, 0, 4.55)** · stim vial `YARD_STIM` **(3.55, 0, 3.20)** (in front of dummy)
-- **Y** while downed = stim self-revive (day-one kit `stim: 1`; yard vial `[F] PICK UP STIM`). Not a standing heal. Empty → glasses `NO STIM`. Success → `STIM` and stand at 35 HP.
-- **Y** while alive = Hypha listen-server host stub (#34). Shared KeyY; downed Y must not host; alive Y must not consume stim.
+- **I** while downed = stim self-revive (day-one kit `stim: 1`; yard vial `[F] PICK UP STIM`). Not a standing heal. Empty → glasses `NO STIM`. Success → `STIM` and stand at 35 HP. Alive **I** is a no-op (no consume).
+- **Y** while alive = Hypha listen-server host stub (#34). Does **not** stim. Downed **Y** is a no-op for both host and stim.
 - Hold **F** = stabilize stub (self while downed, or yard dummy when standing nearby). Glasses: `STAB STUB  NO NET` / `SELF-STAB STUB`. Prompt: `HOLD F  SELF-STAB STUB`. Solo placeholder — no fake net. **F** tap near bag = light corpse-reclaim stub (hold for stab; tap on bag — shipped stub).
-- **T** bandage (+40 HP, Range Tech #31) unchanged as heal item. While downed and **not** stabilized: glasses `NEED STAB` (no consume). After stabilize: T stands you up with the heal chunk. Prompt: `STABILIZED  T HEAL / Y STIM / SLASH RALLY`
+- **T** bandage (+40 HP, Range Tech #31) unchanged as heal item. While downed and **not** stabilized: glasses `NEED STAB` (no consume). After stabilize: T stands you up with the heal chunk. Prompt: `STABILIZED  T HEAL / I STIM / SLASH RALLY`
 - **Mouse4 / C** knife slash on a **downed or dying** Locus while you are downed or low (≤25 HP) → `RALLY` burst (+45 HP / +20 armor, stands if downed)
 - Bleed-out ~22s → `DEAD` + dark bag; a new bleed-out **replaces** previous bag; **F** tap on bag = light corpse-reclaim stub (`DEAD  BAG STUB` / `CORPSE RECLAIM STUB`)
-- Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB` · prompts like `HOLD F  SELF-STAB STUB` / `[F] PICK UP STIM` / `STABILIZED  T HEAL / Y STIM / SLASH RALLY`
-- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/−/=/,/. · O/P zero/launch · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` stay. **I** stays free.
+- Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB` · prompts like `HOLD F  SELF-STAB STUB` / `[F] PICK UP STIM` / `STABILIZED  T HEAL / I STIM / SLASH RALLY`
+- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/−/=/,/. · O/P zero/launch · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` stay. **I** is stim (does not steal Y host). **Y** is host alive-only (does not steal I stim).
+- Tests that define the lock: `y_hosts_i_stims_without_stealing_binds`, `y_alive_hosts_i_downed_stims_without_crossing`.
 - Parked / still TODO (do not claim done): death cam; teammate net stabilize; timed surface kill; full extract loot loop.
 
 ## Still soft / seat-owned timing
@@ -277,3 +279,4 @@ Live HoB zero / arcade↔sim launch: fulcrumRust PR #33 (2026-09-07).
 Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
+Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
