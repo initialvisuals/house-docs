@@ -23,7 +23,9 @@ Parked from Evan before sleep; clerk 2am shelf cook refreshes this pulse.
 
 | Seat | Open |
 |------|------|
-| **Hypha** | [#27](https://github.com/initialvisuals/fulcrumRust/pull/27) day-one binaural / positional stereo on the FX bus |
+| **Hypha** | Next yard expand A/B = **wider chunk radius first**; near LOD later (clerk lock 2026-09-07). Menus/settings substrate cooking (borderless-fullscreen default; Graphics / Controls / Audio / Gameplay; post AO/AA/CA/grain/DoF) — **not done** |
+| **Augury** | FoW title/main menu layout + settings clone cooking (clone FoW OG; #41 title mark already landed) — **not done**. FoW OG input manager in scope |
+| **Range Tech** | Cooking one-click Windows `build.bat` with quality/flag options for fulcrumRust (Lab-Rat wants the same pattern for pycelium later) |
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
 

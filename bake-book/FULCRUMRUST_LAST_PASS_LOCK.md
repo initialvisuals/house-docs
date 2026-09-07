@@ -34,6 +34,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - **Shape-agnostic stamp/paint substrate** (Lab-Rat #38): any authored shape → density + material; ChannelOp Union/Subtract/Paint/Replace; paint writes real / UX stubbed; mesh→voxel convert. Yard/Inked/curl stay consumers. Lab-Rat writes; Hypha remeshes
 - **Extract-yard scale harness** (Lab-Rat #39): stay on the extract yard; `apply_yard_harness` via `StampField::layers`; pad ≈ **110 m²**; near-warm / far-cold (`guts_cold` **140**); smoke `layers=` `prims=` `yard_m2=`
+- **Next yard expand A/B** (clerk lock 2026-09-07): **wider chunk radius first**; near LOD later. Hypha offered A/B (wider radius vs higher near LOD); Lab-Rat + Range Tech voted wider radius (more ground for stamp/paint scale + shoot feel). Stay on extract yard — not a bigger world map. Do not invent radius/LOD dials here.
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
@@ -316,8 +317,23 @@ Augury seats Evan’s Fulcrum of Will header as the title wordmark on the #11 sh
 
 See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`.
 
+## Menus / settings ownership (Evan dump 2026-09-07)
+
+**Not shipped.** Title/main + settings clone is cooking — do not claim done. Logo/title mark already landed Augury #41. Existing #21 Options three-row audio sheet and #11/#41 Deploy / Continue / Options / Esc hits stay until the substrate lands.
+
+| Seat | Owns (cooking) |
+|------|----------------|
+| **Augury** | FoW title / main menu layout, colors, buttons (**clone FoW OG**). Settings menu can rip a lot from FoW. Logo/title mark already #41 on fulcrumRust |
+| **Hypha** | Borderless-fullscreen **default**; windowed + exclusive as options. Runtime settings substrate tabs **Graphics / Controls / Audio / Gameplay**. Post toggles: AO, AA, chromatic aberration (toggle+strength), film grain toggle, depth of field blur toggle. Steal from CE/Mycelium. **No atelier push** |
+| **Input** | FoW OG input manager also in scope (steal into fulcrumRust) |
+
+See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#41 sections stay.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
+- Next yard expand A/B = **wider chunk radius first**; near LOD later (clerk lock 2026-09-07)
+- Menus / settings: Augury FoW title/main clone + Hypha window/settings substrate cooking (Evan dump 2026-09-07) — **not done**
+- Range Tech cooking one-click Windows `build.bat` with quality/flag options for fulcrumRust (Lab-Rat wants the same pattern for pycelium later) — no dials invented here
 - Growth PoCs after window exists
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
 
@@ -349,3 +365,5 @@ Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
 Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
+Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07).
+Menus / settings ownership: Evan dump (2026-09-07) — cooking, not shipped.

@@ -83,6 +83,18 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 - Still no second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
+## Menus / settings (Evan dump 2026-09-07 — cooking, not shipped)
+
+Title/main + settings clone is **not done**. Do not claim unfinished menu work as landed. Logo/title mark already #41 (section above). Existing Deploy / Continue / Options / Esc hits stay.
+
+| Seat | Owns (cooking) |
+|------|----------------|
+| **Augury** | FoW title / main menu layout, colors, buttons (**clone FoW OG**). Settings menu can rip a lot from FoW. Logo/title mark already #41 |
+| **Hypha** | Borderless-fullscreen **default**; windowed + exclusive as options. Runtime settings substrate tabs **Graphics / Controls / Audio / Gameplay**. Post toggles: AO, AA, chromatic aberration (toggle+strength), film grain toggle, depth of field blur toggle. Steal from CE/Mycelium. **No atelier push** |
+| **Input** | FoW OG input manager also in scope (steal into fulcrumRust) |
+
+#21 Options three-row audio sheet stays until the substrate lands. Still no second ammo HUD. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |
