@@ -315,15 +315,15 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 ## Closed by fulcrumRust #46 (2026-09-07)
 
 - **Hypha Options guts** — filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a second settings overlay. Title / HOLD / Options chrome + FoW logo seat stay Augury (#45/#41)
-- **Graphics (live window + post stubs)** — Window mode live via winit: **Borderless** = default launch; **Windowed** = decorated 1280×720; **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW=borderless|windowed|exclusive`. Post toggles persist and are live-read stubs until GPU passes — they **no-op safely** and must **not** be packed into Range Tech ToD / Goegap / HDRI uniforms: AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF. Hint: `POST STUB UNTIL GPU · WINDOW LIVE · A/D NUDGE`
+- **Graphics (live window + persist)** — Window mode live via winit: **Borderless** = default launch; **Windowed** = decorated 1280×720; **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW=borderless|windowed|exclusive`. Post toggles persist (`project.json` / `FULCRUM_SETTINGS`) and must **not** be packed into Range Tech ToD / Goegap / HDRI uniforms: AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF. This peek they no-op'd; **#55** wired the GPU stack so they change the image. Hint then: `POST STUB UNTIL GPU · WINDOW LIVE · A/D NUDGE` (now `POST LIVE · AA ON`)
 - **Gameplay (real)** — Glasses labels toggle + crosshair toggle (real — drop quads when off). Hint: `SHOOT FEEL STAYS · ENTER TOGGLE`
 - **Controls** — Look scale sits on feel-lab sens: `LOOK_MUL` default **1.0**, min **0.25**, max **2.0**, step **0.05**; Invert Y toggle. Binds stay README. Hint: `LOOK SITS ON FEEL-LAB SENS · BINDS IN README`
 - **Audio** — Untouched — still Range Tech #21 Voice/Music/FX mixer
 - **Persist** — `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json`
 - **Esc walk** — Hypha pane / Audio → Options → title or HOLD (same stack as #45)
-- Peek: `cargo run` → Options → Graphics window live; post stubs persist; Gameplay glasses/crosshair; Controls look/invert; Esc backs; Audio still #21
-- Ownership: Augury owns title + HOLD chrome + Options list shell + logo seat. Hypha owns Graphics/Gameplay/Controls guts + window mode + post stubs + persist. Range Tech keeps Audio mixer. Still no second ammo HUD. No atelier push
-- GPU post passes (SSAO/FXAA/CA/grain/DoF **actual shaders**) still cooking — do **not** claim those shipped
+- Peek: `cargo run` → Options → Graphics window live; post toggles persist (GPU live **#55**); Gameplay glasses/crosshair; Controls look/invert; Esc backs; Audio still #21
+- Ownership: Augury owns title + HOLD chrome + Options list shell + logo seat. Hypha owns Graphics/Gameplay/Controls guts + window mode + persist (**#46**); GPU post stack **#55**. Range Tech keeps Audio mixer. Still no second ammo HUD. No atelier push
+- #46 remains guts/persist. GPU post stack that made toggles change the image is **#55**
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` / `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust STEAL_MAP Hypha settings rows
 
 ## Closed by fulcrumRust #47 (2026-09-07)
@@ -372,6 +372,23 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Left alone: AXIS_LOCK, Locus brains, terrain/stamps, Options Graphics. No second mixer
 - Detail: house `EXTRACTION_AUDIO_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `assets/sfx/README.md`
 
+## Closed by fulcrumRust #55 (2026-09-07)
+
+- **Hypha GPU post stack live** — wires #46 Graphics toggles so they change the image. Flags already persisted via `project.json` / `FULCRUM_SETTINGS`; previously no-op'd
+- Scene color + sampleable depth, then one fullscreen wgpu pass (Mycelium `POST_PASS_ORDER` compressed):
+  - **AO** — depth hemisphere SSAO (8 taps; Mycelium `ssao.rs` DNA, no G-buffer)
+  - **AA** — luma-edge FXAA (Mycelium `fxaa.rs`; TAA later)
+  - **CA** — radial R/B offset; strength slider already in Options
+  - **Grain** — hashed film grain last so FXAA does not eat it
+  - **DoF** — far-field blur only (viewmodel stays sharp)
+- HUD / glasses still draw on the swapchain after post
+- Not packed into Range Tech ToD / Goegap lighting params
+- Smoke: `post=aa` (default AA on); keeps #54 `sfx=file/`
+- Headless naga parse/validate of the post WGSL
+- Honest: toggles change the image. Not the full Mycelium HDR bloom / god-ray / contact-shadow chain
+- Stay out: Atelier, Range Tech bat/HDRI ToD/shoot feel/FX file slots, Augury title mark/HOLD/reverb
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` / `AESTHETIC_DIEGETIC_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -384,8 +401,8 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation later; file-slot wiring landed #54); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; **#46 Options guts landed** (Graphics/Gameplay/Controls + borderless default + persist; post toggles persist as stubs and no-op safely — steal CE/Mycelium; no atelier push); GPU post passes (SSAO/FXAA/CA/grain/DoF actual shaders) still cooking — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
-- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **Chamber keeps spatial/reverb DNA** (does not take file slots); **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); **#45 title+HOLD analysis-core polish + Options list shell landed** (white frames / white hairline; HOLD **SYSTEM PAUSED**; Graphics/Audio/Gameplay/Controls list — Audio live #21); Hypha tab guts / window / persist shipped #46 — not a second overlay; GPU post shaders still cooking; **#51 dizzy-play landed** (invert look + A/D, F-only door, Space single hop); next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation later; file-slot wiring landed #54); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; **#46 Options guts landed** (Graphics/Gameplay/Controls + borderless default + persist — steal CE/Mycelium; no atelier push); **#55 GPU post stack landed** (AO/AA/CA/grain/DoF fullscreen wgpu; toggles change the image; smoke `post=aa`; not full HDR bloom / god-ray / contact-shadow); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **Chamber keeps spatial/reverb DNA** (does not take file slots); **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); **#45 title+HOLD analysis-core polish + Options list shell landed** (white frames / white hairline; HOLD **SYSTEM PAUSED**; Graphics/Audio/Gameplay/Controls list — Audio live #21); Hypha tab guts / window / persist shipped #46 — not a second overlay; **#55 GPU post live** (HUD/glasses still after post); **#51 dizzy-play landed** (invert look + A/D, F-only door, Space single hop); next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); Hypha #43 `ExtractStubHost` rides **7×7** (`STUB_GRID = 7`; smoke may also show `rings=` / `extract_m2=`); stamps stay **quiet on audio**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); **#47 leftover feel-lab FX landed** (brass eject / graze ricochet + spent slug / richer impact geo / `casing_draw_m` **55**); **#51 AXIS_LOCK landed** (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate; FX on `sim_barrel_basis`; dizzy-play invert look/strafe + F-only door + Space hop); Voice/Music/FX buses (#21) carry Hypha/#27 spatial + #47 ricochet ping (**FX bus live**); **authored SFX file-slot wiring shipped #54** (placeholders; weapon/move off CE/FoW packs into those buses; rustles / rattles / slides come over) — feel polish / real packs still cooking (do **not** claim packs or feel polish done); one-click Windows `build.bat` **#48 stay-open + `build.log` tee landed**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here); **embodied feel pass cooking** (transpose aim-offset guns/attachments/controller into fulcrumRust, outside materials/range geo; sweet medium vs CE/FoW OG controller + action audio cues) — **not done**
 
