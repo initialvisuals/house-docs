@@ -174,6 +174,19 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Glasses: `RELOAD` (basic) / `SWAP` (emergency) labels only — never a numeric ammo HUD
 - Intact: knife, bandage, lean, inspect, ToD, kits. Viewmodel `reload_t` mag-out dip; inspect overlay still wins over reload dip
 
+## Closed by fulcrumRust #35 (2026-09-07)
+
+- **Hold-J heat-tune dump** — Range Tech; hold **J** = heat-tune dump. **I** stays free.
+- **Feel** — sustained AUTO on the seated kit (`FeelState::try_heat_tune` / `fire_shot(..., heat_tune: true)`); uses kit `auto_interval_sec` while tuning (ignores SEMI hold gate)
+- Recoil impulse + camera punch skipped; leftover LMB punch stomped while J is down (`recoil_punch` / `recoil_rot` / `cam_recoil_p` / `cam_recoil_y` zeroed) so the gun stays still
+- Same cook path: `FeelState.barrel_energy` still climbs so tip cards + lobe go live for live dialing (no second heat cook)
+- **Ammo dial cheat** — mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
+- Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
+- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
+- Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP heat-tune row
+- Clerk note: house-docs PR #2 (fulcrumRust #33 live HoB zero) may still be open — this shelf does not steal that PR
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -189,6 +202,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); Day HDRI still parked; ballistics / HoB dials may still be cooking separately; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#35 heat-tune dump landed** (hold-J / **I** free); Day HDRI still parked; fulcrumRust #33 live HoB zero / arcade↔sim house shelf may still be open; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.

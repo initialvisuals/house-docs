@@ -47,6 +47,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Ammo peek / mag swap (fulcrumRust #32): **Hold R** (`RELOAD_PEEK_HOLD_SEC` **0.20**) lights peek chrome only — does not start a reload; release after a hold is not a tap. **Tap R** (short press, reload on RELEASE) = basic swap (`RELOAD_BASIC_SEC` **1.10**) when `in_mag < capacity` AND reserves > 0 (**NOT** empty-only). **Double-tap R** (`RELOAD_DOUBLE_TAP_SEC` **0.30** from first tap) = emergency SWAP (`RELOAD_EMERGENCY_SEC` **0.46**). Last-pass feel-lab also named hold **Numpad 0** as a peek bind — fulcrumRust shipped Hold-R peek / tap-R reload / double-tap SWAP
 - Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only; inspect still wins over reload dip)
 - **B** = fire mode
+- Hold **J** = heat-tune dump (fulcrumRust #35); **I** stays free
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **T** = bandage use (fulcrumRust #31); **G** stays kit cycle
 - **V** = cycle optic on seated kit allow-list
@@ -69,11 +70,12 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `HEAT TUNE` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
 - ADS/hip: **both**, weighted by enemy/context
+- Heat-tune dump (fulcrumRust #35): hold **J** climbs the same `barrel_energy` cook with recoil / camera punch skipped; glasses `HEAT TUNE` only — see Heat-tune dump section
 
 ## Visible shot feedback (fulcrumRust #12 + #19)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
@@ -197,6 +199,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Intact / do not steal: knife, bandage, lean, inspect, ToD, kits
 - Viewmodel: `reload_t` mag-out dip; inspect overlay still wins over reload dip
 
+## Heat-tune dump (fulcrumRust #35)
+- Bind: hold **J** = heat-tune dump. **I** stays free.
+- Feel: sustained AUTO on the seated kit (`FeelState::try_heat_tune` / `fire_shot(..., heat_tune: true)`); uses kit `auto_interval_sec` while tuning (ignores SEMI hold gate)
+- Recoil impulse + camera punch skipped; leftover LMB punch stomped while J is down (`recoil_punch` / `recoil_rot` / `cam_recoil_p` / `cam_recoil_y` zeroed) so the gun stays still
+- Same cook path: `FeelState.barrel_energy` still climbs so tip cards + lobe go live for live dialing (no second heat cook)
+- Ammo dial cheat: mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
+- Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
+- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
+- Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -222,3 +234,4 @@ Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
 Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
 Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
+Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
