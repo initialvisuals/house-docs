@@ -2,6 +2,10 @@
 
 Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK).
 
+## Morning lock (2026-09-07)
+
+Evan: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. Bigger world-gen later.
+
 ## Host (Hypha) — shipped fulcrumRust #16
 
 First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once at deploy.
@@ -83,6 +87,10 @@ Visual DNA for Hypha’s Transvoxel grade — still not a mesher.
 - Keep `classify` + `stamp_field` + `density_stamp_2d` wear on the live `TerrainHost`
 - **Hypha #16** grades verts grimdark via `VoxelMaterial::tint` / `luma`; brutalist masses are the upward scale target
 - Hypha eval pile (sjoerdev / DXGatech / UnrealSandboxTerrain / qwertzui11) stays host DNA — Lab-Rat does not own tables
+
+## Extract HDRI (Range Tech + desk)
+
+Evan: one **`.hdr`** day plate today (2k–4k). Drop in `atelier/hdris/` — **not** the 1k texture dump. Procedural sky stays until Range Tech wires ToD.
 
 ## Not this shelf
 
