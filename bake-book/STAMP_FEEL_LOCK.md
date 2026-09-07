@@ -4,6 +4,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 
 - **Bake stamps on hub skin:** blend of quiet authored grit + loud organic scars (plume webbing / anastomosis) as readable landmarks
 - **Void-spore terraforming:** hellish mushroom / 2D density cracks = Lab-Rat visual DNA for Hypha terrain (PR #20)
+- **Locus obsidian veins:** black **obsidian + gold crack veins** — loud-scar stamp material on **Inked / Monk** pads. Pairs with void-spore grit. Distinct from Range Tech kit chrome (gold+black **tech trim**, not gold-plate). **Do not put Locus veins on gun kits** (Initial Visuals Group Chat 2026-09-07)
 - **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
@@ -49,6 +50,7 @@ Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void 
 | **Concrete wear** | `WearKind::ConcreteCrack` / `ConcreteEdge` from the 2D field onto brutalist perimeter masses |
 | **Void-spore bleed** | `WearKind::VoidSporeWeb` + `VoidSporeBloom` on organic cells (terraforming volume); **`VoidSporeCrack`** on the Inked pad |
 | **Inked AOE hotspot** | Pinned `VoidSporeWeb` + `VoidSporeCrack` at `growth::INKED_HOTSPOT` **(−5.10, 0, 8.20)** / reach **1.55**; denser/louder than quiet 2D grit; Lab-Rat leftover, not Augury disc |
+| **Locus obsidian veins** | Black **obsidian + gold crack veins** on **Inked / Monk** pads — loud-scar stamp, pairs with void-spore grit. Not Range Tech kit chrome. **Veins stay off gun kits** (2026-09-07 group chat) |
 | **Structures** | Sit-on-surface adds **void-spore bloom** + **brutalist mass** (with #15 set) |
 | **Grimdark grade** | `VoxelMaterial::luma` / tint — crushed materials; organic dirt bleed = takeover webs |
 | **Consume** | Wear leftovers are solid on density (`> 0`); Hypha grades verts the same way |
