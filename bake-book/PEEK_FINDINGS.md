@@ -55,7 +55,7 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Thin brain** — CE shape Idle→Alert→Chase/Engage→Recover; Dead = ragdoll flop stub
 - **Distance activation** — `ACTIVATE_M` 24 / `SLEEP_M` 32 / `HEAR_M` 18; far guts skip path/hunt; shot crack can wake
 - **MP9-Z wound** — Range Tech tracers already slab-hit walls; #18 adds living hurtbox hitscan + visual stop (`SMG_PELLET` 14); Engage slash 10
-- **Inked** palette stub only — not spawned. TODO family: Inked / Sonderer / Monk / Oculus / crawler
+- **Inked** palette stub only then — spawned later in #26. TODO family: Sonderer / Monk / Oculus / crawler
 - Glasses: `LOCUS  STANDARD  IDLE|ALERT|…` labels only. See house `LOCUS_AI_LOCK.md`.
 
 ## Closed by fulcrumRust #19 (2026-09-07)
@@ -119,6 +119,25 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Kits / drop / audio / heat / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
 - Detail: fulcrumRust `engine/src/feel.rs` + `engine/src/player.rs` + house `FULCRUMRUST_LAST_PASS_LOCK.md`
 
+## Closed by fulcrumRust #26 (2026-09-07)
+
+- **Locus Inked on yard** — second fightable graybox; darker / hooded / thinner silhouette, cyan eye slits, cheap ink-zone disc under feet (not a Lab-Rat stamp)
+- **Same brain + wake meters** as Standard — Idle→Alert→Chase/Engage→Recover + ragdoll stub; shared Hypha `ACTIVATE_M` **24** / `SLEEP_M` **32**
+- **Pad** `YARD_INKED` **(−5.10, 0, 8.20)** — left of 2D webbing; does not overlap Standard (right of creeper) or lean covers
+- **Kit hitscan** wounds Inked via the same `apply_shot` path; glasses `LOCUS  INKED  …` labels only
+- Family TODO remains: Sonderer / Monk / Oculus / crawler + stamp spawn filters
+- Detail: house `LOCUS_AI_LOCK.md` + fulcrumRust `engine/src/locus.rs`
+
+## Closed by fulcrumRust #28 (2026-09-07)
+
+- **Hold-` inspect pose** — Range Tech; feel-lab has no named inspect (Backquote = debugger panel there). Steal reload-lift look-over DNA as a hold overlay
+- Hold **`** (Backquote / last-pass `~`): raise + closer + yaw/roll so the receiver faces the lens
+- Release returns to the **current** hold (hip / low / cant / ADS / sprint_high)
+- Overlay only — does **not** eat **U** / **RMB** / **V** / **N** / **B** / **Z**; fire blocked while up (muzzle turned); B still toggles SEMI/AUTO
+- Glasses `INSPECT` label only — no numeric ammo HUD
+- Untouched: kits / lean / ToD / audio / heat / Locus Standard+Inked / Transvoxel
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP inspect row
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -131,9 +150,9 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
-- Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX** still open — leave alone; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Augury: Locus Standard (#18) + Inked (#26) landed; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + procedural extract sky landed (#24); wall-clamped Q/E lean polish landed (#25); Day HDRI still parked; spatial / binaural still Augury DNA on top of the Voice/Music/FX buses
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; Day HDRI still parked; spatial / binaural still Hypha/#27 on top of the Voice/Music/FX buses
 
 Steal from this shelf + steal map. Not chat scroll.

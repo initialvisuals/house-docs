@@ -1,6 +1,6 @@
 # Overnight brief (2026-09-07 → morning)
 
-Parked from Evan before sleep. Seats cook overnight; reuse DNA — no complete rebuilds.
+Parked from Evan before sleep; clerk 2am shelf cook refreshes this pulse.
 
 ## Direction
 
@@ -9,15 +9,21 @@ Parked from Evan before sleep. Seats cook overnight; reuse DNA — no complete r
 - **Smart materials** — rock / concrete / dirt / sand tags on voxels that demand them; procedural / intelligent generation until authored maps land (Lab-Rat stamps feed Hypha; not a 3D paint editor)
 - **Reuse** — procedural material / concrete / feel-lab / CE DNA already built in week one; land solid implementations, don’t rebuild from zero
 
-## Seat split (confirm in steal map)
+## Landed on main overnight (clerk pulse)
 
-| Seat | Overnight / next |
-|------|------------------|
-| **Range Tech** | #12 controller/tracers + #14 MP9-Z kit on main; more attachments as needed |
-| **Lab-Rat** | denser yard silhouettes + organic voxel surface structures + smart-material stamps |
-| **Hypha** | Transvoxel terrain host / LOD; eval resource pile in `TERRAIN_NORTHSTAR.md` |
-| **Augury** | Locus / Sonderer-class AI + states looking like old primitives |
-| **Clerk** | credits on merge; 2am shelf cook; keep house-docs + STEAL_MAP current |
+| Seat | Shipped |
+|------|--------|
+| **Range Tech** | #22 SR-25/M24 · #24 day/night+sky · #25 wall lean · #28 hold-` inspect |
+| **Hypha** | #16 Transvoxel host · #23 far-guts cold · #24 sky lights (with Range) |
+| **Augury** | #18 Locus Standard · #26 Locus Inked |
+| **Lab-Rat** | #20 void-spore + concrete wear (earlier in the cook) |
+| **Clerk** | CREDITS planted in-PR; shelf #25/#26/#28 dials into bake-book |
+
+## Still cooking
+
+| Seat | Open |
+|------|------|
+| **Hypha** | [#27](https://github.com/initialvisuals/fulcrumRust/pull/27) day-one binaural / positional stereo on the FX bus |
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
 
