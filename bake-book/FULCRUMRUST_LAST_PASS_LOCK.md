@@ -47,6 +47,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only)
 - **B** = fire mode
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
+- **T** = bandage use (fulcrumRust #31); **G** stays kit cycle
 - **V** = cycle optic on seated kit allow-list
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
@@ -67,7 +68,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `BANDAGE` / `EMPTY` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -102,6 +103,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Overlay only — does not eat **U** / **RMB** / **V** / **N** / **B** / **Z**; fire blocked while up; B still toggles SEMI/AUTO
 - Glasses `INSPECT` label only — no numeric ammo HUD
 
+## Bandage use stub (fulcrumRust #31)
+- **T** = bandage use. Last-pass named the *item*, not the key. **G** stays kit cycle.
+- Does not steal **H** shoulder, **X** prone, **C** / **Mouse4** knife, **Q** / **E** lean, **Z** drop, **B** fire-mode, **V** optic, **N** can, **U** hold, **`** inspect, **F** pickup, **1** / **2** / **3** curl.
+- Day-one kit already lists bandage:1 — this PR adds the use path.
+- Consume 1 → **+40** health (`BANDAGE_HEAL` in `engine/src/kit.rs`); armor untouched; cap at `max_health`.
+- Blocked at full HP (no consume). Empty press → glasses `EMPTY`. Successful use → glasses `BANDAGE`.
+- FX: `Slot::Wrap` on the FX bus (cloth rustle stub, on-body like knife swipe). Not a heal chime.
+- Works empty-handed; bandage stays on person when **Z** drops the gun (same as knife).
+- No down/death path (Augury owns that later).
+
 ## World drop / pickup (fulcrumRust #19)
 - **Z** drops held kit as loose world kit + canvas bag pad (last-pass bind; feel-lab used X)
 - Snapshot keeps **in-mag + reserve mags + optic + can + fire mode**; cheap UUID (8-4-4-4-12) survives drop↔pickup
@@ -129,15 +140,15 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
 - Title + pause **Options** open a three-row sheet; **A/D** or **←/→** nudge **0.05**; Esc back; dials persist across Deploy
-- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
+- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
 - Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
 - Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
-- World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); Voice centered; Music ambient bed
+- World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
 - Reverb zone stub: hideout (tight / drier) vs extract (industrial yard) — CE convolver DNA, not a send rack
-- `Slot::Locus` rides FX; file slots / shot propagation later
+- `Slot::Locus` / `Slot::Wrap` ride FX; file slots / shot propagation later
 - Smoke: `zone=EXTRACT spatial=1.00`; FX `0` still silences fire
 - See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
@@ -200,3 +211,4 @@ Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
 Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
 Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
 Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
+Bandage use stub: fulcrumRust PR #31 (2026-09-07).

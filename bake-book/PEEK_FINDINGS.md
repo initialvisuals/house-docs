@@ -157,6 +157,15 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Peek: Title → Deploy → extract; slightly **left** of 2D webbing; Inked stands on loud ink hotspot; optional **1 / 2 / 3** wilt
 - Detail: fulcrumRust `docs/GROWTH_POC.md` + `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md` / `LOCUS_AI_LOCK.md`
 
+## Closed by fulcrumRust #31 (2026-09-07)
+
+- **Bandage use stub** — **T** bandage use (last-pass named the *item*, not the key; **G** stays kit cycle). Does not steal **H** shoulder, **X** prone, **C** / **Mouse4** knife, **Q** / **E** lean, **Z** drop, **B** fire-mode, **V** optic, **N** can, **U** hold, **`** inspect, **F** pickup, **1** / **2** / **3** curl.
+- Day-one kit already lists bandage:1 — this PR adds the use path. Consume 1 → **+40** health (`BANDAGE_HEAL`); armor untouched; cap at `max_health`. Blocked at full HP (no consume).
+- Glasses: `BANDAGE` on use / `EMPTY` on empty press — labels only, never a second ammo/health HUD
+- FX: `Slot::Wrap` on the #21 FX bus (cloth rustle stub, on-body like knife swipe). Not a heal chime.
+- Works empty-handed; bandage stays on person when **Z** drops the gun (same as knife). No down/death (Augury owns that later).
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/kit.rs` / `session.rs` / `input.rs` / `audio.rs`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -172,6 +181,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.
