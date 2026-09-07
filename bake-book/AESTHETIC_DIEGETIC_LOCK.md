@@ -11,7 +11,7 @@ Analysis-knowledge-core in-world labels (interacts, extract points, section samp
 - Spatially dynamic (not flat HUD chrome)
 
 **Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
-Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `HDRI` / `PROC` (Goegap plate #40) · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · lean/slide/speed/height peeks.
+Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `HDRI` / `PROC` (Goegap plate #40) · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · `DRY` / `YARD` / `OUT` (reverb volumes #56) · lean/slide/speed/height peeks.
 Goegap plate (fulcrumRust #40): glasses ToD strip may show `HDRI` / `PROC` — still labels only, never a second ammo HUD.
 Bandage use (fulcrumRust #31): glasses may flash `BANDAGE` / `EMPTY` on use — still labels only, never a second ammo/health HUD. While downed unstabilized, `NEED STAB` (no consume) — still not a second health HUD (#36).
 Live HoB zero / launch (fulcrumRust #33): glasses status strip `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`); toasts `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — labels only, never a numeric ammo HUD.
@@ -66,13 +66,13 @@ Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sand
 - Glasses may show `06:21  DAWN  EXP 1.44  HDRI` (or `PROC` when plate off / missing) as labels only — never a second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
-## Digital / diegetic spatial audio (shipped Hypha + Augury #27)
+## Digital / diegetic spatial audio (shipped Hypha + Augury #27 + #56)
 
 Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial is a render path on the #21 FX bus, not a second mixer:
 - World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
-- Hideout (tight) vs extract (industrial yard) reverb zone stub
+- Authored CE reverb volumes (#56): glasses `DRY` / `YARD` / `OUT` — hideout interior / yard pad / open extract (wetter / longer tail). **FX wet send only.** Two-zone stub retired
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
-- File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking). Augury keeps spatial/reverb; Range Tech owns file slots on the same bus. See Authored SFX vs spatial split below.
+- File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking). Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Authored SFX vs spatial split (wiring shipped partial #54)
@@ -82,7 +82,7 @@ File-slot **wiring** shipped **partial** via #54 — do **not** claim feel polis
 | Seat | Owns |
 |------|------|
 | **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring + placeholders shipped #54. |
-| **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + hideout/extract zone stub). Does not take the file slots. |
+| **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + #56 DRY/YARD/OUT AABB volumes, FX wet send only). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** — no stamp SFX lane |
 
 See `FULCRUMRUST_LAST_PASS_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.

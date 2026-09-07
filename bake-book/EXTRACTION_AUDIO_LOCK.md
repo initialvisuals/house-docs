@@ -18,7 +18,7 @@ Parked from Evan + seat locks (2026-09-07).
 ## Voice / Music / FX buses (fulcrumRust #21 + #54)
 Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot wiring shipped **partial** via #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Placeholders only — real CE / aim-offset packs + feel polish still next. `.ogg` names reserved; decode WAV-only this beat.
 
-Range Tech owns weapon / move file slots on this bus. Augury (**Chamber**) keeps spatial / reverb (#27). Not a second mixer.
+Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
 
 ### Gains
 - Three buses into a **master**: **Voice** / **Music** / **FX**
@@ -51,15 +51,24 @@ Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **
 - Voice stays centered; Music stays the ambient bed
 - `Slot::Locus` / `Slot::Swipe` / `Slot::Wrap` ride FX
 
-### Reverb zone stub
-- **Hideout** — tight / drier
-- **Extract** — industrial yard
-- CE convolver DNA, not a send rack
+### Authored CE reverb volumes (fulcrumRust #56)
+Upgrades the #27 phase-only two-zone stub (hideout dry vs extract industrial) to authored AABB proxy volumes on extract. Listener XZ inside → that zone; first hit wins; miss → outdoor fallback.
+
+| Volume | Glasses | Feel |
+|--------|---------|------|
+| Hideout interior | **DRY** | tight / drier |
+| Extract yard pad | **YARD** | industrial yard |
+| Open extract | **OUT** | wetter / longer tail |
+
+- **FX wet send only.** Voice / Music stay dry dual-mono. Same #21 bus tree — not a second mixer. #54 file slots still render through that FX wet send.
+- Listener follows the camera (#27 `updateListener`). **No extra bind.** Walk off the yard pad to hear outdoor.
+- Glasses peek `DRY` / `YARD` / `OUT` — labels only, never a second ammo HUD.
+- CE convolver DNA, not a send rack. **The Augury** owns volumes + FX wet send. Range Tech keeps mixer + file slots. Hypha keeps Options Graphics post.
 
 ### Hard checks
-- Smoke: `audio=100% zone=EXTRACT spatial=1.00` after Standard + Inked dumps + Z/F; FX `0` still silences fire
+- Smoke: `audio=100% zone=EXTRACT spatial=1.00 sfx=file/13` after Standard + Inked dumps + Z/F; FX `0` still silences fire
 - File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking); shot propagation still later
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56
