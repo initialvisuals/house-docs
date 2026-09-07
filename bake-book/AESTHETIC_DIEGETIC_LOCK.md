@@ -32,6 +32,7 @@ Ammo lives on the weapon:
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
 - Live HoB zero / launch (fulcrumRust #33): glasses may show `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`) and toast `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — still labels only, never a numeric ammo HUD
 - Kit chrome taste (Initial Visuals Group Chat 2026-09-07): **gold paired with black** — **tech trim**, not gold-plate. Distinct from Locus **obsidian + gold crack veins** — **do not put Locus veins on gun kits**. Stamp side: `STAMP_FEEL_LOCK.md`
+- **Crossover shoulder / left-corner peek** (2026-09-07, Range Tech cooking): viewmodel crosses chest **right → partial left** for left-corner peeks — more left spacing on leans, not a body slide, not full swap / infinite travel. Mag chrome travels with the kit. **H** stays FoW shoulder swap. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
 
 ## Readable floor hotspots
 
@@ -56,7 +57,8 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
 - Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
 - Performant first — bake-once mesh, no live carve day-one
-- Detail: `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips follow Transvoxel distance rings so far grit does not shout. Atelier stays **read-only** for crew writes while Evan pushes
+- Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night sky (shipped Range Tech #24 + #40)
 
@@ -106,7 +108,7 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier write** (read-only while Evan pushes). LOD-tied texture mips hook Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
@@ -118,7 +120,9 @@ Evan lock. **Shipped** fulcrumRust #57. Range Tech owns the feel pass. Tune dial
 
 Look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay (does not write `pitch`). Medium sweet spot vs aim-offset × CE/FoW.
 
-Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 binds stay. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 look/strafe/door/lean stay. **Jump unlocked** 2026-09-07 — steal CE double-jump + land duck + cam shake (Range Tech cooking feel PR); #51 single-hop-only superseded.
+
+**Crossover shoulder / left-corner peek** (2026-09-07, Range Tech cooking — do **not** claim shipped): left-hand hold — gun crosses chest **right → partial left** for left-corner peeks; more left spacing on leans. Not a body slide. Not full weapon swap / infinite travel. **H** stays FoW shoulder swap (camera side). Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
