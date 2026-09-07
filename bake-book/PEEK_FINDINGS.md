@@ -106,6 +106,19 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Transvoxel host / kits / drop / audio / heat / Locus / far-guts activation untouched. Smoke: `clock=06:21` plus near/far guts peeks
 - Detail: fulcrumRust `engine/src/sky.rs` + house `AESTHETIC_DIEGETIC_LOCK.md` / `FULCRUMRUST_LAST_PASS_LOCK.md`
 
+## Closed by fulcrumRust #25 (2026-09-07)
+
+- **Wall-clamped Q/E lean polish** — Range Tech aim-offset / Engine #3 polish on existing #12 lean (no controller rebuild)
+- **Sign lock** — **Q** = left / +lean · **E** = right / −lean (do not invert)
+- **Dials** — `lean_offset` **0.18** · `lean_roll` **0.12** · `lean_spring` **8.0** · `lean_skin` **0.08** · `lean_viewmodel` **0.16**
+- **Spring then ceiling** — spring enter/exit, then hard ceiling after the spring so walking into a wall cannot push past clearance; release still springs out (no snap)
+- Camera probe uses those MoveDials (no hardcoded 0.18 / 0.12)
+- **Viewmodel pad** (`lean_viewmodel` **0.16**): E peeks stop the gun leading side at geometry (0.18 m camera travel is shorter than the capsule)
+- Origin already inside a wall: `probe_clearance` reports 0 clearance
+- **Yard** — two collide covers at extract yard mouth (`YARD_LEAN_COVERS`) on the Transvoxel pad; stay off plots / Locus / spawn
+- Kits / drop / audio / heat / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
+- Detail: fulcrumRust `engine/src/feel.rs` + `engine/src/player.rs` + house `FULCRUMRUST_LAST_PASS_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -121,6 +134,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + procedural extract sky landed (#24); Day HDRI still parked; spatial / binaural still Augury DNA on top of the Voice/Music/FX buses
+- Range Tech: day/night clock + procedural extract sky landed (#24); wall-clamped Q/E lean polish landed (#25); Day HDRI still parked; spatial / binaural still Augury DNA on top of the Voice/Music/FX buses
 
 Steal from this shelf + steal map. Not chat scroll.

@@ -61,7 +61,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - World is **Y-up**; `yaw = 0` looks **+Z** (hideout door / extract yard)
 - Mouse-right **increases** yaw; WASD is camera-relative on that yaw
 - SMG long axis is **look** (not +X); mag dots along the bore
-- **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left)
+- **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left; #25 spring + viewmodel pad + yard covers)
 - **Shift then Ctrl** — slide carry (sprint + crouch rising edge)
 - **Hold Ctrl + mouse up/down** — analog eye height; does **not** pitch-look
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
@@ -140,6 +140,18 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Glasses on extract: `HH:MM  BAND  EXP x.xx` labels only — never a second ammo HUD
 - See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/sky.rs`
 
+## Wall-clamped Q/E lean polish (fulcrumRust #25)
+- Range Tech aim-offset / Engine #3 polish on existing #12 lean — no controller rebuild
+- Sign lock: **Q** = left / +lean · **E** = right / −lean (do not invert)
+- MoveDials: `lean_offset` **0.18** · `lean_roll` **0.12** · `lean_spring` **8.0** · `lean_skin` **0.08** · `lean_viewmodel` **0.16**
+- Spring enter/exit, then hard ceiling after the spring so walking into a wall cannot push past clearance; release still springs out (no snap)
+- Camera probe uses those MoveDials (no hardcoded 0.18 / 0.12)
+- Viewmodel pad (`lean_viewmodel` **0.16**): E peeks stop the gun leading side at geometry (0.18 m camera travel is shorter than the capsule)
+- Origin already inside a wall: `probe_clearance` reports 0 clearance
+- Yard: two collide covers at extract yard mouth (`YARD_LEAN_COVERS`) on the Transvoxel pad; stay off plots / Locus / spawn
+- Untouched: kits / drop / audio / heat / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
+- See fulcrumRust `engine/src/feel.rs` + `engine/src/player.rs`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -157,3 +169,4 @@ Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).
 SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
 Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).
 Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07).
+Wall-clamped Q/E lean polish: fulcrumRust PR #25 (2026-09-07).
