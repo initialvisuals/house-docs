@@ -25,7 +25,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 1. **Loading screens** cover bake/hitch — player never sees hitching except true CPU/geo overload
 2. Small **interior hideout** (drawers, tables, lights, pickups, door) — geometry mostly authored
 3. World **finalized before** hideout spawn (rigidize-on-start)
-4. Door → transition → **Forever Winter–style extraction test map** (PoC playground for loop + controller feel)
+4. Door (**F** only — no walk-in auto-deploy, #51) → transition → **Forever Winter–style extraction test map** (PoC playground for loop + controller feel)
 
 ## World bake (Hypha)
 - Prefer proving **hub + extract linked by tunnel** early if it doesn’t block the window; otherwise one medium Forever Winter instance is fine day-one
@@ -62,7 +62,8 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M**
-- **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap. **F** tap near death bag = light corpse-reclaim stub; hold **F** = stabilize stub (self / yard dummy) or `[F] PICK UP STIM` when applicable — shipped stub (fulcrumRust #36)
+- **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap. Hideout door is **F** only (#51 — walk-into-door does not auto-deploy). **F** tap near death bag = light corpse-reclaim stub; hold **F** = stabilize stub (self / yard dummy) or `[F] PICK UP STIM` when applicable — shipped stub (fulcrumRust #36)
+- **Space** = single hop (fulcrumRust #51). No double-jump. Earlier "no jump" lock is superseded
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
 - **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
 - **O** = cycle live zero presets 50 → 100 → 200 m (fulcrumRust #33); **P** = arcade ↔ sim launch (`hob_zero`)
@@ -73,15 +74,39 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Axes + controller lock (fulcrumRust #12 + #51 AXIS_LOCK)
 - Three spaces — do **not** unify. Camera/viewmodel local **−Z**; CE FBX **+X** (`rotY − π/2`); sim barrel / FX **+Z**. Lab-Rat stamps stay **+Y** (not this lock). Detail: `AXIS_LOCK.md` + fulcrumRust `docs/AXIS.md`
 - World is **Y-up**; pawn `yaw = 0` looks **+Z** (hideout door / extract yard) — same *vector* as arcade sim barrel when the bore matches look; **not** camera-local −Z
-- Evan dizzy-play (#51): **subtract** mouse X (invert horizontal); **invert A/D** vs the #12 camera-right lock. WASD otherwise camera-relative on that yaw. Q/E lean signs stay +lean = left (#25) — do not invert lean to "fix" FX
+- Evan dizzy-play (#51): **subtract** mouse X (invert horizontal); **invert A/D** including slide A/D bias. WASD otherwise camera-relative on that yaw. Q/E lean signs stay +lean = left (#25) — do not invert lean to "fix" FX
 - SMG long axis is **look** / sim barrel +Z (not camera −Z, not CE +X); mag dots along the bore
 - **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left; #25 spring + viewmodel pad + yard covers)
 - **Shift then Ctrl** — slide carry (sprint + crouch rising edge)
 - **Hold Ctrl + mouse up/down** — analog eye height; does **not** pitch-look
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
-- Double jump later as equipment/skill/power — not day-one default
+- Hideout door **F** only (#51) — walk-into-door no longer auto-deploys. Must press F
+- **Space** single hop (FoW/aim-offset, #51). No double-jump. Earlier "no jump" lock is superseded; day-one is single jump, not zero jump
 - Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` / `HDRI` / `PROC` (ToD strip, fulcrumRust #40) labels only — never a second ammo/health HUD
+
+## AXIS_LOCK (fulcrumRust #51)
+
+Three spaces — do **not** unify. House shelf: `AXIS_LOCK.md`. Canonical: fulcrumRust `docs/AXIS.md` + `engine/src/axis.rs`.
+
+| Space | Forward | Used for |
+|-------|---------|----------|
+| Camera / viewmodel local | **−Z** | Hold offsets, FP kit, `ejectionPort` |
+| CE FBX authoring | **+X** | Stolen CE numbers; apply `rotY − π/2` after FP is −Z aligned |
+| Sim barrel / mounts | **+Z** | Projectiles, TP grip, FX (flash, tracers, impact, stuck-slug, brass, ricochet) |
+
+Pawn world look at yaw 0 is **+Z**. Same *vector* as arcade sim barrel when bore matches look — **not** camera-local −Z. Lab-Rat stamp **+Y** is a different content space — leave it.
+
+FX (#47 corrected by #51): muzzle flash long axis = sim barrel +Z; brass toss = camera-right, brass orientation = sim barrel +Z; impact hole/chips/squat plug thin along world normal via `sim_barrel_basis` (RH); spent slug long axis = outgoing vel. #47 left-handed `forward × Y` mixed camera local into barrel geo — that was wrong. Do not invert Q/E lean signs to "fix" FX.
+
+## Dizzy-play (fulcrumRust #51)
+
+Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wheel stay #12.
+
+1. **Invert horizontal mouse** — subtract look X (mouse-right looks left at yaw 0). Old #12 "mouse-right increases yaw" is stale
+2. **Invert A/D strafe** — including slide A/D bias. Q/E lean signs stay #25 (+lean = left)
+3. **Hideout door** — keep **F** prompt; walk-into-door no longer auto-deploys. Must press F
+4. **Jump** — **Space** single hop (FoW/aim-offset). No double-jump. Earlier "no jump" lock is superseded; day-one is single jump, not zero jump
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -99,7 +124,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Living mycelium growth-enemy (gas/freeze/burn curl; sprint-grow) = Lab-Rat DNA hosted on extraction map
 
 ## Control DNA resolution
-- **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
+- **Locked** by fulcrumRust #12 + #51: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door / jump. No remaining soft overlap on lean / height / wheel.
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
 - **Embodied feel pass** (Evan dump 2026-09-07) is still **cooking** — Range Tech owns. Transpose aim-offset guns / attachments / controller into fulcrumRust (outside materials and range geometry); sweet medium vs CE / FoW OG controller + action audio cues. Do **not** claim this pass shipped. See section below.
 
@@ -416,7 +441,7 @@ Evan dump 2026-09-07. **Not shipped** — do not claim the feel pass as done. **
 | **Steal** | Aim-offset **looks/feels correct** for guns, attachments, controller — **transpose** that work into fulcrumRust |
 | **Out of scope** | Materials and range geometry |
 | **Sweet medium** | Concrete Echo / FoW OG also has a great controller + **action audio cues**. Find a medium between aim-offset and CE/FoW for **embodied feel** |
-| **Binds stay** | #12 Evan-bind lock (Q/E lean, Ctrl+mouse height, wheel speed) is not this pass |
+| **Binds stay** | #12 Evan-bind lock (Q/E lean, Ctrl+mouse height, wheel speed) + #51 dizzy-play (invert look/strafe, F-only door, Space hop) is not this pass |
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
 
@@ -477,7 +502,7 @@ Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR
 Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
 Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
 Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcrumRust PR #47 (2026-09-07).
-AXIS_LOCK (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate): fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
+AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
