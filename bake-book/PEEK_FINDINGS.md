@@ -188,13 +188,13 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 
 ## Closed by fulcrumRust #35 (2026-09-07)
 
-- **Hold-J heat-tune dump** — Range Tech; hold **J** = heat-tune dump. **I** stays free.
+- **Hold-J heat-tune dump** — Range Tech; hold **J** = heat-tune dump. **I** is no longer free — I is Augury stim (#37).
 - **Feel** — sustained AUTO on the seated kit (`FeelState::try_heat_tune` / `fire_shot(..., heat_tune: true)`); uses kit `auto_interval_sec` while tuning (ignores SEMI hold gate)
 - Recoil impulse + camera punch skipped; leftover LMB punch stomped while J is down (`recoil_punch` / `recoil_rot` / `cam_recoil_p` / `cam_recoil_y` zeroed) so the gun stays still
 - Same cook path: `FeelState.barrel_energy` still climbs so tip cards + lobe go live for live dialing (no second heat cook)
 - **Ammo dial cheat** — mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
 - Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
-- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
+- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP heat-tune row
 
@@ -207,22 +207,34 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
 - Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
 - Solo **Deploy** unchanged (`net=off` on smoke)
-- Intact / do not steal: **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
-- Bind split: Hypha #34 owns **Y** while *alive*; Augury #36 owns **Y** while *downed* for stim self-revive — seats do not fight
+- Intact / do not steal: **I** stim (#37), **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Bind: **Y** alive host only (#34). Stim is **I** while downed (#37). Seats do not fight — downed Y is a no-op for host and stim.
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Net row (todo→partial)
 
 ## Closed by fulcrumRust #36 (2026-09-07)
 
 - **Down / death stub** — Augury; HP→0 **downs** (prone crawl + thin bleed) — not menu death. Bleed-out ~`BLEED_SECS` **22.0**; extra hits while downed shave `BLEED_HIT_SECS` **6.0**. Clock expiry → `DEAD` + dark bag.
 - **Dials** (`engine/src/down.rs` + `kit.rs` + `session.rs`): `BLEED_SECS` **22.0** · `BLEED_HIT_SECS` **6.0** · `STABILIZE_HOLD_SECS` **1.45** · `STIM_REVIVE_HP` **35** · `RALLY_HP` **45** / `RALLY_ARMOR` **20** / `RALLY_LOW_HP` **25** · `REACH_M` **1.85**. Yard: dummy `YARD_DUMMY` **(3.55, 0, 4.55)** · stim `YARD_STIM` **(3.55, 0, 3.20)** (vial in front of dummy)
-- **Y split** — downed = stim self-revive (day-one kit `stim: 1`; not a standing heal). Alive = Hypha listen-server host (#34). Downed Y must not host; alive Y must not consume stim.
+- **Binds (superseded by #37)** — **I** (downed) = stim self-revive (day-one kit `stim: 1`; not a standing heal). **Y** (alive) = Hypha listen-server host (#34). Downed Y does not host and does not stim. Alive I is a no-op (no consume).
 - Hold **F** = stabilize stub (self while downed, or yard dummy when standing nearby). Glasses: `STAB STUB  NO NET` / `SELF-STAB STUB`. Solo placeholder — no fake net. **F** tap near bag = light corpse-reclaim stub.
 - **T** bandage (+40 HP, #31) unchanged as heal item. While downed unstabilized: glasses `NEED STAB` (no consume). After stabilize: T stands + heals.
 - **Mouse4 / C** knife slash on a **downed or dying** Locus while you are downed or low (≤25 HP) → `RALLY` (+45 HP / +20 armor, stands if downed)
-- Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB`
+- Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB`. Stabilized prompt: `T HEAL / I STIM / SLASH RALLY` (#37; was `Y STIM`)
 - Parked / still TODO (do not claim done): death cam; teammate net stabilize; timed surface kill; full extract loot loop
-- Peek: Title → Deploy → yard dummy + stim right of spawn (off lean covers / plots / Locus pads). Down via Locus slash (glasses `DOWNED`, HP bar `DOWN`). **Y** stim → stand at 35 HP; or hold **F** then **T**. Alive **Y** hosts (does not consume stim). Dummy hold **F** → `STAB STUB  NO NET`. Knife a Locus corpse while downed or ≤25 HP → `RALLY`. Ignore revive ~22s bleed → `DEAD` + dark bag; die again elsewhere — previous bag gone; **F** on bag = reclaim stub.
+- Peek: Title → Deploy → yard dummy + stim right of spawn (off lean covers / plots / Locus pads). Down via Locus slash (glasses `DOWNED`, HP bar `DOWN`). **I** stim → stand at 35 HP; or hold **F** then **T**. Alive **Y** hosts (does not consume stim). Downed **Y** is a no-op. Dummy hold **F** → `STAB STUB  NO NET`. Knife a Locus corpse while downed or ≤25 HP → `RALLY`. Ignore revive ~22s bleed → `DEAD` + dark bag; die again elsewhere — previous bag gone; **F** on bag = reclaim stub.
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/down.rs` / `kit.rs` / `session.rs`
+
+## Closed by fulcrumRust #37 (2026-09-07)
+
+- **Augury bind split** — stim on **I**; **Y** stays Hypha host. Supersedes the #36 KeyY bind split (downed Y = stim / alive Y = host).
+- **I** (downed) = stim self-revive (day-one kit `stim: 1`; yard vial `YARD_STIM` **(3.55, 0, 3.20)** in front of dummy; `[F] PICK UP STIM`). Not a standing heal. Alive **I** is a no-op (does not consume).
+- **Y** (alive) = Hypha listen-server host (#34). Second press re-toasts invite. Does **not** stim. Downed **Y** is a no-op for both host and stim.
+- Stabilized prompt / glasses: `T HEAL / I STIM / SLASH RALLY` (was `Y STIM`). Inventory `[I] STIM`.
+- Hold **F** stabilize stub, **T** bandage, knife slash-rally, death-bag F reclaim unchanged from #36. Dial constants unchanged: `BLEED_SECS` **22.0** · `BLEED_HIT_SECS` **6.0** · `STABILIZE_HOLD_SECS` **1.45** · `STIM_REVIVE_HP` **35** · `RALLY_HP` / `RALLY_ARMOR` / `RALLY_LOW_HP` · `REACH_M` · `YARD_DUMMY` / `YARD_STIM`.
+- Heat-tune (#35): hold **J** still; **I** is Augury stim (no longer free).
+- Tests that define the lock: `y_hosts_i_stims_without_stealing_binds`, `y_alive_hosts_i_downed_stims_without_crossing`.
+- Glasses labels still labels-only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `HOST` · etc.
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Hypha net + Augury down rows
 
 ## Controller lock (Evan bind wins)
 
@@ -237,8 +249,8 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 ## Holding steady
 
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
-- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
+- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J / **I** free); Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.
