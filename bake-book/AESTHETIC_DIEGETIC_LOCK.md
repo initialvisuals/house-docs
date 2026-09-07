@@ -72,12 +72,12 @@ Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial 
 - World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
 - Authored CE reverb volumes (#56): glasses `DRY` / `YARD` / `OUT` — hideout interior / yard pad / open extract (wetter / longer tail). **FX wet send only.** Two-zone stub retired
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
-- File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking). Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
+- File-slot **wiring** shipped #54 (placeholders; authored-SFX **real packs** still cooking). Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Authored SFX vs spatial split (wiring shipped partial #54)
 
-File-slot **wiring** shipped **partial** via #54 — do **not** claim feel polish or real CE / aim-offset packs as done. #21 FX bus is **live**. Authored audio **comes over** that bus (rustles / rattles / slides; placeholders today).
+File-slot **wiring** shipped **partial** via #54 — do **not** claim authored-SFX **real packs** (CE / aim-offset WAVs) as done. #21 FX bus is **live**. Authored audio **comes over** that bus (rustles / rattles / slides; placeholders today). Controller feel-medium dials shipped #57 — that is not this row.
 
 | Seat | Owns |
 |------|------|
@@ -109,13 +109,13 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 
 Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
-## Embodied feel (Range Tech — cooking, not shipped)
+## Embodied feel (Range Tech — landed #57)
 
-Evan 2026-09-07. **Not done.** Range Tech owns the feel pass. Do **not** claim it shipped.
+Evan lock. **Shipped** fulcrumRust #57. Range Tech owns the feel pass. Tune dials only; `AXIS_LOCK` stays; no materials / range geo.
 
-Aim-offset **looks/feels correct** for guns, attachments, controller — **transpose** that work into fulcrumRust (**outside materials and range geometry**). Concrete Echo / FoW OG has a great controller too + **action audio cues**. Find a **sweet medium** between aim-offset and CE/FoW for embodied feel.
+Look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay (does not write `pitch`). Medium sweet spot vs aim-offset × CE/FoW.
 
-Weapon / move SFX file-slot **wiring** shipped #54 (placeholders; rustles / rattles / slides come over). Feel polish / real packs still cooking. #12 bind lock (Q/E lean, Ctrl+mouse height, wheel speed) stays. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 binds stay. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
