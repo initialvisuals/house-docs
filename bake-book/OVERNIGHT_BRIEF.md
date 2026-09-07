@@ -5,7 +5,7 @@ Parked from Evan before sleep. Seats cook overnight; reuse DNA — no complete r
 ## Direction
 
 - **Locus enemies + AI brain** — primitives + animations + state machines looking like old FoW/CE counterparts (Augury lead; Hypha splice)
-- **Large voxel world map** — voxel terrain + voxelized surface structures (organic + otherwise); Hypha owns terrain/LOD engine
+- **Large voxel world map** — Transvoxel-style terrain (flat world, not planetoid); voxelized surface structures; see `TERRAIN_NORTHSTAR.md`
 - **Smart materials** — rock / concrete / dirt / sand tags on voxels that demand them; procedural / intelligent generation until authored maps land (Lab-Rat stamps feed Hypha; not a 3D paint editor)
 - **Reuse** — procedural material / concrete / feel-lab / CE DNA already built in week one; land solid implementations, don’t rebuild from zero
 
@@ -13,9 +13,9 @@ Parked from Evan before sleep. Seats cook overnight; reuse DNA — no complete r
 
 | Seat | Overnight / next |
 |------|------------------|
-| **Range Tech** | #12 controller/tracers on main; kit mesh + attachments from aim-offset demo cooking |
+| **Range Tech** | #12 controller/tracers + #14 MP9-Z kit on main; more attachments as needed |
 | **Lab-Rat** | denser yard silhouettes + organic voxel surface structures + smart-material stamps |
-| **Hypha** | voxel terrain engine / LOD; runtime axis only if feel pass needs it |
+| **Hypha** | Transvoxel terrain host / LOD; eval resource pile in `TERRAIN_NORTHSTAR.md` |
 | **Augury** | Locus / Sonderer-class AI + states looking like old primitives |
 | **Clerk** | credits on merge; 2am shelf cook; keep house-docs + STEAL_MAP current |
 
