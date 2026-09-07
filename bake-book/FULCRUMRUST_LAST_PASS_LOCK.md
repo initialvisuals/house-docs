@@ -64,26 +64,26 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **M** = map
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M**
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap. Hideout door is **F** only (#51 — walk-into-door does not auto-deploy). **F** tap near death bag = light corpse-reclaim stub; hold **F** = stabilize stub (self / yard dummy) or `[F] PICK UP STIM` when applicable — shipped stub (fulcrumRust #36)
-- **Space** = CE **double-jump** + land duck + cam shake (Evan override 2026-09-07). Range Tech cooking feel PR — do **not** claim landed. #51 Space hop is what `main` has until that cook. Prior FPS-first **"no double-jump"** / single-hop-only (#51) is superseded (same way #51 superseded earlier "no jump")
+- **Space** = CE hop + one air hop + land duck **0.14 m** + shake **0.2** (impact > 8). `JUMP_FORCE` **12** / `|GRAVITY|` **30**. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays. Landed #59. Prior FPS-first **"no double-jump"** / single-hop-only (#51) is superseded (same way #51 superseded earlier "no jump")
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
 - **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
 - **O** = cycle live zero presets 50 → 100 → 200 m (fulcrumRust #33); **P** = arcade ↔ sim launch (`hob_zero`)
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
-- **H** = shoulder swap (FoW habit); help remaps off H. **Crossover shoulder / left-corner peek** (2026-09-07, Range Tech cooking feel PR) is a **viewmodel** hold — gun crosses chest **right → partial left** — not this bind, not a body slide, not full weapon swap / infinite travel. Do **not** claim shipped
+- **H** = viewmodel **crossover shoulder / left-corner peek** on the existing FoW H bind (landed #59). Authored hip +X ~**0.10** (right); springs across the chest to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Not a capsule/eye slide, not a full mirror, not infinite travel. Help remaps off H
 
 ## Axes + controller lock (fulcrumRust #12 + #51 AXIS_LOCK)
 - Three spaces — do **not** unify. Camera/viewmodel local **−Z**; CE FBX **+X** (`rotY − π/2`); sim barrel / FX **+Z**. Lab-Rat stamps stay **+Y** (not this lock). Detail: `AXIS_LOCK.md` + fulcrumRust `docs/AXIS.md`
 - World is **Y-up**; pawn `yaw = 0` looks **+Z** (hideout door / extract yard) — same *vector* as arcade sim barrel when the bore matches look; **not** camera-local −Z
-- Evan dizzy-play (#51): **subtract** mouse X (invert horizontal); **invert A/D** including slide A/D bias. WASD otherwise camera-relative on that yaw. Q/E lean signs stay +lean = left (#25) — do not invert lean to "fix" FX
+- Evan dizzy-play (#51): **subtract** mouse X (invert horizontal); **invert A/D** including slide A/D bias. WASD otherwise camera-relative on that yaw. Eye formula stays `+lean → −flat_right`. Do not unify the three forwards to "fix" FX
 - SMG long axis is **look** / sim barrel +Z (not camera −Z, not CE +X); mag dots along the bore
-- **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left; #25 spring + viewmodel pad + yard covers). Cooking: **crossover shoulder / left-corner peek** adds more **left spacing** on leans (Range Tech feel PR — not a body slide)
+- **Q / E** — **Q = peek right** (same side as inverted A) · **E = peek left** (landed #59). Eye formula stays `+lean → −flat_right`. Depth feel-lab **0.5 / 0.5** (`leanOffset` / `leanMax`). #25 wall clamp / spring / yard covers stay. Extra left probe on H crossover helps left-corner leans
 - **Shift then Ctrl** — slide carry (sprint + crouch rising edge)
 - **Hold Ctrl + mouse up/down** — analog eye height; does **not** pitch-look
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Hideout door **F** only (#51) — walk-into-door no longer auto-deploys. Must press F
-- **Space** — **double-jump unlocked** (Evan 2026-09-07). Steal CE double-jump + land duck + cam shake. Range Tech cooking feel PR. #51 single hop is what `main` has until that cook. Prior FPS-first "no double-jump" / single-jump-only is superseded
+- **Space** — CE hop + one air hop + land duck / shake (landed #59). `JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad stays. Prior FPS-first "no double-jump" / #51 single-jump-only is superseded
 - Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` / `HDRI` / `PROC` (ToD strip, fulcrumRust #40) / `DRY` / `YARD` / `OUT` (reverb volumes #56) labels only — never a second ammo/health HUD
 
 ## AXIS_LOCK (fulcrumRust #51)
@@ -105,19 +105,19 @@ FX (#47 corrected by #51): muzzle flash long axis = sim barrel +Z; brass toss = 
 Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wheel stay #12.
 
 1. **Invert horizontal mouse** — subtract look X (mouse-right looks left at yaw 0). Old #12 "mouse-right increases yaw" is stale
-2. **Invert A/D strafe** — including slide A/D bias. Q/E lean signs stay #25 (+lean = left)
+2. **Invert A/D strafe** — including slide A/D bias. Eye formula stays `+lean → −flat_right`. **#59 Q/E binds:** Q = peek right (−lean), E = peek left (+lean)
 3. **Hideout door** — keep **F** prompt; walk-into-door no longer auto-deploys. Must press F
-4. **Jump** — **unlocked**. Steal CE **double-jump + land duck + cam shake**. Range Tech cooking feel PR — do **not** claim landed. #51 Space single hop is what `main` has until that cook. Prior FPS-first **"no double-jump"** / single-jump-only (#51) is superseded (same way #51 superseded earlier "no jump")
+4. **Jump** — **landed #59**. CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays. Prior FPS-first **"no double-jump"** / single-jump-only (#51) is superseded (same way #51 superseded earlier "no jump")
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
 - ADS/hip: **both**, weighted by enemy/context
 - Heat-tune dump (fulcrumRust #35): hold **J** climbs the same `barrel_energy` cook with recoil / camera punch skipped; glasses `HEAT TUNE` only — see Heat-tune dump section
-- Heat cards look (Evan peek 2026-09-07, Range Tech **cooking** — do **not** claim shipped): fulcrumRust bright-orange static is wrong; match aim-offset **motion / look**. Locked dials stay on `heat-card-dial-sheet.md` (aim-offset v77)
+- Heat cards look (landed #59): v77 `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials stay on `heat-card-dial-sheet.md` (aim-offset v77)
 
-## Visible shot feedback (fulcrumRust #12 + #19)
+## Visible shot feedback (fulcrumRust #12 + #19 + #59)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
-- Tracer speed / gravity / length from the SMG feel sheet
+- Tracer speed / gravity / length from the SMG feel sheet. **#59:** tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`
 - FX draw-distance (hide-not-despawn, fulcrumRust #19 + #47): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** (clamp 8–200 via `live_casing`) · `decal_draw_m` **700** (clamp 50–2000) — walking back restores; they do not fill forever
 
 ## Props / audio / growth
@@ -126,7 +126,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Living mycelium growth-enemy (gas/freeze/burn curl; sprint-grow) = Lab-Rat DNA hosted on extraction map
 
 ## Control DNA resolution
-- **Locked** by fulcrumRust #12 + #51: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **Jump unlocked** 2026-09-07 (Evan override of FPS-first "no double-jump") — steal CE double-jump + land duck + cam shake; Range Tech cooking feel PR. **Crossover shoulder / left-corner peek** cooking on the same feel PR (viewmodel, not **H**). No remaining soft overlap on height / wheel. Lean depth + crossover still cooking.
+- **Locked** by fulcrumRust #12 + #51 + #59: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **#59** landed Q/E flip + deepen, CE hop + air hop + land duck/shake, H viewmodel crossover, heat v77 look, tracers-until-impact + FX `hit`. No remaining soft overlap on height / wheel. Lean / hop / H no longer cooking.
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
 - **Embodied feel pass landed #57** — Range Tech. Aim-offset guns / attachments / controller transposed at **medium** vs CE / FoW (outside materials and range geometry). Dials: look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay. `AXIS_LOCK` three spaces stay. See section below.
 
@@ -233,32 +233,34 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Glasses on extract: `HH:MM  BAND  EXP x.xx  HDRI|PROC` labels only — never a second ammo HUD
 - See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
-## Wall-clamped Q/E lean polish (fulcrumRust #25)
+## Wall-clamped Q/E lean polish (fulcrumRust #25 + #59)
 - Range Tech aim-offset / Engine #3 polish on existing #12 lean — no controller rebuild
-- Sign lock: **Q** = left / +lean · **E** = right / −lean (do not invert)
-- MoveDials: `lean_offset` **0.18** · `lean_roll` **0.12** · `lean_spring` **8.0** · `lean_skin` **0.08** · `lean_viewmodel` **0.16**
+- **#59 sign:** **Q = peek right** (−lean, same side as inverted A) · **E = peek left** (+lean). Eye formula stays `+lean → −flat_right`. #25 then said Q = left / +lean — superseded for binds, not the eye formula
+- **#59 depth:** feel-lab **0.5 / 0.5** (`leanOffset` / `leanMax`), superseding #25 shallow `lean_offset` **0.18** / `lean_roll` **0.12**
+- MoveDials that stay: `lean_spring` **8.0** · `lean_skin` **0.08** · `lean_viewmodel` **0.16**
 - Spring enter/exit, then hard ceiling after the spring so walking into a wall cannot push past clearance; release still springs out (no snap)
-- Camera probe uses those MoveDials (no hardcoded 0.18 / 0.12)
-- Viewmodel pad (`lean_viewmodel` **0.16**): E peeks stop the gun leading side at geometry (0.18 m camera travel is shorter than the capsule)
+- Camera probe uses those MoveDials
+- Viewmodel pad (`lean_viewmodel` **0.16**) + extra left probe on H crossover (`shoulder_viewmodel` **0.12**) help left-corner leans
 - Origin already inside a wall: `probe_clearance` reports 0 clearance
 - Yard: two collide covers at extract yard mouth (`YARD_LEAN_COVERS`) on the Transvoxel pad; stay off plots / Locus / spawn
-- Untouched: kits / drop / audio / heat / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
+- Untouched: kits / drop / audio / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
 - See fulcrumRust `engine/src/feel.rs` + `engine/src/player.rs`
-- Cooking on top (2026-09-07, do **not** claim shipped): **crossover shoulder / left-corner peek** — more left spacing on leans. See section below. #25 clamp / sign stay what `main` has
 
-## Crossover shoulder / left-corner peek (2026-09-07)
+## Crossover shoulder / left-corner peek (fulcrumRust #59)
 
-Evan lock. Range Tech **cooking** into the feel PR — do **not** claim shipped. Quiet influence — house words: **crossover shoulder / left-corner peek** (no franchise name-drop in shelf / READMEs / public copy).
+Evan lock. **Landed** [fulcrumRust #59](https://github.com/initialvisuals/fulcrumRust/pull/59). Range Tech. Quiet influence — house words: **crossover shoulder / left-corner peek** (no franchise name-drop in shelf / READMEs / public copy).
 
 | Dial | Lock |
 |------|------|
-| **Hold** | Left-hand hold — gun crosses chest **right → partial left** for left-corner peeks |
-| **Lean** | More **left spacing** on leans (feeds the #25 Q/E cook — flip + deepen still open) |
-| **Not** | A body slide. Full weapon swap. Infinite travel |
-| **H** | Stays FoW **shoulder swap** (camera side). This lock is viewmodel crossover — not a new H bind |
-| **Seat** | Range Tech. Same cooking feel PR as double-jump unlock |
+| **Authored hip** | +X ~**0.10** (right) |
+| **H hold** | Springs the **viewmodel** across the chest to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**) |
+| **Not** | A capsule / eye slide. Full mirror. Infinite travel |
+| **Left probe** | `shoulder_viewmodel` **0.12** — helps left-corner leans |
+| **ADS** | Keeps **0.32** of the crossover |
+| **H** | Existing FoW shoulder habit — viewmodel crossover, not a new key |
+| **Seat** | Range Tech. Same #59 feel PR as lean flip / hop / heat look / distant hit |
 
-See `PEEK_FINDINGS.md` Open + `AESTHETIC_DIEGETIC_LOCK.md`.
+See `PEEK_FINDINGS.md` Closed by #59 + `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Mag reload DNA (fulcrumRust #32)
 - Scheme: **Hold R** (~200 ms) = peek chrome only (does not start reload; release after a hold is not a tap). **Tap R** = short press, reload on RELEASE when `in_mag < capacity` AND reserves > 0 (NOT empty-only). **Double-tap R** (~300 ms from first tap) = emergency SWAP
@@ -511,13 +513,23 @@ Aim-offset **looks/feels correct** for guns, attachments, controller — **trans
 | Slide carry | 9.6 / 0.88 / 1.2 | **10.3 / 0.98 / 1.02** |
 | Jump land punch | none | **0.052** rad overlay (does not write `pitch`) |
 
-Binds stay #12 + #51 (invert look/strafe, F-only door, Q/E lean). **Jump unlocked** 2026-09-07 — CE double-jump + land duck + cam shake; #51 single-hop-only superseded. Hypha #55 GPU post and Augury #56 DRY/YARD/OUT reverb volumes kept.
+Binds stay #12 + #51 invert look/strafe + F-only door. **#59** landed Q/E flip + CE hop + H crossover. Hypha #55 GPU post and Augury #56 DRY/YARD/OUT reverb volumes kept.
 
 Authored-SFX **real packs** (CE / aim-offset WAV packs) remain **partial / cooking** — that is audio files, not these controller dials. See Authored SFX file slots (#54).
 
-**Evan peek 2026-09-07 leftover** — Range Tech **cooking**; do **not** claim shipped. #57 medium dials stay. Steal closer: aim-offset ballistics / distant impact SFX; heat cards match aim-offset motion/look (not fulcrumRust bright-orange static; locked dials on `heat-card-dial-sheet.md`); lean still reverse + too shallow — flip + deepen from aim-offset/CE. **Crossover shoulder / left-corner peek** — gun crosses chest **right → partial left**; more left spacing on leans; not a body slide / not full swap / not infinite travel (**H** stays FoW shoulder swap). **Jump unlocked** — steal CE double-jump + land duck + cam shake (Range Tech cooking feel PR). Prior FPS-first / #51 single-hop-only is superseded. #25 lean / #51 Space hop stay what `main` has until Range Tech lands the cook. See `PEEK_FINDINGS.md` Open.
-
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
+
+## Evan peek feel (Range Tech — landed #59)
+
+Evan lock. **Shipped** [fulcrumRust #59](https://github.com/initialvisuals/fulcrumRust/pull/59) (2026-09-07, `6359ae97`). **Range Tech** owns it. Quiet influence — house words: **crossover shoulder / left-corner peek**. `AXIS_LOCK` three spaces stay. #51 invert look/strafe + F-only door stay. #57 medium dials stay. #58 grit stays. #56 reverb volumes stay. Kits / ToD / SFX FILE_SLOTS / Options post stay.
+
+| Cue | Lock |
+|-----|------|
+| **H crossover** | Authored hip +X ~**0.10** (right). Viewmodel springs to partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). Extra left probe `shoulder_viewmodel` **0.12**. ADS keeps **0.32**. Arms-limited — not a capsule/eye slide, not a full mirror, not infinite travel. Existing H bind, not a new key |
+| **Lean flip + deepen** | **Q = peek right** (same side as inverted A) · **E = peek left**. Eye formula stays `+lean → −flat_right`. Depth **0.5 / 0.5** (`leanOffset` / `leanMax`), superseding #25 0.18/0.12. Wall clamp / spring / yard covers stay |
+| **Hop** | CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays |
+| **Heat look (v77)** | `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials on `heat-card-dial-sheet.md` |
+| **Ballistics / distant hit** | Tracers live until impact (sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav`; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Authored-SFX **real packs** still partial (#54) |
 
 ## Authored SFX vs spatial split (wiring shipped partial #54)
 
@@ -556,7 +568,7 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
-- Evan peek 2026-09-07 leftover feel (Range Tech **cooking** — do **not** claim shipped): aim-offset ballistics / distant impact SFX feel better — steal closer; heat cards match aim-offset motion/look (not fulcrumRust bright-orange static; locked dials on `heat-card-dial-sheet.md`); lean still reverse + too shallow — flip + deepen from aim-offset/CE. **Crossover shoulder / left-corner peek** — gun crosses chest **right → partial left**; more left spacing on leans; not a body slide / not full swap / not infinite travel (**H** stays FoW shoulder swap). **Jump unlocked** — steal CE double-jump + land duck + cam shake (Range Tech cooking feel PR). Prior FPS-first **"no double-jump"** / #51 single-hop-only is superseded. #25 lean / #51 Space hop / #57 medium dials stay what `main` has until Range Tech lands the cook
+- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Authored-SFX **real packs** still cooking (#54)
 - Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear). Hypha LOD-tied mips / compression hook to Transvoxel **distance rings** still open — do **not** claim the whole roughness→stamp / ring-mip cook. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first
 - Growth PoCs after window exists
@@ -604,7 +616,7 @@ AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
 Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55.
 Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust PR #57 (2026-09-07) — **landed**.
-Evan peek leftover feel + atelier read-only: clerk lock, Initial Visuals (2026-09-07) — Range Tech cooking; do **not** claim shipped. See `PEEK_FINDINGS.md` Open.
-Double-jump unlock + texture LOD compress + crossover shoulder: clerk lock, Initial Visuals (2026-09-07) — Evan override of FPS-first "no double-jump"; Range Tech cooking feel PR (double-jump + crossover shoulder / left-corner peek). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD still open. Atelier still read-only. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Open / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
+Evan peek feel (lean flip + deepen, CE hop + air hop, heat v77 look, H crossover, tracers-until-impact + FX `hit`): fulcrumRust PR #59 (2026-09-07) — **landed**. See `PEEK_FINDINGS.md` Closed by #59.
+Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD still open. Atelier still read-only. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Open / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; authored-SFX **real packs** still cooking.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; real CE / aim-offset WAV packs still next.

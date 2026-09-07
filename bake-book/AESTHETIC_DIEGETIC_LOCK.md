@@ -32,7 +32,7 @@ Ammo lives on the weapon:
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
 - Live HoB zero / launch (fulcrumRust #33): glasses may show `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`) and toast `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — still labels only, never a numeric ammo HUD
 - Kit chrome taste (Initial Visuals Group Chat 2026-09-07): **gold paired with black** — **tech trim**, not gold-plate. Distinct from Locus **obsidian + gold crack veins** — **do not put Locus veins on gun kits**. Stamp side: `STAMP_FEEL_LOCK.md`
-- **Crossover shoulder / left-corner peek** (2026-09-07, Range Tech cooking): viewmodel crosses chest **right → partial left** for left-corner peeks — more left spacing on leans, not a body slide, not full swap / infinite travel. Mag chrome travels with the kit. **H** stays FoW shoulder swap. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
+- **Crossover shoulder / left-corner peek** (landed #59): **H** springs the **viewmodel** across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Not a body slide, not full swap / infinite travel. Mag chrome travels with the kit. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
 
 ## Readable floor hotspots
 
@@ -120,9 +120,9 @@ Evan lock. **Shipped** fulcrumRust #57. Range Tech owns the feel pass. Tune dial
 
 Look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay (does not write `pitch`). Medium sweet spot vs aim-offset × CE/FoW.
 
-Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 look/strafe/door/lean stay. **Jump unlocked** 2026-09-07 — steal CE double-jump + land duck + cam shake (Range Tech cooking feel PR); #51 single-hop-only superseded.
+Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 look/strafe/door stay. **#59** landed Q/E flip + CE hop + H crossover.
 
-**Crossover shoulder / left-corner peek** (2026-09-07, Range Tech cooking — do **not** claim shipped): left-hand hold — gun crosses chest **right → partial left** for left-corner peeks; more left spacing on leans. Not a body slide. Not full weapon swap / infinite travel. **H** stays FoW shoulder swap (camera side). Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+**Crossover shoulder / left-corner peek** (landed #59): **H** springs the viewmodel across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Not a body slide. Not full weapon swap / infinite travel. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
