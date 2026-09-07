@@ -154,7 +154,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Audio buses Voice / Music / FX (fulcrumRust #21)
 - Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
-- Title + pause **Options** open the Augury stub (#45); **Audio** is the only live tab — three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Audio → Options → title/pause; dials persist across Deploy
+- Title + pause **Options** open the Augury shell (#45); Hypha Graphics/Gameplay/Controls panes live (#46); **Audio** still Range Tech #21 three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
 - File-slot ownership is **cooking** — do **not** claim SFX file slots shipped. Range Tech takes later weapon/move SFX off CE/FoW packs into these buses. See Authored SFX vs spatial split.
@@ -342,25 +342,43 @@ Augury chrome on the existing FoW title (#11/#41) and HOLD pause shell. Logo sea
 | **Frames** | Tight white frames on Deploy/Host/Join/Continue/Options/Quit |
 | **Hairline** | Gold tick / gold hairline gone → white hairline; darker ground |
 | **HOLD** | Tight white-framed panel, left rule, **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu |
-| **Options stub** | Lists **Graphics / Audio / Gameplay / Controls**. Augury owns the shell; Hypha fills later |
-| **Live tab** | **Audio** still opens Range Tech #21 Voice/Music/FX mixer (persists). Graphics/Gameplay/Controls disabled `HYPHA` placeholders |
-| **Confirm** | Confirm on a disabled tab does nothing (no fake settings) |
-| **Esc** | Audio → Options → title/pause |
+| **Options list** | Lists **Graphics / Audio / Gameplay / Controls**. Augury owns the shell; Hypha guts shipped #46 |
+| **Live tab** | **Audio** still opens Range Tech #21 Voice/Music/FX mixer (persists). Graphics/Gameplay/Controls filled #46 (no longer disabled `HYPHA` placeholders) |
+| **Confirm** | Confirm on a Hypha tab opens that pane (#46). Audio still #21 |
+| **Esc** | Hypha pane / Audio → Options → title/pause |
 | **Mark** | #41 seat stands: `MARK_MAX_W` **1.70** / `MARK_MAX_H` **0.40** / `MARK_CENTER_Y` **0.58** |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window/post / tab guts still cooking — do not claim done.
+See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / post stubs / tab guts shipped #46. GPU post shaders still open.
 
-## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45)
+## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46)
 
-Augury shell polish shipped #45 (title + HOLD chrome + Options stub). Hypha substrate guts still cooking — **do not claim Hypha post/window settings done**. Logo/title mark #41 still stands.
+Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + post stubs + persist shipped #46. **Do not claim GPU post passes (SSAO/FXAA/CA/grain/DoF shaders) done** — toggles persist as live-read stubs and no-op safely. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
-| **Augury** | Title + HOLD analysis-core chrome (#45). Options stub shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
-| **Hypha** | Borderless-fullscreen **default**; windowed + exclusive; Graphics / Gameplay / Controls tab guts; post AO/AA/grain/DoF — **still cooking / not shipped**. Disabled tabs are `HYPHA` placeholders. Confirm on a disabled tab does nothing (no fake settings). Steal from CE/Mycelium. **No atelier push** |
+| **Augury** | Title + HOLD analysis-core chrome (#45). Options list shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
+| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + post stubs + persist — **shipped #46**. Borderless default; windowed 1280×720; exclusive (borderless fallback). Post AO/AA/CA(+strength)/grain/DoF persist and no-op until GPU passes — **not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
+| **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
-#21 Audio remains the only live Options tab. Esc Audio → Options → title/pause. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#45 sections stay.
+Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#46 sections stay.
+
+## Hypha Options guts (fulcrumRust #46)
+
+Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a second settings overlay. Title / HOLD / Options chrome + FoW logo seat stay Augury.
+
+| Dial | Lock |
+|------|------|
+| **Window** | Live via winit. **Borderless** = default launch. **Windowed** = decorated 1280×720. **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW` (`borderless` / `windowed` / `exclusive`) |
+| **Post stubs** | AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist and are live-read stubs until GPU passes — **no-op safely**. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. GPU shaders still open |
+| **Graphics hint** | `POST STUB UNTIL GPU · WINDOW LIVE · A/D NUDGE` |
+| **Gameplay** | Glasses labels toggle + crosshair toggle (real — drop quads when off). Hint: `SHOOT FEEL STAYS · ENTER TOGGLE` |
+| **Controls** | Look scale on feel-lab sens: `LOOK_MUL` default **1.0**, min **0.25**, max **2.0**, step **0.05**; Invert Y toggle. Binds stay README. Hint: `LOOK SITS ON FEEL-LAB SENS · BINDS IN README` |
+| **Audio** | Untouched — Range Tech #21 Voice/Music/FX mixer |
+| **Persist** | `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json` |
+| **Esc** | Hypha pane / Audio → Options → title or HOLD (same stack as #45) |
+
+See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. No atelier push.
 
 ## Windows one-click release builder (fulcrumRust #42)
 
@@ -398,7 +416,7 @@ Initial Visuals Group Chat 2026-09-07. **Not shipped** — do **not** claim SFX 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
-- Menus / settings: Augury title+HOLD chrome + Options stub shipped #45; Hypha window/post / tab guts still cooking (borderless-fullscreen default; Graphics/Gameplay/Controls; post AO/AA/grain/DoF) — **not done**
+- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post passes (SSAO/FXAA/CA/grain/DoF actual shaders) still cooking — **not done**
 - Basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
@@ -437,6 +455,7 @@ Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
 Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07) — **shipped** Hypha #43.
 Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
-Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts still cooking.
+Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
+Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
