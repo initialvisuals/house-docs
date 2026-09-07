@@ -178,19 +178,19 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - See `STAMP_FEEL_LOCK.md` + `LOCUS_AI_LOCK.md` + fulcrumRust `docs/GROWTH_POC.md` / `docs/STAMPS.md`
 
 ## Audio buses Voice / Music / FX (fulcrumRust #21)
-- Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
+- Feel-lab Settings **Audio** DNA — **not a DAW**; file-slot **wiring** shipped **partial** via #54 (placeholders; feel polish / real packs still cooking)
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
 - Title + pause **Options** open the Augury shell (#45); Hypha Graphics/Gameplay/Controls panes live (#46); **Audio** still Range Tech #21 three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
-- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
-- Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
-- File-slot ownership is **cooking** — do **not** claim SFX file slots shipped. Range Tech takes later weapon/move SFX off CE/FoW packs into these buses. See Authored SFX vs spatial split.
+- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
+- Hard check: SMG fire SFX respect FX (FX `0` silent). File preferred when present; missing → procedural. See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
+- File-slot **wiring** shipped #54 (partial). Range Tech owns weapon/move SFX on this bus. Do **not** claim feel polish or CE packs as done. See Authored SFX file slots (#54).
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
 - Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
 - Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
 - World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup), ricochet ping at graze skip (#47); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
 - Reverb zone stub: hideout (tight / drier) vs extract (industrial yard) — CE convolver DNA, not a send rack
-- `Slot::Locus` / `Slot::Wrap` / `Slot::Ricochet` (#47) ride FX; file slots / shot propagation later. Augury (**Chamber**) **keeps** this spatial/reverb DNA; Range Tech takes later file slots (**not shipped**)
+- `Slot::Locus` / `Slot::Wrap` / `Slot::Ricochet` (#47) ride FX; file-slot **wiring** shipped #54; shot propagation still later. Augury (**Chamber**) **keeps** this spatial/reverb DNA; Range Tech owns file slots on the same bus (placeholders; feel polish still cooking)
 - Smoke: `zone=EXTRACT spatial=1.00`; FX `0` still silences fire
 - See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
@@ -445,17 +445,36 @@ Evan dump 2026-09-07. **Not shipped** — do not claim the feel pass as done. **
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
 
-## Authored SFX vs spatial split (cooking, not shipped)
+## Authored SFX vs spatial split (wiring shipped partial #54)
 
-Initial Visuals Group Chat 2026-09-07. **Not shipped** — do **not** claim SFX file slots as done. #21 FX bus is **live** (procedural tones). Authored audio (rustles / rattles / slides) is meant to come over that bus.
+Initial Visuals Group Chat 2026-09-07. File-slot **wiring** shipped **partial** via #54 — do **not** claim feel polish or real CE / aim-offset packs as done. #21 FX bus is **live**. Authored audio (rustles / rattles / slides) comes over that bus (placeholders today).
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs into the live #21 Voice / Music / FX buses. Not a fourth bus. |
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs into the live #21 Voice / Music / FX buses. Not a fourth bus. Wiring + placeholders shipped #54. |
 | **Augury (Chamber)** | Keeps spatial / reverb DNA (#27). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** |
 
-#21 Audio tab + #27 spatial path stay. Shot propagation still later. See `AESTHETIC_DIEGETIC_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
+#21 Audio tab + #27 spatial path stay. Shot propagation still later. Feel polish / real packs still cooking. See `AESTHETIC_DIEGETIC_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
+
+## Authored SFX file slots (fulcrumRust #54)
+
+Range Tech feel-lab `sfx.slots[id]` on the **same** #21 FX bus — **not** a second mixer. Status **PARTIAL**: wiring + placeholder WAVs shipped; real CE / aim-offset packs + feel polish still next. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat.
+
+| Dial | Lock |
+|------|------|
+| **Load** | `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) |
+| **Fallback** | Missing / bad file → existing procedural tone |
+| **FX gain** | Options Audio FX dial scales the buffer; FX `0` still silent |
+| **File-backed slots** | fire · dry · reload_release / insert / seat · pickup · putdown · swipe · wrap · footstep · slide · jump · land |
+| **Reserved (synth until file)** | cycle · locus · ricochet |
+| **Placeholders** | ~22.05 kHz 16-bit mono WAVs in `assets/sfx/` — not the real rustle packs |
+| **Move cues live** | walk rustle (`footstep`) · sprint-crouch slide · Space hop + land |
+| **Weapon cues** | already on FX; now prefer the file |
+| **Ownership** | Range Tech file slots / Augury Chamber spatial+reverb / Lab-Rat quiet stamps |
+| **Left alone** | AXIS_LOCK · Locus brains · terrain/stamps · Options Graphics |
+
+See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
@@ -464,8 +483,8 @@ Initial Visuals Group Chat 2026-09-07. **Not shipped** — do **not** claim SFX 
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
-- Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
-- Authored SFX vs spatial split: Range Tech takes weapon/move SFX file slots off CE/FoW packs into the live #21 buses (rustles / rattles / slides meant to come over); Augury (Chamber) keeps spatial/reverb DNA; Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07) — **not done** (do not claim file slots shipped)
+- Shot propagation on the spatial FX path (binaural day-one landed #27; file-slot wiring landed #54)
+- Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54 (placeholders); feel polish / real CE packs / shot propagation still open. Augury (Chamber) keeps spatial/reverb DNA; Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -505,4 +524,5 @@ Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcru
 AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
-Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
+Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; feel polish / real packs still cooking.
+Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; feel polish still next.
