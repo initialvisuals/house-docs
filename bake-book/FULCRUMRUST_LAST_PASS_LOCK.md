@@ -112,6 +112,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Heat tell: **both** (diegetic barrel + glasses readout)
 - ADS/hip: **both**, weighted by enemy/context
 - Heat-tune dump (fulcrumRust #35): hold **J** climbs the same `barrel_energy` cook with recoil / camera punch skipped; glasses `HEAT TUNE` only — see Heat-tune dump section
+- Heat cards look (Evan peek 2026-09-07, Range Tech **cooking** — do **not** claim shipped): fulcrumRust bright-orange static is wrong; match aim-offset **motion / look**. Locked dials stay on `heat-card-dial-sheet.md` (aim-offset v77)
 
 ## Visible shot feedback (fulcrumRust #12 + #19)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
@@ -469,6 +470,8 @@ Binds stay #12 + #51 (invert look/strafe, F-only door, Space hop, Q/E lean). Hyp
 
 Authored-SFX **real packs** (CE / aim-offset WAV packs) remain **partial / cooking** — that is audio files, not these controller dials. See Authored SFX file slots (#54).
 
+**Evan peek 2026-09-07 leftover** — Range Tech **cooking**; do **not** claim shipped. #57 medium dials stay. Steal closer: aim-offset ballistics / distant impact SFX; heat cards match aim-offset motion/look (not fulcrumRust bright-orange static; locked dials on `heat-card-dial-sheet.md`); lean still reverse + too shallow — flip + deepen from aim-offset/CE; jump still shallow — pull CE double-jump + land duck + cam shake from polished CE/FoW. #25 lean / #51 Space single hop stay what `main` has until Range Tech lands the cook. See `PEEK_FINDINGS.md` Open.
+
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
 
 ## Authored SFX vs spatial split (wiring shipped partial #54)
@@ -508,6 +511,8 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
+- Evan peek 2026-09-07 leftover feel (Range Tech **cooking** — do **not** claim shipped): aim-offset ballistics / distant impact SFX feel better — steal closer; heat cards match aim-offset motion/look (not fulcrumRust bright-orange static; locked dials on `heat-card-dial-sheet.md`); lean still reverse + too shallow — flip + deepen from aim-offset/CE; jump still shallow — pull CE double-jump + land duck + cam shake from polished CE/FoW. #25 lean / #51 Space single hop / #57 medium dials stay shipped as-is until Range Tech lands the cook
+- Atelier: open for **read** (HDRI + small roughness sample landed). Crew must **not write** while Evan pushes. Lab-Rat wires roughness → stamp on **fulcrumRust only**
 - Growth PoCs after window exists
 - Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54)
 - Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54 (placeholders); authored-SFX **real packs** / shot propagation still open. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
@@ -552,5 +557,6 @@ AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
 Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55.
 Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust PR #57 (2026-09-07) — **landed**.
+Evan peek leftover feel + atelier read-only: clerk lock, Initial Visuals (2026-09-07) — Range Tech cooking; do **not** claim shipped. See `PEEK_FINDINGS.md` Open.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; authored-SFX **real packs** still cooking.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; real CE / aim-offset WAV packs still next.
