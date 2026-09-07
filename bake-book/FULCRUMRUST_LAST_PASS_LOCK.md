@@ -34,7 +34,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - **Shape-agnostic stamp/paint substrate** (Lab-Rat #38): any authored shape → density + material; ChannelOp Union/Subtract/Paint/Replace; paint writes real / UX stubbed; mesh→voxel convert. Yard/Inked/curl stay consumers. Lab-Rat writes; Hypha remeshes
 - **Extract-yard scale harness** (Lab-Rat #39): stay on the extract yard; `apply_yard_harness` via `StampField::layers`; pad ≈ **110 m²**; near-warm / far-cold (`guts_cold` **140**); smoke `layers=` `prims=` `yard_m2=`
-- **Next yard expand A/B** (clerk lock 2026-09-07): **wider chunk radius first**; near LOD later. Hypha offered A/B (wider radius vs higher near LOD); Lab-Rat + Range Tech voted wider radius (more ground for stamp/paint scale + shoot feel). Stay on extract yard — not a bigger world map. Do not invent radius/LOD dials here.
+- **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Near LOD 16/8/4 unchanged. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Next expand A/B = **near LOD later**
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
@@ -168,10 +168,11 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Transvoxel extract host (fulcrumRust #16)
 - Flat-world bake-once isosurface via crates.io **`transvoxel` 2.0** (Lengyel); **not** a globe
-- Distance LOD: center subdiv **16** · ring-1 **8** · outer **4** + transition faces
+- Distance LOD: center subdiv **16** · ring-1 **8** · outer **4** + transition faces. Near LOD **unchanged** by #43
+- Grid **7×7** / 3 Chebyshev rings / 112 m / 12 544 m² (Hypha #43; extra far ring only)
 - `TerrainHost` consumes Lab-Rat `sample_channels` + `density_stamp_2d` / `WearStamp`; skin = `VoxelMaterial::tint` (no second paint story)
 - Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze; hideout unfogged
-- Parked: live LOD recook · tunnels · runtime carve. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+- Parked: live LOD recook · tunnels · runtime carve. Next expand A/B = **near LOD later**. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
 
 ## Distance activation / far-guts cold (fulcrumRust #23)
@@ -180,6 +181,18 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Growth + Locus GPU uploads skip past `ACTIVATE_M`; near yard unchanged; reuses #16 `TerrainHost`
 - Smoke: `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168`
 - See `TERRAIN_NORTHSTAR.md` / `LOCUS_AI_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
+
+## Wider extract chunk radius (fulcrumRust #43)
+- Hypha; `TerrainHost` grid **5×5 → 7×7** (smallest honest odd widen): one extra **far** ring only
+- Playable extract: **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²)
+- Near LOD unchanged: center subdiv **16** · ring-1 **8** · outer **4**. Do **not** raise near LOD — **next expand A/B = near LOD later**
+- Far-cold still maps `lod >= 2` → heightfield-only + shares Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**
+- Lab-Rat `ExtractStubHost` stays aligned (`STUB_GRID = 7`); near yard pad `yard_m2` ≈ **110** unchanged
+- Smoke prints `rings=` / `extract_m2=` next to `near_chunk` / `far_chunk` / `yard_m2`:
+  `near_chunk=858 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 yard_m2=110 locus_hp=24 terrain_tris=4034 lods=3`
+  Far mean chunk ~**22×** cheaper than near; extra far ring added cold guts; yard pad + Locus stay
+- Stay out of Atelier / HDRI / title mark. No new named scars
+- See `TERRAIN_NORTHSTAR.md` / `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night clock + procedural sky (fulcrumRust #24)
 - Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside)
@@ -327,7 +340,7 @@ See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`.
 | **Hypha** | Borderless-fullscreen **default**; windowed + exclusive as options. Runtime settings substrate tabs **Graphics / Controls / Audio / Gameplay**. Post toggles: AO, AA, chromatic aberration (toggle+strength), film grain toggle, depth of field blur toggle. Steal from CE/Mycelium. **No atelier push** |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#41 sections stay.
+See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#43 sections stay.
 
 ## Windows one-click release builder (fulcrumRust #42)
 
@@ -339,7 +352,7 @@ Hypha. Honest Windows release path — not quality/flag options (those stay open
 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
-- Next yard expand A/B = **wider chunk radius first**; near LOD later (clerk lock 2026-09-07)
+- Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
 - Menus / settings: Augury FoW title/main clone + Hypha window/settings substrate cooking (Evan dump 2026-09-07) — **not done**
 - Basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Growth PoCs after window exists
@@ -374,5 +387,6 @@ Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
 Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
 Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
-Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07).
+Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07) — **shipped** Hypha #43.
+Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — cooking, not shipped.

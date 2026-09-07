@@ -83,9 +83,10 @@ Stay **on the extract yard** — scale/perf harness for the #38 stamp/paint subs
 | **Pad** | `growth::yard_bounds` ≈ **110 m²** (baseline before harness ≈ **54 m²**); flatten disk tracks it so plots stay playable |
 | **`apply_yard_harness`** | Anonymous SDF lattice + larger paint brushes + 2D-mask convert of the three existing plots through `StampField::layers` (not a fourth named plot) |
 | **Near / far** | Near yard stays warm (`bake_guts_warm`). Far guts stay cold (Hypha #23). Harness primitives are near-warm only; smoke fails if a layer center is far. `guts_cold` stayed **140** |
+| **Host (#43)** | Lab-Rat `ExtractStubHost` rides the wider **7×7** host (`STUB_GRID = 7`). Near pad `yard_m2` ≈ **110** unchanged. Smoke may also show `rings=` / `extract_m2=` |
 | **Smoke** | `growth=544 curled=580 stamps=100 structs=55 wears=117 content=173 layers=43 prims=216 yard_m2=110` · `guts_warm=75 guts_cold=140 near_chunk=858 far_chunk=45 terrain_tris=3182`. Baseline: `layers=0 prims≈content yard_m2≈54 guts_warm=32`. Far cheapness holds (`far_chunk < near_chunk`). Growth GPU boxes still under 620 |
 
-Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/STAMPS.md` / `docs/TERRAIN.md`.
+Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/STAMPS.md` / `docs/TERRAIN.md`. Hypha #43: stub host is **7×7**; smoke may also print `rings=` / `extract_m2=` (extract **12 544 m²**); yard pad stays ~110 m².
 
 ## Near-spawn yard silhouette fidelity (PR #13)
 

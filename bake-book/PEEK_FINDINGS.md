@@ -288,6 +288,19 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Peek: double-click `build.bat` / `build-and-run.bat` on Windows
 - Linux/CI unchanged. Detail: fulcrumRust `build.bat` / `build-and-run.bat` + house `FULCRUMRUST_LAST_PASS_LOCK.md`
 
+## Closed by fulcrumRust #43 (2026-09-07)
+
+- **Wider extract chunk radius** — Hypha; `TerrainHost` grid **5×5 → 7×7** (smallest honest odd widen): one extra **far** ring only
+- Playable extract: **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²)
+- Near LOD unchanged: center subdiv **16**, ring-1 **8**, outer **4**. Do **not** raise near LOD — that A/B stays later
+- Far-cold still maps `lod >= 2` → heightfield-only + shares Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**
+- Lab-Rat `ExtractStubHost` stays aligned (`STUB_GRID = 7`)
+- Smoke prints `rings=` / `extract_m2=` next to `near_chunk` / `far_chunk` / `yard_m2`. Example:
+  `near_chunk=858 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 yard_m2=110 locus_hp=24 terrain_tris=4034 lods=3`
+  Far mean chunk ~**22×** cheaper than near; extra far ring added cold guts; yard pad + Locus stay
+- Stay out of Atelier / HDRI / title mark. No new named scars
+- Detail: fulcrumRust `docs/TERRAIN.md` + house `TERRAIN_NORTHSTAR.md` / `FULCRUMRUST_LAST_PASS_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -300,9 +313,9 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **next yard expand A/B = wider chunk radius first; near LOD later** (clerk lock 2026-09-07 — Lab-Rat + Range Tech voted wider radius for stamp/paint scale + shoot feel); menus/settings substrate cooking (borderless-fullscreen default; windowed + exclusive; Graphics / Controls / Audio / Gameplay tabs; post AO/AA/CA/grain/DoF — steal CE/Mycelium; no atelier push) — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; menus/settings substrate cooking (borderless-fullscreen default; windowed + exclusive; Graphics / Controls / Audio / Gameplay tabs; post AO/AA/CA/grain/DoF — steal CE/Mycelium; no atelier push) — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); FoW title/main menu layout + settings clone cooking (colors/buttons clone FoW OG; settings can rip FoW; FoW OG input manager in scope) — **not done**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
-- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); Hypha #43 `ExtractStubHost` rides **7×7** (`STUB_GRID = 7`; smoke may also show `rings=` / `extract_m2=`); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); Voice/Music/FX buses (#21) carry Hypha/#27 spatial; basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 
 Steal from this shelf + steal map. Not chat scroll.
