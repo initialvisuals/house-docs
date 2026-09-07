@@ -134,6 +134,18 @@ Shipped the clerk lock: **wider chunk radius first**. Stay on the extract yard �
 
 Stay out of Atelier / HDRI / title mark. No new named scars. Detail: fulcrumRust `docs/TERRAIN.md`.
 
+## Texture LOD / compression (Hypha + Lab-Rat, 2026-09-07)
+
+Atelier roughness is **4k 48-bit PNG** — too fat for the yard. Do **not** ship raw 4k 48-bit into extract.
+
+| Seat | Lock |
+|------|------|
+| **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only |
+| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars. Near rings keep grit readable; far rings stay cheap (same far-cold habit as #23). Do not raise near LOD for texture — next expand A/B is still **near LOD later** |
+| **Atelier** | Still **read-only** for crew writes while Evan pushes |
+
+See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
+
 ## Extract HDRI (Range Tech + desk) — shipped fulcrumRust #40
 
 Evan: one **`.hdr`** day plate (2k–4k). **#40** landed Poly Haven **Goegap** 4k on extract ToD (`engine/assets/hdris/`; atelier raw is fallback). Procedural dome stays when plate off / missing. HDRI stays Range Tech. See `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.

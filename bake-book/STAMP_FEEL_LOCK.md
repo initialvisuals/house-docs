@@ -9,6 +9,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
+- **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. Quiet grit under loud scars. Atelier still **read-only** while Evan pushes. Hypha hooks mips to Transvoxel rings — see `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -76,6 +77,18 @@ Evan direction: stop one-off stamp content (Standard scar, Monk AOE, extra yard 
 | **Ownership** | Lab-Rat writes; Hypha remeshes. Out of scope: Transvoxel tables/LOD, Locus AI, guns, 3D paint editor, live carve |
 
 Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANNELS.md`.
+
+## Texture compression — greyscale bake-down (2026-09-07)
+
+Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes.
+
+| Lock | Detail |
+|------|--------|
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only** |
+| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars (near rings keep grit readable; far rings stay cheap). See `TERRAIN_NORTHSTAR.md` |
+| **Atelier** | Still **read-only** while Evan pushes. HDRI + small roughness sample landed. See `ATELIER_PORTFOLIO_STEAL.md` |
+
+Detail: house `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Extract-yard scale harness (PR #39)
 
