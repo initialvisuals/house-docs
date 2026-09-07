@@ -75,7 +75,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` labels only — never a second ammo/health HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` labels only — never a second ammo/health HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -224,6 +224,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
+## Listen-server + invite stub (fulcrumRust #34)
+- Thin `std::net` UDP hub in `engine/src/net.rs` (MyceliumEngine had no portable net crate)
+- Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
+- Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
+- Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
+- Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
+- Solo **Deploy** unchanged (`net=off` on smoke)
+- Does **not** steal **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Bind split: Hypha #34 owns **Y** while *alive*; Augury #36 owns **Y** while *downed* for stim self-revive — seats do not fight
+
 ## Down / death stub (fulcrumRust #36)
 - HP→0 **downs** (prone crawl + thin bleed) — not menu death. Glasses `DOWNED`. Bleed-out ~`BLEED_SECS` **22.0**; extra hits while downed shave `BLEED_HIT_SECS` **6.0**. Clock expiry → `DEAD` + dark bag.
 - Constants (`engine/src/down.rs`): `BLEED_SECS` **22.0** · `BLEED_HIT_SECS` **6.0** · `STABILIZE_HOLD_SECS` **1.45** · `STIM_REVIVE_HP` **35** · `RALLY_HP` **45** / `RALLY_ARMOR` **20** / `RALLY_LOW_HP` **25** · `REACH_M` **1.85**
@@ -264,5 +274,6 @@ Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
 Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
 Live HoB zero / arcade↔sim launch: fulcrumRust PR #33 (2026-09-07).
+Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
