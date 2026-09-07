@@ -9,6 +9,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Bandage**
 - Find other weapons on enemies / in boxes / loose in world
 
+## MP9-Z kit + attachments (fulcrumRust #14)
+- Day-one viewmodel is the **feel-lab MP9-Z silhouette** (procedural boxes), not the brick SMG
+- Mag chrome stays diegetic on the **MP9-Z receiver rail** (20 LEDs + stick plaque); Hold-R peek unchanged
+- **V** — cycle optic iron / holo / acog (ADS pose + FOV follow)
+- **N** — toggle .45 suppressor; muzzle / flash / tracer spawn move to can tip
+- FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
+- Ballistics / HoB / recoil / 20-rd + 4 mags stay on the feel sheet (attachments do not invent new gameplay mags)
+
 ## First playable flow
 1. **Loading screens** cover bake/hitch — player never sees hitching except true CPU/geo overload
 2. Small **interior hideout** (drawers, tables, lights, pickups, door) — geometry mostly authored
@@ -32,6 +40,8 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Ammo peek: hold **Numpad 0** or hold **R**; double-tap **R** = emergency quick mag; press **R** = normal reload
 - Hold **`~`** = inspect weapon
 - **B** = fire mode
+- **V** = cycle optic (iron / holo / acog)
+- **N** = toggle .45 suppressor
 - **M** = map
 - **Z** = drop bag
 - **X** = prone
@@ -71,3 +81,4 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Growth PoCs after window exists
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
+MP9-Z kit: fulcrumRust PR #14 (2026-09-07).

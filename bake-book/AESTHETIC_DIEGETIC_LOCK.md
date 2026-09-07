@@ -15,9 +15,10 @@ Analysis-knowledge-core in-world labels (interacts, extract points, section samp
 ## Diegetic gun chrome — **Range Tech** (Sulfur frame)
 
 Ammo lives on the weapon:
-- Mag dots / diegetic ammo chrome on the SMG viewmodel
+- Mag dots / diegetic ammo chrome on the **MP9-Z** viewmodel (receiver rail LEDs + stick plaque; feel-lab silhouette, fulcrumRust #14)
 - Hold-R peek becomes that chrome, not a second counter
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
+- Optic hoods + .45 can are Range Tech attachments (**V** / **N**); glasses still labels only
 
 ## Readable floor hotspots
 
