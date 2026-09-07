@@ -285,6 +285,22 @@ Stay **on the extract yard** as a scale/perf harness for the #38 stamp/paint sub
 
 See `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/CHANNELS.md`.
 
+## FoW title mark (fulcrumRust #41)
+
+Augury seats Evan’s Fulcrum of Will header as the title wordmark on the #11 shell. Grim lowfi title. Runtime does not clone atelier or CE. Do not invent a replacement mark (atelier `brand/` was README-only).
+
+| Dial | Lock |
+|------|------|
+| **Asset** | `assets/brand/fulcrum-of-will-header.png` from `_CONCRETE_ECHO_` `@4_15_26` `public/images/Fulcrum Of will Header.png` (2048-wide, aspect kept) |
+| **Seat** | `MARK_MAX_W` **1.70** · `MARK_MAX_H` **0.40** · `MARK_CENTER_Y` **0.58** (clip-space y-up) |
+| **Fit** | `clip_aspect = image_aspect / window_aspect` — not stretched junk on non-square windows |
+| **Clearance** | Bottom of mark must clear Deploy hit row (`mark_clears_deploy`) |
+| **Chrome** | Bitmap `FULCRUM OF WILL` text removed — PNG is the wordmark. Subtitle / gold rule / list stay |
+| **Hits** | **Deploy / Continue / Options / Esc** hit rows and behavior unchanged. No second ammo HUD |
+| **Tests** | `vendored_header_is_a_wide_png`, `decode_matches_ihdr`, `title_seat_keeps_pixel_aspect` (16:9 / 4:3 / 21:9) |
+
+See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -317,3 +333,4 @@ Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
 Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
+FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).

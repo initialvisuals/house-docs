@@ -71,6 +71,15 @@ Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial 
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
+## FoW title mark / brand wordmark (shipped Augury #41)
+
+Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 shell:
+- Vendored CE `@4_15_26` `public/images/Fulcrum Of will Header.png` → `assets/brand/fulcrum-of-will-header.png` (2048-wide, aspect kept). Atelier `brand/` was README-only — **do not invent a replacement mark**; runtime does not clone atelier or CE
+- Aspect-fit seat (`engine/src/brand.rs`): `MARK_MAX_W` **1.70** · `MARK_MAX_H` **0.40** · `MARK_CENTER_Y` **0.58** (clip-space y-up); `clip_aspect = image_aspect / window_aspect` so the header is not stretched junk; bottom of mark clears Deploy (`mark_clears_deploy`)
+- Bitmap `FULCRUM OF WILL` text removed — PNG is the wordmark. Subtitle / gold rule / list stay. **Deploy / Continue / Options / Esc** hit rows unchanged
+- Still no second ammo HUD
+- Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |
