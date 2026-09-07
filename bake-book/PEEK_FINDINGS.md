@@ -198,6 +198,19 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP heat-tune row
 
+## Closed by fulcrumRust #34 (2026-09-07)
+
+- **Listen-server + invite stub** — Hypha; thin `std::net` UDP hub in `engine/src/net.rs` (MyceliumEngine had no portable net crate)
+- **Host** — title **HOST** (or **Y** while alive in hideout/extract) binds UDP and mints `fulcrum://ip:port`; `--host` arms title cursor and also listens after Deploy
+- Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
+- **Join** — `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`. Title **JOIN** confirms. No in-game text field this pass
+- Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
+- Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
+- Solo **Deploy** unchanged (`net=off` on smoke)
+- Intact / do not steal: **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Bind split: Hypha #34 owns **Y** while *alive*; Augury down/death may use **Y** while *downed* for stim self-revive — seats do not fight
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Net row (todo→partial)
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -210,7 +223,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J / **I** free); Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial

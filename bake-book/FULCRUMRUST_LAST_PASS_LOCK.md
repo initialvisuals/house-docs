@@ -39,6 +39,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Equipment required — or take off the downed body
 - **Self-revive** via revive stim on person
 - Slash a downed **Locus Standard** (or similar) → **critical revive rally**
+- Bind split on **Y**: Hypha #34 owns **Y** while *alive* (listen-server HOST). Augury down/death may own **Y** while *downed* for stim self-revive — seats do not fight. No other Augury down/death dials parked here.
 
 ## Inventory / HUD
 - MyceliumEngine **slot system** (stub OK)
@@ -48,6 +49,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only; inspect still wins over reload dip)
 - **B** = fire mode
 - Hold **J** = heat-tune dump (fulcrumRust #35); **I** stays free
+- **Y** while alive = listen-server HOST (Hypha #34); title HOST / JOIN also arm. Augury may own **Y** while downed for stim — see Downed / revive
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **T** = bandage use (fulcrumRust #31); **G** stays kit cycle
 - **V** = cycle optic on seated kit allow-list
@@ -71,7 +73,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -220,6 +222,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
+## Listen-server + invite stub (fulcrumRust #34)
+- Thin `std::net` UDP hub in `engine/src/net.rs` (MyceliumEngine had no portable net crate)
+- Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
+- Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
+- Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
+- Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
+- Solo **Deploy** unchanged (`net=off` on smoke)
+- Does **not** steal **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Bind split: Hypha #34 owns **Y** while *alive*; Augury down/death may use **Y** while *downed* for stim self-revive — seats do not fight
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -247,3 +259,4 @@ Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
 Live HoB zero / arcade↔sim launch: fulcrumRust PR #33 (2026-09-07).
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
+Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
