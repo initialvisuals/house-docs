@@ -392,13 +392,18 @@ Range Tech leftover feel-lab stack on the same #12/#19 `TracerField`. Tip alread
 - Intact / do not steal: tracers / muzzle flash / #19 draw-distance stay; kits / lean / ToD+HDRI / knife / bandage / reload / heat-tune / Locus / Transvoxel / listen-server unchanged. Mag chrome stays diegetic — no second ammo HUD
 - See fulcrumRust `engine/src/tracers.rs` + `engine/src/feel.rs` (`FxDrawDials`) + `engine/src/kit_mesh.rs` (`ejectionPort`) + STEAL_MAP FX rows
 
-## Windows one-click release builder (fulcrumRust #42)
+## Windows one-click release builder (fulcrumRust #42 + #48)
 
-Hypha. Honest Windows release path — not quality/flag options (those stay open; Lab-Rat may mirror for pycelium later — no dials invented here). Linux/CI unchanged. Does not touch atelier, HDRI/ToD, kits, terrain.
+Hypha. Honest Windows release path — not quality/flag options (those stay open; Lab-Rat may mirror for pycelium later — no dials invented here). Linux/CI unchanged. Does not wrap with `cmd /k`. Does not touch atelier, HDRI/ToD, kits, terrain.
 
-- **`build.bat`** — `cargo build --release -p app` (package from `app/Cargo.toml`). Prepends `%USERPROFILE%\.cargo\bin` so double-click PATH still finds rustup. Clear miss if cargo absent (`https://rustup.rs`); pause on failure; print `target\release\app.exe`
-- **`build-and-run.bat`** — builds then launches that binary **in this console** (wait on process). No `start`+detach, no `timeout /t` (feel-lab `StartServer.bat` DNA). Extra args pass through (`--host`, `--smoke`, …)
-- README: Windows double-click `build.bat`
+- **`build.bat`** — `cargo build --release -p app` (package from `app/Cargo.toml`). Prepends `%USERPROFILE%\.cargo\bin` so double-click PATH still finds rustup. Clear miss if cargo absent (`https://rustup.rs`)
+- **Always pause** — success AND failure (single `:finish` path). `/nopause` is only for `build-and-run.bat` so the game can launch without a mid-script keypress
+- **Tee cargo** — repo-root `build.log` (overwrite each run) via PowerShell `Tee-Object`; redirect+`type` fallback if PowerShell is missing
+- After successful build, print `dir /T:W` mtime + size of `target\release\app.exe`. Start/end timestamps and `Result: OK` / `FAILED`
+- If the Explorer window still vanishes: open `build.log` (README one-liner + on-screen hint)
+- **`.gitattributes`** — `*.bat text eol=crlf` so cmd.exe does not skip `pause` on LF-only files
+- **`build-and-run.bat`** — builds then launches that binary **in this console** (wait on process). No `start`+detach, no `timeout /t` (feel-lab `StartServer.bat` DNA). Extra args pass through (`--host`, `--smoke`, …). On build failure: pause and point at `build.log` (no silent `exit /b 1`)
+- README: Windows double-click `build.bat`; if the window vanishes, open `build.log`
 
 ## Embodied feel pass (Range Tech — cooking, not shipped)
 
@@ -429,7 +434,7 @@ Initial Visuals Group Chat 2026-09-07. **Not shipped** — do **not** claim SFX 
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post passes (SSAO/FXAA/CA/grain/DoF actual shaders) still cooking — **not done**
-- Basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
+- One-click Windows `build.bat` **landed as Hypha #42+#48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
@@ -464,6 +469,7 @@ Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
 Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
 Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
+Windows builder stay-open + `build.log` tee: fulcrumRust PR #48 (2026-09-07).
 Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07) — **shipped** Hypha #43.
 Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
