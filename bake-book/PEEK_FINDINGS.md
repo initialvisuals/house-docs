@@ -39,6 +39,15 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Ownership** — Hypha owns Transvoxel tables / LOD / far-chunk simplify; Lab-Rat does not paste Lengyel tables
 - CPU-box overlays remain peekable leftover until Hypha meshes. See fulcrumRust `docs/STAMPS.md` + house `TERRAIN_NORTHSTAR.md`.
 
+## Closed by fulcrumRust #18 (2026-09-07)
+
+- **Locus Standard on yard** — graybox biped (capsule boxes, rust-eye slits) at `YARD_STANDARD` (5.15, 0, 7.85), right of Lab-Rat creeper
+- **Thin brain** — CE shape Idle→Alert→Chase/Engage→Recover; Dead = ragdoll flop stub
+- **Distance activation** — `ACTIVATE_M` 24 / `SLEEP_M` 32 / `HEAR_M` 18; far guts skip path/hunt; shot crack can wake
+- **MP9-Z wound** — Range Tech tracers already slab-hit walls; #18 adds living hurtbox hitscan + visual stop (`SMG_PELLET` 14); Engage slash 10
+- **Inked** palette stub only — not spawned. TODO family: Inked / Sonderer / Monk / Oculus / crawler
+- Glasses: `LOCUS  STANDARD  IDLE|ALERT|…` labels only. See house `LOCUS_AI_LOCK.md`.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -52,7 +61,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 ## Holding steady
 
 - Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
-- Augury: stamp spawn filters (prefer rock/concrete; avoid organic) + menus / load gate unless hitch
+- Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: consume channels landed (#17); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 
 Steal from this shelf + steal map. Not chat scroll.

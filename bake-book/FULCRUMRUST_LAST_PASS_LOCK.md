@@ -61,7 +61,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD  <brain>` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -79,6 +79,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Control DNA resolution
 - **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
 
+## Locus Standard + distance activation (fulcrumRust #18)
+- One fightable **Locus Standard** on the extract yard (`YARD_STANDARD` 5.15 / 0 / 7.85, right of creeper)
+- Brain: **Idle → Alert → Chase / Engage → Recover**; Dead = ragdoll flop stub
+- Distance gate: `ACTIVATE_M` **24** / `SLEEP_M` **32** / `HEAR_M` **18** (far guts cold; shot crack can wake)
+- Combat: `MAX_HP` **80**, MP9-Z `SMG_PELLET` **14**, Engage slash **10**
+- **Inked** stub only (not spawned). Family TODO: Inked / Sonderer / Monk / Oculus / crawler
+- Glasses labels only: `LOCUS  STANDARD  <brain>` — see `LOCUS_AI_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -87,3 +95,4 @@ Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcr
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
 Smart stamps: fulcrumRust PR #15 (2026-09-07).
 Transvoxel consume channels: fulcrumRust PR #17 (2026-09-07).
+Locus Standard AI: fulcrumRust PR #18 (2026-09-07).
