@@ -4,13 +4,24 @@ Parked from Evan (2026-09-07).
 
 ## Diegetic labels — **Augury smart-glasses**
 
-Analysis-knowledge-core in-world labels (ammo, interacts, extract points):
+Analysis-knowledge-core in-world labels (interacts, extract points, section samplers):
 - Thin white mono, fully embodied in world space
 - Lead lines + angular digital junk
 - Subtle glitches / digital artifacts around the overlays
 - Spatially dynamic (not flat HUD chrome)
 
-Barrel heat stays diegetic on the gun unless a separate heat-tell decision says otherwise.
+**Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
+
+## Diegetic gun chrome — **Range Tech** (Sulfur frame)
+
+Ammo lives on the weapon:
+- Mag dots / diegetic ammo chrome on the SMG viewmodel
+- Hold-R peek becomes that chrome, not a second counter
+- Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
+
+## Readable floor hotspots
+
+Floor/wall aftermath (spills, barrel-choir embers, Lab-Rat stamps) stays readable without softlocking the path. Locus hotspot FX language later — see `SULFUR_INFLUENCE.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
@@ -23,6 +34,7 @@ Barrel heat stays diegetic on the gun unless a separate heat-tell decision says 
 | **Akira** | Layered tech / city-decay energy |
 | **Zdzisław Beksiński** | Mushroom / bio-growth nightmare — loud-scar stamp lane |
 | **Nivanh Chanthara** / **Mortal Shell** artists / **Maciej Kuciara** | Gritty, detailed, believable-yet-unbelievable; layered technique |
+| **Sulfur** | Diegetic mag dots + readable floor hotspots (language only) |
 
 Also: FoW lowfi skin; Lab-Rat stamps as bake north-stars (not live stew).
 
