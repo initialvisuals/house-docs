@@ -72,7 +72,20 @@ Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial 
 - World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
 - Hideout (tight) vs extract (industrial yard) reverb zone stub
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
+- Seat split of later file slots is **cooking** — do **not** claim SFX file slots shipped. See Authored SFX vs spatial split below.
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
+
+## Authored SFX vs spatial split (Evan dump 2026-09-07 — cooking, not shipped)
+
+**Not done.** Do **not** claim SFX file slots as shipped. #21 FX bus is **live** (procedural tones today). Authored audio is meant to **come over** that bus (rustles / rattles / slides).
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. |
+| **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + hideout/extract zone stub). Does not take the file slots. |
+| **Lab-Rat** | Stamps stay **quiet on audio** — no stamp SFX lane |
+
+See `FULCRUMRUST_LAST_PASS_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
 
 ## FoW title mark / brand wordmark (shipped Augury #41)
 
@@ -101,7 +114,7 @@ Evan 2026-09-07. **Not done.** Range Tech owns the feel pass. Do **not** claim i
 
 Aim-offset **looks/feels correct** for guns, attachments, controller — **transpose** that work into fulcrumRust (**outside materials and range geometry**). Concrete Echo / FoW OG has a great controller too + **action audio cues**. Find a **sweet medium** between aim-offset and CE/FoW for embodied feel.
 
-#12 bind lock (Q/E lean, Ctrl+mouse height, wheel speed) stays. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+Weapon / move SFX file slots (rustles / rattles / slides) are the authored-audio split above — **not shipped**. #12 bind lock (Q/E lean, Ctrl+mouse height, wheel speed) stays. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
