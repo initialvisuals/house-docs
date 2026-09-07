@@ -67,7 +67,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INSPECT` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -89,7 +89,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Locus Standard + Inked + distance activation (fulcrumRust #18 + #26)
 - Fightable **Locus Standard** + **Locus Inked** on the extract yard
   - Standard pad `YARD_STANDARD` **(5.15, 0, 7.85)** — right of creeper; ash/bone + rust-orange eyes
-  - Inked pad `YARD_INKED` **(−5.10, 0, 8.20)** — left of 2D webbing; darker/hooded/thinner + cyan eyes + cheap ink-zone disc (not a Lab-Rat stamp)
+  - Inked pad `YARD_INKED` **(−5.10, 0, 8.20)** — left of 2D webbing; darker/hooded/thinner + cyan eyes + cheap ink-zone disc (Augury chrome); Lab-Rat #30 owns the loud stamp under the pad
 - Brain: **Idle → Alert → Chase / Engage → Recover**; Dead = ragdoll flop stub
 - Distance gate: `ACTIVATE_M` **24** / `SLEEP_M` **32** / `HEAR_M` **18** (far guts cold; shot crack can wake)
 - Combat: `MAX_HP` **80**, kit `SMG_PELLET` **14**, Engage slash **10**
@@ -112,10 +112,18 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Void-spore grimdark + concrete wear (fulcrumRust #20)
 - Shared `density_stamp_2d` drives yard silhouettes **and** concrete crack / edge-wear leftovers
-- Wear kinds: `ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom`; wear is solid on density for Hypha
+- Wear kinds: `ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom` / `VoidSporeCrack`; wear is solid on density for Hypha
 - Grimdark `VoxelMaterial::luma`; sit-on-surface adds void-spore bloom + brutalist mass
-- Curl **1 / 2 / 3** + glasses stamp labels unchanged
+- Curl **1 / 2 / 3** + glasses stamp labels unchanged (#30 shares the 2D field with the Inked pad)
 - See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `docs/STAMPS.md`
+
+## Inked AOE void-spore hotspot (fulcrumRust #30)
+- Living loud ink / void-spore floor scar under Inked: `growth::INKED_HOTSPOT` = `locus::YARD_INKED` **(−5.10, 0, 8.20)**; `INKED_HOTSPOT_REACH` **1.55**
+- Flat leftover, not a fourth yard plot; denser/louder than quiet 2D grit; reuses #20 `density_stamp_2d` / WearStamp DNA
+- Pinned WearStamps: `VoidSporeWeb` + **`VoidSporeCrack`**
+- Curl **1 / 2 / 3** shares the 2D stamp field (webbing OR Inked pad); remnants stay — not a softlock
+- Glasses: `INK HOTSPOT` (and curl toast) on the scar off the Locus prompt; Augury still owns Inked AI + ink disc
+- See `STAMP_FEEL_LOCK.md` + `LOCUS_AI_LOCK.md` + fulcrumRust `docs/GROWTH_POC.md` / `docs/STAMPS.md`
 
 ## Audio buses Voice / Music / FX (fulcrumRust #21)
 - Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
@@ -191,3 +199,4 @@ Wall-clamped Q/E lean polish: fulcrumRust PR #25 (2026-09-07).
 Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
 Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
 Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
+Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).

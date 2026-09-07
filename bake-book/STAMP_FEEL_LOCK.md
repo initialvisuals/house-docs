@@ -45,9 +45,10 @@ Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void 
 | Lock | Detail |
 |------|--------|
 | **2D density stamp** | Shared `growth::density_stamp_2d` — veins + anastomosis rings + grit + spore core (yard + wear driver) |
-| **Yard silhouettes** | Void-spore 2D webbing / hellish mushroom / spore-tipped creeper; curl **1 / 2 / 3** unchanged |
+| **Yard silhouettes** | Void-spore 2D webbing / hellish mushroom / spore-tipped creeper; **fourth scar under Inked** (`INKED_HOTSPOT`, not a new plot); curl **1 / 2 / 3** unchanged (Inked pad shares the 2D field) |
 | **Concrete wear** | `WearKind::ConcreteCrack` / `ConcreteEdge` from the 2D field onto brutalist perimeter masses |
-| **Void-spore bleed** | `WearKind::VoidSporeWeb` + `VoidSporeBloom` on organic cells (terraforming volume) |
+| **Void-spore bleed** | `WearKind::VoidSporeWeb` + `VoidSporeBloom` on organic cells (terraforming volume); **`VoidSporeCrack`** on the Inked pad |
+| **Inked AOE hotspot** | Pinned `VoidSporeWeb` + `VoidSporeCrack` at `growth::INKED_HOTSPOT` **(−5.10, 0, 8.20)** / reach **1.55**; denser/louder than quiet 2D grit; Lab-Rat leftover, not Augury disc |
 | **Structures** | Sit-on-surface adds **void-spore bloom** + **brutalist mass** (with #15 set) |
 | **Grimdark grade** | `VoxelMaterial::luma` / tint — crushed materials; organic dirt bleed = takeover webs |
 | **Consume** | Wear leftovers are solid on density (`> 0`); Hypha grades verts the same way |
@@ -65,15 +66,15 @@ Peeks must read **growth**, not graybox slabs. Same three plots / cycle / curl b
 | **ORGANIC 3D** | Thin bent stem + volva, wide cap (gills/dome), side fruit, plume webbing — mushroom, not a brick pillar |
 | **CREEPER** | Low olive tubes on meandering tendrils with forks; soil-hugging anastomosis; short AABB steps so diagonals stay tubes |
 
-CPU boxes, no collide; mesh under existing growth buffers. Detail lives in fulcrumRust `docs/GROWTH_POC.md`.
+CPU boxes, no collide; mesh under existing growth buffers. **Fourth leftover (not a plot):** loud ink/void scar under Inked at `INKED_HOTSPOT`. Detail lives in fulcrumRust `docs/GROWTH_POC.md`.
 
 ## Curl on growth plots (PR #9)
 
-Stand on a yard plot (2D stamp / organic / creeper):
+Stand on a yard plot (2D stamp / organic / creeper) **or the Inked scar**:
 - **1** gas wilt
 - **2** freeze stiffen → crack-back
 - **3** burn char / recede
 
-Per-plot fields; growth recovers after envelope. Glasses toast names the field (labels only — not ammo HUD). Binds do not steal H / LMB / Tab.
+Per-plot fields; growth recovers after envelope. The Inked hotspot **shares the 2D stamp field** (webbing OR Inked pad wilt the same AOE; remnants stay — not a softlock). Glasses toast names the field (labels only — not ammo HUD). Binds do not steal H / LMB / Tab.
 
 Source of truth: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md

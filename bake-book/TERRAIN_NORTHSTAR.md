@@ -79,7 +79,7 @@ Organic voxel surface structures + smart-material tags onto Hypha’s density fi
 Visual DNA for Hypha’s Transvoxel grade — still not a mesher.
 
 - Shared `density_stamp_2d` drives yard silhouettes **and** concrete crack / edge-wear
-- Wear leftovers (`ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom`) write into density + material channels
+- Wear leftovers (`ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom` / `VoidSporeCrack`) write into density + material channels
 - Keep `classify` + `stamp_field` + `density_stamp_2d` wear on the live `TerrainHost`
 - **Hypha #16** grades verts grimdark via `VoxelMaterial::tint` / `luma`; brutalist masses are the upward scale target
 - Hypha eval pile (sjoerdev / DXGatech / UnrealSandboxTerrain / qwertzui11) stays host DNA — Lab-Rat does not own tables

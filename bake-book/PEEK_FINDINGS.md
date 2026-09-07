@@ -121,7 +121,7 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 
 ## Closed by fulcrumRust #26 (2026-09-07)
 
-- **Locus Inked on yard** — second fightable graybox; darker / hooded / thinner silhouette, cyan eye0, cheap ink-zone disc under feet (not a Lab-Rat stamp)
+- **Locus Inked on yard** — second fightable graybox; darker / hooded / thinner silhouette, cyan eye0, cheap ink-zone disc under feet (Augury chrome; Lab-Rat #30 owns the loud stamp under the pad)
 - **Same brain + wake meters** as Standard — Idle→Alert→Chase/Engage→Recover + ragdoll stub; shared Hypha `ACTIVATE_M` **24** / `SLEEP_M` **32**
 - **Pad** `YARD_INKED` **(−5.10, 0, 8.20)** — left of 2D webbing; does not overlap Standard (right of creeper) or lean covers
 - **Kit hitscan** wounds Inked via the same `apply_shot` path; glasses `LOCUS  INKED  …` labels only
@@ -147,6 +147,16 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Untouched: kits / lean / ToD / audio / heat / Locus Standard+Inked / Transvoxel
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP inspect row
 
+## Closed by fulcrumRust #30 (2026-09-07)
+
+- **Loud void-spore hotspot under Locus Inked** — living floor scar at `growth::INKED_HOTSPOT` = `locus::YARD_INKED` **(−5.10, 0, 8.20)**; `INKED_HOTSPOT_REACH` **1.55**. Flat leftover, not a fourth yard plot
+- Reuses #20 `density_stamp_2d` / WearStamp DNA; denser/louder than quiet 2D grit. Pinned WearStamps: `VoidSporeWeb` + new **`VoidSporeCrack`**
+- Curl **1 / 2 / 3** shares the 2D stamp field (webbing OR Inked pad); remnants stay — not a softlock
+- Glasses: **`INK HOTSPOT`** (and curl toast) when standing on the scar off the Locus prompt; Augury still owns Locus labels + cheap ink-zone disc chrome
+- Ownership: Lab-Rat owns the loud growth stamp under the pad; Augury still owns Inked AI + ink disc
+- Peek: Title → Deploy → extract; slightly **left** of 2D webbing; Inked stands on loud ink hotspot; optional **1 / 2 / 3** wilt
+- Detail: fulcrumRust `docs/GROWTH_POC.md` + `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md` / `LOCUS_AI_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -161,7 +171,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
-- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.
