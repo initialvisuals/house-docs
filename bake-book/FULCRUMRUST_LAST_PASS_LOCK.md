@@ -18,7 +18,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow
 - **N** — toggle .45 suppressor / can mounts; muzzle / flash / tracer spawn follow can tip when mounted
 - FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
-- Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags)
+- Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags). Live zero + arcade↔sim via **O** / **P** (fulcrumRust #33)
 
 ## First playable flow
 1. **Loading screens** cover bake/hitch — player never sees hitching except true CPU/geo overload
@@ -54,6 +54,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
 - **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
+- **O** = cycle live zero presets 50 → 100 → 200 m (fulcrumRust #33); **P** = arcade ↔ sim launch (`hob_zero`)
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
 - **H** = shoulder swap (FoW habit); help remaps off H
@@ -68,7 +69,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `Z{n}  SIM|ARCADE` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -186,6 +187,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Intact / do not steal: knife, bandage, lean, inspect, ToD, kits
 - Viewmodel: `reload_t` mag-out dip; inspect overlay still wins over reload dip
 
+## Live HoB zero / launch dials (fulcrumRust #33)
+- Per-kit rpm / recoil / HoB sheet was already authored (#22); this PR makes zero distance + arcade↔sim **live**
+- Constants: `ZERO_PRESETS_M` **[50.0, 100.0, 200.0]** m; default `zero_dist_m` **100**; default `hob_zero` **true** (SIM)
+- **O** — cycle live zero presets 50 → 100 → 200 → 50 (HoB solve). Shared across MP9-Z / SR-25 / M24 so G-swap does not hide the solve (`FeelSheet::cycle_zero`)
+- **P** — arcade (aim-dir launch) ↔ sim (height-over-bore + ballistic zero) via `hob_zero` (`FeelSheet::toggle_hob_zero`). Shared launch mode across kits
+- Honesty: changing zero preset changes muzzle **launch dir** only (not muzzle position); arcade vs sim launch dirs differ; sim aims up to meet sight zero; arcade launches along aim
+- Toast: `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` (age **1.2s**, `Slot::Cycle`)
+- Glasses status strip (labels only, never a second ammo HUD): `Z{zero_dist_m:.0}  SIM|ARCADE` e.g. `Z100  SIM`
+- Intact / do not steal: **[ / ]** stay ToD clock; **− / =** stay exposure; **9 / 0** left free; does not steal **T** / **C** / **R** / **Q** / **E** / **Z** / **B** / **V** / **N** / **U** / **`** / **F** / **X** / **H** / **1** / **2** / **3** / **G** / **Mouse4**; tip→impact tracers / muzzle / sparks stay; reload / knife / bandage / lean / inspect / ToD stay seated
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -209,4 +220,6 @@ Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
 Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
 Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
 Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
+Bandage use: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
+Live HoB zero / arcade↔sim launch: fulcrumRust PR #33 (2026-09-07).

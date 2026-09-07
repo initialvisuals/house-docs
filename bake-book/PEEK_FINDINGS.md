@@ -165,6 +165,18 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Glasses: `RELOAD` (basic) / `SWAP` (emergency) labels only — never a numeric ammo HUD
 - Intact: knife, bandage, lean, inspect, ToD, kits. Viewmodel `reload_t` mag-out dip; inspect overlay still wins over reload dip
 
+## Closed by fulcrumRust #33 (2026-09-07)
+
+- **Live HoB zero + arcade/sim launch** — per-kit rpm/recoil/HoB sheet was already authored (#22); this PR makes zero distance + arcade↔sim **live**
+- **Dials** — `ZERO_PRESETS_M` **[50.0, 100.0, 200.0]** m; default `zero_dist_m` **100**; default `hob_zero` **true** (SIM)
+- **O** — cycle live zero presets 50 → 100 → 200 → 50 (HoB solve). Shared across MP9-Z / SR-25 / M24 so G-swap does not hide the solve (`FeelSheet::cycle_zero`)
+- **P** — arcade (aim-dir launch) ↔ sim (height-over-bore + ballistic zero) via `hob_zero` (`FeelSheet::toggle_hob_zero`). Shared launch mode across kits
+- **Honesty** — changing zero preset changes muzzle **launch dir** only (not muzzle position); arcade vs sim launch dirs differ; sim aims up to meet sight zero; arcade launches along aim
+- Toast: `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` (age **1.2s**, `Slot::Cycle`)
+- Glasses status strip (labels only, never a second ammo HUD): `Z{zero_dist_m:.0}  SIM|ARCADE` e.g. `Z100  SIM`
+- Intact / do not steal: **[ ]** stay ToD clock; **−/=** stay exposure; **9/0** left free; does not steal T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/1/2/3/G/Mouse4; tip→impact tracers / muzzle / sparks stay; reload / knife / bandage / lean / inspect / ToD stay seated
+- Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `FeelSheet::cycle_zero` / `toggle_hob_zero`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -180,6 +192,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); Day HDRI still parked; ballistics / HoB dials may still be cooking separately; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.
