@@ -14,4 +14,4 @@ Parked from Evan (2026-09-06).
 - Don’t steal their maps or career layers
 - Locus growth scars stay ours
 
-See also: `SULFUR_INFLUENCE.md`, `AESTHETIC_DIEGETIC_LOCK.md`, `FULCRUMRUST_LAST_PASS_LOCK.md`.
+See also: `SULFUR_INFLUENCE.md`, `AESTHETIC_DIEGETIC_LOCK.md`, `AXIS_LOCK.md`, `FULCRUMRUST_LAST_PASS_LOCK.md`.

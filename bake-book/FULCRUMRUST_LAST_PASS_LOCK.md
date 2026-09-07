@@ -70,10 +70,11 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Canted hold + high/low ready from aim-offset
 - **H** = shoulder swap (FoW habit); help remaps off H
 
-## Axes + controller lock (fulcrumRust #12)
-- World is **Y-up**; `yaw = 0` looks **+Z** (hideout door / extract yard)
-- Mouse-right **increases** yaw; WASD is camera-relative on that yaw
-- SMG long axis is **look** (not +X); mag dots along the bore
+## Axes + controller lock (fulcrumRust #12 + #51 AXIS_LOCK)
+- Three spaces — do **not** unify. Camera/viewmodel local **−Z**; CE FBX **+X** (`rotY − π/2`); sim barrel / FX **+Z**. Lab-Rat stamps stay **+Y** (not this lock). Detail: `AXIS_LOCK.md` + fulcrumRust `docs/AXIS.md`
+- World is **Y-up**; pawn `yaw = 0` looks **+Z** (hideout door / extract yard) — same *vector* as arcade sim barrel when the bore matches look; **not** camera-local −Z
+- Evan dizzy-play (#51): **subtract** mouse X (invert horizontal); **invert A/D** vs the #12 camera-right lock. WASD otherwise camera-relative on that yaw. Q/E lean signs stay +lean = left (#25) — do not invert lean to "fix" FX
+- SMG long axis is **look** / sim barrel +Z (not camera −Z, not CE +X); mag dots along the bore
 - **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left; #25 spring + viewmodel pad + yard covers)
 - **Shift then Ctrl** — slide carry (sprint + crouch rising edge)
 - **Hold Ctrl + mouse up/down** — analog eye height; does **not** pitch-look
@@ -390,7 +391,8 @@ Range Tech leftover feel-lab stack on the same #12/#19 `TracerField`. Tip alread
 - **Richer impact geo** — punch vs scuff + `IMPACT_HOLE_VARIANTS` **10** + rim chips + stuck-slug plug (brass SMG / steel DMR+bolt). Rides existing spark/mark path — not a rebuild
 - Audio: FX bus routes now include ricochet (with fire/dry/reload/cycle/pickup/putdown/Locus/swipe/wrap)
 - Intact / do not steal: tracers / muzzle flash / #19 draw-distance stay; kits / lean / ToD+HDRI / knife / bandage / reload / heat-tune / Locus / Transvoxel / listen-server unchanged. Mag chrome stays diegetic — no second ammo HUD
-- See fulcrumRust `engine/src/tracers.rs` + `engine/src/feel.rs` (`FxDrawDials`) + `engine/src/kit_mesh.rs` (`ejectionPort`) + STEAL_MAP FX rows
+- #51 AXIS_LOCK: FX long/thin axis is **sim barrel +Z** (`axis::sim_barrel_basis`) — not camera/viewmodel −Z, not CE +X. Brass toss stays camera-right; brass long axis is barrel +Z. Do not rotate Lab-Rat stamps to fix sideways plugs. See `AXIS_LOCK.md`
+- See fulcrumRust `engine/src/tracers.rs` + `engine/src/feel.rs` (`FxDrawDials`) + `engine/src/kit_mesh.rs` (`ejectionPort`) + `engine/src/axis.rs` + STEAL_MAP FX rows
 
 ## Windows one-click release builder (fulcrumRust #42 + #48)
 
@@ -475,6 +477,7 @@ Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR
 Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
 Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
 Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcrumRust PR #47 (2026-09-07).
+AXIS_LOCK (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate): fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
