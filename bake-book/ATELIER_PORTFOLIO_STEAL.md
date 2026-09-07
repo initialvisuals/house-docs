@@ -15,16 +15,22 @@ Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.be
 - **Lab-Rat** — imperfections + greyscale seamless → stamp height/rough/mask
 - **Range Tech** — greeble/tech/panel pack + kit metal/rust; Mixer/Alien Isolation mood
 - **Hypha** — terrain PBR from greyscale; env moodboards (Tech Lab / Barracks / Serengeti / Temple Ruins)
-- **Augury** — FoW logo + brand/UI from Behance Logo Designs / Mega Dwarf UI (need Evan masters); CE junk/wood set dressing refs (Backrooms Grocery, Trashbot)
+- **Augury** — FoW logo + brand/UI from Behance Logo Designs; **Mega Dwarf** UI optional (need Evan masters if pulled); CE junk/wood set dressing refs (Backrooms Grocery, Trashbot)
 
 ## Moodboard / ref (not packs)
 
 - Env: Tech Lab, Barracks, Scifi Environment, Cyberpunk alleyway, Backrooms Grocery, Robotics Lab loop
 - Daily: Antenna Array, Cyborg Hallway, Battery Case, Trashbot, Temple Ruins
-- Brand/UI: ask Evan for Behance Logo Designs + Mega Dwarf UI/icon masters
+- Brand/UI: ask Evan for Behance Logo Designs; Mega Dwarf UI/icon masters optional — do not rebuild packs
 
 ## Ask Evan
 
 - Paths for ~250 roughness, cobble, brand/UI kit inbound pushes
 - Reuse rights on game UI vs store EULAs (imperfections EULA: no unaltered photo/image pack resale; OK embedded in final assets)
 - Any Hypha terrain / CE wood-junk maps not on the two public store SKUs
+
+### Seat notes — 2026-09-07 group chat
+
+- **Mega Dwarf** UI/logo work is **optional** for Augury — niche/convolution; do not rebuild packs. Prefer Evan’s imperfections + greyscale roughness as house DNA.
+- Taste lock: **gold paired with black** for kit chrome (Range Tech).
+- Push dial: GitHub HTTPS chokes large packs — prefer ~40–60 files / ~200–400 MB per push; first proof = **handful of W3np6 samples** (edge wear, cracks, smudge) not full 256.
