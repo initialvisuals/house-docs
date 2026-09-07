@@ -32,5 +32,7 @@ Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.be
 ### Seat notes — 2026-09-07 group chat
 
 - **Mega Dwarf** UI/logo work is **optional** for Augury — niche/convolution; do not rebuild packs. Prefer Evan’s imperfections + greyscale roughness as house DNA.
-- Taste lock: **gold paired with black** for kit chrome (Range Tech).
+- Taste lock — two golds, do not mix (Initial Visuals Group Chat 2026-09-07):
+  - **Kit chrome (Range Tech):** gold paired with black — **tech trim**. Not gold-plate.
+  - **Locus technology / alien set dressing:** black **obsidian + gold crack veins** — loud-scar stamp material on Inked/Monk pads (Lab-Rat). Pairs with void-spore grit. Distinct from kit chrome — **do not put Locus veins on gun kits**.
 - Push dial: GitHub HTTPS chokes large packs — prefer ~40–60 files / ~200–400 MB per push; first proof = **handful of W3np6 samples** (edge wear, cracks, smudge) not full 256.
