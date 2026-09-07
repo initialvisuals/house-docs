@@ -44,7 +44,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Tab** = inventory / status (includes health)
 - Health + armour **bottom-left**
 - Ammo peek: hold **Numpad 0** or hold **R**; double-tap **R** = emergency quick mag; press **R** = normal reload
-- Hold **`~`** = inspect weapon
+- Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only)
 - **B** = fire mode
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **V** = cycle optic on seated kit allow-list
@@ -67,7 +67,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD  <brain>` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INSPECT` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -86,16 +86,24 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Control DNA resolution
 - **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
 
-## Locus Standard + distance activation (fulcrumRust #18)
-- One fightable **Locus Standard** on the extract yard (`YARD_STANDARD` 5.15 / 0 / 7.85, right of creeper)
+## Locus Standard + Inked + distance activation (fulcrumRust #18 + #26)
+- Fightable **Locus Standard** + **Locus Inked** on the extract yard
+  - Standard pad `YARD_STANDARD` **(5.15, 0, 7.85)** — right of creeper; ash/bone + rust-orange eyes
+  - Inked pad `YARD_INKED` **(−5.10, 0, 8.20)** — left of 2D webbing; darker/hooded/thinner + cyan eyes + cheap ink-zone disc (not a Lab-Rat stamp)
 - Brain: **Idle → Alert → Chase / Engage → Recover**; Dead = ragdoll flop stub
 - Distance gate: `ACTIVATE_M` **24** / `SLEEP_M` **32** / `HEAR_M` **18** (far guts cold; shot crack can wake)
-- Combat: `MAX_HP` **80**, MP9-Z `SMG_PELLET` **14**, Engage slash **10**
-- **Inked** stub only (not spawned). Family TODO: Inked / Sonderer / Monk / Oculus / crawler
-- Glasses labels only: `LOCUS  STANDARD  <brain>` — see `LOCUS_AI_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md`
+- Combat: `MAX_HP` **80**, kit `SMG_PELLET` **14**, Engage slash **10**
+- Family TODO: Sonderer / Monk / Oculus / crawler
+- Glasses labels only: `LOCUS  STANDARD|INKED  <brain>` — see `LOCUS_AI_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md`
+
+## Hold-` inspect pose (fulcrumRust #28)
+- Hold **`** (Backquote; last-pass `~`) — reload-lift look-over overlay (feel-lab has no named inspect; Backquote is the debugger panel there)
+- Raise + closer + yaw/roll so the receiver faces the lens; release returns to current hold (hip / low / cant / ADS / sprint_high)
+- Overlay only — does not eat **U** / **RMB** / **V** / **N** / **B** / **Z**; fire blocked while up; B still toggles SEMI/AUTO
+- Glasses `INSPECT` label only — no numeric ammo HUD
 
 ## World drop / pickup (fulcrumRust #19)
-- **Z** drops held MP9-Z as loose world kit + canvas bag pad (last-pass bind; feel-lab used X)
+- **Z** drops held kit as loose world kit + canvas bag pad (last-pass bind; feel-lab used X)
 - Snapshot keeps **in-mag + reserve mags + optic + can + fire mode**; cheap UUID (8-4-4-4-12) survives drop↔pickup
 - **F** picks up or swaps (current kit lands at feet first); empty hands hide viewmodel / heat cards / fire
 - Cap **8** loose drops; oldest despawns (`WORLD_DROP_CAP`)
@@ -115,6 +123,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Title + pause **Options** open a three-row sheet; **A/D** or **←/→** nudge **0.05**; Esc back; dials persist across Deploy
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
+- Day-one binaural / positional stereo rides FX (Hypha #27 open) — not a fourth bus
 
 ## Transvoxel extract host (fulcrumRust #16)
 - Flat-world bake-once isosurface via crates.io **`transvoxel` 2.0** (Lengyel); **not** a globe
@@ -156,6 +165,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
 - Day HDRI file pairing (parked behind procedural dome)
+- Binaural / positional stereo on FX (Hypha #27 open)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -170,3 +180,5 @@ SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
 Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).
 Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07).
 Wall-clamped Q/E lean polish: fulcrumRust PR #25 (2026-09-07).
+Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
+Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
