@@ -26,7 +26,9 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## World bake (Hypha)
 - Prefer proving **hub + extract linked by tunnel** early if it doesn’t block the window; otherwise one medium Forever Winter instance is fine day-one
 - Near-spawn **mycelium growth PoCs**: 2D stamp, 3D organic form, ground creeper (gas/freeze/burn curl later)
-- **Smart material stamps** (Lab-Rat #15): dirt/sand/rock/concrete/organic on 8 m cells + sit-on-surface structures; Hypha owns real `VoxelHost` + meshed stamped cells
+- **Smart material stamps** (Lab-Rat #15): dirt/sand/rock/concrete/organic on 8 m cells + sit-on-surface structures
+- **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
+- Hypha owns real `VoxelHost` + Transvoxel host + meshed stamped cells
 
 ## Downed / revive
 - Teammate **stabilize**, then heal with **items** (no magic heal)
@@ -84,3 +86,4 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
 Smart stamps: fulcrumRust PR #15 (2026-09-07).
+Transvoxel consume channels: fulcrumRust PR #17 (2026-09-07).
