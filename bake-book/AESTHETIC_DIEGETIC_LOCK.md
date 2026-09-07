@@ -95,6 +95,14 @@ Title/main + settings clone is **not done**. Do not claim unfinished menu work a
 
 #21 Options three-row audio sheet stays until the substrate lands. Still no second ammo HUD. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
+## Embodied feel (Range Tech — cooking, not shipped)
+
+Evan 2026-09-07. **Not done.** Range Tech owns the feel pass. Do **not** claim it shipped.
+
+Aim-offset **looks/feels correct** for guns, attachments, controller — **transpose** that work into fulcrumRust (**outside materials and range geometry**). Concrete Echo / FoW OG has a great controller too + **action audio cues**. Find a **sweet medium** between aim-offset and CE/FoW for embodied feel.
+
+#12 bind lock (Q/E lean, Ctrl+mouse height, wheel speed) stays. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |
