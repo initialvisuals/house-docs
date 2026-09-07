@@ -22,7 +22,19 @@ First Lab-Rat voxel-world slice. **Not** a 3D paint editor. **Not** Hypha chunk/
 | **Glasses** | Off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (thin analysis-knowledge-core; labels only) |
 | **Seed** | `FULCRUM_SEED` feeds extract bake + stamp field |
 
-Steal-next: Hypha meshes stamped cells + LOD; Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md`.
+## Density + material consume channels (PR #17)
+
+Evan lock: terrain look is **Transvoxel** (seamless LOD). Lab-Rat does **not** own the mesher or Lengyel tables.
+
+| Lock | Detail |
+|------|--------|
+| **API** | `sample_channels` / `fill_chunk_samples` expose signed density + `VoxelMaterial` |
+| **Density sign** | `> 0` solid, `< 0` air, `0` isosurface (Hypha may flip for port) |
+| **Grid order** | `fill_chunk_samples`: `ix` fastest, then `iy`, then `iz` |
+| **Ownership** | Hypha hosts Transvoxel + far-chunk simplify; Lab-Rat only stamps + channels |
+| **Peek leftover** | CPU boxes stay readable; consume path is the sample channels |
+
+Steal-next: Hypha evaluate ling0x vs Lengyel tables, implement real `VoxelHost`, sample into chunks, drop CPU-box overlay when mesher live. Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md`.
 
 ## Near-spawn yard silhouette fidelity (PR #13)
 
