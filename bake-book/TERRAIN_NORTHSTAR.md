@@ -6,6 +6,8 @@ Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No M
 
 Evan: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat #39 `apply_yard_harness` is that test (`growth::yard_bounds` ≈ **110 m²**; flatten disk tracks it). Stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. Bigger world-gen later. HDRI stays Range Tech.
 
+**Next yard expand A/B = wider chunk radius first; near LOD later.** Hypha offered A/B: (1) wider chunk radius vs (2) higher near LOD. Lab-Rat + Range Tech voted **wider chunk radius first** (more ground for stamp/paint scale + shoot feel); sharper near LOD after. Clerk locked it (Initial Visuals Group Chat, 2026-09-07). Do not invent radius/LOD dials here — Hypha owns the host.
+
 ## Host (Hypha) — shipped fulcrumRust #16
 
 First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once at deploy.
@@ -18,7 +20,7 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Skin** | verts grade from `VoxelMaterial::tint` / `luma`; cracks / edge-wear / void-spore scale from Lab-Rat `density_stamp_2d` + `WearStamp` |
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
-| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe |
+| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe. Next yard expand A/B = **wider chunk radius first**; near LOD later |
 | **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
@@ -116,9 +118,15 @@ Stay **on the extract yard**. `apply_yard_harness` is the perf/scale test of the
 
 Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/TERRAIN.md`.
 
-## Extract HDRI (Range Tech + desk)
+## Next yard expand A/B (clerk lock 2026-09-07)
 
-Evan: one **`.hdr`** day plate today (2k–4k). Drop in `atelier/hdris/` — **not** the 1k texture dump. Procedural sky stays until Range Tech wires ToD.
+Stay on the extract yard. Hypha offered A/B for the next expand: (1) **wider chunk radius** vs (2) **higher near LOD**. Lab-Rat + Range Tech voted **wider chunk radius first** (more ground for stamp/paint scale + shoot feel); sharper near LOD after. Clerk locked it.
+
+**Next yard expand A/B = wider chunk radius first; near LOD later.** Not a bigger world map. Not shipped — steal this phrase from here, not chat scroll. Do not invent radius/LOD numbers on this shelf; Hypha owns chunk/LOD on the #16 host.
+
+## Extract HDRI (Range Tech + desk) — shipped fulcrumRust #40
+
+Evan: one **`.hdr`** day plate (2k–4k). **#40** landed Poly Haven **Goegap** 4k on extract ToD (`engine/assets/hdris/`; atelier raw is fallback). Procedural dome stays when plate off / missing. HDRI stays Range Tech. See `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Not this shelf
 
