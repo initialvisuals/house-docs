@@ -19,7 +19,7 @@ Lab-Rat ships the density + material sample path Hypha feeds into Transvoxel. No
 | `DensitySample` / `sample_channels` | Signed density + `VoxelMaterial` at a point |
 | `fill_chunk_samples` | Regular grid fill (`ix` fastest, then `iy`, then `iz`) |
 
-**Density convention:** `> 0` solid (below heightfield / inside structure), `< 0` air, `0` isosurface. Hypha flips the sign if the chosen port disagrees.
+**Density convention:** `> 0` solid (below heightfield / inside structure / inside a wear leftover), `< 0` air, `0` isosurface. Hypha flips the sign if the chosen port disagrees.
 
 CPU-box overlays stay a peekable leftover; the consume path is the density/material sample. Far-chunk simplify + transition cells stay Hypha.
 
@@ -42,6 +42,16 @@ Organic voxel surface structures + smart-material tags onto Hypha’s density fi
 - **Structures:** sit-on-surface mushroom / web / rock / lip / ripple / grit (skip yard + spawn)
 - **Host handoff:** Lab-Rat ships `VoxelHost` stub + `classify` / `stamp_field`; Hypha implements real heightfield + meshed stamped cells + LOD
 - Detail: fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md`
+
+## Void-spore + wear leftovers (Lab-Rat #20)
+
+Visual DNA for Hypha’s Transvoxel grade — still not a mesher.
+
+- Shared `density_stamp_2d` drives yard silhouettes **and** concrete crack / edge-wear
+- Wear leftovers (`ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom`) write into density + material channels
+- Keep `classify` + `stamp_field` + `density_stamp_2d` wear when swapping real `VoxelHost`
+- Grade verts grimdark via `VoxelMaterial::tint` / `luma`; brutalist masses are the upward scale target
+- Hypha eval pile (sjoerdev / DXGatech / UnrealSandboxTerrain / qwertzui11) stays host DNA — Lab-Rat does not own tables
 
 ## Not this shelf
 

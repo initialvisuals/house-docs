@@ -25,8 +25,8 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## World bake (Hypha)
 - Prefer proving **hub + extract linked by tunnel** early if it doesn’t block the window; otherwise one medium Forever Winter instance is fine day-one
-- Near-spawn **mycelium growth PoCs**: 2D stamp, 3D organic form, ground creeper (gas/freeze/burn curl later)
-- **Smart material stamps** (Lab-Rat #15): dirt/sand/rock/concrete/organic on 8 m cells + sit-on-surface structures
+- Near-spawn **void-spore growth PoCs**: denser 2D webbing, hellish mushroom, spore-tipped creeper (curl **1 / 2 / 3** live)
+- **Smart material stamps** (Lab-Rat #15 + #20): dirt/sand/rock/concrete/organic on 8 m cells, grimdark luma + sit-on-surface (void-spore bloom / brutalist mass) + density-driven concrete wear
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - Hypha owns real `VoxelHost` + Transvoxel host + meshed stamped cells
 
@@ -95,6 +95,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Cap **8** loose drops; oldest despawns (`WORLD_DROP_CAP`)
 - Knife / bandage stay on person; mag chrome stays diegetic on the kit — no HUD ammo counter
 
+
+## Void-spore grimdark + concrete wear (fulcrumRust #20)
+- Shared `density_stamp_2d` drives yard silhouettes **and** concrete crack / edge-wear leftovers
+- Wear kinds: `ConcreteCrack` / `ConcreteEdge` / `VoidSporeWeb` / `VoidSporeBloom`; wear is solid on density for Hypha
+- Grimdark `VoxelMaterial::luma`; sit-on-surface adds void-spore bloom + brutalist mass
+- Curl **1 / 2 / 3** + glasses stamp labels unchanged
+- See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `docs/STAMPS.md`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -105,3 +113,4 @@ Smart stamps: fulcrumRust PR #15 (2026-09-07).
 Transvoxel consume channels: fulcrumRust PR #17 (2026-09-07).
 Locus Standard AI: fulcrumRust PR #18 (2026-09-07).
 World drop/pickup + FX draw dials: fulcrumRust PR #19 (2026-09-07).
+Void-spore grimdark + concrete wear: fulcrumRust PR #20 (2026-09-07).

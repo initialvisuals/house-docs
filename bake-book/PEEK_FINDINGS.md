@@ -54,6 +54,14 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **FX draw-distance dials** — feel-lab hide-not-despawn XZ: `muzzle_draw_m` **28** (8–80), `spark_draw_m` **55**, `decal_draw_m` **700**; walking back shows them again; #12 flash/spark/mark stay live
 - Mag chrome stays diegetic on the kit — no HUD ammo counter
 
+## Closed by fulcrumRust #20 (2026-09-07)
+
+- **Void-spore grimdark yard** — denser 2D webbing / hellish mushroom / spore-tipped creeper via shared `density_stamp_2d` (veins + anastomosis rings + grit + spore core). Curl **1 / 2 / 3** unchanged
+- **Concrete crack / edge-wear** — `WearStamp` leftovers driven by the same 2D density field; brutalist masses on perimeter concrete; wear feeds `sample_channels` so Hypha can mesh scars
+- **Smart materials grimdark grade** — dirt / sand / rock / concrete / organic crushed luma (`VoxelMaterial::luma`); organic dirt bleed = void-spore takeover webs
+- Peek: stamp (left) hellish webbing not gray plate; center mushroom dark fruiting body; creeper tips spore; off-yard perimeter lip carries cracks + chipped edges; glasses still `CONCRETE  STAMP`
+- Detail: fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md` / `AESTHETIC_DIEGETIC_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -68,7 +76,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 - Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
 - Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
-- Lab-Rat: consume channels landed (#17); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: world drop/pickup + FX draw-distance dials landed (#19); next audio buses / day-night clouds
 
 Steal from this shelf + steal map. Not chat scroll.

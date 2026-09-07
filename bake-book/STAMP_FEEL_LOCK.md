@@ -3,6 +3,7 @@
 Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 
 - **Bake stamps on hub skin:** blend of quiet authored grit + loud organic scars (plume webbing / anastomosis) as readable landmarks
+- **Void-spore terraforming:** hellish mushroom / 2D density cracks = Lab-Rat visual DNA for Hypha terrain (PR #20)
 - **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
@@ -35,6 +36,24 @@ Evan lock: terrain look is **Transvoxel** (seamless LOD). Lab-Rat does **not** o
 | **Peek leftover** | CPU boxes stay readable; consume path is the sample channels |
 
 Steal-next: Hypha evaluate ling0x vs Lengyel tables, implement real `VoxelHost`, sample into chunks, drop CPU-box overlay when mesher live. Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md`.
+
+
+## Void-spore terraforming + density-driven wear (PR #20)
+
+Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void spores, not cute mushrooms. **Not** a mesher.
+
+| Lock | Detail |
+|------|--------|
+| **2D density stamp** | Shared `growth::density_stamp_2d` — veins + anastomosis rings + grit + spore core (yard + wear driver) |
+| **Yard silhouettes** | Void-spore 2D webbing / hellish mushroom / spore-tipped creeper; curl **1 / 2 / 3** unchanged |
+| **Concrete wear** | `WearKind::ConcreteCrack` / `ConcreteEdge` from the 2D field onto brutalist perimeter masses |
+| **Void-spore bleed** | `WearKind::VoidSporeWeb` + `VoidSporeBloom` on organic cells (terraforming volume) |
+| **Structures** | Sit-on-surface adds **void-spore bloom** + **brutalist mass** (with #15 set) |
+| **Grimdark grade** | `VoxelMaterial::luma` / tint — crushed materials; organic dirt bleed = takeover webs |
+| **Consume** | Wear leftovers are solid on density (`> 0`); Hypha grades verts the same way |
+| **Ownership** | Lab-Rat stamps + wear leftovers; Hypha meshes + grades; Augury avoids organic / void-spore spawn until growth-enemy pass |
+
+Detail: fulcrumRust `docs/STAMPS.md`. Steal-next: Hypha grade verts grimdark + sample wear into chunks; Augury spawn filters prefer rock/concrete.
 
 ## Near-spawn yard silhouette fidelity (PR #13)
 
