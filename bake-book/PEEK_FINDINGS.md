@@ -48,6 +48,12 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Inked** palette stub only — not spawned. TODO family: Inked / Sonderer / Monk / Oculus / crawler
 - Glasses: `LOCUS  STANDARD  IDLE|ALERT|…` labels only. See house `LOCUS_AI_LOCK.md`.
 
+## Closed by fulcrumRust #19 (2026-09-07)
+
+- **World drop / pickup** — **Z** drops held MP9-Z as loose world kit + canvas bag pad (feel-lab X remapped to last-pass Z); snapshot keeps in-mag + reserve mags + optic + can + fire mode; cheap UUID survives drop↔pickup; **F** picks up / swaps (held kit lands at feet first); empty hands hide viewmodel / heat cards / fire; cap **8** oldest despawn; knife/bandage stay on person
+- **FX draw-distance dials** — feel-lab hide-not-despawn XZ: `muzzle_draw_m` **28** (8–80), `spark_draw_m` **55**, `decal_draw_m` **700**; walking back shows them again; #12 flash/spark/mark stay live
+- Mag chrome stays diegetic on the kit — no HUD ammo counter
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -63,5 +69,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
 - Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: consume channels landed (#17); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Range Tech: world drop/pickup + FX draw-distance dials landed (#19); next audio buses / day-night clouds
 
 Steal from this shelf + steal map. Not chat scroll.
