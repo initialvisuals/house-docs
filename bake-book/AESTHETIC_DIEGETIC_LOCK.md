@@ -57,7 +57,7 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
 - Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
 - Performant first — bake-once mesh, no live carve day-one
-- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips still open (follow Transvoxel distance rings so far grit does not shout). Atelier stays **read-only** for crew writes while Evan pushes
+- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier stays **read-only** for crew writes while Evan pushes
 - Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night sky (shipped Range Tech #24 + #40)
@@ -108,7 +108,7 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier write** (read-only while Evan pushes). LOD-tied texture mips hook Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier write** (read-only while Evan pushes). LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
