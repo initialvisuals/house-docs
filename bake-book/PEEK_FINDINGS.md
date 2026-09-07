@@ -157,6 +157,14 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Peek: Title → Deploy → extract; slightly **left** of 2D webbing; Inked stands on loud ink hotspot; optional **1 / 2 / 3** wilt
 - Detail: fulcrumRust `docs/GROWTH_POC.md` + `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md` / `LOCUS_AI_LOCK.md`
 
+## Closed by fulcrumRust #32 (2026-09-07)
+
+- **R scheme** — **Hold R** (~200 ms) peek chrome only (does not start reload; release after a hold is not a tap). **Tap R** short press, reload on RELEASE when `in_mag < capacity` AND reserves > 0 (NOT empty-only). **Double-tap R** (~300 ms from first tap) = emergency SWAP
+- **Dials** (`kit.rs` + `session.rs`): `RELOAD_PEEK_HOLD_SEC` **0.20** · `RELOAD_DOUBLE_TAP_SEC` **0.30** · `RELOAD_BASIC_SEC` **1.10** · `RELOAD_EMERGENCY_SEC` **0.46** (same 1-reserve cost)
+- **Discard** — leftover rounds discarded on both paths (reserve is whole mags, not pocketed partials). Emergency’s higher-cost feel is dumping a half-stick
+- Glasses: `RELOAD` (basic) / `SWAP` (emergency) labels only — never a numeric ammo HUD
+- Intact: knife, bandage, lean, inspect, ToD, kits. Viewmodel `reload_t` mag-out dip; inspect overlay still wins over reload dip
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -172,6 +180,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); Day HDRI still parked; ballistics / HoB dials may still be cooking separately; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.

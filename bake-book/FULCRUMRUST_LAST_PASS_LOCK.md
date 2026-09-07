@@ -8,12 +8,13 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Knife**
 - **Bandage**
 - Find other weapons on enemies / in boxes / loose in world
+- Mag reload is **tap-R** (not empty-only) / **double-tap SWAP** — leftover discarded; Hold-R is peek only (fulcrumRust #32)
 
 ## Kit picker + attachments (fulcrumRust #14 + #22)
 - Day-one spawn is the **feel-lab MP9-Z silhouette** (procedural boxes), not the brick SMG
 - Feel-lab kit stubs also seated: **SR-25** (DMR rail + 20-rd box) + **M24** (bolt + 5-rd clip + scope tube)
 - **G** cycles MP9-Z → SR-25 → M24; **4 / 5 / 6** seat directly; **U** stays unaimed-hold cycle; **1 / 2 / 3** stay Lab-Rat curl
-- Mag chrome stays diegetic on the seated kit — well count **is** mag size (MP9-Z **20** / SR-25 **20** / M24 **5**); Hold-R peek unchanged; no HUD ammo counter
+- Mag chrome stays diegetic on the seated kit — well count **is** mag size (MP9-Z **20** / SR-25 **20** / M24 **5**); Hold-R peek / tap-R reload / double-tap SWAP (fulcrumRust #32); leftover discarded; no HUD ammo counter
 - **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow
 - **N** — toggle .45 suppressor / can mounts; muzzle / flash / tracer spawn follow can tip when mounted
 - FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
@@ -43,8 +44,8 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - MyceliumEngine **slot system** (stub OK)
 - **Tab** = inventory / status (includes health)
 - Health + armour **bottom-left**
-- Ammo peek: hold **Numpad 0** or hold **R**; double-tap **R** = emergency quick mag; press **R** = normal reload
-- Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only)
+- Ammo peek / mag swap (fulcrumRust #32): **Hold R** (`RELOAD_PEEK_HOLD_SEC` **0.20**) lights peek chrome only — does not start a reload; release after a hold is not a tap. **Tap R** (short press, reload on RELEASE) = basic swap (`RELOAD_BASIC_SEC` **1.10**) when `in_mag < capacity` AND reserves > 0 (**NOT** empty-only). **Double-tap R** (`RELOAD_DOUBLE_TAP_SEC` **0.30** from first tap) = emergency SWAP (`RELOAD_EMERGENCY_SEC` **0.46**). Last-pass feel-lab also named hold **Numpad 0** as a peek bind — fulcrumRust shipped Hold-R peek / tap-R reload / double-tap SWAP
+- Hold **`** (Backquote; last-pass `~`) = inspect weapon (fulcrumRust #28 — reload-lift look-over overlay; glasses `INSPECT` only; inspect still wins over reload dip)
 - **B** = fire mode
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **V** = cycle optic on seated kit allow-list
@@ -67,7 +68,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -177,6 +178,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Untouched: kits / drop / audio / heat / ToD / Locus / Transvoxel; slide / Ctrl+mouse height / wheel speed stay
 - See fulcrumRust `engine/src/feel.rs` + `engine/src/player.rs`
 
+## Mag reload DNA (fulcrumRust #32)
+- Scheme: **Hold R** (~200 ms) = peek chrome only (does not start reload; release after a hold is not a tap). **Tap R** = short press, reload on RELEASE when `in_mag < capacity` AND reserves > 0 (NOT empty-only). **Double-tap R** (~300 ms from first tap) = emergency SWAP
+- Dials (`engine/src/kit.rs` + `session.rs`): `RELOAD_PEEK_HOLD_SEC` **0.20** · `RELOAD_DOUBLE_TAP_SEC` **0.30** · `RELOAD_BASIC_SEC` **1.10** (basic mag-out pose stub) · `RELOAD_EMERGENCY_SEC` **0.46** (faster slap, same 1-reserve cost)
+- Leftover rounds discarded on both paths (reserve is whole mags, not pocketed partials). Emergency’s higher-cost feel is dumping a half-stick
+- Glasses labels only: `RELOAD` (basic) / `SWAP` (emergency) — never a numeric ammo HUD
+- Intact / do not steal: knife, bandage, lean, inspect, ToD, kits
+- Viewmodel: `reload_t` mag-out dip; inspect overlay still wins over reload dip
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -200,3 +209,4 @@ Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
 Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
 Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
 Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
+Mag reload DNA: fulcrumRust PR #32 (2026-09-07).

@@ -11,13 +11,14 @@ Analysis-knowledge-core in-world labels (interacts, extract points, section samp
 - Spatially dynamic (not flat HUD chrome)
 
 **Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
-Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `INSPECT` (hold-` #28) · lean/slide/speed/height peeks.
+Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · lean/slide/speed/height peeks.
 
 ## Diegetic gun chrome — **Range Tech** (Sulfur frame)
 
 Ammo lives on the weapon:
 - Mag dots / diegetic ammo chrome on the seated feel-lab kit (receiver rail LEDs + plaque; fulcrumRust #14 + #22)
 - Well count **is** mag size — MP9-Z **20** / SR-25 **20** / M24 **5**; Hold-R peek becomes that chrome, not a second counter
+- Glasses may flash `RELOAD` / `SWAP` during mag swap (fulcrumRust #32) — still no numeric ammo HUD; Hold-R remains peek chrome on the gun. Dials: `RELOAD_PEEK_HOLD_SEC` **0.20** · `RELOAD_DOUBLE_TAP_SEC` **0.30** · `RELOAD_BASIC_SEC` **1.10** · `RELOAD_EMERGENCY_SEC` **0.46**
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
 - Optic hoods + .45 can are Range Tech attachments (**V** / **N**, kit allow-list); glasses still labels only
 - World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
