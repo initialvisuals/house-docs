@@ -5,14 +5,14 @@ Durable dial / peek lock from The Augury yard slice. Steal state *shape* from CE
 ## Ownership
 - **The Augury** owns Locus brains, distance activation, yard spawn pad, hurtbox hitscan hook into Range Tech tracers
 - **Range Tech** owns MP9-Z tracers / HoB / recoil (Augury only adds living hurtbox stop + damage)
-- **Hypha** owns Transvoxel / window / load gate
+- **Hypha** owns Transvoxel / window / load gate + shared `activation` gate for far chunk guts (`activation.rs`; same `ACTIVATE_M` / `SLEEP_M`)
 - **Lab-Rat** owns stamps / growth plots (Locus pad sits **right of the creeper**, does not own stamp materials)
 
 ## Distance activation (far guts stay cold)
 | Dial | Value | Note |
 |------|-------|------|
-| `ACTIVATE_M` | **24** | Wake when player enters; cold bodies skip path/hunt |
-| `SLEEP_M` | **32** | Hysteresis — warm body cools past this |
+| `ACTIVATE_M` | **24** | Wake when player enters; cold bodies skip path/hunt; **Hypha #23** also gates far stamp guts / growth+Locus upload |
+| `SLEEP_M` | **32** | Hysteresis — warm body cools past this; shared with Hypha chunk activation |
 | `HEAR_M` | **18** | Shot crack can wake Idle without LOS |
 | `ALERT_M` | **14** | Idle → Alert when close |
 | `ENGAGE_M` | **2.15** | Chase ↔ Engage melee band |
@@ -38,4 +38,4 @@ Near body: `LOCUS  STANDARD  IDLE|ALERT|CHASE|ENGAGE|RECOVER|DOWN` — Augury sm
 ## Morning peek
 Title → Deploy → hideout door (**W** / **F**) → extract yard → look slightly **right** of mushroom / past creeper → ash/bone biped with orange eye slits → LMB MP9-Z wounds; far map guts stay cold.
 
-Source: fulcrumRust `engine/src/locus.rs` + PR #18. Steal map Augury rows: Locus AI + distance activation → **partial**.
+Source: fulcrumRust `engine/src/locus.rs` + PR #18; shared gate `engine/src/activation.rs` + Hypha PR #23. Steal map Augury rows: Locus AI + distance activation → **partial** (numbers locked; Hypha far-guts reuse shipped).

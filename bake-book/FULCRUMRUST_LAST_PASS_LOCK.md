@@ -31,6 +31,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Smart material stamps** (Lab-Rat #15 + #20): dirt/sand/rock/concrete/organic on 8 m cells, grimdark luma + sit-on-surface (void-spore bloom / brutalist mass) + density-driven concrete wear
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
+- **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
 ## Downed / revive
 - Teammate **stabilize**, then heal with **items** (no magic heal)
@@ -120,6 +121,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze; hideout unfogged
 - Parked: live LOD recook · tunnels · runtime carve. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
+
+## Distance activation / far-guts cold (fulcrumRust #23)
+- Shared Augury Locus dials: `ACTIVATE_M` **24** / `SLEEP_M` **32** (CE labyrinth DNA; `activation.rs`)
+- Bake rings match Transvoxel LOD; far rings skip stamp-structure / wear consume; far plates stay out of extract bake (collide boxes land); brutalist compounds stay on horizon
+- Growth + Locus GPU uploads skip past `ACTIVATE_M`; near yard unchanged; reuses #16 `TerrainHost`
+- Smoke: `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168`
+- See `TERRAIN_NORTHSTAR.md` / `LOCUS_AI_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -134,3 +143,4 @@ Void-spore grimdark + concrete wear: fulcrumRust PR #20 (2026-09-07).
 Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).
 Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).
 SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
+Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).

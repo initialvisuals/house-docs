@@ -15,8 +15,24 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
 | **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe |
+| **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
+
+
+## Distance activation / far-guts cold (Hypha #23)
+
+Hardens extract cost so far chunks stay cheap — aligned with Augury Locus far-cold. Reuses #16 `TerrainHost` (no mesher rebuild). CE labyrinth DNA only (not a web port).
+
+| Lock | Detail |
+|------|--------|
+| **Shared dials** | `ACTIVATE_M` **24** / `SLEEP_M` **32** — same hysteresis as Augury Locus (`activation.rs` asserts equality) |
+| **Bake rings** | Match Transvoxel LOD 0/1/2; far rings skip stamp-structure / wear density consume + per-vert wear walk |
+| **Far extract bake** | Stamp plates / structures / wear stay out (collide boxes still land); far crates/poles skipped; brutalist compounds stay for horizon |
+| **Live cold** | Growth + Locus GPU uploads skip past `ACTIVATE_M`; yard Idle still visible; cycle/curl keep ticking |
+| **Smoke peek** | `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168` (~19× cheaper far mean) |
+
+Near playable yard unchanged. Steal map: Hypha chunk-LOD row + Augury enemy-activation notes. Detail: fulcrumRust `docs/TERRAIN.md` + `LOCUS_AI_LOCK.md`.
 
 ## Consume channels (Lab-Rat #17)
 
