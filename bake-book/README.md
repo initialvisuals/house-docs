@@ -25,6 +25,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 
 ## Related house notes
 
+- Axis lock (cam −Z / CE +X / barrel +Z) → [`AXIS_LOCK.md`](AXIS_LOCK.md)
 - Glyph HUD decode → [`../glyph-legend.md`](../glyph-legend.md)
 - Heat dials → [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
