@@ -34,7 +34,7 @@ Ammo lives on the weapon:
 
 ## Readable floor hotspots
 
-Floor/wall aftermath (spills, barrel-choir embers, Lab-Rat stamps) stays readable without softlocking the path. Loud Inked void-spore scar under `YARD_INKED` is a floor leftover (curl remnants stay). Locus hotspot FX language later — see `SULFUR_INFLUENCE.md`.
+Floor/wall aftermath (spills, barrel-choir embers, Lab-Rat stamps) stays readable without softlocking the path. Loud Inked void-spore scar under `YARD_INKED` is a floor leftover (curl remnants stay). Range Tech leftover feel-lab FX (fulcrumRust #47): punch vs scuff + stuck-slug plug stay floor/wall aftermath; hide-not-despawn via `casing_draw_m` **55** (brass + spent slugs). Mag chrome stays on the kit — no second ammo HUD. Locus hotspot FX language later — see `SULFUR_INFLUENCE.md`.
 
 ## Grimdark Locus terraforming (shipped Lab-Rat #20)
 
@@ -43,7 +43,7 @@ Aesthetic lock for Lab-Rat stamps + Range Tech FX contrast (wet-lab → main via
 - **Cracks / edge-wear** driven by **2D mushroom density stamps** (`density_stamp_2d` → `WearStamp` on concrete)
 - **Brutalist concrete** with procedural wear as the hard backdrop; glasses still labels only (`CONCRETE  STAMP`)
 - **Grimdark material grade** — crushed luma on dirt / sand / rock / concrete / organic; organic bleed = void-spore takeover
-- Range Tech: grimdark tracers / heat / muzzle on that concrete contrast; performant first
+- Range Tech: grimdark tracers / heat / muzzle on that concrete contrast; performant first. Hide-not-despawn XZ (`casing_draw_m` **55**, fulcrumRust #47) for brass + spent slugs; punch vs scuff impact marks — never a second ammo HUD
 - Detail shelf: `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/STAMPS.md`
 
 ## Grimdark extract host (shipped Hypha #16)

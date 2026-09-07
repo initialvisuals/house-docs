@@ -90,7 +90,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Visible shot feedback (fulcrumRust #12 + #19)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
 - Tracer speed / gravity / length from the SMG feel sheet
-- FX draw-distance (hide-not-despawn, fulcrumRust #19): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** · `decal_draw_m` **700** — walking back restores; they do not fill forever
+- FX draw-distance (hide-not-despawn, fulcrumRust #19 + #47): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** (clamp 8–200 via `live_casing`) · `decal_draw_m` **700** (clamp 50–2000) — walking back restores; they do not fill forever
 
 ## Props / audio / growth
 - Destructible crates, boxes, cabinets with drawers from FoW
@@ -155,16 +155,16 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
 - Title + pause **Options** open the Augury shell (#45); Hypha Graphics/Gameplay/Controls panes live (#46); **Audio** still Range Tech #21 three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
-- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
+- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
 - File-slot ownership is **cooking** — do **not** claim SFX file slots shipped. Range Tech takes later weapon/move SFX off CE/FoW packs into these buses. See Authored SFX vs spatial split.
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
 - Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
 - Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
-- World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
+- World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup), ricochet ping at graze skip (#47); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
 - Reverb zone stub: hideout (tight / drier) vs extract (industrial yard) — CE convolver DNA, not a send rack
-- `Slot::Locus` / `Slot::Wrap` ride FX; file slots / shot propagation later. Augury (**Chamber**) **keeps** this spatial/reverb DNA; Range Tech takes later file slots (**not shipped**)
+- `Slot::Locus` / `Slot::Wrap` / `Slot::Ricochet` (#47) ride FX; file slots / shot propagation later. Augury (**Chamber**) **keeps** this spatial/reverb DNA; Range Tech takes later file slots (**not shipped**)
 - Smoke: `zone=EXTRACT spatial=1.00`; FX `0` still silences fire
 - See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
@@ -380,6 +380,18 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. No atelier push.
 
+## Leftover feel-lab FX (fulcrumRust #47)
+
+Range Tech leftover feel-lab stack on the same #12/#19 `TracerField`. Tip already had tracers + muzzle + spark/mark + FX draw-distance — those stay. Not a rebuild.
+
+- **FxDrawDials** (updated #19 row): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** NEW (clamp 8–200 via `live_casing`) — hide-not-despawn XZ lane for brass + spent slugs · `decal_draw_m` **700** (clamp 50–2000)
+- **Brass eject** — live fire from seated kit `ejectionPort`: `MP9Z_EJECT` **(0.036, −0.014, 0.018)** · `SR25_EJECT` **(0.038, 0.008, 0.018)** · `M24_EJECT` **(0.03, 0.018, 0.055)**. Camera-right toss; `CASING_GRAVITY` **12**; bounce then sleep; `CASING_FADE` **6** s; `MAX_CASINGS` **48**. Hide-not-despawn via `casing_draw_m` **55**. Hold-**J** heat-tune dump (#35) skips brass so the lattice stays still
+- **Ricochet / spent slug** — feel-lab `trySpawnSpentSlugBounce` — **NOT** a bounce table. `SLUG_CHANCE` **1/16**; `SLUG_GRAZE_MAX` |n·vhat| ≤ **0.52** (dead-on still punches). Reflect incoming vel, keep 8–18% (`SLUG_KEEP_MIN`/`MAX` **0.08–0.18**); `SLUG_SPEED_MIN`/`MAX` **2.2–16**. Spent-slug visual `MAX_SLUGS` **24**; scuff mark instead of punch plug. Optional FX bus `Slot::Ricochet` ping at skip point
+- **Richer impact geo** — punch vs scuff + `IMPACT_HOLE_VARIANTS` **10** + rim chips + stuck-slug plug (brass SMG / steel DMR+bolt). Rides existing spark/mark path — not a rebuild
+- Audio: FX bus routes now include ricochet (with fire/dry/reload/cycle/pickup/putdown/Locus/swipe/wrap)
+- Intact / do not steal: tracers / muzzle flash / #19 draw-distance stay; kits / lean / ToD+HDRI / knife / bandage / reload / heat-tune / Locus / Transvoxel / listen-server unchanged. Mag chrome stays diegetic — no second ammo HUD
+- See fulcrumRust `engine/src/tracers.rs` + `engine/src/feel.rs` (`FxDrawDials`) + `engine/src/kit_mesh.rs` (`ejectionPort`) + STEAL_MAP FX rows
+
 ## Windows one-click release builder (fulcrumRust #42)
 
 Hypha. Honest Windows release path — not quality/flag options (those stay open; Lab-Rat may mirror for pycelium later — no dials invented here). Linux/CI unchanged. Does not touch atelier, HDRI/ToD, kits, terrain.
@@ -456,6 +468,7 @@ Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Ch
 Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
 Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
+Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcrumRust PR #47 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
