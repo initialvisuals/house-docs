@@ -35,16 +35,28 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **M** = map
 - **Z** = drop bag
 - **X** = prone
-- **Ctrl** + **mouse wheel** = variable crouch height (aim-offset)
-- Leans: prefer **aim-offset** lean; CE wall-camera DNA where needed
 - Canted hold + high/low ready from aim-offset
 - **H** = shoulder swap (FoW habit); help remaps off H
-- Variable walk; **hold Shift** = sprint; power slide
+
+## Axes + controller lock (fulcrumRust #12)
+- World is **Y-up**; `yaw = 0` looks **+Z** (hideout door / extract yard)
+- Mouse-right **increases** yaw; WASD is camera-relative on that yaw
+- SMG long axis is **look** (not +X); mag dots along the bore
+- **Q / E** — peek left / right (wall-clamped; feel-lab +lean = left)
+- **Shift then Ctrl** — slide carry (sprint + crouch rising edge)
+- **Hold Ctrl + mouse up/down** — analog eye height; does **not** pitch-look
+- **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
+- Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
+- Glasses may show `SLIDE` / `SPD` / `HT` labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
 - ADS/hip: **both**, weighted by enemy/context
+
+## Visible shot feedback (fulcrumRust #12)
+- LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
+- Tracer speed / gravity / length from the SMG feel sheet
 
 ## Props / audio / growth
 - Destructible crates, boxes, cabinets with drawers from FoW
@@ -52,10 +64,10 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Living mycelium growth-enemy (gas/freeze/burn curl; sprint-grow) = Lab-Rat DNA hosted on extraction map
 
 ## Control DNA resolution
-- FoW control scheme + aim-offset feel; agents resolve overlap
+- **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
 
-Source chat: Initial Visuals Group Chat, 2026-09-06.
+Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
