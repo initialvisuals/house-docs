@@ -236,6 +236,14 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Glasses labels still labels-only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `HOST` · etc.
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Hypha net + Augury down rows
 
+## Closed by fulcrumRust #38 (2026-09-07)
+
+- **Shape-agnostic stamp / paint substrate** — Lab-Rat hardens channels so any authored shape converts into density + material (or paint later). No new scar kinds / Standard scars / Monk AOE / extra yard silhouettes
+- **API** — `ChannelOp` Union / Subtract / Paint / Replace; primitives sphere / ellipsoid / capsule / box / ribbon / brush / height-mask / mesh / volume; `StampField::layers` vs `::content`; paint writes real, brush UX stubbed; mesh→voxel via `voxelize_mesh` → `stamp_volume`
+- **Consumers stay** — sit-on-surface leftovers, wear ribbons, Inked hotspot, yard plots + curl **1 / 2 / 3** compile into `StampField::content`; Hypha reserved StampSlots empty until fed
+- Does **not** own Transvoxel / Locus AI / guns. Lab-Rat writes; Hypha remeshes
+- Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -250,7 +258,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
-- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
+- Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); Day HDRI still parked; Voice/Music/FX buses (#21) carry Hypha/#27 spatial
 
 Steal from this shelf + steal map. Not chat scroll.
