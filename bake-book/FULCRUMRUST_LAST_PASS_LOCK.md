@@ -157,13 +157,14 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Title + pause **Options** open a three-row sheet; **A/D** or **←/→** nudge **0.05**; Esc back; dials persist across Deploy
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
+- File-slot ownership is **cooking** — do **not** claim SFX file slots shipped. Range Tech takes later weapon/move SFX off CE/FoW packs into these buses. See Authored SFX vs spatial split.
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
 - Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
 - Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
 - World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
 - Reverb zone stub: hideout (tight / drier) vs extract (industrial yard) — CE convolver DNA, not a send rack
-- `Slot::Locus` / `Slot::Wrap` ride FX; file slots / shot propagation later
+- `Slot::Locus` / `Slot::Wrap` ride FX; file slots / shot propagation later. Augury (**Chamber**) **keeps** this spatial/reverb DNA; Range Tech takes later file slots (**not shipped**)
 - Smoke: `zone=EXTRACT spatial=1.00`; FX `0` still silences fire
 - See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
@@ -364,6 +365,18 @@ Evan dump 2026-09-07. **Not shipped** — do not claim the feel pass as done. **
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
 
+## Authored SFX vs spatial split (cooking, not shipped)
+
+Initial Visuals Group Chat 2026-09-07. **Not shipped** — do **not** claim SFX file slots as done. #21 FX bus is **live** (procedural tones). Authored audio (rustles / rattles / slides) is meant to come over that bus.
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs into the live #21 Voice / Music / FX buses. Not a fourth bus. |
+| **Augury (Chamber)** | Keeps spatial / reverb DNA (#27). Does not take the file slots. |
+| **Lab-Rat** | Stamps stay **quiet on audio** |
+
+#21 Options sheet + #27 spatial path stay. Shot propagation still later. See `AESTHETIC_DIEGETIC_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
@@ -372,6 +385,7 @@ See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat
 - Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
+- Authored SFX vs spatial split: Range Tech takes weapon/move SFX file slots off CE/FoW packs into the live #21 buses (rustles / rattles / slides meant to come over); Augury (Chamber) keeps spatial/reverb DNA; Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07) — **not done** (do not claim file slots shipped)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -406,3 +420,4 @@ Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Ch
 Wider extract chunk radius (7×7 / 3 rings / 112 m / 12 544 m²): fulcrumRust PR #43 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — cooking, not shipped.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
+Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — cooking, not shipped.
