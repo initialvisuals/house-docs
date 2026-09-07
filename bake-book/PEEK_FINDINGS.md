@@ -278,6 +278,16 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Peek: `cargo run` → first frame grim title with FoW header mark above DEPLOY / HOST / JOIN / CONTINUE / OPTIONS / QUIT; Enter / W/S / click / title Esc same as #11
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` / `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
+## Closed by fulcrumRust #42 (2026-09-07)
+
+- **Windows one-click release builder** — Hypha; honest `build.bat` = `cargo build --release -p app` (package from `app/Cargo.toml`). Does not touch atelier, HDRI/ToD, kits, terrain
+- **PATH** — prepends `%USERPROFILE%\.cargo\bin` so double-click PATH still finds rustup. Clear miss if cargo absent (`https://rustup.rs`); pause on failure; print `target\release\app.exe`
+- **`build-and-run.bat`** — builds then launches that binary **in this console** so the window is waited on. No `start`+detach, no `timeout /t` (feel-lab `StartServer.bat` DNA: Git Bash / Firefox `timeout.exe` spam). Extra args pass through (`--host`, `--smoke`, …)
+- **README** — Windows double-click `build.bat` one-liner
+- Quality/flag options still open / not invented here. Lab-Rat may want the same pattern for pycelium later
+- Peek: double-click `build.bat` / `build-and-run.bat` on Windows
+- Linux/CI unchanged. Detail: fulcrumRust `build.bat` / `build-and-run.bat` + house `FULCRUMRUST_LAST_PASS_LOCK.md`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -290,9 +300,9 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **next yard expand A/B = wider chunk radius first; near LOD later** (clerk lock 2026-09-07 — Lab-Rat + Range Tech voted wider radius for stamp/paint scale + shoot feel); menus/settings substrate cooking (borderless-fullscreen default; windowed + exclusive; Graphics / Controls / Audio / Gameplay tabs; post AO/AA/CA/grain/DoF — steal CE/Mycelium; no atelier push) — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **next yard expand A/B = wider chunk radius first; near LOD later** (clerk lock 2026-09-07 — Lab-Rat + Range Tech voted wider radius for stamp/paint scale + shoot feel); menus/settings substrate cooking (borderless-fullscreen default; windowed + exclusive; Graphics / Controls / Audio / Gameplay tabs; post AO/AA/CA/grain/DoF — steal CE/Mycelium; no atelier push) — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); FoW title/main menu layout + settings clone cooking (colors/buttons clone FoW OG; settings can rip FoW; FoW OG input manager in scope) — **not done**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); Voice/Music/FX buses (#21) carry Hypha/#27 spatial; cooking one-click Windows `build.bat` with quality/flag options for fulcrumRust (Lab-Rat wants the same pattern for pycelium later — no dials invented here)
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); Voice/Music/FX buses (#21) carry Hypha/#27 spatial; basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 
 Steal from this shelf + steal map. Not chat scroll.

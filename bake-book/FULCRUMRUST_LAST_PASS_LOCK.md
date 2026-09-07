@@ -329,11 +329,19 @@ See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`.
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#41 sections stay.
 
+## Windows one-click release builder (fulcrumRust #42)
+
+Hypha. Honest Windows release path — not quality/flag options (those stay open; Lab-Rat may mirror for pycelium later — no dials invented here). Linux/CI unchanged. Does not touch atelier, HDRI/ToD, kits, terrain.
+
+- **`build.bat`** — `cargo build --release -p app` (package from `app/Cargo.toml`). Prepends `%USERPROFILE%\.cargo\bin` so double-click PATH still finds rustup. Clear miss if cargo absent (`https://rustup.rs`); pause on failure; print `target\release\app.exe`
+- **`build-and-run.bat`** — builds then launches that binary **in this console** (wait on process). No `start`+detach, no `timeout /t` (feel-lab `StartServer.bat` DNA). Extra args pass through (`--host`, `--smoke`, …)
+- README: Windows double-click `build.bat`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **wider chunk radius first**; near LOD later (clerk lock 2026-09-07)
 - Menus / settings: Augury FoW title/main clone + Hypha window/settings substrate cooking (Evan dump 2026-09-07) — **not done**
-- Range Tech cooking one-click Windows `build.bat` with quality/flag options for fulcrumRust (Lab-Rat wants the same pattern for pycelium later) — no dials invented here
+- Basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Growth PoCs after window exists
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
 
@@ -365,5 +373,6 @@ Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
 Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
+Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
 Yard expand A/B (wider chunk radius first): clerk lock, Initial Visuals Group Chat (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — cooking, not shipped.
