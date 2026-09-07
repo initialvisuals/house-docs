@@ -103,6 +103,13 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Curl **1 / 2 / 3** + glasses stamp labels unchanged
 - See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `docs/STAMPS.md`
 
+## Audio buses Voice / Music / FX (fulcrumRust #21)
+- Feel-lab Settings **Audio** DNA — **not a DAW**; procedural tones only; file slots later
+- Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
+- Title + pause **Options** open a three-row sheet; **A/D** or **←/→** nudge **0.05**; Esc back; dials persist across Deploy
+- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
+- Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -114,3 +121,4 @@ Transvoxel consume channels: fulcrumRust PR #17 (2026-09-07).
 Locus Standard AI: fulcrumRust PR #18 (2026-09-07).
 World drop/pickup + FX draw dials: fulcrumRust PR #19 (2026-09-07).
 Void-spore grimdark + concrete wear: fulcrumRust PR #20 (2026-09-07).
+Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).

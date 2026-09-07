@@ -41,7 +41,7 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 
 ## Closed by fulcrumRust #18 (2026-09-07)
 
-- **Locus Standard on yard** — graybox biped (capsule boxes, rust-eye slits) at `YARD_STANDARD` (5.15, 0, 7.85), right of Lab-Rat creeper
+- **Locus Standard on yard** — graybox biped (capsule boxes, rust-eye0) at `YARD_STANDARD` (5.15, 0, 7.85), right of Lab-Rat creeper
 - **Thin brain** — CE shape Idle→Alert→Chase/Engage→Recover; Dead = ragdoll flop stub
 - **Distance activation** — `ACTIVATE_M` 24 / `SLEEP_M` 32 / `HEAR_M` 18; far guts skip path/hunt; shot crack can wake
 - **MP9-Z wound** — Range Tech tracers already slab-hit walls; #18 adds living hurtbox hitscan + visual stop (`SMG_PELLET` 14); Engage slash 10
@@ -62,6 +62,13 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Peek: stamp (left) hellish webbing not gray plate; center mushroom dark fruiting body; creeper tips spore; off-yard perimeter lip carries cracks + chipped edges; glasses still `CONCRETE  STAMP`
 - Detail: fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md` / `AESTHETIC_DIEGETIC_LOCK.md`
 
+## Closed by fulcrumRust #21 (2026-09-07)
+
+- **Audio buses Voice / Music / FX** — feel-lab Settings Audio DNA (not a DAW); gains **0–2** default **1.00 / 100%** into a master; Options three-row sheet (title + pause); A/D or ←/→ nudge **0.05**; Esc back; dials persist across Deploy
+- **Routes** — FX: fire / dry / reload / cycle / pickup / putdown; Voice: UI confirm; Music: hideout / extract ambient bed stub
+- **Hard check** — SMG fire SFX respect FX bus (FX `0` silent; half quieter); procedural tones only; file slots later
+- Detail: house `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -77,6 +84,6 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 - Hypha: host Transvoxel (ling0x vs Lengyel), real `VoxelHost`, sample `fill_chunk_samples` into chunks, drop CPU-box overlay when mesher live
 - Augury: Locus Standard + distance activation landed (#18); next Inked/Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: world drop/pickup + FX draw-distance dials landed (#19); next audio buses / day-night clouds
+- Range Tech: audio buses Voice / Music / FX landed (#21); next day-night clouds + HDR pairing; spatial / binaural still Augury DNA on top of these buses
 
 Steal from this shelf + steal map. Not chat scroll.
