@@ -46,7 +46,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **V** = cycle optic (iron / holo / acog)
 - **N** = toggle .45 suppressor
 - **M** = map
-- **Z** = drop bag
+- **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
 - **H** = shoulder swap (FoW habit); help remaps off H
@@ -67,9 +67,10 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Heat tell: **both** (diegetic barrel + glasses readout)
 - ADS/hip: **both**, weighted by enemy/context
 
-## Visible shot feedback (fulcrumRust #12)
+## Visible shot feedback (fulcrumRust #12 + #19)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
 - Tracer speed / gravity / length from the SMG feel sheet
+- FX draw-distance (hide-not-despawn, fulcrumRust #19): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** · `decal_draw_m` **700** — walking back restores; they do not fill forever
 
 ## Props / audio / growth
 - Destructible crates, boxes, cabinets with drawers from FoW
@@ -87,6 +88,13 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Inked** stub only (not spawned). Family TODO: Inked / Sonderer / Monk / Oculus / crawler
 - Glasses labels only: `LOCUS  STANDARD  <brain>` — see `LOCUS_AI_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md`
 
+## World drop / pickup (fulcrumRust #19)
+- **Z** drops held MP9-Z as loose world kit + canvas bag pad (last-pass bind; feel-lab used X)
+- Snapshot keeps **in-mag + reserve mags + optic + can + fire mode**; cheap UUID (8-4-4-4-12) survives drop↔pickup
+- **F** picks up or swaps (current kit lands at feet first); empty hands hide viewmodel / heat cards / fire
+- Cap **8** loose drops; oldest despawns (`WORLD_DROP_CAP`)
+- Knife / bandage stay on person; mag chrome stays diegetic on the kit — no HUD ammo counter
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -96,3 +104,4 @@ MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
 Smart stamps: fulcrumRust PR #15 (2026-09-07).
 Transvoxel consume channels: fulcrumRust PR #17 (2026-09-07).
 Locus Standard AI: fulcrumRust PR #18 (2026-09-07).
+World drop/pickup + FX draw dials: fulcrumRust PR #19 (2026-09-07).
