@@ -60,6 +60,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **V** = cycle optic on seated kit allow-list
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
+- **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M**
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap. **F** tap near death bag = light corpse-reclaim stub; hold **F** = stabilize stub (self / yard dummy) or `[F] PICK UP STIM` when applicable — shipped stub (fulcrumRust #36)
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
 - **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
@@ -78,7 +79,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` labels only — never a second ammo/health HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` / `HDRI` / `PROC` (ToD strip, fulcrumRust #40) labels only — never a second ammo/health HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -97,6 +98,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Control DNA resolution
 - **Locked** by fulcrumRust #12: FoW scheme + aim-offset feel with Evan bind overrides above. No remaining soft overlap on lean / height / wheel.
+- **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
 
 ## Locus Standard + Inked + distance activation (fulcrumRust #18 + #26)
 - Fightable **Locus Standard** + **Locus Inked** on the extract yard
@@ -181,11 +183,11 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## Extract day/night clock + procedural sky (fulcrumRust #24)
 - Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside)
 - Default clock **06:21** (`TOD_DEFAULT` 6.35); sun path rise ~6:05 / set ~19:42; noon elev **56°**
-- Dials: **[ / ]** ±30 min · **K** dawn→noon→dusk→night · **L** live cycle (`LIVE_HOURS_PER_SEC` 0.25) · **− / =** exposure (default mul **1.44**, step 0.08) · **, / .** clouds (step 0.10)
-- **No XOR sky** — one ToD sample drives ambient / key / fill / fog + procedural dome; dual color-aware lights
-- Grimdark: `EXTRACT_SKY_LUMA` **0.20** crushes noon to ashen (house aesthetic lock); Day HDRI **parked** (atelier stub / 8k bloat)
-- Glasses on extract: `HH:MM  BAND  EXP x.xx` labels only — never a second ammo HUD
-- See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/sky.rs`
+- Dials: **[ / ]** ±30 min · **K** dawn→noon→dusk→night · **L** live cycle (`LIVE_HOURS_PER_SEC` 0.25) · **− / =** exposure (default mul **1.44**, step 0.08) · **, / .** clouds (step 0.10) · **/** Goegap plate on/off (#40; does not steal **M**)
+- **No XOR sky** — one ToD sample drives ambient / key / fill / fog + procedural dome; dual color-aware lights. #40 plate rides the same sample.
+- Grimdark: `EXTRACT_SKY_LUMA` **0.20** crushes noon to ashen (house aesthetic lock); Day HDRI shipped #40 (Goegap 4k; missing file stays procedural)
+- Glasses on extract: `HH:MM  BAND  EXP x.xx  HDRI|PROC` labels only — never a second ammo HUD
+- See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
 ## Wall-clamped Q/E lean polish (fulcrumRust #25)
 - Range Tech aim-offset / Engine #3 polish on existing #12 lean — no controller rebuild
@@ -285,6 +287,19 @@ Stay **on the extract yard** as a scale/perf harness for the #38 stamp/paint sub
 
 See `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/CHANNELS.md`.
 
+## Goegap HDRI on extract ToD (fulcrumRust #40)
+
+Range Tech day plate on the #24 extract clock. Hideout stays authored interior / unfogged.
+
+- Asset: Poly Haven **Goegap** 4k Radiance RGBE (~22MB, CC0 / Greg Zaal). `engine/build.rs` fetches **one** file at build time into `engine/assets/hdris/` (not a submodule, not the atelier texture dump). Atelier raw is fallback. Missing file → procedural dome (honest).
+- Feel: Radiance RGBE decode → equirect sky/env (`engine/src/hdri.rs`). Same ToD sample still drives ambient / key / fill / fog / dome — **no XOR sky**. Plate yaw tracks the clock sun. Night fades the day plate back to the procedural dome (stars stay).
+- Grimdark: `EXTRACT_SKY_LUMA` **0.20** keeps noon ashen
+- **/** toggles Goegap plate on/off — does **not** steal **M** (map). Existing ToD dials unchanged: **[ / ]** · **K** · **L** · **− / =** · **, / .**
+- Glasses: `06:21  DAWN  EXP 1.44  HDRI` (or `PROC` when plate off / missing) — labels only, never a second ammo HUD
+- Smoke: `clock=06:21 hdri=goegap` (or procedural)
+- Intact / do not steal: Lab-Rat stamps, Hypha Transvoxel, Augury Locus / down / death, listen-server, kits, knife, bandage, reload, heat-tune, **M** map
+- See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/hdri.rs`
+
 ## FoW title mark (fulcrumRust #41)
 
 Augury seats Evan’s Fulcrum of Will header as the title wordmark on the #11 shell. Grim lowfi title. Runtime does not clone atelier or CE. Do not invent a replacement mark (atelier `brand/` was README-only).
@@ -304,7 +319,6 @@ See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/brand.rs`.
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
-- Day HDRI file pairing (parked behind procedural dome)
 - Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
@@ -333,4 +347,5 @@ Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
 Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
+Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
