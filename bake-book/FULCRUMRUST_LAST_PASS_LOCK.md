@@ -374,20 +374,20 @@ Augury chrome on the existing FoW title (#11/#41) and HOLD pause shell. Logo sea
 | **Esc** | Hypha pane / Audio → Options → title/pause |
 | **Mark** | #41 seat stands: `MARK_MAX_W` **1.70** / `MARK_MAX_H` **0.40** / `MARK_CENTER_Y` **0.58** |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / post stubs / tab guts shipped #46. GPU post shaders still open.
+See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / tab guts / persist shipped #46. GPU post stack live #55 (toggles change the image; not full HDR bloom / god-ray).
 
-## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46)
+## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46; GPU post #55)
 
-Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + post stubs + persist shipped #46. **Do not claim GPU post passes (SSAO/FXAA/CA/grain/DoF shaders) done** — toggles persist as live-read stubs and no-op safely. Logo/title mark #41 still stands.
+Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + persist shipped #46. GPU post stack live **#55** — toggles change the image (AO/AA/CA/grain/DoF). Honest: not the full Mycelium HDR bloom / god-ray / contact-shadow chain. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD analysis-core chrome (#45). Options list shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
-| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + post stubs + persist — **shipped #46**. Borderless default; windowed 1280×720; exclusive (borderless fallback). Post AO/AA/CA(+strength)/grain/DoF persist and no-op until GPU passes — **not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
+| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS`. **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
-Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#46 sections stay.
+Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#55 sections stay.
 
 ## Hypha Options guts (fulcrumRust #46)
 
@@ -396,15 +396,34 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | Dial | Lock |
 |------|------|
 | **Window** | Live via winit. **Borderless** = default launch. **Windowed** = decorated 1280×720. **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW` (`borderless` / `windowed` / `exclusive`) |
-| **Post stubs** | AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist and are live-read stubs until GPU passes — **no-op safely**. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. GPU shaders still open |
-| **Graphics hint** | `POST STUB UNTIL GPU · WINDOW LIVE · A/D NUDGE` |
+| **Post** | Live GPU passes **#55**. AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist via #46 `project.json` / `FULCRUM_SETTINGS` and change the image. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. HUD/glasses still after post. Honest: not full HDR bloom / god-ray / contact-shadow |
+| **Graphics hint** | `POST LIVE · AA ON · WINDOW LIVE · A/D NUDGE` |
 | **Gameplay** | Glasses labels toggle + crosshair toggle (real — drop quads when off). Hint: `SHOOT FEEL STAYS · ENTER TOGGLE` |
 | **Controls** | Look scale on feel-lab sens: `LOOK_MUL` default **1.0**, min **0.25**, max **2.0**, step **0.05**; Invert Y toggle. Binds stay README. Hint: `LOOK SITS ON FEEL-LAB SENS · BINDS IN README` |
 | **Audio** | Untouched — Range Tech #21 Voice/Music/FX mixer |
 | **Persist** | `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json` |
 | **Esc** | Hypha pane / Audio → Options → title or HOLD (same stack as #45) |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. No atelier push.
+See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. No atelier push. GPU stack that made toggles change the image is #55.
+
+## Hypha GPU post stack (fulcrumRust #55)
+
+Follows #46 Settings Graphics toggles. Flags already persisted via `project.json` / `FULCRUM_SETTINGS` and previously no-op'd. #55 wires a real fullscreen wgpu stack so toggles change the image. #46 remains guts/persist.
+
+- Scene color + sampleable depth, then one fullscreen pass (Mycelium `POST_PASS_ORDER` compressed):
+  - **AO** — depth hemisphere SSAO (8 taps; Mycelium `ssao.rs` DNA, no G-buffer)
+  - **AA** — luma-edge FXAA (Mycelium `fxaa.rs`; TAA later)
+  - **CA** — radial R/B offset; strength slider already in Options
+  - **Grain** — hashed film grain last so FXAA does not eat it
+  - **DoF** — far-field blur only (viewmodel stays sharp)
+- HUD / glasses still draw on the swapchain after post
+- Not packed into Range Tech ToD / Goegap lighting params
+- Smoke: `post=aa` (default AA on); keeps #54 `sfx=file/`
+- Headless naga parse/validate of the post WGSL
+- Honest: toggles change the image. Not the full Mycelium HDR bloom / god-ray / contact-shadow chain
+- Stay out: Atelier, Range Tech bat/HDRI ToD/shoot feel/FX file slots, Augury title mark/HOLD/reverb
+
+See `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Leftover feel-lab FX (fulcrumRust #47)
 
@@ -479,7 +498,7 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
-- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post passes (SSAO/FXAA/CA/grain/DoF actual shaders) still cooking — **not done**
+- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech transposes aim-offset guns / attachments / controller into fulcrumRust (outside materials / range geometry); sweet medium vs CE / FoW OG controller + action audio cues (Evan dump 2026-09-07) — **not done**
 - Growth PoCs after window exists
@@ -522,7 +541,8 @@ Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
 Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
 Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcrumRust PR #47 (2026-09-07).
 AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
-Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post shaders still open.
+Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07).
+Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55.
 Embodied feel pass (aim-offset × CE/FoW, Range Tech): Evan dump (2026-09-07) — cooking, not shipped.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; feel polish / real packs still cooking.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; feel polish still next.

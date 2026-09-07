@@ -96,14 +96,14 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 - Still no second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
-## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46)
+## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46; GPU post #55)
 
-#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + post stubs + persist. **Do not claim GPU post passes (SSAO/FXAA/CA/grain/DoF shaders) shipped** — toggles persist as stubs and no-op safely. Logo/title mark #41 still stands.
+#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + persist. GPU post stack live **#55** (AO/AA/CA/grain/DoF; toggles change the image). HUD / glasses still draw after post. Labels-only glasses lock unchanged. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts; post AO/AA/CA(+strength)/grain/DoF persist as live-read stubs until GPU passes — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier push** |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 

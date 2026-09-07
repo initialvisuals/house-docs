@@ -23,7 +23,7 @@ Parked from Evan before sleep; clerk 2am shelf cook refreshes this pulse.
 
 | Seat | Open |
 |------|------|
-| **Hypha** | **#43 wider extract radius landed** (7×7 / 3 rings / 112 m / 12 544 m²; near LOD 16/8/4 unchanged). Next expand A/B = **near LOD later**. Menus/settings substrate cooking (borderless-fullscreen default; Graphics / Controls / Audio / Gameplay; post AO/AA/CA/grain/DoF) — **not done** |
+| **Hypha** | **#43 wider extract radius landed** (7×7 / 3 rings / 112 m / 12 544 m²; near LOD 16/8/4 unchanged). Next expand A/B = **near LOD later**. **#46 Options guts + #55 GPU post landed** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray). Menus/settings chrome stays Augury |
 | **Augury** | FoW title/main menu layout + settings clone cooking (clone FoW OG; #41 title mark already landed) — **not done**. FoW OG input manager in scope |
 | **Range Tech** | Quality/flag options on the #42 `build.bat` still cooking / open. **Embodied feel pass cooking** (aim-offset guns/attachments/controller → fulcrumRust outside materials/range geo; sweet medium vs CE/FoW OG controller + action audio cues) — **not done** |
 
