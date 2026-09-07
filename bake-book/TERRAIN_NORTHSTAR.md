@@ -140,8 +140,8 @@ Atelier roughness is **4k 48-bit PNG** — too fat for the yard. Do **not** ship
 
 | Seat | Lock |
 |------|------|
-| **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only |
-| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars. Near rings keep grit readable; far rings stay cheap (same far-cold habit as #23). Do not raise near LOD for texture — next expand A/B is still **near LOD later** |
+| **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only. **#58 landed** first vendored 256² set (`grit_{grunge,crack,dust}.png`) — not the whole roughness→stamp cook |
+| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars. Near rings keep grit readable; far rings stay cheap (same far-cold habit as #23). Still **open** — do not claim ring-mip texture LOD shipped. Do not raise near LOD for texture — next expand A/B is still **near LOD later** |
 | **Atelier** | Still **read-only** for crew writes while Evan pushes |
 
 See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.

@@ -2,9 +2,9 @@
 
 Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.behance.net/evanbuchanan + ArtStation Store. Public pages only — no invented projects.
 
-**Read-only while Evan pushes** (Evan peek 2026-09-07). Atelier is open for **read** — HDRI + small roughness sample landed. Crew must **not write** atelier while he pushes. Lab-Rat wires roughness → stamp on **fulcrumRust only**. See `PEEK_FINDINGS.md` Open.
+**Read-only while Evan pushes** (Evan peek 2026-09-07). Atelier is open for **read** — HDRI + small roughness sample landed. Crew must **not write** atelier while he pushes. Lab-Rat **#58** landed first quiet grit greyscale wiring on **fulcrumRust only** (`FULCRUM_GRIT=` / `FULCRUM_ATELIER=` read-only). Further roughness → stamp stays on fulcrumRust. See `PEEK_FINDINGS.md` Open.
 
-**Compress before the yard** (2026-09-07). Atelier roughness packs are **4k 48-bit PNG** — too large. Lab-Rat bakes greyscales down (8-bit / half-res / BC4-style height packs) **before** density. Do **not** ship raw 4k 48-bit into extract. Hypha LOD-tied mips ride Transvoxel distance rings (grit vs loud scars).
+**Compress before the yard** (2026-09-07). Atelier roughness packs are **4k 48-bit PNG** — too large. Lab-Rat bakes greyscales down (8-bit / half-res / BC4-style height packs) **before** density. Do **not** ship raw 4k 48-bit into extract. **#58** is the first landed 256² bake-down sample set — not the whole roughness→stamp / Hypha ring-mip cook. Hypha LOD-tied mips ride Transvoxel distance rings (grit vs loud scars) and stay open.
 
 ## Pull first
 
@@ -16,9 +16,9 @@ Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.be
 
 ## Seat ownership (when atelier packs land)
 
-- **Lab-Rat** — imperfections + greyscale seamless → stamp height/rough/mask. Bake greyscales **down before density** (8-bit / half-res / BC4-style). Do not ship raw 4k 48-bit into the yard
+- **Lab-Rat** — imperfections + greyscale seamless → stamp height/rough/mask. Bake greyscales **down before density** (8-bit / half-res / BC4-style). Do not ship raw 4k 48-bit into the yard. **#58** first landed 256² bake-down set on fulcrumRust
 - **Range Tech** — greeble/tech/panel pack + kit metal/rust; Mixer/Alien Isolation mood
-- **Hypha** — terrain PBR from greyscale; env moodboards (Tech Lab / Barracks / Serengeti / Temple Ruins). LOD-tied mips / compression hook Transvoxel distance rings (grit vs loud scars)
+- **Hypha** — terrain PBR from greyscale; env moodboards (Tech Lab / Barracks / Serengeti / Temple Ruins). LOD-tied mips / compression hook Transvoxel distance rings (grit vs loud scars) — still open; do not claim ring-mip texture LOD shipped
 - **Augury** — FoW logo + brand/UI from Behance Logo Designs; **Mega Dwarf** UI optional (need Evan masters if pulled); CE junk/wood set dressing refs (Backrooms Grocery, Trashbot)
 
 ## Moodboard / ref (not packs)

@@ -9,7 +9,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
-- **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. Quiet grit under loud scars. Atelier still **read-only** while Evan pushes. Hypha hooks mips to Transvoxel rings — see `TERRAIN_NORTHSTAR.md`
+- **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier still **read-only** while Evan pushes. Hypha ring-mip texture LOD still open — see `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -80,15 +80,32 @@ Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANN
 
 ## Texture compression — greyscale bake-down (2026-09-07)
 
-Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes.
+Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes. **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — not the whole roughness→stamp / Hypha ring-mip cook.
 
 | Lock | Detail |
 |------|--------|
-| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only** |
-| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars (near rings keep grit readable; far rings stay cheap). See `TERRAIN_NORTHSTAR.md` |
-| **Atelier** | Still **read-only** while Evan pushes. HDRI + small roughness sample landed. See `ATELIER_PORTFOLIO_STEAL.md` |
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only**. **#58 landed** first in-repo set: `assets/stamps/grit_{grunge,crack,dust}.png` |
+| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars (near rings keep grit readable; far rings stay cheap). Still **open** — do not claim ring-mip texture LOD shipped. See `TERRAIN_NORTHSTAR.md` |
+| **Atelier** | Still **read-only** while Evan pushes. HDRI + small roughness sample landed. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. See `ATELIER_PORTFOLIO_STEAL.md` |
 
 Detail: house `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
+
+## Quiet grit greyscales (PR #58)
+
+Lab-Rat. Feel lock: quiet authored grit + loud scars now has in-repo vendored height/rough modulators. **Not** a new `WearKind`. **Not** the Hypha ring-mip cook.
+
+| Lock | Detail |
+|------|--------|
+| **Ownership** | Lab-Rat. Atelier stays **read-only** |
+| **Assets** | Three 256² luma crops in `assets/stamps/` (~83 KB total): `grit_grunge.png` ← atelier `grunge_4.png` · `grit_crack.png` ← `paint cracks.png` · `grit_dust.png` ← `dust and smudge_2.png`. Already bake-down sized — **not** raw 4k 48-bit |
+| **Sample** | `engine/src/grit.rs` tiled world-XZ maps (stamp **+Y** height). Yard-weighted; far guts stay heightfield-only |
+| **Channels** | `sample_channels` adds quiet height under compiled content so loud void-spore / webbing / Inked scars stay landmarks |
+| **Wear** | Hypha vertex wear scale picks up `grit::rough` beside 2D-density cracks / `WearStamp`s |
+| **Overrides** | Optional read-only: `FULCRUM_GRIT=` (same filenames) or `FULCRUM_ATELIER=` (local checkout, downsample on load). No submodule. No atelier writes |
+| **Smoke** | `grit=vendor` (or `atelier` / `dir` if override) |
+| **Out of scope** | Range Tech controller · Augury Locus · Hypha Transvoxel tables · atelier repo writes · Hypha ring-mip texture LOD |
+
+Detail: fulcrumRust `docs/STAMPS.md` + `docs/CHANNELS.md` + `assets/stamps/README.md`.
 
 ## Extract-yard scale harness (PR #39)
 

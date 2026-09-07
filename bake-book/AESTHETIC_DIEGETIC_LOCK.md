@@ -57,7 +57,7 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
 - Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
 - Performant first — bake-once mesh, no live carve day-one
-- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips follow Transvoxel distance rings so far grit does not shout. Atelier stays **read-only** for crew writes while Evan pushes
+- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips still open (follow Transvoxel distance rings so far grit does not shout). Atelier stays **read-only** for crew writes while Evan pushes
 - Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night sky (shipped Range Tech #24 + #40)

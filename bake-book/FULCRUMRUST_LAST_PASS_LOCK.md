@@ -34,6 +34,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - **Shape-agnostic stamp/paint substrate** (Lab-Rat #38): any authored shape → density + material; ChannelOp Union/Subtract/Paint/Replace; paint writes real / UX stubbed; mesh→voxel convert. Yard/Inked/curl stay consumers. Lab-Rat writes; Hypha remeshes
 - **Extract-yard scale harness** (Lab-Rat #39): stay on the extract yard; `apply_yard_harness` via `StampField::layers`; pad ≈ **110 m²**; near-warm / far-cold (`guts_cold` **140**); smoke `layers=` `prims=` `yard_m2=`
+- **Quiet grit greyscales** (Lab-Rat #58): vendored 256² luma in `assets/stamps/` (`grit_grunge` / `grit_crack` / `grit_dust`); `grit.rs` tiled world-XZ (stamp +Y); `sample_channels` quiet height under loud scars; `grit::rough` wear; `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` read-only. Atelier stays read-only. Smoke `grit=`
 - **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Near LOD 16/8/4 unchanged. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Next expand A/B = **near LOD later**
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
@@ -347,15 +348,32 @@ See `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/CHANNELS.m
 
 ## Texture LOD compress (2026-09-07)
 
-Atelier roughness packs are **4k 48-bit PNG** — too large for extract. Do **not** ship raw 4k 48-bit into the yard.
+Atelier roughness packs are **4k 48-bit PNG** — too large for extract. Do **not** ship raw 4k 48-bit into the yard. Quiet grit greyscales **landed #58** (vendored bake-downs + `sample_channels` quiet height + `grit::rough` wear). Whole roughness→stamp / Hypha ring-mip cook is **not** done.
 
 | Seat | Lock |
 |------|------|
-| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars. Wire on **fulcrumRust only** |
-| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars (near rings keep grit readable; far rings stay cheap, same habit as #23) |
-| **Atelier** | Still **read-only** for crew writes while Evan pushes. HDRI + small roughness sample landed |
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars. Wire on **fulcrumRust only**. **#58 landed** first in-repo 256² set — see Quiet grit greyscales |
+| **Hypha** | LOD-tied mips / compression hooked to Transvoxel **distance rings** — grit vs loud scars (near rings keep grit readable; far rings stay cheap, same habit as #23). Still **open** — do not claim ring-mip texture LOD shipped |
+| **Atelier** | Still **read-only** for crew writes while Evan pushes. HDRI + small roughness sample landed. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only |
 
 See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `ATELIER_PORTFOLIO_STEAL.md`.
+
+## Quiet grit greyscales (fulcrumRust #58)
+
+Lab-Rat. Feel lock: quiet authored grit + loud scars now has in-repo vendored height/rough modulators. [PR #58](https://github.com/initialvisuals/fulcrumRust/pull/58) (`f3be0d4f`).
+
+| Dial | Lock |
+|------|------|
+| **Assets** | `assets/stamps/grit_grunge.png` · `grit_crack.png` · `grit_dust.png` — 256² luma (~83 KB) from atelier `grunge_4` / `paint cracks` / `dust and smudge_2`. Already bake-down sized — **not** raw 4k 48-bit |
+| **Sample** | `engine/src/grit.rs` tiled world-XZ (stamp **+Y** height). Yard-weighted; far guts stay heightfield-only |
+| **Channels** | `sample_channels` quiet height under compiled content so loud void-spore / webbing / Inked scars stay landmarks |
+| **Wear** | Hypha vertex wear scale picks up `grit::rough` beside 2D-density cracks / `WearStamp`s |
+| **Overrides** | Optional read-only: `FULCRUM_GRIT=` (same filenames) or `FULCRUM_ATELIER=` (local checkout, downsample on load). No submodule. No atelier writes |
+| **Smoke** | `grit=vendor` (or `atelier` / `dir` if override) |
+| **Still open** | SVG / density-mask ingest · experiment log · Hypha ring-mip texture LOD. Atelier stays **read-only** |
+| **Out of scope** | Range Tech controller · Augury Locus · Hypha Transvoxel tables · atelier repo writes |
+
+See `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/STAMPS.md` / `docs/CHANNELS.md`.
 
 ## Goegap HDRI on extract ToD (fulcrumRust #40)
 
@@ -539,8 +557,8 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
 - Evan peek 2026-09-07 leftover feel (Range Tech **cooking** — do **not** claim shipped): aim-offset ballistics / distant impact SFX feel better — steal closer; heat cards match aim-offset motion/look (not fulcrumRust bright-orange static; locked dials on `heat-card-dial-sheet.md`); lean still reverse + too shallow — flip + deepen from aim-offset/CE. **Crossover shoulder / left-corner peek** — gun crosses chest **right → partial left**; more left spacing on leans; not a body slide / not full swap / not infinite travel (**H** stays FoW shoulder swap). **Jump unlocked** — steal CE double-jump + land duck + cam shake (Range Tech cooking feel PR). Prior FPS-first **"no double-jump"** / #51 single-hop-only is superseded. #25 lean / #51 Space hop / #57 medium dials stay what `main` has until Range Tech lands the cook
-- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Lab-Rat bakes greyscales **down before density** (8-bit / half-res / BC4-style height packs); do **not** ship raw 4k 48-bit into the yard. Hypha LOD-tied mips / compression hook to Transvoxel **distance rings** (grit vs loud scars). See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
-- Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). Lab-Rat wires roughness → stamp on **fulcrumRust only** — bake-down first
+- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear). Hypha LOD-tied mips / compression hook to Transvoxel **distance rings** still open — do **not** claim the whole roughness→stamp / ring-mip cook. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
+- Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first
 - Growth PoCs after window exists
 - Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54)
 - Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54 (placeholders); authored-SFX **real packs** / shot propagation still open. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
@@ -572,6 +590,7 @@ Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
 Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
+Quiet grit greyscales (vendored 256² + sample_channels quiet height + grit::rough wear): fulcrumRust PR #58 (2026-09-07) — **landed**. Atelier read-only. Hypha ring-mip texture LOD still open.
 Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07).
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
 Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
@@ -586,6 +605,6 @@ Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07).
 Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55.
 Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust PR #57 (2026-09-07) — **landed**.
 Evan peek leftover feel + atelier read-only: clerk lock, Initial Visuals (2026-09-07) — Range Tech cooking; do **not** claim shipped. See `PEEK_FINDINGS.md` Open.
-Double-jump unlock + texture LOD compress + crossover shoulder: clerk lock, Initial Visuals (2026-09-07) — Evan override of FPS-first "no double-jump"; Range Tech cooking feel PR (double-jump + crossover shoulder / left-corner peek). Lab-Rat bake-down / Hypha ring mips. Atelier still read-only. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Open / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
+Double-jump unlock + texture LOD compress + crossover shoulder: clerk lock, Initial Visuals (2026-09-07) — Evan override of FPS-first "no double-jump"; Range Tech cooking feel PR (double-jump + crossover shoulder / left-corner peek). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD still open. Atelier still read-only. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Open / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; authored-SFX **real packs** still cooking.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; real CE / aim-offset WAV packs still next.
