@@ -1,10 +1,10 @@
 # Terrain north-star (fulcrumRust)
 
-Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK). Lab-Rat #38 ships the **shape-agnostic stamp / paint substrate** Hypha consumes — any authored shape → density + material; not more one-off scars.
+Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK). Lab-Rat #38 ships the **shape-agnostic stamp / paint substrate** Hypha consumes — any authored shape → density + material; not more one-off scars. Lab-Rat #39 is the **extract-yard scale harness** for that substrate.
 
 ## Morning lock (2026-09-07)
 
-Evan: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. Bigger world-gen later.
+Evan: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat #39 `apply_yard_harness` is that test (`growth::yard_bounds` ≈ **110 m²**; flatten disk tracks it). Stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. Bigger world-gen later. HDRI stays Range Tech.
 
 ## Host (Hypha) — shipped fulcrumRust #16
 
@@ -19,7 +19,7 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
 | **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe |
-| **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold |
+| **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
 
@@ -33,10 +33,10 @@ Hardens extract cost so far chunks stay cheap — aligned with Augury Locus far-
 | **Shared dials** | `ACTIVATE_M` **24** / `SLEEP_M` **32** — same hysteresis as Augury Locus (`activation.rs` asserts equality) |
 | **Bake rings** | Match Transvoxel LOD 0/1/2; far rings skip stamp-structure / wear density consume + per-vert wear walk |
 | **Far extract bake** | Stamp plates / structures / wear stay out (collide boxes still land); far crates/poles skipped; brutalist compounds stay for horizon |
-| **Live cold** | Growth + Locus GPU uploads skip past `ACTIVATE_M`; yard Idle still visible; cycle/curl keep ticking |
-| **Smoke peek** | `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168` (~19× cheaper far mean) |
+| **Live cold** | Growth + Locus GPU uploads skip past `ACTIVATE_M`; yard Idle still visible; cycle/curl keep ticking. **#39** near yard (harness pad ≈ **110 m²**) stays warm (`bake_guts_warm`); harness primitives are near-warm only |
+| **Smoke peek** | #23: `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168` (~19× cheaper far mean). **#39 harness:** `layers=43` · `prims=216` · `yard_m2=110` · `guts_warm=75` · `guts_cold=140` · `near_chunk=858` · `far_chunk=45` · `terrain_tris=3182`. Far cheapness holds (`far_chunk < near_chunk`) |
 
-Near playable yard unchanged. Steal map: Hypha chunk-LOD row + Augury enemy-activation notes. Detail: fulcrumRust `docs/TERRAIN.md` + `LOCUS_AI_LOCK.md`.
+Near yard stays the extract pad (expanded harness, not a bigger world map). Steal map: Hypha chunk-LOD row + Augury enemy-activation notes. Detail: fulcrumRust `docs/TERRAIN.md` + `LOCUS_AI_LOCK.md`.
 
 ## Consume channels (Lab-Rat #17)
 
@@ -97,11 +97,24 @@ Technology lock for Hypha consume — **not** another mesher and **not** Transvo
 | **Closed-form SDF** | `field.stamp(Primitive::…)` — sphere / ellipsoid / capsule / box / ribbon / brush / height-mask / mesh / volume |
 | **Paint** | `StampField::paint` / `ChannelStack::paint` — writes real; brush UX stubbed. `density_delta > 0` puffs; `< 0` + Subtract carves; density 0 = material-only on existing solid |
 | **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
-| **2D mask / pycelium** | `Mask2D` → `Primitive::height_mask`; `primitive_from_density_2d` opt-in (**not** auto-applied to live yard plots) |
+| **2D mask / pycelium** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` — #39 harness applies it on the three existing plots via `StampField::layers` as a shallow anonymous scale test (still not a fourth named plot) |
 
 `ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl). Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
 
 Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md`.
+
+## Extract-yard scale harness (Lab-Rat #39)
+
+Stay **on the extract yard**. `apply_yard_harness` is the perf/scale test of the #38 substrate — not a bigger world map. No Standard / Monk one-off scars. HDRI stays Range Tech.
+
+| Lock | Detail |
+|------|--------|
+| **Pad** | `growth::yard_bounds` ≈ **110 m²** (baseline before harness ≈ **54 m²**); flatten disk tracks it so plots stay playable |
+| **Writes** | Anonymous SDF lattice + larger paint brushes + 2D-mask convert of the three existing plots through `StampField::layers` (not a fourth named plot) |
+| **Near / far** | Near yard stays warm (`bake_guts_warm`). Far guts stay cold (#23). Harness primitives near-warm only; smoke fails if a layer center is far. `guts_cold` stayed **140** |
+| **Smoke** | keys `layers=` `prims=` `yard_m2=` · `layers=43` · `prims=216` · `yard_m2=110` · `guts_warm=75` · `guts_cold=140` · `near_chunk=858` · `far_chunk=45` · `terrain_tris=3182`. Baseline: `layers=0 prims≈content yard_m2≈54 guts_warm=32`. Far cheapness holds (`far_chunk < near_chunk`). Growth GPU boxes still under 620 |
+
+Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/TERRAIN.md`.
 
 ## Extract HDRI (Range Tech + desk)
 
