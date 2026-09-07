@@ -74,7 +74,7 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 
 ## Closed by fulcrumRust #21 (2026-09-07)
 
-- **Audio buses Voice / Music / FX** — feel-lab Settings Audio DNA (not a DAW); gains **0–2** default **1.00 / 100%** into a master; Options three-row sheet (title + pause); A/D or ←/→ nudge **0.05**; Esc back; dials persist across Deploy
+- **Audio buses Voice / Music / FX** — feel-lab Settings Audio DNA (not a DAW); gains **0–2** default **1.00 / 100%** into a master; Options **Audio** tab is the live three-row mixer (title + pause; #45 sits the Graphics/Audio/Gameplay/Controls stub in front); A/D or ←/→ nudge **0.05**; Esc Audio → Options → title/pause; dials persist across Deploy
 - **Routes** — FX: fire / dry / reload / cycle / pickup / putdown; Voice: UI confirm; Music: hideout / extract ambient bed stub
 - **Hard check** — SMG fire SFX respect FX bus (FX `0` silent; half quieter); procedural tones only; file slots later
 - Detail: house `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
@@ -270,7 +270,7 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 
 ## Closed by fulcrumRust #41 (2026-09-07)
 
-- **FoW title mark** — Augury; Evan’s Fulcrum of Will title header is the title wordmark on the #11 shell. Bitmap `FULCRUM OF WILL` text removed — header PNG is the wordmark. Subtitle / gold rule / list stay
+- **FoW title mark** — Augury; Evan’s Fulcrum of Will title header is the title wordmark on the #11 shell. Bitmap `FULCRUM OF WILL` text removed — header PNG is the wordmark. Subtitle / list stay. Gold rule later gone in #45 (white hairline)
 - **Vendored asset** — `assets/brand/fulcrum-of-will-header.png` from `_CONCRETE_ECHO_` `@4_15_26` `public/images/Fulcrum Of will Header.png` (2048-wide, aspect kept). Atelier `brand/` was README-only — do not invent a replacement mark; runtime does not clone atelier or CE
 - **Seat math** (`engine/src/brand.rs`): `MARK_MAX_W` **1.70** · `MARK_MAX_H` **0.40** · `MARK_CENTER_Y` **0.58** (clip-space y-up). Fit: `clip_aspect = image_aspect / window_aspect` so the header is not stretched junk on non-square windows. Bottom of mark must clear Deploy hit row (`mark_clears_deploy`)
 - **Deploy / Continue / Options / Esc** hit rows and behavior unchanged. No second ammo HUD
@@ -301,6 +301,17 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - Stay out of Atelier / HDRI / title mark. No new named scars
 - Detail: fulcrumRust `docs/TERRAIN.md` + house `TERRAIN_NORTHSTAR.md` / `FULCRUMRUST_LAST_PASS_LOCK.md`
 
+## Closed by fulcrumRust #45 (2026-09-07)
+
+- **Title + HOLD analysis-core polish** — Augury; FoW/CE grim lowfi chrome on the existing #11/#41 title and HOLD pause shell. Thin white mono (not heat/ammo gold). Tight white frames on Deploy/Host/Join/Continue/Options/Quit. Gold tick / gold hairline gone → white hairline; darker ground
+- **HOLD** — tight white-framed panel, left rule, **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu
+- **Options stub** — lists **Graphics / Audio / Gameplay / Controls**. Graphics/Gameplay/Controls are disabled `HYPHA` placeholders (window/post AO/AA/grain/DoF later). **Audio** still opens the live Range Tech #21 Voice/Music/FX mixer (persists). Confirm on a disabled tab does nothing (no fake settings)
+- Audio overlay restyled to the same chrome; Esc Audio → Options → title/pause
+- Logo seat from #41 unchanged (vendored FoW header mark, `MARK_MAX_W` **1.70** / `MARK_MAX_H` **0.40** / `MARK_CENTER_Y` **0.58**)
+- Not a second ammo HUD. Stays off atelier
+- Peek: `cargo run` — framed title list under FoW mark; Options → Audio still nudges 0–2 / 100%; Esc backs one sheet at a time; in-game Esc → HOLD
+- Detail: house `AESTHETIC_DIEGETIC_LOCK.md` / `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Augury menu rows
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -314,7 +325,7 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 ## Holding steady
 
 - Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation / file mix later); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; menus/settings substrate cooking (borderless-fullscreen default; windowed + exclusive; Graphics / Controls / Audio / Gameplay tabs; post AO/AA/CA/grain/DoF — steal CE/Mycelium; no atelier push) — **not done**; next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
-- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **Chamber keeps spatial/reverb DNA** (does not take file slots); **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); FoW title/main menu layout + settings clone cooking (colors/buttons clone FoW OG; settings can rip FoW; FoW OG input manager in scope) — **not done**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
+- Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA partial via #27; **Chamber keeps spatial/reverb DNA** (does not take file slots); **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); **#45 title+HOLD analysis-core polish + Options Hypha stub landed** (white frames / white hairline; HOLD **SYSTEM PAUSED**; Graphics/Audio/Gameplay/Controls stub — Audio live #21; Graphics/Gameplay/Controls disabled `HYPHA`); Hypha tab guts / window/post still cooking — **not done**; next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); Hypha #43 `ExtractStubHost` rides **7×7** (`STUB_GRID = 7`; smoke may also show `rings=` / `extract_m2=`); stamps stay **quiet on audio**; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 - Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); Voice/Music/FX buses (#21) carry Hypha/#27 spatial (**FX bus live**); **authored SFX file slots cooking** (weapon/move off CE/FoW packs into those buses; rustles / rattles / slides meant to come over) — **not done** (do not claim file slots shipped); basic one-click Windows `build.bat` **landed as Hypha #42**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here); **embodied feel pass cooking** (transpose aim-offset guns/attachments/controller into fulcrumRust, outside materials/range geo; sweet medium vs CE/FoW OG controller + action audio cues) — **not done**
 

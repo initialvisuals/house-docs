@@ -92,21 +92,21 @@ See `FULCRUMRUST_LAST_PASS_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
 Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 shell:
 - Vendored CE `@4_15_26` `public/images/Fulcrum Of will Header.png` → `assets/brand/fulcrum-of-will-header.png` (2048-wide, aspect kept). Atelier `brand/` was README-only — **do not invent a replacement mark**; runtime does not clone atelier or CE
 - Aspect-fit seat (`engine/src/brand.rs`): `MARK_MAX_W` **1.70** · `MARK_MAX_H` **0.40** · `MARK_CENTER_Y` **0.58** (clip-space y-up); `clip_aspect = image_aspect / window_aspect` so the header is not stretched junk; bottom of mark clears Deploy (`mark_clears_deploy`)
-- Bitmap `FULCRUM OF WILL` text removed — PNG is the wordmark. Subtitle / gold rule / list stay. **Deploy / Continue / Options / Esc** hit rows unchanged
+- Bitmap `FULCRUM OF WILL` text removed — PNG is the wordmark. **Logo seat #41 still stands.** Gold tick / gold hairline gone (#45) — analysis-knowledge-core chrome is thin white mono (not heat/ammo gold), tight white frames on Deploy/Host/Join/Continue/Options/Quit, white hairline, darker ground
 - Still no second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
-## Menus / settings (Evan dump 2026-09-07 — cooking, not shipped)
+## Menus / settings (Augury shell shipped #45; Hypha guts still cooking)
 
-Title/main + settings clone is **not done**. Do not claim unfinished menu work as landed. Logo/title mark already #41 (section above). Existing Deploy / Continue / Options / Esc hits stay.
+#45 shipped title + HOLD analysis-core polish + Options stub shell. Do **not** claim Hypha settings guts shipped. Logo/title mark #41 still stands.
 
-| Seat | Owns (cooking) |
-|------|----------------|
-| **Augury** | FoW title / main menu layout, colors, buttons (**clone FoW OG**). Settings menu can rip a lot from FoW. Logo/title mark already #41 |
-| **Hypha** | Borderless-fullscreen **default**; windowed + exclusive as options. Runtime settings substrate tabs **Graphics / Controls / Audio / Gameplay**. Post toggles: AO, AA, chromatic aberration (toggle+strength), film grain toggle, depth of field blur toggle. Steal from CE/Mycelium. **No atelier push** |
-| **Input** | FoW OG input manager also in scope (steal into fulcrumRust) |
+| Seat | Owns |
+|------|------|
+| **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options stub lists **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
+| **Hypha** | Tab guts still cooking / **not shipped**: borderless-fullscreen **default**; windowed + exclusive; Graphics / Gameplay / Controls guts; post AO/AA/grain/DoF. Disabled tabs show `HYPHA` placeholders. Confirm on a disabled tab does nothing (no fake settings). Steal from CE/Mycelium. **No atelier push** |
+| **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
-#21 Options three-row audio sheet stays until the substrate lands. Still no second ammo HUD. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+#21 Audio remains the only live Options tab (Voice/Music/FX mixer, persists). Esc Audio → Options → title/pause. Still no second ammo HUD. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Embodied feel (Range Tech — cooking, not shipped)
 
