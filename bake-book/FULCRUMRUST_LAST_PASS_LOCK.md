@@ -32,6 +32,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Near-spawn **void-spore growth PoCs**: denser 2D webbing, hellish mushroom, spore-tipped creeper (curl **1 / 2 / 3** live)
 - **Smart material stamps** (Lab-Rat #15 + #20): dirt/sand/rock/concrete/organic on 8 m cells, grimdark luma + sit-on-surface (void-spore bloom / brutalist mass) + density-driven concrete wear
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
+- **Shape-agnostic stamp/paint substrate** (Lab-Rat #38): any authored shape → density + material; ChannelOp Union/Subtract/Paint/Replace; paint writes real / UX stubbed; mesh→voxel convert. Yard/Inked/curl stay consumers. Lab-Rat writes; Hypha remeshes
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
@@ -250,6 +251,26 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Tests that define the lock: `y_hosts_i_stims_without_stealing_binds`, `y_alive_hosts_i_downed_stims_without_crossing`.
 - Parked / still TODO (do not claim done): death cam; teammate net stabilize; timed surface kill; full extract loot loop.
 
+## Shape-agnostic stamp / paint substrate (fulcrumRust #38)
+
+Lab-Rat technology lock — stop one-off stamp content (Standard scar, Monk AOE, extra yard silhouettes). Any authored shape converts into density + material, or paint details later. Does **not** own Transvoxel, Locus AI, or guns.
+
+| Dial | Lock |
+|------|------|
+| **Density** | `> 0` solid, `< 0` air, `0` isosurface (same as Transvoxel consume; Hypha may flip for a port) |
+| **Material** | dirt / sand / rock / concrete / organic (grimdark tint/luma) |
+| **Grid** | `fill_grid` / `fill_chunk_samples`: `ix` fastest, then `iy`, then `iz` |
+| **ChannelOp** | Union / Subtract / Paint / Replace (`engine/src/channels.rs`) |
+| **Primitives** | sphere / ellipsoid / capsule / box / ribbon / brush / height-mask / mesh / volume |
+| **Stack** | `ChannelStack` ordered compose; `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers); `StampSlot::primitive` empty until fed |
+| **Paint** | writes real today; brush UX stubbed. `density_delta > 0` puffs solid; `< 0` + Subtract carves; material-only with density 0 on existing solid |
+| **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
+| **2D mask** | `Mask2D` → `Primitive::height_mask`; `primitive_from_density_2d` opt-in (**not** auto-applied to live yard plots) |
+| **Consumers stay** | sit-on-surface ellipsoids; wear ribbons (prefer capsule for new work); Inked hotspot; yard plots + curl **1 / 2 / 3** (CPU boxes); Hypha StampSlots empty until fed |
+| **Ownership** | Lab-Rat writes / Hypha remeshes. Out of scope: Transvoxel tables/LOD, Locus AI, guns, 3D paint editor, live carve |
+
+Consume path unchanged: `sample_channels` / `fill_chunk_samples`. See `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/CHANNELS.md`.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
@@ -280,3 +301,4 @@ Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
+Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).

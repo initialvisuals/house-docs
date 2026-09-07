@@ -1,6 +1,6 @@
 # Terrain north-star (fulcrumRust)
 
-Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK).
+Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK). Lab-Rat #38 ships the **shape-agnostic stamp / paint substrate** Hypha consumes — any authored shape → density + material; not more one-off scars.
 
 ## Morning lock (2026-09-07)
 
@@ -87,6 +87,21 @@ Visual DNA for Hypha’s Transvoxel grade — still not a mesher.
 - Keep `classify` + `stamp_field` + `density_stamp_2d` wear on the live `TerrainHost`
 - **Hypha #16** grades verts grimdark via `VoxelMaterial::tint` / `luma`; brutalist masses are the upward scale target
 - Hypha eval pile (sjoerdev / DXGatech / UnrealSandboxTerrain / qwertzui11) stays host DNA — Lab-Rat does not own tables
+
+## Shape-agnostic stamp / paint substrate (Lab-Rat #38)
+
+Technology lock for Hypha consume — **not** another mesher and **not** Transvoxel host ownership (see Host #16 above). Feed a shape; do not add a new WearKind for the next landmark.
+
+| Feed | Path |
+|------|------|
+| **Closed-form SDF** | `field.stamp(Primitive::…)` — sphere / ellipsoid / capsule / box / ribbon / brush / height-mask / mesh / volume |
+| **Paint** | `StampField::paint` / `ChannelStack::paint` — writes real; brush UX stubbed. `density_delta > 0` puffs; `< 0` + Subtract carves; density 0 = material-only on existing solid |
+| **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
+| **2D mask / pycelium** | `Mask2D` → `Primitive::height_mask`; `primitive_from_density_2d` opt-in (**not** auto-applied to live yard plots) |
+
+`ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl). Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
+
+Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md`.
 
 ## Extract HDRI (Range Tech + desk)
 

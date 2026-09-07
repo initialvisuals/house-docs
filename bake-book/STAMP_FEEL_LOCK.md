@@ -56,6 +56,24 @@ Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void 
 
 Detail: fulcrumRust `docs/STAMPS.md`. Shipped: Hypha #16 grades verts grimdark + samples wear into chunks. Steal-next: Augury spawn filters prefer rock/concrete.
 
+## Shape-agnostic stamp / paint substrate (PR #38)
+
+Evan direction: stop one-off stamp content (Standard scar, Monk AOE, extra yard silhouettes). Harden the technology so any authored shape converts into density + material, or paint details later. **Not** Transvoxel / Locus AI / guns. Yard plots / Inked hotspot / curl stay consumers.
+
+| Lock | Detail |
+|------|--------|
+| **Direction** | Shape-agnostic channels — feed a primitive; do not add a `WearKind` / `SurfaceKind` for the next landmark |
+| **Convention** | `DensitySample.density`: `> 0` solid, `< 0` air, `0` isosurface (same as Transvoxel consume; Hypha may flip for a port). `material`: dirt / sand / rock / concrete / organic (grimdark tint/luma). Grid: `fill_grid` / `fill_chunk_samples` `ix` fastest, then `iy`, then `iz` |
+| **ChannelOp** | Union / Subtract / Paint / Replace (`engine/src/channels.rs`) |
+| **Primitives** | sphere / ellipsoid / capsule / box / ribbon / brush / height-mask / mesh / volume. `ChannelStack` ordered compose; `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers). `StampSlot::primitive` on reserved Hypha slots (empty until a shape is fed; `apply_stamp_delta` consumes) |
+| **Paint** | `StampField::paint` / `ChannelStack::paint` — writes are real today; brush UX stubbed. `density_delta > 0` puffs solid; `< 0` + Subtract carves; material-only with density 0 on existing solid |
+| **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer for compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
+| **2D mask** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` is opt-in (**not** auto-applied to live yard plots) |
+| **Consumers stay** | Sit-on-surface leftovers (ellipsoids); concrete/void-spore wear (ribbons — prefer capsule for new work); Inked hotspot under `growth::INKED_HOTSPOT`; yard plots + curl **1 / 2 / 3** (still CPU boxes); Hypha reserved StampSlots empty until fed. `sample_channels` / `fill_chunk_samples` still the Hypha consume path |
+| **Ownership** | Lab-Rat writes; Hypha remeshes. Out of scope: Transvoxel tables/LOD, Locus AI, guns, 3D paint editor, live carve |
+
+Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANNELS.md`.
+
 ## Near-spawn yard silhouette fidelity (PR #13)
 
 Peeks must read **growth**, not graybox slabs. Same three plots / cycle / curl binds:
