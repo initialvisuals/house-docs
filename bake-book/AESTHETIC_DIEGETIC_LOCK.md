@@ -19,6 +19,7 @@ Ammo lives on the weapon:
 - Hold-R peek becomes that chrome, not a second counter
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
 - Optic hoods + .45 can are Range Tech attachments (**V** / **N**); glasses still labels only
+- World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
 
 ## Readable floor hotspots
 
