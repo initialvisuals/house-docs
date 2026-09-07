@@ -28,7 +28,7 @@ Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. Procedural tones o
 ### Day-one routes
 | Bus | Owns |
 |-----|------|
-| **FX** | weapon fire / dry / reload / cycle / pickup / putdown |
+| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap |
 | **Voice** | UI confirm (title / pause / Options) |
 | **Music** | hideout / extract ambient bed stub |
 
@@ -44,8 +44,9 @@ Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **
 - Listener pose follows the leaned camera basis (#25) via CE `updateListener` DNA
 - HRTF-ish pan on FX: equal-power **ILD** + Woodworth **ITD** + exponential distance (CE `PannerNode`)
 - World-posed FX emitters: **gunshots** (muzzle), **Locus slash** (Standard + Inked), **drops** (putdown / pickup)
+- On-body FX: knife **swipe** · bandage **`wrap`** (fulcrumRust #31 — cloth rustle stub, not a heal chime)
 - Voice stays centered; Music stays the ambient bed
-- `Slot::Locus` rides FX
+- `Slot::Locus` / `Slot::Swipe` / `Slot::Wrap` ride FX
 
 ### Reverb zone stub
 - **Hideout** — tight / drier
@@ -58,4 +59,4 @@ Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31
