@@ -11,7 +11,8 @@ Analysis-knowledge-core in-world labels (interacts, extract points, section samp
 - Spatially dynamic (not flat HUD chrome)
 
 **Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
-Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · lean/slide/speed/height peeks.
+Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `HDRI` / `PROC` (Goegap plate #40) · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · lean/slide/speed/height peeks.
+Goegap plate (fulcrumRust #40): glasses ToD strip may show `HDRI` / `PROC` — still labels only, never a second ammo HUD.
 Bandage use (fulcrumRust #31): glasses may flash `BANDAGE` / `EMPTY` on use — still labels only, never a second ammo/health HUD. While downed unstabilized, `NEED STAB` (no consume) — still not a second health HUD (#36).
 Live HoB zero / launch (fulcrumRust #33): glasses status strip `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`); toasts `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — labels only, never a numeric ammo HUD.
 Heat-tune dump (fulcrumRust #35): glasses may flash `HEAT TUNE` (amber-ish overlay) while J is down — still labels only, never a second ammo HUD; must not count mag rounds.
@@ -54,14 +55,16 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Performant first — bake-once mesh, no live carve day-one
 - Detail: `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
-## Extract day/night sky (shipped Range Tech #24)
+## Extract day/night sky (shipped Range Tech #24 + #40)
 
 Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sandbox:
-- **One ToD sample** lights ambient / key / fill / fog + procedural dome together (**no XOR sky**)
-- **`EXTRACT_SKY_LUMA` 0.20** crushes noon so day stays ashen; default clock **06:21**; Day HDRI parked
+- **One ToD sample** lights ambient / key / fill / fog + procedural dome together (**no XOR sky**). #40 Goegap plate rides the same sample.
+- **`EXTRACT_SKY_LUMA` 0.20** crushes noon so day stays ashen; default clock **06:21**; Goegap plate shipped #40
+- Night fades the day plate back to the procedural dome (stars stay); missing file stays procedural (honest)
+- **/** toggles Goegap plate on/off — does **not** steal **M**
 - Hideout stays authored interior / unfogged — ToD does not leak inside
-- Glasses may show `06:21  DAWN  EXP 1.44` (or live band) as labels only — never a second ammo HUD
-- Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs`
+- Glasses may show `06:21  DAWN  EXP 1.44  HDRI` (or `PROC` when plate off / missing) as labels only — never a second ammo HUD
+- Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
 ## Digital / diegetic spatial audio (shipped Hypha + Augury #27)
 
