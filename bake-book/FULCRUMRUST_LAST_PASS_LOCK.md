@@ -123,7 +123,15 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Title + pause **Options** open a three-row sheet; **A/D** or **←/→** nudge **0.05**; Esc back; dials persist across Deploy
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
-- Day-one binaural / positional stereo rides FX (Hypha #27 open) — not a fourth bus
+
+## Day-one binaural / positional stereo on FX (fulcrumRust #27)
+- Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
+- Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
+- World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); Voice centered; Music ambient bed
+- Reverb zone stub: hideout (tight / drier) vs extract (industrial yard) — CE convolver DNA, not a send rack
+- `Slot::Locus` rides FX; file slots / shot propagation later
+- Smoke: `zone=EXTRACT spatial=1.00`; FX `0` still silences fire
+- See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Transvoxel extract host (fulcrumRust #16)
 - Flat-world bake-once isosurface via crates.io **`transvoxel` 2.0** (Lengyel); **not** a globe
@@ -165,7 +173,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
 - Day HDRI file pairing (parked behind procedural dome)
-- Binaural / positional stereo on FX (Hypha #27 open)
+- Shot propagation / file mix on the spatial FX path (binaural day-one landed #27)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -181,4 +189,5 @@ Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).
 Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07).
 Wall-clamped Q/E lean polish: fulcrumRust PR #25 (2026-09-07).
 Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
+Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
 Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).

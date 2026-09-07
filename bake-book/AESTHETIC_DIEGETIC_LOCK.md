@@ -55,6 +55,14 @@ Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sand
 - Glasses may show `06:21  DAWN  EXP 1.44` (or live band) as labels only — never a second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs`
 
+## Digital / diegetic spatial audio (shipped Hypha + Augury #27)
+
+Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial is a render path on the #21 FX bus, not a second mixer:
+- World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
+- Hideout (tight) vs extract (industrial yard) reverb zone stub
+- Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
+- Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |

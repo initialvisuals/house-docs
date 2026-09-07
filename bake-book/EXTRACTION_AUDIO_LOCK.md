@@ -37,5 +37,25 @@ Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. Procedural tones o
 - Sample rate stub **22050** for procedural cues
 - Code: fulcrumRust `engine/src/audio.rs` + Options sheet in `engine/src/menu.rs`
 
+## Day-one binaural / positional stereo on FX (fulcrumRust #27)
+Hypha + Augury CE FoW spatial DNA on the **same** Voice / Music / FX tree — **not a fourth bus / second mixer**.
+
+### Spatial render path
+- Listener pose follows the leaned camera basis (#25) via CE `updateListener` DNA
+- HRTF-ish pan on FX: equal-power **ILD** + Woodworth **ITD** + exponential distance (CE `PannerNode`)
+- World-posed FX emitters: **gunshots** (muzzle), **Locus slash** (Standard + Inked), **drops** (putdown / pickup)
+- Voice stays centered; Music stays the ambient bed
+- `Slot::Locus` rides FX
+
+### Reverb zone stub
+- **Hideout** — tight / drier
+- **Extract** — industrial yard
+- CE convolver DNA, not a send rack
+
+### Hard checks
+- Smoke: `audio=100% zone=EXTRACT spatial=1.00` after Standard + Inked dumps + Z/F; FX `0` still silences fire
+- File slots / shot propagation still later
+- Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
+
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PR: https://github.com/initialvisuals/fulcrumRust/pull/21
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27
