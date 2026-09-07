@@ -7,6 +7,23 @@ Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No M
 - Transvoxel-style density mesher + chunk LOD / distance
 - Eval first: https://transvoxel.org + Lengyel tables
 - Rust port candidate: https://github.com/ling0x/transvoxel
+- Look language: [bobgar Transvoxel demo](https://bobgar.itch.io)
+- **Hypha owns the mesher** (regular/transition cells, LOD, table lookup). Do not paste Lengyel tables into Lab-Rat.
+
+## Consume channels (Lab-Rat #17)
+
+Lab-Rat ships the density + material sample path Hypha feeds into Transvoxel. Not another mesher.
+
+| API | Role |
+|-----|------|
+| `DensitySample` / `sample_channels` | Signed density + `VoxelMaterial` at a point |
+| `fill_chunk_samples` | Regular grid fill (`ix` fastest, then `iy`, then `iz`) |
+
+**Density convention:** `> 0` solid (below heightfield / inside structure), `< 0` air, `0` isosurface. Hypha flips the sign if the chosen port disagrees.
+
+CPU-box overlays stay a peekable leftover; the consume path is the density/material sample. Far-chunk simplify + transition cells stay Hypha.
+
+Detail: fulcrumRust `docs/STAMPS.md` + steal-map Transvoxel row.
 
 ## Resource pile (eval, don’t wholesale port)
 
