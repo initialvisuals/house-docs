@@ -11,9 +11,10 @@ Analysis-knowledge-core in-world labels (interacts, extract points, section samp
 - Spatially dynamic (not flat HUD chrome)
 
 **Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
-Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · lean/slide/speed/height peeks.
+Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM|ARCADE` (live HoB zero #33) · `HEAT TUNE` (hold-J heat-tune #35) · lean/slide/speed/height peeks.
 Bandage use (fulcrumRust #31): glasses may flash `BANDAGE` / `EMPTY` on use — still labels only, never a second ammo/health HUD.
 Live HoB zero / launch (fulcrumRust #33): glasses status strip `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`); toasts `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — labels only, never a numeric ammo HUD.
+Heat-tune dump (fulcrumRust #35): glasses may flash `HEAT TUNE` (amber-ish overlay) while J is down — still labels only, never a second ammo HUD; must not count mag rounds.
 
 ## Diegetic gun chrome — **Range Tech** (Sulfur frame)
 
@@ -22,6 +23,7 @@ Ammo lives on the weapon:
 - Well count **is** mag size — MP9-Z **20** / SR-25 **20** / M24 **5**; Hold-R peek becomes that chrome, not a second counter
 - Glasses may flash `RELOAD` / `SWAP` during mag swap (fulcrumRust #32) — still no numeric ammo HUD; Hold-R remains peek chrome on the gun. Dials: `RELOAD_PEEK_HOLD_SEC` **0.20** · `RELOAD_DOUBLE_TAP_SEC` **0.30** · `RELOAD_BASIC_SEC` **1.10** · `RELOAD_EMERGENCY_SEC` **0.46**
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
+- Heat-tune dump (fulcrumRust #35): hold **J** still cooks diegetic barrel energy / tip cards + lobe on the same path; glasses `HEAT TUNE` only (amber-ish overlay) — never a numeric ammo HUD; must not count mag rounds
 - Optic hoods + .45 can are Range Tech attachments (**V** / **N**, kit allow-list); glasses still labels only
 - World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
