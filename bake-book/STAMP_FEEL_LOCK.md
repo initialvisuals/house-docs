@@ -7,6 +7,23 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 
+## Smart material stamps + sit-on-surface structures (PR #15)
+
+First Lab-Rat voxel-world slice. **Not** a 3D paint editor. **Not** Hypha chunk/LOD/mesher. Growth yard + curl **1 / 2 / 3** unchanged.
+
+| Lock | Detail |
+|------|--------|
+| **Materials** | Rule-based **dirt / sand / rock / concrete / organic** on **8 m** cells |
+| **Rules** | Yard → organic; perimeter lip → concrete; spawn pad → dirt; steep / high stub-height → rock; far flat + hash → sand; leftover peaks → organic bleed or ruin concrete |
+| **Structures** | Sit-on-surface PoC: mushroom cap, anastomosis web, rock outcrop, concrete lip, sand ripple, grit block |
+| **Skip** | Growth yard + spawn pad overlays so plots stay readable |
+| **Append** | Stamps append after existing bake — Hypha grayboxes keep indices |
+| **Host** | `VoxelHost` / `ExtractStubHost` stub; Hypha swaps real heightfield later |
+| **Glasses** | Off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (thin analysis-knowledge-core; labels only) |
+| **Seed** | `FULCRUM_SEED` feeds extract bake + stamp field |
+
+Steal-next: Hypha meshes stamped cells + LOD; Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md`.
+
 ## Near-spawn yard silhouette fidelity (PR #13)
 
 Peeks must read **growth**, not graybox slabs. Same three plots / cycle / curl binds:

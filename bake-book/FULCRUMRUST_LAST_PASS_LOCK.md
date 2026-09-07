@@ -26,6 +26,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 ## World bake (Hypha)
 - Prefer proving **hub + extract linked by tunnel** early if it doesn’t block the window; otherwise one medium Forever Winter instance is fine day-one
 - Near-spawn **mycelium growth PoCs**: 2D stamp, 3D organic form, ground creeper (gas/freeze/burn curl later)
+- **Smart material stamps** (Lab-Rat #15): dirt/sand/rock/concrete/organic on 8 m cells + sit-on-surface structures; Hypha owns real `VoxelHost` + meshed stamped cells
 
 ## Downed / revive
 - Teammate **stabilize**, then heal with **items** (no magic heal)
@@ -58,7 +59,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Mouse wheel** — move speed (**not** height). Aim-offset uses wheel for crouch height; **Evan’s bind wins**
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Double jump later as equipment/skill/power — not day-one default
-- Glasses may show `SLIDE` / `SPD` / `HT` labels only — never a second ammo HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material labels only — never a second ammo HUD
 
 ## Heat / ADS
 - Heat tell: **both** (diegetic barrel + glasses readout)
@@ -82,3 +83,4 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
+Smart stamps: fulcrumRust PR #15 (2026-09-07).

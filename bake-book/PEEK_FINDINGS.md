@@ -24,6 +24,14 @@ Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl rea
 - **Suppressor** — **N** toggles .45 can; HoB + tracer spawn follow can tip (`suppressor_tip_z = -0.507`); flash hider hides when mounted
 - Unchanged house locks: 20-rd + 4 mags, 1200 rpm / recoil / gravity / zero, axes + tracers + Q/E lean + slide + Ctrl+mouse height + wheel speed, Lab-Rat yard / curl
 
+## Closed by fulcrumRust #15 (2026-09-07)
+
+- **Smart material stamps** — rule-based **dirt / sand / rock / concrete / organic** on 8 m cells (no paint editor)
+- **Sit-on-surface structures** — mushroom / web / rock outcrop / concrete lip / sand ripple / grit; skip growth yard + spawn
+- **Append-after-bake** — Hypha grayboxes keep indices; `VoxelHost` stub for real heightfield later
+- **Glasses** — off yard: `DIRT  STAMP` / `ROCK  STAMP` / … (labels only)
+- Yard plots + curl **1 / 2 / 3** unchanged. See fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md`.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -36,8 +44,8 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: load gate / session path
-- Augury: menus / load gate unless hitch
-- Lab-Rat: yard silhouette fidelity landed (#13); next wet-lab beats stay on STEAL_MAP (bake stamps / experiment log)
+- Hypha: real `VoxelHost` heightfield + mesh stamped cells + LOD (steal from `docs/STAMPS.md`)
+- Augury: stamp spawn filters (prefer rock/concrete; avoid organic) + menus / load gate unless hitch
+- Lab-Rat: smart stamps + surface structures landed (#15); next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
 
 Steal from this shelf + steal map. Not chat scroll.

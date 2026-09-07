@@ -17,9 +17,14 @@ Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No M
 
 Reuse week-one concrete/dirt/sand DNA where it fits. Prefer one solid host over parallel rebuilds.
 
-## Stamps (Lab-Rat)
+## Stamps (Lab-Rat) — fulcrumRust #15
 
-Organic voxel surface structures + smart-material tags (rock / concrete / dirt / sand) onto Hypha’s density field. Not a 3D paint editor.
+Organic voxel surface structures + smart-material tags onto Hypha’s density field. Not a 3D paint editor.
+
+- **Materials:** dirt / sand / rock / concrete / organic on **8 m** cells (rule-based)
+- **Structures:** sit-on-surface mushroom / web / rock / lip / ripple / grit (skip yard + spawn)
+- **Host handoff:** Lab-Rat ships `VoxelHost` stub + `classify` / `stamp_field`; Hypha implements real heightfield + meshed stamped cells + LOD
+- Detail: fulcrumRust `docs/STAMPS.md` + house `STAMP_FEEL_LOCK.md`
 
 ## Not this shelf
 
