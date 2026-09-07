@@ -44,6 +44,15 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Performant first — bake-once mesh, no live carve day-one
 - Detail: `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
+## Extract day/night sky (shipped Range Tech #24)
+
+Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sandbox:
+- **One ToD sample** lights ambient / key / fill / fog + procedural dome together (**no XOR sky**)
+- **`EXTRACT_SKY_LUMA` 0.20** crushes noon so day stays ashen; default clock **06:21**; Day HDRI parked
+- Hideout stays authored interior / unfogged — ToD does not leak inside
+- Glasses may show `06:21  DAWN  EXP 1.44` (or live band) as labels only — never a second ammo HUD
+- Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs`
+
 ## Influence north-stars (shortcut aesthetics)
 
 | Influence | Steal |

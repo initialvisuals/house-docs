@@ -51,6 +51,8 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap
+- **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
+- **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
 - **H** = shoulder swap (FoW habit); help remaps off H
@@ -129,9 +131,19 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - Smoke: `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168`
 - See `TERRAIN_NORTHSTAR.md` / `LOCUS_AI_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
+## Extract day/night clock + procedural sky (fulcrumRust #24)
+- Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside)
+- Default clock **06:21** (`TOD_DEFAULT` 6.35); sun path rise ~6:05 / set ~19:42; noon elev **56°**
+- Dials: **[ / ]** ±30 min · **K** dawn→noon→dusk→night · **L** live cycle (`LIVE_HOURS_PER_SEC` 0.25) · **− / =** exposure (default mul **1.44**, step 0.08) · **, / .** clouds (step 0.10)
+- **No XOR sky** — one ToD sample drives ambient / key / fill / fog + procedural dome; dual color-aware lights
+- Grimdark: `EXTRACT_SKY_LUMA` **0.20** crushes noon to ashen (house aesthetic lock); Day HDRI **parked** (atelier stub / 8k bloat)
+- Glasses on extract: `HH:MM  BAND  EXP x.xx` labels only — never a second ammo HUD
+- See `AESTHETIC_DIEGETIC_LOCK.md` + fulcrumRust `engine/src/sky.rs`
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Growth PoCs after window exists
+- Day HDRI file pairing (parked behind procedural dome)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -144,3 +156,4 @@ Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).
 Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).
 SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
 Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).
+Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07).
