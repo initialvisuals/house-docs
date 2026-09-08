@@ -36,8 +36,9 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Extract-yard scale harness** (Lab-Rat #39): stay on the extract yard; `apply_yard_harness` via `StampField::layers`; pad ≈ **110 m²**; near-warm / far-cold (`guts_cold` **140**); smoke `layers=` `prims=` `yard_m2=`
 - **Quiet grit greyscales** (Lab-Rat #58): vendored 256² luma in `assets/stamps/` (`grit_grunge` / `grit_crack` / `grit_dust`); `grit.rs` tiled world-XZ (stamp +Y); `sample_channels` quiet height under loud scars; `grit::rough` wear; `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` read-only. Atelier stays read-only. Smoke `grit=`. Near source for Hypha #60 mips
 - **LOD-tied grit / material mips** (Hypha #60): `lod_mips.rs` BC4-class 8-bit height/rough on Transvoxel rings — near **256²** (#58 vendor) / mid **64²** / far **16²**; far drops grain hashes; `sample_channels` + `stamp_wear_scale` pick the ring from world XZ; atelier read-only (`grit_*.png`). Smoke `grit_mips=256/64/16 n=196608 f=768`
-- **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Near LOD 16/8/4 unchanged. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Next expand A/B = **near LOD later**
-- **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD 16/8/4 + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
+- **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Near LOD raise **shipped #61**
+- **Near LOD raise** (Hypha #61): bake-once Transvoxel subdivs **32/16/4** (was 16/8/4). Grid stays #43 **7×7 / 3 rings / 112 m / 12 544 m²**. Near step **2:1** (32→16) so Lengyel faces still stitch. Outer stays coarse (4). Grit mips stay **256² / 64² / 16²** (#60). Smoke `terrain_tris=11118 lods=3 subdivs=32/16/4 near_chunk=3290 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 grit_mips=256/64/16 n=196608 f=768`. Far mean ~**84×** cheaper than near. Live recook / tunnels / runtime carve still parked
+- **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD **32/16/4** (#61; was 16/8/4) + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
 ## Downed / revive
@@ -199,11 +200,11 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 
 ## Transvoxel extract host (fulcrumRust #16)
 - Flat-world bake-once isosurface via crates.io **`transvoxel` 2.0** (Lengyel); **not** a globe
-- Distance LOD: center subdiv **16** · ring-1 **8** · outer **4** + transition faces. Near LOD **unchanged** by #43
+- Distance LOD: center subdiv **32** · ring-1 **16** · outer **4** + transition faces (**#61**; was 16/8/4). Near step **2:1** so Lengyel faces still stitch. Radius **unchanged** by #61 (#43 grid)
 - Grid **7×7** / 3 Chebyshev rings / 112 m / 12 544 m² (Hypha #43; extra far ring only)
 - `TerrainHost` consumes Lab-Rat `sample_channels` + `density_stamp_2d` / `WearStamp`; skin = `VoxelMaterial::tint` (no second paint story)
 - Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze; hideout unfogged
-- Parked: live LOD recook · tunnels · runtime carve. Next expand A/B = **near LOD later**. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only) — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+- Parked: live LOD recook · tunnels · runtime carve. Near LOD raise **shipped #61**. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only) — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
 
 ## Distance activation / far-guts cold (fulcrumRust #23)
@@ -216,7 +217,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 ## Wider extract chunk radius (fulcrumRust #43)
 - Hypha; `TerrainHost` grid **5×5 → 7×7** (smallest honest odd widen): one extra **far** ring only
 - Playable extract: **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²)
-- Near LOD unchanged: center subdiv **16** · ring-1 **8** · outer **4**. Do **not** raise near LOD — **next expand A/B = near LOD later**
+- Near LOD then 16/8/4 (#43 did not raise it). **#61 shipped** the raise: center **32** · ring-1 **16** · outer **4**
 - Far-cold still maps `lod >= 2` → heightfield-only + shares Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**
 - Lab-Rat `ExtractStubHost` stays aligned (`STUB_GRID = 7`); near yard pad `yard_m2` ≈ **110** unchanged
 - Smoke prints `rings=` / `extract_m2=` next to `near_chunk` / `far_chunk` / `yard_m2`:
@@ -224,6 +225,17 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
   Far mean chunk ~**22×** cheaper than near; extra far ring added cold guts; yard pad + Locus stay
 - Stay out of Atelier / HDRI / title mark. No new named scars
 - See `TERRAIN_NORTHSTAR.md` / `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
+
+## Near LOD raise (fulcrumRust #61)
+
+Hypha. Queued A/B after #43. Reuse the existing Transvoxel host. [PR #61](https://github.com/initialvisuals/fulcrumRust/pull/61) (`5f52913d`).
+
+- Bake-once subdivs **32/16/4** (was 16/8/4). Near step **2:1** (32→16) so Lengyel faces still stitch. Outer stays coarse (4)
+- Grid/radius stay #43: **7×7 / 3 Chebyshev rings / 112 m / 12 544 m²**
+- Grit mips stay #60: **256² / 64² / 16²**. Far still heightfield-only / cold guts
+- Smoke: `terrain_tris=11118 lods=3 subdivs=32/16/4 near_chunk=3290 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 grit_mips=256/64/16 n=196608 f=768`. Far mean ~**84×** cheaper than near
+- Parked: live LOD recook · tunnels · runtime carve
+- See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night clock + procedural sky (fulcrumRust #24)
 - Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside)
@@ -566,12 +578,12 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
-- Next yard expand A/B = **near LOD later** (wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m²; near subdiv stays 16/8/4)
+- Near LOD raise **shipped #61** (subdivs **32/16/4**; near step 2:1; outer stays 4). Wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m². Live LOD recook / tunnels / runtime carve still parked
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
 - Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**
-- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only). Do **not** claim the whole roughness→stamp cook. Next expand A/B = **near LOD later**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
+- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61** (subdivs 32/16/4; grit mips stay). See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first
 - Growth PoCs after window exists
 - Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54; handmade vendor landed #62)
@@ -621,5 +633,6 @@ Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust 
 Evan peek feel (lean flip + deepen, CE hop + air hop, heat v77 look, H crossover, tracers-until-impact + FX `hit`): fulcrumRust PR #59 (2026-09-07) — **landed**. See `PEEK_FINDINGS.md` Closed by #59.
 Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD **shipped #60** (256/64/16; far softer; atelier read-only). Further roughness→stamp still open. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Closed by #60 / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far drops grain hashes; atelier read-only): fulcrumRust PR #60 (2026-09-07) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #60.
+Near LOD raise (16/8/4 → 32/16/4; grid/radius stay #43; grit mips stay #60): fulcrumRust PR #61 (2026-09-08) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #61.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped #54; day-one handmade vendor landed #62; shot propagation still later.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring. Handmade atelier vendor: fulcrumRust PR #62 (2026-09-08) — **landed**. Small set, not a full CE / aim-offset pack dump.
