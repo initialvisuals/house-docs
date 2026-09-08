@@ -4,7 +4,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Where to read (2026-09-08)
 
-fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll.
+fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll.
 
 ## Day-one kit
 - **SMG** basic 20-round mag

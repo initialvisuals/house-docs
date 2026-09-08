@@ -18,7 +18,7 @@ Parked from Evan first big-map brief; clerk shelf cook refreshes this pulse.
 | **Hypha** | #16 Transvoxel host · #23 far-guts cold · #24 sky lights (with Range) · **#43 7×7 radius** · **#60 grit mips** · **#61 32/16/4** |
 | **Augury** | #18 Locus Standard · #26 Locus Inked |
 | **Lab-Rat** | #20 void-spore + concrete wear · #38 stamp/paint substrate · #39 yard harness · **#58 quiet grit** |
-| **Clerk** | CREDITS planted in-PR; shelf #43/#58/#60/#61/#62/#64/#67 dials into bake-book; **clean yell** (2026-09-08 ~00:00 ET); Holocron gift parked in `TOOLS.md` |
+| **Clerk** | CREDITS planted in-PR; shelf #43/#58/#60/#61/#62/#64/#67 dials into bake-book; **#72 Patch A notes ledger + legend** (`X`/`~`/`*`/`·` + seats); **clean yell** (2026-09-08 ~00:00 ET); Holocron gift parked in `TOOLS.md` |
 
 ## Still cooking
 
@@ -31,4 +31,4 @@ Parked from Evan first big-map brief; clerk shelf cook refreshes this pulse.
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path. Do **not** claim the big map shipped.
 
-Source of truth: `docs/STEAL_MAP.md` in fulcrumRust + this shelf.
+Source of truth: `docs/STEAL_MAP.md` in fulcrumRust + this shelf. Open A asks: repo-root `patch notes A.txt` (#72) — do **not** invent PR numbers.
