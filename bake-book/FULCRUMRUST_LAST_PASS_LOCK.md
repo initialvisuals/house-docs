@@ -118,16 +118,16 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 4. **Jump** — **landed #59**. CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays. Prior FPS-first **"no double-jump"** / single-jump-only (#51) is superseded (same way #51 superseded earlier "no jump")
 
 ## Heat / ADS
-- Heat tell: **both** (diegetic barrel + glasses readout)
+- Heat tell: **both** (diegetic barrel + glasses readout). **Live draw (landed #66):** colorless post UV warp — lattice is post input only; no world-pipeline orange card/lobe. Glasses `HEAT TUNE` (#35) stays the readout
 - ADS/hip: **both**, weighted by enemy/context
-- Heat-tune dump (fulcrumRust #35): hold **J** climbs the same `barrel_energy` cook with recoil / camera punch skipped; glasses `HEAT TUNE` only — see Heat-tune dump section
-- Heat cards look (landed #59): v77 `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials stay on `heat-card-dial-sheet.md` (aim-offset v77)
-- ADS viewmodel DoF (landed #68): disc blur on near depth when ADS + Options **DOF**. Radius **0.0048** UV-x at ads=1 · taps **12** · amount `ads_factor` (skip < 0.02; hip = 0) · near fade full ≤ **0.90 m**, gone by **2.20 m** · far DoF smoothstep **9 → 46 m** unchanged (#55) · breath mul **1.6 parked**. Same #55 pass / same Options **DOF**. See ADS viewmodel DoF section
+- Heat-tune dump (fulcrumRust #35): hold **J** climbs the same `barrel_energy` cook with recoil / camera punch skipped; glasses `HEAT TUNE` only — see Heat-tune dump section. Range Tech owns cook / v77 card dials / hold-J. Hypha owns the post path (#66)
+- Heat cards look: v77 `updateBarrelHeatCardMorph` upward shimmer / lattice crawl stays the **spatial input** (landed #59). Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)` is feel-lab reference — **live fulcrumRust draw is colorless warp (#66)**. Locked card geometry dials stay on `heat-card-dial-sheet.md` (aim-offset v77). Lattice vertex RGB forced to zero so this path cannot become an orange draw
+- ADS viewmodel DoF (landed #68): disc blur on near depth when ADS + Options **DOF**. Radius **0.0048** UV-x at ads=1 · taps **12** · amount `ads_factor` (skip < 0.02; hip = 0) · near fade full ≤ **0.90 m**, gone by **2.20 m** · far DoF smoothstep **9 → 46 m** unchanged (#55) · breath mul **1.6 parked**. Same #55 pass / same Options **DOF** as #66 heat warp. See ADS viewmodel DoF section
 
 ## Visible shot feedback (fulcrumRust #12 + #19 + #59 + #67)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
 - Tracer speed / gravity / length from the SMG feel sheet. **#59:** tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`
-- **#67 Patch A:** spawn + flash sit on the kit heat-box front (`kit_mesh::muzzle_tip_local`), not the feel-lab socket center (`muzzle_local` z=−0.405). Hip launch uses `hip_honest_dir` (ads=0 stays on **aim**; ads=1 keeps the #33 arcade/sim solve) so the 100 m HoB loft from a right-low hip muzzle is not a close-range up+right miss. Streak is feel-lab tip→impact: `tracer_len` is length again (not a 0.55 m receiver skip); back of the streak clamped to the tip. Distant speed scale kept once the slug is past the gun. Heat-card color / Lab-Rat terrain untouched
+- **#67 Patch A:** spawn + flash sit on the kit heat-box front (`kit_mesh::muzzle_tip_local`), not the feel-lab socket center (`muzzle_local` z=−0.405). Hip launch uses `hip_honest_dir` (ads=0 stays on **aim**; ads=1 keeps the #33 arcade/sim solve) so the 100 m HoB loft from a right-low hip muzzle is not a close-range up+right miss. Streak is feel-lab tip→impact: `tracer_len` is length again (not a 0.55 m receiver skip); back of the streak clamped to the tip. Distant speed scale kept once the slug is past the gun. Did **not** fight Hypha #66 / did **not** ship heat color. Lab-Rat terrain untouched
 - FX draw-distance (hide-not-despawn, fulcrumRust #19 + #47): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** (clamp 8–200 via `live_casing`) · `decal_draw_m` **700** (clamp 50–2000) — walking back restores; they do not fill forever
 
 ## Props / audio / growth
@@ -136,7 +136,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Living mycelium growth-enemy (gas/freeze/burn curl; sprint-grow) = Lab-Rat DNA hosted on extraction map
 
 ## Control DNA resolution
-- **Locked** by fulcrumRust #12 + #51 + #59 + **#67**: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **#59** landed Q/E flip + deepen, CE hop + air hop + land duck/shake, H viewmodel crossover, heat v77 look, tracers-until-impact + FX `hit`. **#67 Patch A** sits on top of #33 **O**/**P** + #59 tracers: kit-tip spawn + hip aim-dir honesty + tip→impact streak clamp. No remaining soft overlap on height / wheel. Lean / hop / H / hip-fire muzzle no longer cooking.
+- **Locked** by fulcrumRust #12 + #51 + #59 + **#66** + **#67**: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **#59** landed Q/E flip + deepen, CE hop + air hop + land duck/shake, H viewmodel crossover, heat v77 look (spatial input), tracers-until-impact + FX `hit`. **#66** landed the live heat tell as colorless post UV warp (Hypha; lattice = post input only). **#67 Patch A** sits on top of #33 **O**/**P** + #59 tracers: kit-tip spawn + hip aim-dir honesty + tip→impact streak clamp (did not fight #66). No remaining soft overlap on height / wheel. Lean / hop / H / hip-fire muzzle no longer cooking. Orange world heat cards are **not** the live path.
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
 - **Embodied feel pass landed #57** — Range Tech. Aim-offset guns / attachments / controller transposed at **medium** vs CE / FoW (outside materials and range geometry). Dials: look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay. `AXIS_LOCK` three spaces stay. See section below.
 
@@ -327,7 +327,7 @@ See `PEEK_FINDINGS.md` Closed by #59 + `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Patch A muzzle tip + honest hip fire (Range Tech — landed #67)
 
-Evan lock. **Shipped** [fulcrumRust #67](https://github.com/initialvisuals/fulcrumRust/pull/67) (2026-09-08, `258b90fb`). **Range Tech** owns it. Focused ballistics / tracers / muzzle slice — no new systems, no heat-card color, no Lab-Rat terrain, no fight with Hypha #66. **O**/**P** HoB zero + arcade↔sim (#33) and #59 tracers-until-impact + FX `hit` stay; Patch A sits on top.
+Evan lock. **Shipped** [fulcrumRust #67](https://github.com/initialvisuals/fulcrumRust/pull/67) (2026-09-08, `258b90fb`). **Range Tech** owns it. Focused ballistics / tracers / muzzle slice — no new systems, no heat-card color, no Lab-Rat terrain, no fight with Hypha #66 (colorless post warp **landed #66**). **O**/**P** HoB zero + arcade↔sim (#33) and #59 tracers-until-impact + FX `hit` stay; Patch A sits on top.
 
 | Dial | Was | Now |
 |------|-----|-----|
@@ -335,15 +335,33 @@ Evan lock. **Shipped** [fulcrumRust #67](https://github.com/initialvisuals/fulcr
 | **Hip launch** | SIM 100 m HoB from a right-low hip muzzle → close-range **up + right** of the reticle | `hip_honest_dir`: ads=0 stays on **aim**; ads=1 keeps the arcade/sim solve. Existing ADS↔hip weight + **P** arcade dir. Not a new cone. **O**/**P** still change the zero; they bite when aimed |
 | **Streak** | `tracer_len` (0.55 m) used as a **receiver skip**; then a 10 m box drawn backward through the gun | Spawn **on the tip**. `tracer_len` is length again. Back of the streak clamped to the tip (feel-lab tip→impact). Distant speed scale kept once the slug is past the gun |
 
-Do **not** claim heat-card orange / first big-map / `dBXpg` / full metal-tech kits / Lab-Rat atelier plugs shipped. Music playlist beds **are** shipped #64. Kit metal/grit PBR stub **is** shipped #64.
+Do **not** claim first big-map / `dBXpg` / full metal-tech kits / Lab-Rat atelier plugs shipped. Heat tell is Hypha #66 colorless post warp — this PR did not fight #66 and did not ship heat color. Music playlist beds **are** shipped #64. Kit metal/grit PBR stub **is** shipped #64.
 
 See `PEEK_FINDINGS.md` Closed by #67.
+
+## Colorless muzzle heat (Hypha — landed #66)
+
+Evan lock. **Shipped** [fulcrumRust #66](https://github.com/initialvisuals/fulcrumRust/pull/66) (2026-09-08, `05dd80ad`). **Hypha** owns the post path. Range Tech keeps `FeelState.barrel_energy` / v77 card dials on `heat-card-dial-sheet.md` / heat-tune hold-**J**. Same #55 fullscreen `engine/src/post.rs` stack as #68 ADS DoF — no second composer, no new Graphics sliders.
+
+| Dial | Lock |
+|------|------|
+| **Live tell** | Colorless post UV warp. Warped scene color is the entire tell — no orange RGB / emissive heat-card output |
+| **World draw** | Gone. Heat cards are **not** drawn through the opaque world pipeline (removed world-pass indexed draw of heat mesh) |
+| **Lattice** | Existing tip-anchored heat lattice kept only as **spatial input** → one post field `post.heat: vec4` = center UV.xy, strength, radius |
+| **`heat_warp_uv`** | Applied **before** scene color sample. Animated UV displacement only |
+| **Lattice RGB** | Forced to zero so this path cannot become an orange draw |
+| **HUD / glasses** | Still composite after post |
+| **Siblings** | #59 v77 shimmer intent (lattice crawl stays spatial input). #67 Patch A (explicitly did not fight #66). #68 ADS near on the same stack. #55 GPU post stack |
+
+Do **not** invent new Graphics sliders or claim full Mycelium bloom/god-ray heat. Do **not** flip first big-map / `dBXpg` / Lab-Rat atelier plugs to shipped.
+
+See `PEEK_FINDINGS.md` Closed by #66.
 
 ## Heat-tune dump (fulcrumRust #35)
 - Bind: hold **J** = heat-tune dump. **I** is no longer free — I is Augury stim (#37).
 - Feel: sustained AUTO on the seated kit (`FeelState::try_heat_tune` / `fire_shot(..., heat_tune: true)`); uses kit `auto_interval_sec` while tuning (ignores SEMI hold gate)
 - Recoil impulse + camera punch skipped; leftover LMB punch stomped while J is down (`recoil_punch` / `recoil_rot` / `cam_recoil_p` / `cam_recoil_y` zeroed) so the gun stays still
-- Same cook path: `FeelState.barrel_energy` still climbs so tip cards + lobe go live for live dialing (no second heat cook)
+- Same cook path: `FeelState.barrel_energy` still climbs so the tip lattice feeds `post.heat` (#66) for live dialing (no second heat cook). Lattice is post input only — no world-pipeline orange card
 - Ammo dial cheat: mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
 - Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
 - Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
@@ -481,20 +499,20 @@ Augury chrome on the existing FoW title (#11/#41) and HOLD pause shell. Logo sea
 | **Esc** | Hypha pane / Audio → Options → title/pause |
 | **Mark** | #41 seat stands: `MARK_MAX_W` **1.70** / `MARK_MAX_H` **0.40** / `MARK_CENTER_Y` **0.58** |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / tab guts / persist shipped #46. GPU post stack live #55 (toggles change the image; not full HDR bloom / god-ray). **#68** ADS near sits on that same DoF pass / same Options **DOF**.
+See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / tab guts / persist shipped #46. GPU post stack live #55 (toggles change the image; not full HDR bloom / god-ray). **#66** colorless heat warp and **#68** ADS near sit on that same pass / same Options **DOF**.
 
-## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46; GPU post #55; ADS near #68)
+## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46; GPU post #55; colorless heat #66; ADS near #68)
 
-Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + persist shipped #46. GPU post stack live **#55** — toggles change the image (AO/AA/CA/grain/DoF). **#68** adds ADS near DoF on that same pass / same Options **DOF** (ADS near + far). Honest: not the full Mycelium HDR bloom / god-ray / contact-shadow chain. Logo/title mark #41 still stands.
+Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + persist shipped #46. GPU post stack live **#55** — toggles change the image (AO/AA/CA/grain/DoF). **#66** colorless muzzle heat and **#68** ADS near DoF sit on that same pass. Honest: not the full Mycelium HDR bloom / god-ray / contact-shadow chain. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD analysis-core chrome (#45). Options list shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
-| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. **#68** ADS near + far on that same Options **DOF** flag. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS`. **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
-| **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46). ADS viewmodel DoF dials **landed #68** on Hypha’s #55 pass (same Options **DOF**) |
+| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only). **#68** ADS near + far on that same Options **DOF** flag. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS`. **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
+| **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46). Owns `barrel_energy` / v77 card dials / heat-tune hold-J. ADS viewmodel DoF dials **landed #68** on Hypha’s #55 pass (same Options **DOF**). Hypha owns the #66 colorless heat post path |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
-Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#68 sections stay.
+Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#68 sections stay (including #66 colorless heat).
 
 ## Hypha Options guts (fulcrumRust #46)
 
@@ -503,7 +521,7 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | Dial | Lock |
 |------|------|
 | **Window** | Live via winit. **Borderless** = default launch. **Windowed** = decorated 1280×720. **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW` (`borderless` / `windowed` / `exclusive`) |
-| **Post** | Live GPU passes **#55**. AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist via #46 `project.json` / `FULCRUM_SETTINGS` and change the image. **#68** ADS near + far on that same Options **DOF** flag — no second composer, no new Graphics sliders. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. HUD/glasses still after post. Honest: not full HDR bloom / god-ray / contact-shadow |
+| **Post** | Live GPU passes **#55**. AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist via #46 `project.json` / `FULCRUM_SETTINGS` and change the image. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only — no world-pipeline orange card). **#68** ADS near + far on that same Options **DOF** flag — no second composer, no new Graphics sliders. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. HUD/glasses still after post. Honest: not full HDR bloom / god-ray / contact-shadow |
 | **Graphics hint** | `POST LIVE · AA ON · WINDOW LIVE · A/D NUDGE` |
 | **Gameplay** | Glasses labels toggle + crosshair toggle (real — drop quads when off). Hint: `SHOOT FEEL STAYS · ENTER TOGGLE` |
 | **Controls** | Look scale on feel-lab sens: `LOOK_MUL` default **1.0**, min **0.25**, max **2.0**, step **0.05**; Invert Y toggle. Binds stay README. Hint: `LOOK SITS ON FEEL-LAB SENS · BINDS IN README` |
@@ -511,13 +529,14 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | **Persist** | `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json` |
 | **Esc** | Hypha pane / Audio → Options → title or HOLD (same stack as #45) |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. Does not dump atelier into Options Graphics. GPU stack that made toggles change the image is #55. ADS near layer on that stack is #68.
+See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. Does not dump atelier into Options Graphics. GPU stack that made toggles change the image is #55. Colorless heat warp on that stack is #66. ADS near layer on that stack is #68.
 
 ## Hypha GPU post stack (fulcrumRust #55)
 
-Follows #46 Settings Graphics toggles. Flags already persisted via `project.json` / `FULCRUM_SETTINGS` and previously no-op'd. #55 wires a real fullscreen wgpu stack so toggles change the image. #46 remains guts/persist. **#68** adds the ADS near DoF layer on this same pass / same Options **DOF** — #55 stays the GPU stack land.
+Follows #46 Settings Graphics toggles. Flags already persisted via `project.json` / `FULCRUM_SETTINGS` and previously no-op'd. #55 wires a real fullscreen wgpu stack so toggles change the image. #46 remains guts/persist. **#66** colorless muzzle heat and **#68** ADS near DoF sit on this same pass — #55 stays the GPU stack land.
 
 - Scene color + sampleable depth, then one fullscreen pass (Mycelium `POST_PASS_ORDER` compressed):
+  - **Heat** — `#66` `heat_warp_uv` **before** scene color sample (center UV / strength / radius from the tip lattice). Colorless UV displacement only — no orange RGB / emissive heat-card output
   - **AO** — depth hemisphere SSAO (8 taps; Mycelium `ssao.rs` DNA, no G-buffer)
   - **AA** — luma-edge FXAA (Mycelium `fxaa.rs`; TAA later)
   - **CA** — radial R/B offset; strength slider already in Options
@@ -530,7 +549,7 @@ Follows #46 Settings Graphics toggles. Flags already persisted via `project.json
 - Honest: toggles change the image. Not the full Mycelium HDR bloom / god-ray / contact-shadow chain
 - Stay out: Atelier, Range Tech bat/HDRI ToD/shoot feel/FX file slots, Augury title mark/HOLD/reverb
 
-See `AESTHETIC_DIEGETIC_LOCK.md` + ADS viewmodel DoF (#68).
+See `AESTHETIC_DIEGETIC_LOCK.md` + Colorless muzzle heat (#66) + ADS viewmodel DoF (#68).
 
 ## ADS viewmodel DoF (Range Tech — landed #68)
 
@@ -547,7 +566,7 @@ Evan lock. **Shipped** [fulcrumRust #68](https://github.com/initialvisuals/fulcr
 | **Far DoF** | smoothstep **9 → 46 m**, unchanged (#55) |
 | **Toggle / persist** | Same Options **DOF** / `project.json` `depth_of_field`. Drives both near + far layers |
 
-Do **not** invent a second EffectComposer / viewmodel RT, always-on ADS blur with DoF off, Space-as-hold-breath, or new Graphics sliders for radius/taps. Heat-card color / Lab-Rat / profile / stash / MP / hands / inventory untouched.
+Do **not** invent a second EffectComposer / viewmodel RT, always-on ADS blur with DoF off, Space-as-hold-breath, or new Graphics sliders for radius/taps. This PR did **not** ship heat color — live tell is Hypha #66 colorless post warp on the same stack. Lab-Rat / profile / stash / MP / hands / inventory untouched.
 
 See `PEEK_FINDINGS.md` Closed by #68.
 
@@ -606,8 +625,8 @@ Evan lock. **Shipped** [fulcrumRust #59](https://github.com/initialvisuals/fulcr
 | **H crossover** | Authored hip +X ~**0.10** (right). Viewmodel springs to partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). Extra left probe `shoulder_viewmodel` **0.12**. ADS keeps **0.32**. Arms-limited — not a capsule/eye slide, not a full mirror, not infinite travel. Existing H bind, not a new key |
 | **Lean flip + deepen** | **Q = peek right** (same side as inverted A) · **E = peek left**. Eye formula stays `+lean → −flat_right`. Depth **0.5 / 0.5** (`leanOffset` / `leanMax`), superseding #25 0.18/0.12. Wall clamp / spring / yard covers stay |
 | **Hop** | CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays |
-| **Heat look (v77)** | `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials on `heat-card-dial-sheet.md` |
-| **Ballistics / distant hit** | Tracers live until impact (sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav`; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Day-one FILE_SLOTS vendor **landed #62** (optional `hit.wav`; missing → procedural). Shot propagation still later. **#67 Patch A sits on top:** kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp. Heat-card color untouched |
+| **Heat look (v77)** | `updateBarrelHeatCardMorph` upward shimmer / lattice crawl stays the **spatial input** (not static orange blobs). Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)` is feel-lab reference. **Live draw is Hypha colorless post UV warp (#66)** — lattice = post input only; no world-pipeline orange card. Locked card geometry dials on `heat-card-dial-sheet.md` |
+| **Ballistics / distant hit** | Tracers live until impact (sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav`; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Day-one FILE_SLOTS vendor **landed #62** (optional `hit.wav`; missing → procedural). Shot propagation still later. **#67 Patch A sits on top:** kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp. Did not fight Hypha #66 / did not ship heat color |
 
 ## Authored SFX vs spatial split (day-one FILE_SLOTS vendor landed #62)
 
@@ -657,10 +676,10 @@ Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Near LOD raise **shipped #61** (subdivs **32/16/4**; near step 2:1; outer stays 4). Wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m². Live LOD recook / tunnels / runtime carve still parked
 - Next yard lock = **first big-map brief** (2026-09-08) — **not shipped**. Live remains #43 **7×7 / 112 m** + #61 **32/16/4**. Hypha owns drop walls · ~8× · chunked Transvoxel · player-distance load (listen-server aware). Continues on fulcrumRust
-- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**)
+- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **colorless muzzle heat landed #66** (sample-only UV warp; no new Graphics sliders); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
-- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **O**/**P** + #59 tracers-until-impact stay. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). Heat-card color / Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map brief **not shipped**. Shot propagation still later
+- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer stays Range Tech spatial input / `barrel_energy` / hold-J; **live tell is Hypha colorless post UV warp landed #66** (lattice = post input only; no world-pipeline orange card); tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **O**/**P** + #59 tracers-until-impact stay. #67 did **not** fight #66 and did **not** ship heat color. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). #68 did **not** ship heat color (live tell is Hypha #66). Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map brief **not shipped**. Shot propagation still later
 - Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61** (subdivs 32/16/4; grit mips stay). Next lock = **first big-map brief**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first; grit / slope / PBR **open**. Range Tech kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**. Music playlist beds **landed #64**. Augury FoW brand / menu video **when cut ready**
 - **SFX remix DNA** (2026-09-08 ~00:00 ET): creative reuse OK — pitch / speed / effects to mint new one-shots from existing packs; indie underground vibe; don’t overuse the same stem. #62 vendor stays the live FILE_SLOTS fill. First ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**
@@ -707,11 +726,12 @@ Title + HOLD analysis-core polish: fulcrumRust PR #45 (2026-09-07).
 Hypha Options Graphics/Gameplay/Controls guts: fulcrumRust PR #46 (2026-09-07).
 Leftover feel-lab FX (brass / ricochet / impact variety / casing_draw_m): fulcrumRust PR #47 (2026-09-07).
 AXIS_LOCK + dizzy-play: fulcrumRust PR #51 (2026-09-07) — see `AXIS_LOCK.md`.
-Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07). **#68** adds ADS near on the same pass / same Options **DOF**.
-Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55; ADS near DoF shipped #68.
+Hypha GPU post stack (AO/AA/CA/grain/DoF): fulcrumRust PR #55 (2026-09-07). **#66** colorless muzzle heat and **#68** ADS near sit on the same pass / same Options **DOF**.
+Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45; Hypha guts shipped #46; GPU post stack shipped #55; colorless heat shipped #66; ADS near DoF shipped #68.
 Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust PR #57 (2026-09-07) — **landed**.
 Evan peek feel (lean flip + deepen, CE hop + air hop, heat v77 look, H crossover, tracers-until-impact + FX `hit`): fulcrumRust PR #59 (2026-09-07) — **landed**. See `PEEK_FINDINGS.md` Closed by #59.
-Range Tech Patch A muzzle (kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp): fulcrumRust PR #67 (2026-09-08) — **landed**. Sits on #33 **O**/**P** + #59 tracers-until-impact; does not replace them. Heat-card color / Lab-Rat terrain untouched. See `PEEK_FINDINGS.md` Closed by #67.
+Hypha colorless muzzle heat (sample-only `heat_warp_uv`; lattice = post input only; no world-pipeline orange card): fulcrumRust PR #66 (2026-09-08) — **landed**. Range Tech keeps `barrel_energy` / v77 card dials / hold-J. See `PEEK_FINDINGS.md` Closed by #66.
+Range Tech Patch A muzzle (kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp): fulcrumRust PR #67 (2026-09-08) — **landed**. Sits on #33 **O**/**P** + #59 tracers-until-impact; does not replace them. Did not fight Hypha #66 / did not ship heat color. Lab-Rat terrain untouched. See `PEEK_FINDINGS.md` Closed by #67.
 Range Tech ADS viewmodel DoF (ADS near + far on #55 stack; radius **0.0048** / taps **12** / near fade 0.90→2.20 m; breath mul **1.6 parked**): fulcrumRust PR #68 (2026-09-08) — **landed**. Same Options **DOF** / `project.json` `depth_of_field`. See `PEEK_FINDINGS.md` Closed by #68.
 Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD **shipped #60** (256/64/16; far softer; atelier read-only). Further roughness→stamp still open. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Closed by #60 / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far drops grain hashes; atelier read-only): fulcrumRust PR #60 (2026-09-07) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #60.
