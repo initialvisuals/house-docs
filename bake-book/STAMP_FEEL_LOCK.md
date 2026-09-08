@@ -10,6 +10,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 - **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier still **read-only** while Evan pushes. Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`
+- **First big-map brief (2026-09-08):** Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down on the wider host. Atelier **150 roughness + textures/PBR ~26 sets landed**; plugs wait for Evan **clean** yell. **Brief only — not shipped.** Host 8× / walls / chunks stay Hypha. See `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -80,7 +81,7 @@ Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANN
 
 ## Texture compression — greyscale bake-down (2026-09-07)
 
-Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes. **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Whole roughness→stamp cook is **not** done.
+Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes. **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**; further plugs wait for Evan **clean** yell. Whole roughness→stamp cook is **not** done.
 
 | Lock | Detail |
 |------|--------|
@@ -109,7 +110,7 @@ Detail: fulcrumRust `docs/STAMPS.md` + `docs/CHANNELS.md` + `assets/stamps/READM
 
 ## Extract-yard scale harness (PR #39)
 
-Stay **on the extract yard** — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map. No Standard / Monk one-off scars. HDRI stays Range Tech.
+Stay **on the extract yard** for what #39 shipped — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map on that pass. First big-map brief (2026-09-08) is the next lock — not shipped. No Standard / Monk one-off scars. HDRI stays Range Tech.
 
 | Lock | Detail |
 |------|--------|
