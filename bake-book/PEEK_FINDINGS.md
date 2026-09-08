@@ -2,6 +2,10 @@
 
 Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl read OK. Same-day feel dump **landed #59**. Hypha ring-mip texture LOD **landed #60**. Hypha near LOD raise **landed #61**. Range Tech handmade atelier SFX vendor **landed #62**. Range Tech music playlist + kit metal/grit PBR stub + ±6% remix jitter **landed #64**. Hypha colorless muzzle heat **landed #66**. Range Tech Patch A muzzle **landed #67**. Range Tech ADS viewmodel DoF **landed #68**. First big-map brief (2026-09-08) is **Holding** — do **not** claim shipped. Evan **clean** yell 2026-09-08 ~00:00 ET — atelier plugs **open**.
 
+## Patch A checkpoint (fulcrumRust #72)
+
+Living A-feedback checkpoint — **not** a replacement for `STEAL_MAP` or `MILESTONE_01_PLAYABLE`. Repo-root [`patch notes A.txt`](https://github.com/initialvisuals/fulcrumRust/blob/main/patch%20notes%20A.txt) ([#72](https://github.com/initialvisuals/fulcrumRust/pull/72)). Marks: `X` done / on main · `~` partial / in progress / shallow first pass · `*` next / ready for a careful cook when greenlit · `·` parked / not started. Seats: Range Tech | Hypha | Lab-Rat | The Augury | Evan | house. Overnight cooks and seats read open A asks from that file; do **not** invent PR numbers. Do **not** copy the ledger here.
+
 ## Holding — first big-map brief (Evan 2026-09-08)
 
 **Brief only. Do not claim shipped.**
