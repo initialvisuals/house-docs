@@ -6,6 +6,8 @@ Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.be
 
 **PBR batch in (2026-09-08).** Atelier **150 roughness + textures/PBR ~26 sets landed**. Lab-Rat **grit / slope / PBR** plugs **open**. Range Tech store `dBXpg` + metal-tech kits + music **open**. Augury FoW brand / menu video **when cut ready**. Hypha big-map continues on fulcrumRust. First big-map brief owns the plug seats — **not shipped**. See `TERRAIN_NORTHSTAR.md`.
 
+**Holocron gift (2026-09-08).** Atelier `tools_for_ai_and_dev/Holocron_Visualizer.py` + `Analyze-Holocron.ps1` — tree nested-rectangle viewer for file bases. Cut down monoliths (agent context windows; avoid overwrite loss). Lab-Rat owns a rust-friendly rewrite **after** slope/PBR plugs. Later targets: `channels.rs` / stamp stacks / `feel` / `kit_mesh`. See `TOOLS.md`.
+
 **Compress before the yard** (2026-09-07). Atelier roughness packs are **4k 48-bit PNG** — too large. Lab-Rat bakes greyscales down (8-bit / half-res / BC4-style height packs) **before** density. Do **not** ship raw 4k 48-bit into extract. **#58** is the first landed 256² bake-down sample set — the near source. Hypha LOD-tied mips **landed #60** on Transvoxel distance rings (near 256² / mid 64² / far 16²). Whole roughness→stamp cook is **not** done.
 
 ## Pull first
@@ -18,7 +20,7 @@ Clerk skim 2026-09-07 of https://initialvisuals.artstation.com/ + https://www.be
 
 ## Seat ownership (plugs open)
 
-- **Lab-Rat** — imperfections + greyscale seamless → stamp height/rough/mask. Bake greyscales **down before density** (8-bit / half-res / BC4-style). Do not ship raw 4k 48-bit into the yard. **#58** first landed 256² bake-down set on fulcrumRust. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (clean yell). First big-map brief: slope/angle materials + dirt/scatter/deform — **not shipped**
+- **Lab-Rat** — imperfections + greyscale seamless → stamp height/rough/mask. Bake greyscales **down before density** (8-bit / half-res / BC4-style). Do not ship raw 4k 48-bit into the yard. **#58** first landed 256² bake-down set on fulcrumRust. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (clean yell). First big-map brief: slope/angle materials + dirt/scatter/deform — **not shipped**. Holocron rust rewrite **after** those plugs — see `TOOLS.md`
 - **Range Tech** — greeble/tech/panel pack + kit metal/rust; Mixer/Alien Isolation mood. Store `dBXpg` + metal-tech kits **open**. Randomized playlist beds on Music bus **cooking**. Kits + FX draw-distance on the wider yard (big-map brief)
 - **Hypha** — terrain PBR from greyscale; env moodboards (Tech Lab / Barracks / Serengeti / Temple Ruins). LOD-tied mips / compression **landed #60** on Transvoxel distance rings (near 256² / mid 64² / far 16²; grit vs loud scars). First big-map brief: host 8× / drop walls / chunked distance load / higher res — **not shipped**. Continues on fulcrumRust
 - **Augury** — FoW logo + brand/UI from Behance Logo Designs; **Mega Dwarf** UI optional (need Evan masters if pulled); CE junk/wood set dressing refs (Backrooms Grocery, Trashbot). FoW brand / menu video **when cut ready**
