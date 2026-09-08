@@ -13,6 +13,8 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+
 ## What to drop here
 
 | Kind | Examples | Intended reuse |
@@ -31,6 +33,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
+- Holocron file-base viewer (Evan gift; Lab-Rat rust rewrite after slope/PBR) → [`TOOLS.md`](TOOLS.md)
 
 ## Brand DNA
 

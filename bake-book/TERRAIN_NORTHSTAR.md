@@ -20,10 +20,10 @@ First true big map for fulcrumRust extract. **Brief only — do not claim shippe
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — **8×** extend, drop walls, chunked Transvoxel + distance LOD load from players, higher res |
-| **Lab-Rat** | Stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; plugs wait for Evan **clean** yell |
-| **Range Tech** | Kits + FX draw-distance on the wider yard; store `dBXpg` after clean |
-| **Augury** | Menu video bg / brand after clean |
+| **Hypha** | Host — **8×** extend, drop walls, chunked Transvoxel + distance LOD load from players, higher res. Continues on fulcrumRust |
+| **Lab-Rat** | Stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) |
+| **Range Tech** | Kits + FX draw-distance on the wider yard; store `dBXpg` + metal-tech kits **open**; randomized playlist beds on Music bus **cooking** |
+| **Augury** | FoW brand / menu video **when cut ready** |
 
 #16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** stays the near extract pad until Hypha extends. See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Holding.
 
@@ -181,9 +181,9 @@ Atelier roughness is **4k 48-bit PNG** — too fat for the yard. Do **not** ship
 
 | Seat | Lock |
 |------|------|
-| **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only. **#58 landed** first vendored 256² set (`grit_{grunge,crack,dust}.png`) — the near source for #60. Atelier **150 roughness + textures/PBR ~26 sets landed**; further plugs wait for Evan **clean** yell. Whole roughness→stamp cook still separate |
-| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). Atelier **read-only** (`assets/stamps/grit_*.png`). Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61** (subdivs 32/16/4); grit mips stay 256/64/16 on the same rings. Next lock = **first big-map brief** (host 8× / chunks, not a grit-mip raise) |
-| **Atelier** | Still **read-only** for crew writes. PBR batch **in** (150 roughness + textures/PBR ~26 sets). Plugs wait for Evan **clean** yell |
+| **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only. **#58 landed** first vendored 256² set (`grit_{grunge,crack,dust}.png`) — the near source for #60. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Whole roughness→stamp cook still separate |
+| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61** (subdivs 32/16/4); grit mips stay 256/64/16 on the same rings. Next lock = **first big-map brief** (host 8× / chunks, not a grit-mip raise). Continues on fulcrumRust |
+| **Atelier** | Plugs **open** (was read-only). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths |
 
 See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 

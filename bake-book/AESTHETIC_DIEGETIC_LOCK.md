@@ -57,7 +57,7 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
 - Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
 - Performant first — bake-once mesh, no live carve day-one
-- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier stays **read-only** for crew writes while Evan pushes
+- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) — grit / slope / PBR cooking, not shipped
 - Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night sky (shipped Range Tech #24 + #40)
@@ -74,7 +74,7 @@ Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sand
 ## Digital / diegetic spatial audio (shipped Hypha + Augury #27 + #56)
 
 Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial is a render path on the #21 FX bus, not a second mixer:
-- World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
+- World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed (randomized playlist beds **cooking**)
 - Authored CE reverb volumes (#56): glasses `DRY` / `YARD` / `OUT` — hideout interior / yard pad / open extract (wetter / longer tail). **FX wet send only.** Two-zone stub retired
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
 - File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small atelier set in `assets/sfx/`; missing → procedural). Shot propagation still later. Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
@@ -86,7 +86,7 @@ File-slot **wiring** shipped #54. Day-one handmade atelier vendor **landed #62**
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. |
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. **SFX remix DNA** — pitch/speed/effects to mint new one-shots; indie underground; don’t overuse the same stem. Randomized playlist beds on Music bus **cooking**. |
 | **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + #56 DRY/YARD/OUT AABB volumes, FX wet send only). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** — no stamp SFX lane |
 
@@ -108,7 +108,7 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier write** (read-only while Evan pushes). LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
