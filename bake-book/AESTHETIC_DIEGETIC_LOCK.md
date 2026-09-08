@@ -31,7 +31,7 @@ Ammo lives on the weapon:
 - World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
 - Live HoB zero / launch (fulcrumRust #33): glasses may show `Z{n}  SIM|ARCADE` (e.g. `Z100  SIM`) and toast `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` — still labels only, never a numeric ammo HUD
-- Kit chrome taste (Initial Visuals Group Chat 2026-09-07): **gold paired with black** — **tech trim**, not gold-plate. Distinct from Locus **obsidian + gold crack veins** — **do not put Locus veins on gun kits**. Stamp side: `STAMP_FEEL_LOCK.md`
+- Kit chrome taste (Initial Visuals Group Chat 2026-09-07): **gold paired with black** — **tech trim**, not gold-plate. Distinct from Locus **obsidian + gold crack veins** — **do not put Locus veins on gun kits**. Stamp side: `STAMP_FEEL_LOCK.md`. **#64** stub PBR applies that DNA on MP9-Z / SR-25 / M24 boxes (albedo mix + roughness/mask; TRIMSHEET_MICRO + MetalPanel/Corroded crops + scratch/print masks) — not gold-plate, not Locus veins. Store `dBXpg` still **open**
 - **Crossover shoulder / left-corner peek** (landed #59): **H** springs the **viewmodel** across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Not a body slide, not full swap / infinite travel. Mag chrome travels with the kit. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
 
 ## Readable floor hotspots
@@ -57,7 +57,7 @@ House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
 - Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
 - Performant first — bake-once mesh, no live carve day-one
-- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) — grit / slope / PBR cooking, not shipped
+- **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) — Lab-Rat grit / slope / PBR cooking, **not** shipped. Range Tech kit metal/grit PBR stub **landed #64** (boxes only; not Lab-Rat terrain plugs)
 - Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
 
 ## Extract day/night sky (shipped Range Tech #24 + #40)
@@ -74,10 +74,10 @@ Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sand
 ## Digital / diegetic spatial audio (shipped Hypha + Augury #27 + #56)
 
 Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial is a render path on the #21 FX bus, not a second mixer:
-- World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed (randomized playlist beds **cooking**)
+- World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed (playlist **landed #64**)
 - Authored CE reverb volumes (#56): glasses `DRY` / `YARD` / `OUT` — hideout interior / yard pad / open extract (wetter / longer tail). **FX wet send only.** Two-zone stub retired
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
-- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small atelier set in `assets/sfx/`; missing → procedural). Shot propagation still later. Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
+- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small atelier set in `assets/sfx/`; missing → procedural). Remix first ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**. Shot propagation still later. Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Authored SFX vs spatial split (day-one FILE_SLOTS vendor landed #62)
@@ -86,7 +86,7 @@ File-slot **wiring** shipped #54. Day-one handmade atelier vendor **landed #62**
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. **SFX remix DNA** — pitch/speed/effects to mint new one-shots; indie underground; don’t overuse the same stem. Randomized playlist beds on Music bus **cooking**. |
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. **SFX remix DNA** — pitch/speed/effects to mint new one-shots; indie underground; don’t overuse the same stem. First ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**. Music playlist beds **landed #64**. |
 | **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + #56 DRY/YARD/OUT AABB volumes, FX wet send only). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** — no stamp SFX lane |
 
