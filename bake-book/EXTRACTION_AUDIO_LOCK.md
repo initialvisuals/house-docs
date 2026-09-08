@@ -15,10 +15,10 @@ Parked from Evan + seat locks (2026-09-07).
 - FX bus / gunshots get spatial first
 - Shot propagation later
 
-## Voice / Music / FX buses (fulcrumRust #21 + #54)
-Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot wiring shipped **partial** via #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Placeholders only — real CE / aim-offset packs + feel polish still next. `.ogg` names reserved; decode WAV-only this beat.
+## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62)
+Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id, plus optional `hit.wav`, in `assets/sfx/`). Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat.
 
-Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
+Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
 
 ### Gains
 - Three buses into a **master**: **Voice** / **Music** / **FX**
@@ -37,7 +37,7 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54). A
 ### Hard checks
 - Fire SFX (SMG `playFire`) **respect the FX bus** — FX `0` is silent; half FX is quieter
 - File preferred when present; missing / bad file → procedural fallback
-- Sample rate stub **22050** for procedural cues (placeholder WAVs also ~22.05 kHz 16-bit mono)
+- Sample rate stub **22050** for procedural cues (atelier vendor WAVs also ~22.05 kHz 16-bit mono)
 - Code: fulcrumRust `engine/src/audio.rs` + Options sheet in `engine/src/menu.rs` + `assets/sfx/`
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27)
@@ -67,8 +67,8 @@ Upgrades the #27 phase-only two-zone stub (hideout dry vs extract industrial) to
 
 ### Hard checks
 - Smoke: `audio=100% zone=EXTRACT spatial=1.00 sfx=file/13` after Standard + Inked dumps + Z/F; FX `0` still silences fire
-- File-slot **wiring** shipped #54 (placeholders; feel polish / real packs still cooking); shot propagation still later
+- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural); shot propagation still later
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62

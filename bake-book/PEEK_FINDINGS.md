@@ -1,15 +1,14 @@
 # Checkpoint peek findings (fulcrumRust)
 
-Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl read OK. Same-day feel dump **landed #59**. Hypha ring-mip texture LOD **landed #60**. Further Lab-Rat roughness→stamp stays Open.
+Parked from Evan’s first full `main` peek (2026-09-07). Growth yard + curl read OK. Same-day feel dump **landed #59**. Hypha ring-mip texture LOD **landed #60**. Range Tech handmade atelier SFX vendor **landed #62**. Further Lab-Rat roughness→stamp stays Open.
 
 ## Open — texture / atelier leftovers (roughness→stamp still open)
 
-Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #60**. Further Lab-Rat roughness→stamp still open. Atelier still **read-only**. Do **not** claim the whole roughness→stamp cook.
+Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #60**. Range Tech handmade atelier SFX vendor **landed #62**. Further Lab-Rat roughness→stamp still open. Atelier still **read-only**. Do **not** claim the whole roughness→stamp cook.
 
 - **Texture compression** — atelier roughness packs are **4k 48-bit PNG** (too large). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 landed** the vendored near packs (256² bake-downs under loud scars). Hypha LOD-tied mips **landed #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far drops grain hashes; atelier read-only). Do **not** claim the whole roughness→stamp cook
 - **Atelier** — still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 optional `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only load paths. No atelier writes
 - **Lab-Rat** — **#58 quiet grit greyscales landed** (vendored bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source for #60). Further roughness → stamp stays on **fulcrumRust only**; bake-down first (do not write atelier packs). SVG / density-mask / experiment-log still open
-- Authored-SFX **real packs** still cooking (#54 wiring + placeholders only) — that is audio files, not the #59 feel dials
 
 ## Closed by fulcrumRust #12 (2026-09-07)
 
@@ -85,7 +84,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 
 - **Audio buses Voice / Music / FX** — feel-lab Settings Audio DNA (not a DAW); gains **0–2** default **1.00 / 100%** into a master; Options **Audio** tab is the live three-row mixer (title + pause; #45 sits the Options list; #46 filled Graphics/Gameplay/Controls; Audio still this mixer); A/D or ←/→ nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
 - **Routes** — FX: fire / dry / reload / cycle / pickup / putdown; Voice: UI confirm; Music: hideout / extract ambient bed stub
-- **Hard check** — SMG fire SFX respect FX bus (FX `0` silent; half quieter); file-slot wiring shipped #54 (placeholders; missing → procedural)
+- **Hard check** — SMG fire SFX respect FX bus (FX `0` silent; half quieter); file-slot wiring shipped #54; handmade vendor landed #62 (missing → procedural)
 - Detail: house `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Closed by fulcrumRust #22 (2026-09-07)
@@ -144,7 +143,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 - World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup); Voice centered; Music ambient bed
 - Reverb was a two-zone stub here (hideout tight/drier vs extract industrial). **Superseded by #56** authored AABB volumes DRY / YARD / OUT
 - Smoke: `audio=100% zone=EXTRACT spatial=1.00`; FX `0` still silences fire; `Slot::Locus` rides FX
-- File-slot wiring shipped #54; shot propagation later. Detail: house `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
+- File-slot wiring shipped #54; handmade vendor landed #62; shot propagation later. Detail: house `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
 ## Closed by fulcrumRust #28 (2026-09-07)
 
@@ -377,7 +376,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 - **File-backed slots** — fire, dry, reload_release / insert / seat, pickup, putdown, swipe, wrap, footstep, slide, jump, land (placeholder WAVs ~22.05 kHz 16-bit mono). `.ogg` names reserved; decode WAV-only this beat
 - **Move cues live** — walk rustle, sprint-crouch slide, Space hop + land. Weapon cues already on FX now prefer the file
 - **Ownership** — Range Tech owns weapon/move SFX on the FX bus; Augury (Chamber) keeps spatial (#27) + authored reverb volumes (#56); Lab-Rat stamps stay quiet. Evan lock: all authored audio comes over (clothing rustles, rattles, slides)
-- **PARTIAL** — wiring + placeholders shipped; authored-SFX **real packs** (CE / aim-offset WAVs) still next. Shot propagation still later. Do **not** claim real packs shipped. Controller feel-medium dials shipped #57 — that is not this row
+- **#54 remains the wiring ship** — file slots on the #21 FX bus + placeholder WAVs. Day-one handmade atelier vendor **landed #62** (small set into FILE_SLOTS; not a full CE / aim-offset pack dump). Shot propagation still later. Do **not** claim every future authored music/SFX pack or Augury authored+CE synth mix as done. Controller feel-medium dials shipped #57 — that is not this row
 - Left alone: AXIS_LOCK, Locus brains, terrain/stamps, Options Graphics. No second mixer
 - Detail: house `EXTRACTION_AUDIO_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `assets/sfx/README.md`
 
@@ -418,7 +417,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
   - Jump land punch: none → **0.052** rad overlay (does not write `pitch`)
 - **AXIS_LOCK** three spaces stay. No materials / range geo
 - Binds stay #12 + #51 invert look/strafe + F-only door. **#59** landed Q/E flip + CE hop + H crossover. Hypha #55 GPU post and Augury #56 DRY/YARD/OUT reverb volumes kept
-- Authored-SFX **real packs** stay cooking (#54 wiring + placeholders only) — that is audio files, not these controller dials
+- Day-one handmade SFX vendor **landed #62** — that is audio files, not these controller dials
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust PR #57
 
 ## Closed by fulcrumRust #58 (2026-09-07)
@@ -440,7 +439,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 - **Lean flip + deepen** — after #51 invert, **Q = peek right** (same side as inverted A), **E = peek left**. Eye formula stays `+lean → −flat_right`. Depth feel-lab **0.5 / 0.5** (`leanOffset` / `leanMax`), superseding #25 shallow 0.18/0.12. Wall clamp / spring / yard covers from #25 stay
 - **CE hop + air hop + land duck/shake** — Evan supersedes #51 no-double. CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y` (that was why the hop stayed shallow). #57 land punch **0.052** rad overlay stays
 - **Heat motion (v77)** — `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials stay on `heat-card-dial-sheet.md` (aim-offset v77)
-- **Ballistics / distant hit** — tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Authored SFX **real packs** still partial (#54 wiring stays partial)
+- **Ballistics / distant hit** — tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Day-one FILE_SLOTS vendor **landed #62** (optional `hit.wav` now atelier darkBead; missing → procedural). Shot propagation still later
 - Detail: house `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust STEAL_MAP Range Tech rows
 
 ## Closed by fulcrumRust #60 (2026-09-07)
@@ -457,6 +456,25 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 - Lab-Rat #58 quiet grit packs remain the near source; Hypha owns the mip chain. Whole roughness→stamp cook is **not** done (further Lab-Rat bake-downs still separate). Next expand A/B = **near LOD later**
 - Detail: house `TERRAIN_NORTHSTAR.md` + `FULCRUMRUST_LAST_PASS_LOCK.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `engine/src/lod_mips.rs`
 
+## Closed by fulcrumRust #62 (2026-09-08)
+
+- **Handmade atelier SFX vendor** — Range Tech. Small handmade set of atelier `sfx_/` CE/feel WAVs into fulcrumRust `assets/sfx/` FILE_SLOTS. [PR #62](https://github.com/initialvisuals/fulcrumRust/pull/62) (`1b949794`). #54 remains the **wiring** ship (file slots on the #21 FX bus). #62 fills those slots. Placeholders from #54 replaced
+- One 22.05 kHz 16-bit mono WAV per FILE_SLOTS id, plus optional `hit.wav`. Missing / bad file still → procedural fallback
+- Mapped (atelier main `f094157`, **read-only** — no clone / no write):
+  - fire ← vector SMG last-with-tail
+  - dry ← weapon_shoot_failure
+  - reload_release / insert / seat ← vector mag remove / insert / cock
+  - pickup / putdown ← PickupA / foley_grab
+  - swipe ← locus movement_woosh_air
+  - wrap ← rustling
+  - footstep / slide / jump / land ← concrete steps + gear_rattle
+  - hit.wav (optional) ← darkBead_impact1
+- Mixer, Options Audio FX dial, and Augury spatial / #56 reverb stay untouched. Lab-Rat stamps stay quiet
+- Honesty: small handmade vendor — not a full CE / aim-offset pack dump. Shot propagation still later. Future extra FX ids / authored+CE synth mix remain open
+- Atelier stays **read-only**
+- Evan peek: fire SMG, dry-click empty, tap-R reload, F/Z pickup-drop, swipe, wrap, walk/slide/hop — cues should read CE/feel clothing + Vector, not tiny placeholder beeps
+- Detail: house `EXTRACTION_AUDIO_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `assets/sfx/`
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
@@ -470,10 +488,10 @@ Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they di
 
 ## Holding steady
 
-- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation later; file-slot wiring landed #54); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; **#46 Options guts landed** (Graphics/Gameplay/Controls + borderless default + persist — steal CE/Mycelium; no atelier **write**); **#55 GPU post stack landed** (AO/AA/CA/grain/DoF fullscreen wgpu; toggles change the image; smoke `post=aa`; not full HDR bloom / god-ray / contact-shadow); **LOD-tied grit / material mips landed #60** (near **256²** Lab-Rat vendor / mid **64²** / far **16²** BC4-style 8-bit; far drops grain hashes; atelier read-only; smoke `grit_mips=256/64/16 n=196608 f=768`); Lab-Rat **#58 quiet grit greyscales** remain the vendored near packs (not the whole roughness→stamp cook); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
+- Hypha: distance activation / far-guts cold landed (#23) on #16 host; extract sky sample shared with Range Tech clock (#24); **#27 binaural / positional stereo on FX landed** (partial — shot propagation later; file-slot wiring landed #54; handmade vendor landed #62); **#34 listen-server / invite stub landed** (partial — handshake/presence only; world sync / dedicated infra parked); **#42 Windows one-click release builder landed** (basic; quality/flag still open); **wider extract chunk radius landed (#43)** (7×7 / 3 rings / 112 m / 12 544 m²; extra far ring only; near LOD 16/8/4 unchanged); next expand A/B = **near LOD later**; **#46 Options guts landed** (Graphics/Gameplay/Controls + borderless default + persist — steal CE/Mycelium; no atelier **write**); **#55 GPU post stack landed** (AO/AA/CA/grain/DoF fullscreen wgpu; toggles change the image; smoke `post=aa`; not full HDR bloom / god-ray / contact-shadow); **LOD-tied grit / material mips landed #60** (near **256²** Lab-Rat vendor / mid **64²** / far **16²** BC4-style 8-bit; far drops grain hashes; atelier read-only; smoke `grit_mips=256/64/16 n=196608 f=768`); Lab-Rat **#58 quiet grit greyscales** remain the vendored near packs (not the whole roughness→stamp cook); next live LOD recook / tunnel cutouts / SVG density-mask ingest; keep sit-on-surface CPU boxes as peek leftover
 - Augury: Locus Standard (#18) + Inked (#26) landed; spatial CE DNA via #27; **#56 CE reverb volumes landed** (DRY / YARD / OUT AABB proxies; FX wet send only; glasses peek; two-zone stub retired); **Chamber owns spatial/reverb** (does not take file slots); **down/death stub #36 landed** (partial — death cam / teammate net stabilize / timed surface kill / full loot loop later); **#37 I-stim / Y-host bind lock**; **#41 FoW title mark landed** (vendored CE header on the #11 shell); **#45 title+HOLD analysis-core polish + Options list shell landed** (white frames / white hairline; HOLD **SYSTEM PAUSED**; Graphics/Audio/Gameplay/Controls list — Audio live #21); Hypha tab guts / window / persist shipped #46 — not a second overlay; **#55 GPU post live** (HUD/glasses still after post); **#51 dizzy-play landed** (invert look + A/D, F-only door); **#59 hop landed** (CE hop + air hop + land duck/shake — #51 single hop superseded); next Sonderer/Monk/Oculus/crawler + stamp spawn filters (prefer rock/concrete; avoid organic)
 - Lab-Rat: void-spore grimdark + density-driven concrete wear landed (#20); **#30 loud Inked void-spore hotspot landed**; **#38 shape-agnostic stamp/paint substrate landed** (channels + primitives; no new scar kinds; yard/Inked/curl stay consumers); **#39 extract-yard scale harness landed** (`apply_yard_harness`, pad ≈110 m², near-warm/far-cold; smoke `layers=`/`prims=`/`yard_m2=`); Hypha #43 `ExtractStubHost` rides **7×7** (`STUB_GRID = 7`; smoke may also show `rings=` / `extract_m2=`); stamps stay **quiet on audio**; **quiet grit greyscales landed #58** (vendored 256² `grit_{grunge,crack,dust}.png` + `sample_channels` quiet height + `grit::rough` wear; smoke `grit=`); further roughness → stamp stays on **fulcrumRust only** — bake greyscales **down before density** (8-bit / half-res / BC4-style height packs); do **not** ship raw 4k 48-bit into the yard; atelier still **read-only** while Evan pushes; next wet-lab beats stay on STEAL_MAP (SVG/density-mask ingest / experiment log)
-- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); **#47 leftover feel-lab FX landed** (brass eject / graze ricochet + spent slug / richer impact geo / `casing_draw_m` **55**); **#51 AXIS_LOCK landed** (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate; FX on `sim_barrel_basis`; dizzy-play invert look/strafe + F-only door); Voice/Music/FX buses (#21) carry Hypha/#27 spatial + #47 ricochet ping (**FX bus live**); **authored SFX file-slot wiring shipped #54** (placeholders; weapon/move off CE/FoW packs into those buses; rustles / rattles / slides come over) — authored-SFX **real packs** still cooking (do **not** claim CE/aim-offset WAV packs shipped); one-click Windows `build.bat` **#48 stay-open + `build.log` tee landed**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here); **feel medium polish landed #57** (look inertia queue **26**; ADS look **0.86** / blend **6.4**; sprint high-ready **6.2**; slide carry **10.3 / 0.98 / 1.02**; jump land punch **0.052** rad overlay; AXIS_LOCK stay; no materials/range geo); **Evan peek landed #59** — **crossover shoulder / left-corner peek** (H viewmodel; authored hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**; #25 clamp/spring/yard stay); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8; #57 land punch **0.052** stays); heat motion v77 shimmer / lattice crawl (not static orange blobs); tracers live until impact (sanity **180 s**, linger **2 s**) + FX `hit`
+- Range Tech: day/night clock + sky (#24), wall-clamped lean (#25), hold-` inspect (#28), bandage use (#31) landed; **#32 reload DNA landed** (Hold-R peek / tap-R reload / double-tap SWAP); **#33 live HoB zero / arcade↔sim launch landed**; **#35 heat-tune dump landed** (hold-J; **I** is Augury stim #37); **#40 Goegap HDRI on extract ToD landed** (/** plate toggle; glasses `HDRI` / `PROC`); **#47 leftover feel-lab FX landed** (brass eject / graze ricochet + spent slug / richer impact geo / `casing_draw_m` **55**); **#51 AXIS_LOCK landed** (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate; FX on `sim_barrel_basis`; dizzy-play invert look/strafe + F-only door); Voice/Music/FX buses (#21) carry Hypha/#27 spatial + #47 ricochet ping (**FX bus live**); **authored SFX file-slot wiring shipped #54**; **handmade atelier vendor landed #62** (weapon/move off CE/feel `sfx_/` into those buses; rustles / rattles / slides come over; small set, not a full pack dump; missing → procedural); shot propagation still later; one-click Windows `build.bat` **#48 stay-open + `build.log` tee landed**; quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here); **feel medium polish landed #57** (look inertia queue **26**; ADS look **0.86** / blend **6.4**; sprint high-ready **6.2**; slide carry **10.3 / 0.98 / 1.02**; jump land punch **0.052** rad overlay; AXIS_LOCK stay; no materials/range geo); **Evan peek landed #59** — **crossover shoulder / left-corner peek** (H viewmodel; authored hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**; #25 clamp/spring/yard stay); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8; #57 land punch **0.052** stays); heat motion v77 shimmer / lattice crawl (not static orange blobs); tracers live until impact (sanity **180 s**, linger **2 s**) + FX `hit`
 - Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 optional `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only (downsample on load). Lab-Rat further roughness → stamp stays on fulcrumRust only — bake-down first; do **not** ship raw 4k 48-bit PNG into the yard
 
 Steal from this shelf + steal map. Not chat scroll.

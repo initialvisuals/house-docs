@@ -181,19 +181,19 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - See `STAMP_FEEL_LOCK.md` + `LOCUS_AI_LOCK.md` + fulcrumRust `docs/GROWTH_POC.md` / `docs/STAMPS.md`
 
 ## Audio buses Voice / Music / FX (fulcrumRust #21)
-- Feel-lab Settings **Audio** DNA — **not a DAW**; file-slot **wiring** shipped **partial** via #54 (placeholders; authored-SFX **real packs** still cooking)
+- Feel-lab Settings **Audio** DNA — **not a DAW**; file-slot **wiring** shipped #54; day-one handmade atelier vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural)
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
 - Title + pause **Options** open the Augury shell (#45); Hypha Graphics/Gameplay/Controls panes live (#46); **Audio** still Range Tech #21 three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
 - Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
 - Hard check: SMG fire SFX respect FX (FX `0` silent). File preferred when present; missing → procedural. See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
-- File-slot **wiring** shipped #54 (partial). Range Tech owns weapon/move SFX on this bus. Do **not** claim authored-SFX **real packs** (CE / aim-offset WAVs) as done. Controller feel-medium dials shipped #57 — that is not this row. See Authored SFX file slots (#54).
+- File-slot **wiring** shipped #54. Day-one handmade vendor **IN** via #62 (small set, not a full CE / aim-offset pack dump). Range Tech owns weapon/move SFX on this bus. Shot propagation still later. Controller feel-medium dials shipped #57 — that is not this row. See Authored SFX file slots (#54 + #62).
 
 ## Day-one binaural / positional stereo on FX (fulcrumRust #27 + #56)
 - Hypha + Augury CE FoW spatial DNA rides the **same** #21 Voice / Music / FX tree — **not a fourth bus**
 - Listener follows the leaned camera basis (#25); HRTF-ish pan = equal-power ILD + Woodworth ITD + exponential distance
 - World-posed FX: gunshots (muzzle), Locus slash (Standard + Inked), drops (putdown / pickup), ricochet ping at graze skip (#47); on-body FX: swipe / bandage `wrap` (#31); Voice centered; Music ambient bed
 - **Reverb volumes shipped #56** (two-zone stub retired): hideout interior **DRY** · extract yard pad **YARD** · open extract **OUT** (wetter / longer tail). Authored AABB proxies; first XZ hit wins; miss → outdoor. **FX wet send only** — Voice / Music stay dry dual-mono. Glasses peek `DRY` / `YARD` / `OUT`. Listener follows camera. No extra bind. Walk off the yard pad to hear outdoor
-- `Slot::Locus` / `Slot::Wrap` / `Slot::Ricochet` (#47) ride FX; file-slot **wiring** shipped #54; shot propagation still later. Augury (**Chamber**) owns spatial + authored volumes + FX wet send; Range Tech owns mixer + file slots on the same bus (placeholders; authored-SFX **real packs** still cooking)
+- `Slot::Locus` / `Slot::Wrap` / `Slot::Ricochet` (#47) ride FX; file-slot **wiring** shipped #54; day-one handmade vendor **landed #62**; shot propagation still later. Augury (**Chamber**) owns spatial + authored volumes + FX wet send; Range Tech owns mixer + file slots on the same bus
 - Smoke: `zone=EXTRACT spatial=1.00 sfx=file/13`; FX `0` still silences fire
 - See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
@@ -516,7 +516,7 @@ Aim-offset **looks/feels correct** for guns, attachments, controller — **trans
 
 Binds stay #12 + #51 invert look/strafe + F-only door. **#59** landed Q/E flip + CE hop + H crossover. Hypha #55 GPU post and Augury #56 DRY/YARD/OUT reverb volumes kept.
 
-Authored-SFX **real packs** (CE / aim-offset WAV packs) remain **partial / cooking** — that is audio files, not these controller dials. See Authored SFX file slots (#54).
+Day-one handmade SFX vendor **landed #62** — that is audio files, not these controller dials. See Authored SFX file slots (#54 + #62).
 
 See `AESTHETIC_DIEGETIC_LOCK.md`. Steal from this shelf + steal map — not chat scroll.
 
@@ -530,23 +530,23 @@ Evan lock. **Shipped** [fulcrumRust #59](https://github.com/initialvisuals/fulcr
 | **Lean flip + deepen** | **Q = peek right** (same side as inverted A) · **E = peek left**. Eye formula stays `+lean → −flat_right`. Depth **0.5 / 0.5** (`leanOffset` / `leanMax`), superseding #25 0.18/0.12. Wall clamp / spring / yard covers stay |
 | **Hop** | CE `JUMP_FORCE` **12** / `|GRAVITY|` **30**, one air hop, land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays |
 | **Heat look (v77)** | `updateBarrelHeatCardMorph` upward shimmer / lattice crawl — not static orange blobs. Barrel haze RGB `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)`. Locked card dials on `heat-card-dial-sheet.md` |
-| **Ballistics / distant hit** | Tracers live until impact (sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav`; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Authored-SFX **real packs** still partial (#54) |
+| **Ballistics / distant hit** | Tracers live until impact (sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav`; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`. Day-one FILE_SLOTS vendor **landed #62** (optional `hit.wav`; missing → procedural). Shot propagation still later |
 
-## Authored SFX vs spatial split (wiring shipped partial #54)
+## Authored SFX vs spatial split (day-one FILE_SLOTS vendor landed #62)
 
-Initial Visuals Group Chat 2026-09-07. File-slot **wiring** shipped **partial** via #54 — do **not** claim authored-SFX **real packs** (CE / aim-offset WAVs) as done. #21 FX bus is **live**. Authored audio (rustles / rattles / slides) comes over that bus (placeholders today). Controller feel-medium dials shipped #57 — that is not this row.
+Initial Visuals Group Chat 2026-09-07. File-slot **wiring** shipped #54. Day-one handmade atelier vendor **landed #62** — small set into FILE_SLOTS, not a full CE / aim-offset pack dump. #21 FX bus is **live**. Authored audio (rustles / rattles / slides) comes over that bus. Mixer / Options Audio FX / Augury spatial+#56 reverb stay untouched. Controller feel-medium dials shipped #57 — that is not this row.
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs into the live #21 Voice / Music / FX buses. Not a fourth bus. Wiring + placeholders shipped #54. |
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs into the live #21 Voice / Music / FX buses. Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. |
 | **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 HRTF/ITD + #56 DRY/YARD/OUT volumes, FX wet send only). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** |
 
-#21 Audio tab + #27 spatial path + #56 volumes stay. Shot propagation still later. Authored-SFX **real packs** still cooking. See `AESTHETIC_DIEGETIC_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
+#21 Audio tab + #27 spatial path + #56 volumes stay. Shot propagation still later. Future extra FX ids / authored+CE synth mix remain open. See `AESTHETIC_DIEGETIC_LOCK.md` + `EXTRACTION_AUDIO_LOCK.md`.
 
-## Authored SFX file slots (fulcrumRust #54)
+## Authored SFX file slots (fulcrumRust #54 + #62)
 
-Range Tech feel-lab `sfx.slots[id]` on the **same** #21 FX bus — **not** a second mixer. Status **PARTIAL**: wiring + placeholder WAVs shipped; authored-SFX **real packs** (CE / aim-offset WAVs) still next. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Controller feel-medium dials shipped #57 — that is not this row.
+Range Tech feel-lab `sfx.slots[id]` on the **same** #21 FX bus — **not** a second mixer. Status **IN** for the day-one handmade vendor: #54 wiring + #62 atelier WAVs in `assets/sfx/`. Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Controller feel-medium dials shipped #57 — that is not this row.
 
 | Dial | Lock |
 |------|------|
@@ -554,12 +554,13 @@ Range Tech feel-lab `sfx.slots[id]` on the **same** #21 FX bus — **not** a sec
 | **Fallback** | Missing / bad file → existing procedural tone |
 | **FX gain** | Options Audio FX dial scales the buffer; FX `0` still silent |
 | **File-backed slots** | fire · dry · reload_release / insert / seat · pickup · putdown · swipe · wrap · footstep · slide · jump · land |
+| **Optional** | `hit.wav` (atelier darkBead_impact1; #59 already plays FX `hit`) |
 | **Reserved (synth until file)** | cycle · locus · ricochet |
-| **Placeholders** | ~22.05 kHz 16-bit mono WAVs in `assets/sfx/` — not the real rustle packs |
+| **Vendor** | ~22.05 kHz 16-bit mono WAVs in `assets/sfx/` — atelier `sfx_/` CE/feel (main `f094157`, read-only). Not a full pack dump |
 | **Move cues live** | walk rustle (`footstep`) · sprint-crouch slide · Space hop + land |
-| **Weapon cues** | already on FX; now prefer the file |
+| **Weapon cues** | already on FX; prefer the file |
 | **Ownership** | Range Tech file slots / Augury Chamber spatial + #56 volumes (FX wet send) / Lab-Rat quiet stamps |
-| **Left alone** | AXIS_LOCK · Locus brains · terrain/stamps · Options Graphics |
+| **Left alone** | AXIS_LOCK · Locus brains · terrain/stamps · Options Graphics · mixer / FX dial / Augury spatial+#56 reverb |
 
 See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 
@@ -569,12 +570,12 @@ See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
-- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Authored-SFX **real packs** still cooking (#54)
+- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**
 - Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only). Do **not** claim the whole roughness→stamp cook. Next expand A/B = **near LOD later**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: still **read-only** for crew writes while Evan pushes (HDRI + small roughness sample landed). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first
 - Growth PoCs after window exists
-- Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54)
-- Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54 (placeholders); authored-SFX **real packs** / shot propagation still open. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
+- Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54; handmade vendor landed #62)
+- Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small set, not a full pack dump). Shot propagation still later. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -620,5 +621,5 @@ Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust 
 Evan peek feel (lean flip + deepen, CE hop + air hop, heat v77 look, H crossover, tracers-until-impact + FX `hit`): fulcrumRust PR #59 (2026-09-07) — **landed**. See `PEEK_FINDINGS.md` Closed by #59.
 Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD **shipped #60** (256/64/16; far softer; atelier read-only). Further roughness→stamp still open. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Closed by #60 / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far drops grain hashes; atelier read-only): fulcrumRust PR #60 (2026-09-07) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #60.
-Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped partial #54; authored-SFX **real packs** still cooking.
-Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring + placeholders; real CE / aim-offset WAV packs still next.
+Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped #54; day-one handmade vendor landed #62; shot propagation still later.
+Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring. Handmade atelier vendor: fulcrumRust PR #62 (2026-09-08) — **landed**. Small set, not a full CE / aim-offset pack dump.

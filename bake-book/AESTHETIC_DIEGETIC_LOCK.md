@@ -77,16 +77,16 @@ Evan lock: binaural day-one so the world feels **digital/diegetic** — spatial 
 - World-posed FX (muzzle / Locus slash / drops) with CE HRTF-ish pan; Voice centered; Music ambient bed
 - Authored CE reverb volumes (#56): glasses `DRY` / `YARD` / `OUT` — hideout interior / yard pad / open extract (wetter / longer tail). **FX wet send only.** Two-zone stub retired
 - Complements Augury glasses + Range Tech diegetic gun chrome — ears place the world the way labels place interacts
-- File-slot **wiring** shipped #54 (placeholders; authored-SFX **real packs** still cooking). Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
+- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small atelier set in `assets/sfx/`; missing → procedural). Shot propagation still later. Augury owns spatial + volumes + FX wet send; Range Tech owns mixer + file slots on the same bus. See Authored SFX vs spatial split below.
 - Detail: `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `engine/src/audio.rs`
 
-## Authored SFX vs spatial split (wiring shipped partial #54)
+## Authored SFX vs spatial split (day-one FILE_SLOTS vendor landed #62)
 
-File-slot **wiring** shipped **partial** via #54 — do **not** claim authored-SFX **real packs** (CE / aim-offset WAVs) as done. #21 FX bus is **live**. Authored audio **comes over** that bus (rustles / rattles / slides; placeholders today). Controller feel-medium dials shipped #57 — that is not this row.
+File-slot **wiring** shipped #54. Day-one handmade atelier vendor **landed #62** — small set into FILE_SLOTS, not a full CE / aim-offset pack dump. #21 FX bus is **live**. Authored audio **comes over** that bus (rustles / rattles / slides). Mixer / Options Audio FX / Augury spatial+#56 reverb stay untouched. Controller feel-medium dials shipped #57 — that is not this row.
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring + placeholders shipped #54. |
+| **Range Tech** | Weapon / move SFX **file slots** off CE / FoW packs **into those buses** (#21 Voice / Music / FX). Not a fourth bus. Wiring shipped #54. Day-one handmade vendor landed #62. |
 | **Augury (Chamber)** | Keeps spatial / reverb DNA (#27 CE FoW HRTF-ish pan + #56 DRY/YARD/OUT AABB volumes, FX wet send only). Does not take the file slots. |
 | **Lab-Rat** | Stamps stay **quiet on audio** — no stamp SFX lane |
 
@@ -120,7 +120,7 @@ Evan lock. **Shipped** fulcrumRust #57. Range Tech owns the feel pass. Tune dial
 
 Look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay (does not write `pitch`). Medium sweet spot vs aim-offset × CE/FoW.
 
-Weapon / move SFX file-slot **wiring** shipped #54 (placeholders). Authored-SFX **real packs** still cooking — that is audio files, not these controller dials. #12 + #51 look/strafe/door stay. **#59** landed Q/E flip + CE hop + H crossover.
+Day-one handmade SFX vendor **landed #62** — that is audio files, not these controller dials. #12 + #51 look/strafe/door stay. **#59** landed Q/E flip + CE hop + H crossover.
 
 **Crossover shoulder / left-corner peek** (landed #59): **H** springs the viewmodel across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Not a body slide. Not full weapon swap / infinite travel. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
