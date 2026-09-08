@@ -22,7 +22,7 @@ First true big map for fulcrumRust extract. **Brief only — do not claim shippe
 |------|------|
 | **Hypha** | Host — **8×** extend, drop walls, chunked Transvoxel + distance LOD load from players, higher res. Continues on fulcrumRust |
 | **Lab-Rat** | Stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) |
-| **Range Tech** | Kits + FX draw-distance on the wider yard; store `dBXpg` + metal-tech kits **open**; randomized playlist beds on Music bus **cooking** |
+| **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64** |
 | **Augury** | FoW brand / menu video **when cut ready** |
 
 #16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** stays the near extract pad until Hypha extends. See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Holding.

@@ -15,10 +15,10 @@ Parked from Evan + seat locks (2026-09-07).
 - FX bus / gunshots get spatial first
 - Shot propagation later
 
-## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62)
-Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id, plus optional `hit.wav`, in `assets/sfx/`). Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat.
+## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62 + #64)
+Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id, plus optional `hit.wav`, in `assets/sfx/`). Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Music playlist beds **landed #64** on the same #21 Music bus.
 
-Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
+Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62) + playlist beds / remix jitter (#64). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
 
 ### Gains
 - Three buses into a **master**: **Voice** / **Music** / **FX**
@@ -32,7 +32,7 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #
 |-----|------|
 | **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land |
 | **Voice** | UI confirm (title / pause / Options) |
-| **Music** | hideout / extract ambient bed stub; randomized playlist beds **cooking** (Range Tech) |
+| **Music** | hideout / extract playlist **landed #64** — CONCRETE_ECHO · Terraform · The Memory of The Augury · guttertrash · A Shattered Remnant From A Collapsed Distant Star; Options Music dial still scales; missing → two-tone stub |
 
 ### Hard checks
 - Fire SFX (SMG `playFire`) **respect the FX bus** — FX `0` is silent; half FX is quieter
@@ -74,9 +74,11 @@ Upgrades the #27 phase-only two-zone stub (hideout dry vs extract industrial) to
 
 Range Tech. Creative reuse **OK** — pitch / speed / effects to mint new one-shots from existing packs. Indie underground vibe. Do **not** overuse the same stem. #54 wiring + #62 handmade vendor stay the live FILE_SLOTS fill. Remix is how more one-shots get minted without a full pack dump. Same #21 FX bus — not a second mixer. Voice / Music stay dry dual-mono (#56).
 
-## Music beds (Range Tech cooking)
+First application **landed #64** — fire / foot / reload ±6% pitch/speed jitter on the live #62 vendor. Mixer / Options FX / Augury spatial stay honest (FX `0` still silent). Remix DNA policy stays; full remix pack minting still **open**.
 
-Randomized playlist beds on the **Music** bus. Range Tech cooking — do **not** claim shipped. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). Hideout / extract ambient bed stub stays until the playlist lands.
+## Music beds (landed #64)
+
+Shuffle of five atelier `music/` titles on hideout / extract beds: **CONCRETE_ECHO** · **Terraform** · **The Memory of The Augury** · **guttertrash** · **A Shattered Remnant From A Collapsed Distant Star**. Small 8 s / 22.05 kHz / 16-bit mono loops in fulcrumRust `assets/music/` (not the 5–11 MB MP3s). Each hideout / extract start advances the shuffle. Options Audio Music dial still scales the bed. Missing file → old two-tone stub. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). Voice / FX / Augury spatial+reverb untouched. Overrides: `FULCRUM_MUSIC` / `FULCRUM_ATELIER` read-only.
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62 · https://github.com/initialvisuals/fulcrumRust/pull/64
