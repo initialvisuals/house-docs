@@ -13,7 +13,7 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 ## Strengths (split)
 - **Barrel warp** — cards + lobe
 - **Ground haze** — separate from barrel
-- **Barrel haze RGB** (v77 look, landed fulcrumRust #59) — `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)` — not static orange blobs
+- **Barrel haze RGB** (v77 look, landed fulcrumRust #59) — `1.0 / lerp(0.14,0.70,h) / lerp(0.025,0.16,h²)` — feel-lab reference. Live fulcrumRust draw is Hypha colorless post UV warp (**landed #66**) — not an orange world card
 
 ## Card geometry
 - **Card size** — remapped **0.05–2.50** (low end = thin ribbon)
@@ -36,3 +36,4 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 - Engine/CE: mirror dials as presentation-only until gameplay needs heat
 - Keep bottom-center pin when changing W/H
 - fulcrumRust #59 landed the v77 shimmer / lattice crawl + barrel haze RGB above — not static orange blobs. Card geometry dials on this sheet stay the lock
+- fulcrumRust #66 landed the Hypha colorless post path (sample-only `heat_warp_uv`; card geometry dials on this sheet remain the lock; barrel haze RGB from #59 is feel-lab reference — live fulcrumRust draw is colorless warp)
