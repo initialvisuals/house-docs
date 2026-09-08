@@ -32,7 +32,7 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #
 |-----|------|
 | **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land |
 | **Voice** | UI confirm (title / pause / Options) |
-| **Music** | hideout / extract ambient bed stub |
+| **Music** | hideout / extract ambient bed stub; randomized playlist beds **cooking** (Range Tech) |
 
 ### Hard checks
 - Fire SFX (SMG `playFire`) **respect the FX bus** — FX `0` is silent; half FX is quieter
@@ -69,6 +69,14 @@ Upgrades the #27 phase-only two-zone stub (hideout dry vs extract industrial) to
 - Smoke: `audio=100% zone=EXTRACT spatial=1.00 sfx=file/13` after Standard + Inked dumps + Z/F; FX `0` still silences fire
 - File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural); shot propagation still later
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
+
+## SFX remix DNA (Evan 2026-09-08 ~00:00 ET)
+
+Range Tech. Creative reuse **OK** — pitch / speed / effects to mint new one-shots from existing packs. Indie underground vibe. Do **not** overuse the same stem. #54 wiring + #62 handmade vendor stay the live FILE_SLOTS fill. Remix is how more one-shots get minted without a full pack dump. Same #21 FX bus — not a second mixer. Voice / Music stay dry dual-mono (#56).
+
+## Music beds (Range Tech cooking)
+
+Randomized playlist beds on the **Music** bus. Range Tech cooking — do **not** claim shipped. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). Hideout / extract ambient bed stub stays until the playlist lands.
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
 PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62

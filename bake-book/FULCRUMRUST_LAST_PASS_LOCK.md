@@ -2,6 +2,10 @@
 
 Canonical feel / systems answers. Steal map + seats update from this sheet.
 
+## Where to read (2026-09-08)
+
+fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll.
+
 ## Day-one kit
 - **SMG** basic 20-round mag
 - **4 mags** + one in the gun
@@ -34,11 +38,11 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 - **Transvoxel consume channels** (Lab-Rat #17): `sample_channels` / `fill_chunk_samples` — density `> 0` solid; Hypha owns mesher / LOD / tables
 - **Shape-agnostic stamp/paint substrate** (Lab-Rat #38): any authored shape → density + material; ChannelOp Union/Subtract/Paint/Replace; paint writes real / UX stubbed; mesh→voxel convert. Yard/Inked/curl stay consumers. Lab-Rat writes; Hypha remeshes
 - **Extract-yard scale harness** (Lab-Rat #39): stay on the extract yard; `apply_yard_harness` via `StampField::layers`; pad ≈ **110 m²**; near-warm / far-cold (`guts_cold` **140**); smoke `layers=` `prims=` `yard_m2=`
-- **Quiet grit greyscales** (Lab-Rat #58): vendored 256² luma in `assets/stamps/` (`grit_grunge` / `grit_crack` / `grit_dust`); `grit.rs` tiled world-XZ (stamp +Y); `sample_channels` quiet height under loud scars; `grit::rough` wear; `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` read-only. Atelier stays read-only. Smoke `grit=`. Near source for Hypha #60 mips
-- **LOD-tied grit / material mips** (Hypha #60): `lod_mips.rs` BC4-class 8-bit height/rough on Transvoxel rings — near **256²** (#58 vendor) / mid **64²** / far **16²**; far drops grain hashes; `sample_channels` + `stamp_wear_scale` pick the ring from world XZ; atelier read-only (`grit_*.png`). Smoke `grit_mips=256/64/16 n=196608 f=768`
+- **Quiet grit greyscales** (Lab-Rat #58): vendored 256² luma in `assets/stamps/` (`grit_grunge` / `grit_crack` / `grit_dust`); `grit.rs` tiled world-XZ (stamp +Y); `sample_channels` quiet height under loud scars; `grit::rough` wear; `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Live yard plugs until Lab-Rat cooks more. Smoke `grit=`. Near source for Hypha #60 mips
+- **LOD-tied grit / material mips** (Hypha #60): `lod_mips.rs` BC4-class 8-bit height/rough on Transvoxel rings — near **256²** (#58 vendor) / mid **64²** / far **16²**; far drops grain hashes; `sample_channels` + `stamp_wear_scale` pick the ring from world XZ; in-repo `grit_*.png` until more grit cooks. Smoke `grit_mips=256/64/16 n=196608 f=768`
 - **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Near LOD raise **shipped #61**
 - **Near LOD raise** (Hypha #61): bake-once Transvoxel subdivs **32/16/4** (was 16/8/4). Grid stays #43 **7×7 / 3 rings / 112 m / 12 544 m²**. Near step **2:1** (32→16) so Lengyel faces still stitch. Outer stays coarse (4). Grit mips stay **256² / 64² / 16²** (#60). Smoke `terrain_tris=11118 lods=3 subdivs=32/16/4 near_chunk=3290 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 grit_mips=256/64/16 n=196608 f=768`. Far mean ~**84×** cheaper than near. Live recook / tunnels / runtime carve still parked
-- **First big-map brief** (Evan 2026-09-08): **not shipped**. Hypha host — drop outer walls, extend **~8×**, chunked Transvoxel, **load chunks by distance from players** (listen-server aware). Near LOD raise already **#61**. Lab-Rat stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down (atelier **150 roughness + textures/PBR ~26 sets landed**; plugs wait for Evan **clean** yell). Range Tech — kits + FX draw-distance on the wider yard; `dBXpg` after clean. Augury — menu video bg / brand after clean. See `TERRAIN_NORTHSTAR.md`
+- **First big-map brief** (Evan 2026-09-08): **not shipped**. Hypha host — drop outer walls, extend **~8×**, chunked Transvoxel, **load chunks by distance from players** (listen-server aware). Continues on fulcrumRust. Near LOD raise already **#61**. Lab-Rat stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down (atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** after Evan **clean** yell 2026-09-08 ~00:00 ET). Range Tech — kits + FX draw-distance on the wider yard; `dBXpg` + metal-tech kits **open**; Music playlist beds **cooking**. Augury — FoW brand / menu video **when cut ready**. See `TERRAIN_NORTHSTAR.md`
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; distance LOD **32/16/4** (#61; was 16/8/4) + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
@@ -186,7 +190,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Feel-lab Settings **Audio** DNA — **not a DAW**; file-slot **wiring** shipped #54; day-one handmade atelier vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural)
 - Buses **Voice / Music / FX** into a **master**; gains clamp **0–2**, default **1.00 / 100%**; effective = `master * bus`
 - Title + pause **Options** open the Augury shell (#45); Hypha Graphics/Gameplay/Controls panes live (#46); **Audio** still Range Tech #21 three-row Voice/Music/FX sheet; **A/D** or **←/→** nudge **0.05**; Esc Hypha pane / Audio → Options → title/pause; dials persist across Deploy
-- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub
+- Routes: **FX** = fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land; **Voice** = UI confirm; **Music** = hideout / extract ambient bed stub; randomized playlist beds **cooking**
 - Hard check: SMG fire SFX respect FX (FX `0` silent). File preferred when present; missing → procedural. See `EXTRACTION_AUDIO_LOCK.md` + `engine/src/audio.rs`
 - File-slot **wiring** shipped #54. Day-one handmade vendor **IN** via #62 (small set, not a full CE / aim-offset pack dump). Range Tech owns weapon/move SFX on this bus. Shot propagation still later. Controller feel-medium dials shipped #57 — that is not this row. See Authored SFX file slots (#54 + #62).
 
@@ -205,7 +209,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Grid **7×7** / 3 Chebyshev rings / 112 m / 12 544 m² (Hypha #43; extra far ring only)
 - `TerrainHost` consumes Lab-Rat `sample_channels` + `density_stamp_2d` / `WearStamp`; skin = `VoxelMaterial::tint` (no second paint story)
 - Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze; hideout unfogged
-- Parked: live LOD recook · tunnels · runtime carve. Near LOD raise **shipped #61**. **Next lock = first big-map brief** (2026-09-08) — not shipped. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only) — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+- Parked: live LOD recook · tunnels · runtime carve. Near LOD raise **shipped #61**. **Next lock = first big-map brief** (2026-09-08) — not shipped. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer). In-repo grit mips stay until Lab-Rat cooks more — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
 
 ## Distance activation / far-guts cold (fulcrumRust #23)
@@ -254,10 +258,10 @@ First true big map for fulcrumRust extract. **Brief only — do not claim shippe
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — 8× extend, drop walls, chunked Transvoxel + distance LOD load from players. Near LOD **32/16/4** already #61 |
-| **Lab-Rat** | Stamps — slope/angle, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; plugs wait for Evan **clean** yell |
-| **Range Tech** | Kits + FX draw-distance on the wider yard; store `dBXpg` after clean |
-| **Augury** | Menu video bg / brand after clean |
+| **Hypha** | Host — 8× extend, drop walls, chunked Transvoxel + distance LOD load from players. Near LOD **32/16/4** already #61. Continues on fulcrumRust |
+| **Lab-Rat** | Stamps — slope/angle, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) |
+| **Range Tech** | Kits + FX draw-distance on the wider yard; store `dBXpg` + metal-tech kits **open**; randomized playlist beds on Music bus **cooking** |
+| **Augury** | FoW brand / menu video **when cut ready** |
 
 See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Holding.
 
@@ -387,13 +391,13 @@ See `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/CHANNELS.m
 
 ## Texture LOD compress (2026-09-07)
 
-Atelier roughness packs are **4k 48-bit PNG** — too large for extract. Do **not** ship raw 4k 48-bit into the yard. Quiet grit greyscales **landed #58** (vendored bake-downs + `sample_channels` quiet height + `grit::rough` wear). Hypha ring-mip texture LOD **shipped #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**; further plugs wait for Evan **clean** yell. Whole roughness→stamp cook is **not** done.
+Atelier roughness packs are **4k 48-bit PNG** — too large for extract. Do **not** ship raw 4k 48-bit into the yard. Quiet grit greyscales **landed #58** (vendored bake-downs + `sample_channels` quiet height + `grit::rough` wear). Hypha ring-mip texture LOD **shipped #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**. Evan **clean** yell 2026-09-08 ~00:00 ET — plugs **open**. Whole roughness→stamp cook is **not** done.
 
 | Seat | Lock |
 |------|------|
-| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars. Wire on **fulcrumRust only**. **#58 landed** first in-repo 256² set — the near source for #60. See Quiet grit greyscales |
-| **Hypha** | LOD-tied mips / compression **shipped #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). Atelier **read-only** (`assets/stamps/grit_*.png`). Smoke `grit_mips=256/64/16 n=196608 f=768` |
-| **Atelier** | Still **read-only** for crew writes. PBR batch **in** (150 roughness + textures/PBR ~26 sets). Plugs wait for Evan **clean** yell. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only |
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars. Wire on **fulcrumRust only**. **#58 landed** first in-repo 256² set — the near source for #60. Grit / slope / PBR plugs **open**. See Quiet grit greyscales |
+| **Hypha** | LOD-tied mips / compression **shipped #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768` |
+| **Atelier** | Plugs **open** (was read-only). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths |
 
 See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `ATELIER_PORTFOLIO_STEAL.md`.
 
@@ -409,8 +413,8 @@ Lab-Rat. Feel lock: quiet authored grit + loud scars now has in-repo vendored he
 | **Wear** | Hypha vertex wear scale picks up `grit::rough` beside 2D-density cracks / `WearStamp`s |
 | **Overrides** | Optional read-only: `FULCRUM_GRIT=` (same filenames) or `FULCRUM_ATELIER=` (local checkout, downsample on load). No submodule. No atelier writes |
 | **Smoke** | `grit=vendor` (or `atelier` / `dir` if override) |
-| **Still open** | SVG / density-mask ingest · experiment log · further roughness→stamp (PBR batch in; plugs wait for **clean**). Hypha ring-mips **landed #60**. Atelier stays **read-only** |
-| **Out of scope** | Range Tech controller · Augury Locus · Hypha Transvoxel tables · atelier repo writes |
+| **Still open** | SVG / density-mask ingest · experiment log · further roughness→stamp (PBR batch in; grit / slope / PBR plugs **open**). Hypha ring-mips **landed #60**. Atelier plugs **open** (2026-09-08 clean) |
+| **Out of scope** | Range Tech controller · Augury Locus · Hypha Transvoxel tables |
 
 See `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/STAMPS.md` / `docs/CHANNELS.md`.
 
@@ -468,7 +472,7 @@ Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD analysis-core chrome (#45). Options list shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
-| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS`. **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. **No atelier write** (read-only while Evan pushes). LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
+| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS`. **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
@@ -489,7 +493,7 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | **Persist** | `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json` |
 | **Esc** | Hypha pane / Audio → Options → title or HOLD (same stack as #45) |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. No atelier write (read-only while Evan pushes). GPU stack that made toggles change the image is #55.
+See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. Does not dump atelier into Options Graphics. GPU stack that made toggles change the image is #55.
 
 ## Hypha GPU post stack (fulcrumRust #55)
 
@@ -600,19 +604,28 @@ Range Tech feel-lab `sfx.slots[id]` on the **same** #21 FX bus — **not** a sec
 
 See `EXTRACTION_AUDIO_LOCK.md` + fulcrumRust `assets/sfx/README.md`.
 
+## SFX remix DNA (Evan 2026-09-08 ~00:00 ET)
+
+Range Tech. Creative reuse **OK** — pitch / speed / effects to mint new one-shots from existing packs. Indie underground vibe. Do **not** overuse the same stem. #54 wiring + #62 handmade vendor stay the live FILE_SLOTS fill. Remix is how more one-shots get minted without a full pack dump. Same #21 FX bus — not a second mixer. Voice / Music stay dry dual-mono (#56). See `EXTRACTION_AUDIO_LOCK.md`.
+
+## Music beds (Range Tech cooking)
+
+Randomized playlist beds on the **Music** bus. Range Tech cooking — do **not** claim shipped. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). Hideout / extract ambient bed stub stays until the playlist lands. See `EXTRACTION_AUDIO_LOCK.md`.
+
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Near LOD raise **shipped #61** (subdivs **32/16/4**; near step 2:1; outer stays 4). Wider chunk radius shipped Hypha #43: 7×7 / 3 rings / 112 m / 12 544 m². Live LOD recook / tunnels / runtime carve still parked
-- Next yard lock = **first big-map brief** (2026-09-08) — **not shipped**. Live remains #43 **7×7 / 112 m** + #61 **32/16/4**. Hypha owns drop walls · ~8× · chunked Transvoxel · player-distance load (listen-server aware)
+- Next yard lock = **first big-map brief** (2026-09-08) — **not shipped**. Live remains #43 **7×7 / 112 m** + #61 **32/16/4**. Hypha owns drop walls · ~8× · chunked Transvoxel · player-distance load (listen-server aware). Continues on fulcrumRust
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
 - Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer; tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**
-- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer; atelier read-only). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61** (subdivs 32/16/4; grit mips stay). Next lock = **first big-map brief**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
-- Atelier: still **read-only** for crew writes. PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first; plugs wait for Evan **clean** yell. Range Tech `dBXpg` + Augury menu video / brand after clean
+- Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61** (subdivs 32/16/4; grit mips stay). Next lock = **first big-map brief**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
+- Atelier: plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first; grit / slope / PBR **open**. Range Tech `dBXpg` + metal-tech kits **open**; Music playlist beds **cooking**. Augury FoW brand / menu video **when cut ready**
+- **SFX remix DNA** (2026-09-08 ~00:00 ET): creative reuse OK — pitch / speed / effects to mint new one-shots from existing packs; indie underground vibe; don’t overuse the same stem. #62 vendor stays the live FILE_SLOTS fill
 - Growth PoCs after window exists
 - Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54; handmade vendor landed #62)
-- Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small set, not a full pack dump). Shot propagation still later. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
+- Authored SFX vs spatial split: Range Tech file-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (small set, not a full pack dump). **SFX remix DNA** open. Randomized playlist beds on Music bus **cooking**. Shot propagation still later. Augury (Chamber) keeps spatial/reverb DNA (**volumes shipped #56**); Lab-Rat stamps stay quiet on audio (Initial Visuals Group Chat 2026-09-07)
 
 Source chat: Initial Visuals Group Chat, 2026-09-06. Controller axis lock: fulcrumRust PR #12 (2026-09-07).
 MP9-Z kit: fulcrumRust PR #14 (2026-09-07).
@@ -661,4 +674,5 @@ LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far d
 Near LOD raise (16/8/4 → 32/16/4; grid/radius stay #43; grit mips stay #60): fulcrumRust PR #61 (2026-09-08) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #61.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped #54; day-one handmade vendor landed #62; shot propagation still later.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring. Handmade atelier vendor: fulcrumRust PR #62 (2026-09-08) — **landed**. Small set, not a full CE / aim-offset pack dump.
-First big-map brief (drop walls · ~8× extend · chunked Transvoxel · slope/angle + scatter/PBR · player-distance load, listen-server aware): Evan dump (2026-09-08) — **brief only, not shipped**. Near LOD raise already #61. Hypha host / Lab-Rat stamps / Range Tech kits+FX draw + `dBXpg` after clean / Augury menu video+brand after clean. Atelier PBR batch **in** (150 roughness + textures/PBR ~26 sets); plugs wait for Evan **clean** yell. See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Holding.
+First big-map brief (drop walls · ~8× extend · chunked Transvoxel · slope/angle + scatter/PBR · player-distance load, listen-server aware): Evan dump (2026-09-08) — **brief only, not shipped**. Near LOD raise already #61. Hypha host continues on fulcrumRust / Lab-Rat grit-slope-PBR plugs **open** / Range Tech kits+FX draw + `dBXpg` + metal-tech + music **open** / Augury FoW brand+menu video **when cut ready**. Atelier PBR batch **in** (150 roughness + textures/PBR ~26 sets). See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Holding.
+Atelier clean yell + SFX remix DNA + Music playlist beds: Evan dump (2026-09-08 ~00:00 ET) — plugs **open** (was read-only). Lab-Rat grit/slope/PBR · Range Tech `dBXpg`/metal-tech + music · Augury FoW brand/menu video when cut ready · Hypha big-map continues on fulcrumRust. Do **not** claim those plugs shipped. See `ATELIER_PORTFOLIO_STEAL.md` + `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Holding.

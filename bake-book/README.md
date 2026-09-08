@@ -13,6 +13,8 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+
 ## What to drop here
 
 | Kind | Examples | Intended reuse |

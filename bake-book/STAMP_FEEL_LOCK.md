@@ -9,8 +9,8 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
-- **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier still **read-only** while Evan pushes. Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`
-- **First big-map brief (2026-09-08):** Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down on the wider host. Atelier **150 roughness + textures/PBR ~26 sets landed**; plugs wait for Evan **clean** yell. **Brief only — not shipped.** Host 8× / walls / chunks stay Hypha. See `TERRAIN_NORTHSTAR.md`
+- **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`
+- **First big-map brief (2026-09-08):** Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down on the wider host. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. **Brief only — not shipped.** Host 8× / walls / chunks stay Hypha. See `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -81,13 +81,13 @@ Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANN
 
 ## Texture compression — greyscale bake-down (2026-09-07)
 
-Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier stays **read-only** for crew writes while Evan pushes. **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**; further plugs wait for Evan **clean** yell. Whole roughness→stamp cook is **not** done.
+Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. Whole roughness→stamp cook is **not** done.
 
 | Lock | Detail |
 |------|--------|
-| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only**. **#58 landed** first in-repo set: `assets/stamps/grit_{grunge,crack,dust}.png` |
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only**. **#58 landed** first in-repo set: `assets/stamps/grit_{grunge,crack,dust}.png`. Grit / slope / PBR plugs **open** |
 | **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings** — grit vs loud scars (near **256²** Lab-Rat vendor; mid **64²**; far **16²** cheaper / softer). See `TERRAIN_NORTHSTAR.md` |
-| **Atelier** | Still **read-only** while Evan pushes. HDRI + small roughness sample landed. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` are read-only. See `ATELIER_PORTFOLIO_STEAL.md` |
+| **Atelier** | Plugs **open** (was read-only). HDRI + PBR batch landed. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. See `ATELIER_PORTFOLIO_STEAL.md` |
 
 Detail: house `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
@@ -97,7 +97,7 @@ Lab-Rat. Feel lock: quiet authored grit + loud scars now has in-repo vendored he
 
 | Lock | Detail |
 |------|--------|
-| **Ownership** | Lab-Rat. Atelier stays **read-only** |
+| **Ownership** | Lab-Rat. #58 shipped under atelier read-only; plugs **open** 2026-09-08. Env overrides stay read-only load paths |
 | **Assets** | Three 256² luma crops in `assets/stamps/` (~83 KB total): `grit_grunge.png` ← atelier `grunge_4.png` · `grit_crack.png` ← `paint cracks.png` · `grit_dust.png` ← `dust and smudge_2.png`. Already bake-down sized — **not** raw 4k 48-bit |
 | **Sample** | `engine/src/grit.rs` tiled world-XZ maps (stamp **+Y** height). Yard-weighted; far guts stay heightfield-only |
 | **Channels** | `sample_channels` adds quiet height under compiled content so loud void-spore / webbing / Inked scars stay landmarks |
