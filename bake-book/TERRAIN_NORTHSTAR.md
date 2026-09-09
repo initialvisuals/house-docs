@@ -20,12 +20,12 @@ First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live ho
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Stream hitch amortize **landed #108** (cook=1/2 · prefetch=5 m · splash-pumped load-in on the same 9×9). Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Biped foot plant **landed #88** — consumes #79/#81 heightfield column; mesher / LOD / stamps untouched. Continues on fulcrumRust (Transvoxel rewrite / live octree / unconstrained Sync dump parked; amortized recook under budget is shipped #108) |
+| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Stream hitch amortize **landed #108** (cook=1/2 · prefetch=5 m · splash-pumped load-in on the same 9×9). Transvoxel UV consume **landed #112** (`promote_for_uv` + TerrainHost wear/COL honor; texture-only, never remesh). Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Biped foot plant **landed #88** — consumes #79/#81 heightfield column; mesher / LOD / stamps untouched. Continues on fulcrumRust (Transvoxel rewrite / live octree / unconstrained Sync dump parked; amortized recook under budget is shipped #108) |
 | **Lab-Rat** | Stamps — slope/PBR/dirt/scatter/deform plugs **landed #80** (DISP bake-down + `Deform` / `GroundScatter` filled). Slope COL hooks reserved on host **#81** (Hypha vertex albedo only). Atelier **150 roughness + textures/PBR ~26 sets landed**. NRM/GLOSS GPU parked. **#81** reserved identity only — **#80** filled the plugs |
 | **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64**. #79 land sway + heightfield FX kept. Heat / ballistics / binds **not touched** |
 | **Augury** | FoW brand / menu video **when cut ready**. Chrome **not touched** |
 
-#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Stream hitch amortize **#108**. Lab-Rat plugs **#80**. Peer feet stream anchors **#83**. Pawn plant on that column **#88** (mesher untouched). See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #108 / #80 / #83 / #88.
+#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Stream hitch amortize **#108**. UV consume **#112**. Lab-Rat plugs **#80**. Peer feet stream anchors **#83**. Pawn plant on that column **#88** (mesher untouched). See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #108 / #112 / #80 / #83 / #88.
 
 ## Morning lock (2026-09-07)
 
@@ -217,7 +217,7 @@ Atelier roughness is **4k 48-bit PNG** — too fat for the yard. Do **not** ship
 | Seat | Lock |
 |------|------|
 | **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only. **#58 landed** first vendored 256² set (`grit_{grunge,crack,dust}.png`) — the near source for #60. Slope/PBR/dirt/scatter/deform plugs **landed #80**. Atelier **150 roughness + textures/PBR ~26 sets landed**. Whole roughness→stamp cook still separate (SVG / density-mask / experiment-log)
-| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61**; live underfoot **#81 32/16/8/4**. Grit mips stay 256/64/16. First big-map host **landed #81** (not a grit-mip raise) |
+| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). **#112** `promote_for_uv` + TerrainHost wear/COL honor Lab-Rat #101 `uv::xform` — texture-only, never remesh. In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61**; live underfoot **#81 32/16/8/4**. Grit mips stay 256/64/16. First big-map host **landed #81** (not a grit-mip raise) |
 | **Atelier** | Plugs **open** (was read-only). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths |
 
 See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.
