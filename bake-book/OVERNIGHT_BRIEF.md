@@ -2,7 +2,7 @@
 
 Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this shelf + fulcrumRust `docs/STEAL_MAP.md` + `docs/PVP_DIAL_SHEET.md` — not chat.
 
-**Pulse:** Beabim PVP leftover (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn)
+**Pulse:** Beabim HOST PVP radio pre-enter · no 127 invite seed
 
 ## Direction
 
@@ -24,8 +24,8 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | **Hypha** | #66 colorless heat · #81 19×19 + stream + slope COL · #86 Graphics dump · #88 biped foot plant · #90 warp floor 0.01 · **#108** stream hitch amortize · **#112** Transvoxel UV consume · **#116** PreferredHand + new-profile onboard · **#123** worker STREAM extract+paint · (#87 sun with Range) |
 | **Lab-Rat** | #69 organic growth mesh · #80 slope/PBR/dirt/scatter/deform · **#101** Blender UV dials · **#114** subtract crawl · **#127** probe consume · **#130** sandbox pedon |
 | **Augury** | #85 diegetic elbow smart-labels (hold-O EXTRACT) |
-| **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub · **#102** live-profile loot trail · **#119** world/sim leftover (KIND_SHOT / KIND_LOCUS / KIND_BODY) · **#122** no-pause mute-local-only + KIND_RAID shared instance (`GATE_SECS` **2.20**) · **#133** PVP leftover (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn) |
-| **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #133 (Beabim PVP leftover) |
+| **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub · **#102** live-profile loot trail · **#119** world/sim leftover (KIND_SHOT / KIND_LOCUS / KIND_BODY) · **#122** no-pause mute-local-only + KIND_RAID shared instance (`GATE_SECS` **2.20`) · **#133** PVP leftover (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn) · **#139** HOST session board + no-127 invite seed |
+| **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #139 (Beabim HOST session board / no-127 invite) |
 
 ## Still cooking
 
@@ -35,9 +35,9 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | **Lab-Rat** | Blender UV dials **landed #101**. Probe consume **landed #127**. Sandbox pedon **landed #130** (off-stream leftover; STREAM stays #123; pad crawl stays #114). NRM/GLOSS GPU parked. SVG / density-mask / experiment-log open. Asset-ask grit until Evan list. |
 | **Augury** | FoW title/main menu + settings clone not done. CE Home debugger + hitch logger * next (ledger). Menu video · Holocron · stash · enemies beyond Inked parked. |
 | **Range Tech** | Draft **#106** milsim wording / invalid Rust hotfix. Pose ease / springs **landed #109**. Ergo / handling **·**. `dBXpg` open. Full remix minting open. Quality/flag on `build.bat` open. |
-| **Beabim** | World/sim leftover **landed #119**. No-pause + KIND_RAID handshake **landed #122**. PVP leftover **landed #133** (KIND_PVP default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). Range feel / knife-rally / joiner slash / stabilize / stamps / hatch still local. Ragdoll visual flop waits on #131 PeerBody. Server browser parked. Full 3P kit honesty / hands / gear open. |
+| **Beabim** | World/sim leftover **landed #119**. No-pause + KIND_RAID handshake **landed #122**. PVP leftover **landed #133** (KIND_PVP default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). HOST session board **landed #139** (PVP radio pre-enter · no 127 invite seed). Range feel / knife-rally / joiner slash / stabilize / stamps / hatch still local. Ragdoll visual flop waits on #131 PeerBody. Server browser parked. Full 3P kit honesty / hands / gear open. |
 
-Morning eyes: Hypha hitch *fix* **tipped through #123** (worker STREAM extract+paint on the #108 amortize). Lab-Rat probe consume **#127** + sandbox pedon **#130** shelved (steal from bake-book, not chat). PreferredHand **landed #116**. Range pose springs **landed #109**. Range AIM TUNE PX **landed #138** (`shoulder_x_max` **±0.50**). Beabim PVP leftover **landed #133** (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn — steal `docs/PVP_DIAL_SHEET.md`, not chat). Augury Home logger **landed #110 / #121 / #125**. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
+Morning eyes: Hypha hitch *fix* **tipped through #123** (worker STREAM extract+paint on the #108 amortize). Lab-Rat probe consume **#127** + sandbox pedon **#130** shelved (steal from bake-book, not chat). PreferredHand **landed #116**. Range pose springs **landed #109**. Range AIM TUNE PX **landed #138** (`shoulder_x_max` **±0.50**). Beabim PVP leftover **landed #133** (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). HOST session board **landed #139** (PVP radio pre-enter · no 127 invite seed — steal `docs/PVP_DIAL_SHEET.md`, not chat). Augury Home logger **landed #110 / #121 / #125**. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
 
