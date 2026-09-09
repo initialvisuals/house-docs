@@ -33,6 +33,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)
 - AIM TUNE Pos X travel (Range Tech **#138** ±0.50) → fulcrumRust [`docs/AIM_TUNE_X_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/AIM_TUNE_X_DIAL_SHEET.md)
 - PVP leftover (Beabim **#133** KIND_PVP default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn · **#139** HOST session board / no-127 invite) → fulcrumRust [`docs/PVP_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/PVP_DIAL_SHEET.md)
+- Landmark AABB ride (Hypha **#136** — `RIDE_STEP` 0.50 · `RIDE_SKIN` 0.06 · `SUPPORT_STEP` 0.25) → fulcrumRust [`docs/LANDMARK_RIDE.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/LANDMARK_RIDE.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
