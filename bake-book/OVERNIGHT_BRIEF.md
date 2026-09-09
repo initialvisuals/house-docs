@@ -1,12 +1,12 @@
 # Overnight brief (2026-09-09)
 
-Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this shelf + fulcrumRust `docs/STEAL_MAP.md` + `docs/PVP_DIAL_SHEET.md` — not chat.
+Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this shelf + fulcrumRust `docs/STEAL_MAP.md` + `docs/LANDMARK_RIDE.md` + `docs/PVP_DIAL_SHEET.md` — not chat.
 
-**Pulse:** Beabim HOST PVP radio pre-enter · no 127 invite seed
+**Pulse:** Hypha landmark AABB ride **#136** (`RIDE_STEP` 0.50 · `RIDE_SKIN` 0.06 · `SUPPORT_STEP` 0.25) · Beabim HOST PVP radio pre-enter · no 127 invite seed
 
 ## Direction
 
-- **First true big map** — **landed #81**: 19×19 open extract / 304 m / ~92k m², walls off, 9×9 player-relative stream, underfoot **32/16/8/4**. Stamp pad stays **7×7** / #23 far-cold. Stream hitch amortize **landed #108**; worker STREAM extract+paint **landed #123** (`defer=worker/paint/gpu`). Soft LOD pop inside a chunk parked. See `TERRAIN_NORTHSTAR.md`.
+- **First true big map** — **landed #81**: 19×19 open extract / 304 m / ~92k m², walls off, 9×9 player-relative stream, underfoot **32/16/8/4**. Stamp pad stays **7×7** / #23 far-cold. Stream hitch amortize **landed #108**; worker STREAM extract+paint **landed #123** (`defer=worker/paint/gpu`). Landmark AABB ride **landed #136** (`RIDE_STEP` **0.50** · `RIDE_SKIN` **0.06** · `SUPPORT_STEP` **0.25** unchanged). Soft LOD pop inside a chunk parked. See `TERRAIN_NORTHSTAR.md`.
 - **Lab-Rat stamps** — organic growth mesh **#69** + slope/PBR/dirt/scatter/deform **#80** + Blender UV dials **#101** + subtract crawl **#114** + probe consume **#127** + sandbox pedon **#130** landed. Hypha Transvoxel UV consume **#112** landed (`promote_for_uv` + wear/COL honor; texture-only). Pedon is off-stream leftover overlay — STREAM stays Hypha **#123**. NRM/GLOSS GPU parked. SVG / density-mask / experiment-log still open.
 - **Range Tech** — Patch A feel stack through **#103** AIM TUNE live-save (`aim_live` + `aim_tune` → Hypha `project.json`). End PX travel **landed #138** (`shoulder_x_max` **±0.50**; leftover +0.226 is not an End cap). Pose ease / springs **landed #109** (`hold_spring` **7.0**). Ergo / handling stats **·**. Store `dBXpg` still open. Scope glass holding until LPVO.
 - **PreferredHand** — **landed #116** (Hypha). Right default · NEW PROFILE gate · `project.json` permanent vs live · death clears live · extract→stash stub. Full PMC stash / character tab later.
@@ -21,11 +21,11 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | Seat | Shipped |
 |------|--------|
 | **Range Tech** | #67 muzzle tip · #68 ADS DoF · #71 heat dump-dial · #76 SIM-only · #78 hold-O / −/= / grounded slide · #79 land sway + heightfield FX · #82 Audio DEVICE · #84 H tilt · #87 HDRI sun · #89 projectile feel · #94/#98/#99/#100 hip·low-hip·cant · #97 End AIM TUNE · **#103** live-save · **#109** U-cycle hold springs · **#138** AIM TUNE PX **±0.50** |
-| **Hypha** | #66 colorless heat · #81 19×19 + stream + slope COL · #86 Graphics dump · #88 biped foot plant · #90 warp floor 0.01 · **#108** stream hitch amortize · **#112** Transvoxel UV consume · **#116** PreferredHand + new-profile onboard · **#123** worker STREAM extract+paint · (#87 sun with Range) |
+| **Hypha** | #66 colorless heat · #81 19×19 + stream + slope COL · #86 Graphics dump · #88 biped foot plant · #90 warp floor 0.01 · **#108** stream hitch amortize · **#112** Transvoxel UV consume · **#116** PreferredHand + new-profile onboard · **#123** worker STREAM extract+paint · **#136** landmark AABB ride (`RIDE_STEP` **0.50** · `RIDE_SKIN` **0.06** · `SUPPORT_STEP` **0.25**) · (#87 sun with Range) |
 | **Lab-Rat** | #69 organic growth mesh · #80 slope/PBR/dirt/scatter/deform · **#101** Blender UV dials · **#114** subtract crawl · **#127** probe consume · **#130** sandbox pedon |
 | **Augury** | #85 diegetic elbow smart-labels (hold-O EXTRACT) |
 | **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub · **#102** live-profile loot trail · **#119** world/sim leftover (KIND_SHOT / KIND_LOCUS / KIND_BODY) · **#122** no-pause mute-local-only + KIND_RAID shared instance (`GATE_SECS` **2.20`) · **#133** PVP leftover (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn) · **#139** HOST session board + no-127 invite seed |
-| **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #139 (Beabim HOST session board / no-127 invite) |
+| **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #139 (Beabim HOST session board) + #136 (Hypha landmark AABB ride) |
 
 ## Still cooking
 
@@ -37,8 +37,8 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | **Range Tech** | Draft **#106** milsim wording / invalid Rust hotfix. Pose ease / springs **landed #109**. Ergo / handling **·**. `dBXpg` open. Full remix minting open. Quality/flag on `build.bat` open. |
 | **Beabim** | World/sim leftover **landed #119**. No-pause + KIND_RAID handshake **landed #122**. PVP leftover **landed #133** (KIND_PVP default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). HOST session board **landed #139** (PVP radio pre-enter · no 127 invite seed). Range feel / knife-rally / joiner slash / stabilize / stamps / hatch still local. Ragdoll visual flop waits on #131 PeerBody. Server browser parked. Full 3P kit honesty / hands / gear open. |
 
-Morning eyes: Hypha hitch *fix* **tipped through #123** (worker STREAM extract+paint on the #108 amortize). Lab-Rat probe consume **#127** + sandbox pedon **#130** shelved (steal from bake-book, not chat). PreferredHand **landed #116**. Range pose springs **landed #109**. Range AIM TUNE PX **landed #138** (`shoulder_x_max` **±0.50**). Beabim PVP leftover **landed #133** (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). HOST session board **landed #139** (PVP radio pre-enter · no 127 invite seed — steal `docs/PVP_DIAL_SHEET.md`, not chat). Augury Home logger **landed #110 / #121 / #125**. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
+Morning eyes: Hypha landmark AABB ride **landed #136** (`RIDE_STEP` **0.50** · `RIDE_SKIN` **0.06** · `SUPPORT_STEP` **0.25** — steal `docs/LANDMARK_RIDE.md`, not chat). Hypha hitch *fix* **tipped through #123** (worker STREAM extract+paint on the #108 amortize). Lab-Rat probe consume **#127** + sandbox pedon **#130** shelved (steal from bake-book, not chat). PreferredHand **landed #116**. Range pose springs **landed #109**. Range AIM TUNE PX **landed #138** (`shoulder_x_max` **±0.50**). Beabim PVP leftover **landed #133** (default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn). HOST session board **landed #139** (PVP radio pre-enter · no 127 invite seed — steal `docs/PVP_DIAL_SHEET.md`, not chat). Augury Home logger **landed #110 / #121 / #125**. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
 
 Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
 
-Source of truth: `docs/STEAL_MAP.md` + `docs/PVP_DIAL_SHEET.md` in fulcrumRust + this shelf.
+Source of truth: `docs/STEAL_MAP.md` + `docs/LANDMARK_RIDE.md` + `docs/PVP_DIAL_SHEET.md` in fulcrumRust + this shelf.
