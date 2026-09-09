@@ -4,7 +4,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Where to read (2026-09-08)
 
-fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll. Vector mag dump (Range Tech muzzle / FX — **live steal landed #89**) → `VECTOR_MAG_DUMP.md`. Heat cards → `../heat-card-dial-sheet.md`.
+fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll. Vector mag dump (Range Tech muzzle / FX — **live steal landed #89**) → `VECTOR_MAG_DUMP.md`. Heat cards → `../heat-card-dial-sheet.md`. **1P viewmodel ≠ 3P biped gun** (MP honesty — holding / locked intent, **not shipped**) → this sheet + `PEEK_FINDINGS.md`.
 
 ## Day-one kit
 - **SMG** basic 20-round mag
@@ -506,7 +506,7 @@ Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join pa
 - Thin `std::net` UDP hub in `engine/src/net.rs` (#34). Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
 - Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
 - **#83 POSE** after HELLO/WELCOME (~20 Hz): feet `xyz`, yaw, pitch, grounded, crouch. Host assigns peer ids on WELCOME and relays poses
-- Cheap **5-box** operator silhouette (slate) — not Mixamo / not Locus
+- Cheap **5-box** operator silhouette (slate) — not Mixamo / not Locus. **Not** full 3P kit honesty — 1P viewmodel ≠ 3P biped + weapons + gear (holding / locked intent)
 - Grounded peer Y rides the **#81 19×19 heightfield** (Range #79 snap DNA). Packet Y ignored when grounded — no phantom `y=0` slab, no floating on a lie. Airborne hops keep networked Y. Dummy + grounded silhouettes plant via Hypha #88 `biped::plant_simple_root` (same column; packet / handshake / HOLD join stay #83)
 - #81 `stream_anchors` returns remote feet so the **9×9** window can follow a peer (coordinate only — no Transvoxel rewrite)
 - **HOLD JOIN** — Esc → **JOIN** → type `fulcrum://ip:port` / `fw://` / bare `ip:port` / `localhost` → Enter. No app restart. Title **JOIN** without `--join` opens the same sheet. `--join` / `FULCRUM_JOIN` still one-click
@@ -943,6 +943,25 @@ Evan lock. **Shipped** [fulcrumRust #97](https://github.com/initialvisuals/fulcr
 
 See `PEEK_FINDINGS.md` Closed by #97.
 
+## 1P viewmodel ≠ 3P biped gun (MP honesty) — holding / locked intent
+
+Evan lock (2026-09-09 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from this shelf. Goes with HANDS down the road.
+
+**Dial:** first-person weapon viewmodel ≠ multiplayer biped + weapons + gear.
+
+- Fake / artistic posing (hip fire sold for feel, canted CQC, etc.) can stay **aggressive on the 1P viewmodel**
+- Other players must **not** see guns sticking through eyeballs for "artistic merit"
+- Separate the 1P weapon viewmodel from the MP biped + weapons + gear
+- Do **not** claim #83 5-box silhouette is full 3P kit honesty
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | 1P dials / AIM TUNE (#97 End sheet) |
+| **Beabim** | 3P sync path for peer mesh honesty (gun / gear on the biped) |
+| **Lab-Rat** | Stamps stay out |
+
+See `PEEK_FINDINGS.md` Holding / locked intent — 1P ≠ 3P.
+
 ## Hypha Graphics dump (landed #86)
 
 Evan lock. **Shipped** [fulcrumRust #86](https://github.com/initialvisuals/fulcrumRust/pull/86) (2026-09-09, `13865b3f`). **Hypha** owns Options Graphics / sky / post defaults. Steal Evan’s aim-offset Settings Lighting dump onto existing fulcrumRust Graphics / post / sky dials after **#81** 19×19 open extract. Thin Options bindings only where the render path already supported the value. Persist `project.json` alongside Range `output_device`.
@@ -1051,7 +1070,7 @@ Evan lock. **Shipped** [fulcrumRust #83](https://github.com/initialvisuals/fulcr
 | Dial | Lock |
 |------|------|
 | **POSE** | UDP after HELLO/WELCOME (~20 Hz): feet `xyz`, yaw, pitch, grounded, crouch. Host assigns peer ids on WELCOME and relays |
-| **Silhouette** | Cheap **5-box** operator (slate) — not Mixamo / not Locus |
+| **Silhouette** | Cheap **5-box** operator (slate) — not Mixamo / not Locus. **Not** full 3P kit honesty — see 1P ≠ 3P lock |
 | **Grounded Y** | Rides **#81 19×19 heightfield** (Range #79 snap DNA). Packet Y ignored when grounded — no phantom `y=0` slab, no floating on a lie. Airborne hops keep networked Y. Dummy + grounded silhouettes plant via Hypha #88 `biped::plant_simple_root` (same column; packet / handshake / HOLD join stay #83) |
 | **Stream anchors** | #81 `stream_anchors` returns remote feet so the **9×9** window can follow a peer (coordinate only — no Transvoxel rewrite) |
 | **HOLD JOIN** | Esc → **JOIN** → type `fulcrum://ip:port` / `fw://` / bare `ip:port` / `localhost` → Enter. No app restart. Title **JOIN** without `--join` opens the same sheet. `--join` / `FULCRUM_JOIN` still one-click |
@@ -1092,6 +1111,7 @@ See `PEEK_FINDINGS.md` Closed by #88.
 Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open**/missing. Used what was: brand/TRIMSHEET_MICRO (+ grey); atelier textures/PBR MetalPanelRectangular / MetalCorroded (256² crops); handful of scratch / fingerprint roughness masks from the 150-roughness pack. Boxes stay color-only (stub PBR): albedo mix + roughness/mask on MP9-Z / SR-25 / M24. House DNA: **gold+black tech trim** hairlines, not gold-plate, not Locus veins. Crops vendored in fulcrumRust `assets/kit/`. Atelier read-only (`FULCRUM_KIT` / `FULCRUM_ATELIER`). Do **not** claim full metal-tech / `dBXpg` kits shipped — only this stub. See `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Still soft / seat-owned timing
+- **1P viewmodel ≠ 3P biped gun** (MP honesty) — **holding / locked intent, not shipped** (Evan 2026-09-09). Range Tech owns 1P dials / AIM TUNE; Beabim owns the 3P gun / gear sync path; Lab-Rat stamps stay out. Artistic 1P posing may stay aggressive; peers must not see guns through eyeballs. Do **not** claim #83 5-box is full 3P kit honesty. HANDS later
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Near LOD raise **shipped #61** (then subdivs **32/16/4**). Live underfoot **#81 32/16/8/4**. Stamp pad stays Hypha #43 **7×7**. Live LOD recook / tunnels / runtime carve / Transvoxel rewrite still parked. Beabim peer feet `stream_anchors` **landed #83** (coordinate only)
 - First big-map host **landed #81**. Live walk is **19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad still **7×7**. Slope COL tint default; NRM/GLOSS parked. Lab-Rat slope/PBR/dirt/scatter/deform plugs **landed #80** (DISP bake-down + deform/scatter filled). Beabim peer feet follow remotes **#83**. Continues on fulcrumRust
@@ -1181,3 +1201,4 @@ Atelier clean yell + SFX remix DNA + Music playlist beds: Evan dump (2026-09-08 
 Range Tech music playlist + kit metal/grit PBR stub + ±6% FX remix jitter: fulcrumRust PR #64 (2026-09-08) — **landed**. Five titled beds; stub PBR on MP9-Z / SR-25 / M24; store `dBXpg` still missing. See `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Closed by #64.
 Holocron viewer gift (atelier `tools_for_ai_and_dev/Holocron_Visualizer.py` + `Analyze-Holocron.ps1`): Evan dump (2026-09-08) — tree nested-rectangle file-base viewer; cut monoliths (agent context; overwrite loss). Slope/PBR plugs **landed #80**. Lab-Rat rust rewrite still waits on SVG / density-mask / monolith splits. See `TOOLS.md`.
 Vector mag dump (aim-offset / Vector feel — rect yellow-white muzzle flash + orange grit + diegetic red receiver glyphs + flash-as-local-light): clerk shelf 2026-09-09; **live steal landed #89**. Artistic auth frame stays `VECTOR_MAG_DUMP.md` (local light / optic still reference-only). Pixel dither / floor warp stay Hypha / Augury. Do **not** invent bloom / godRays or reopen orange heat cards. See `VECTOR_MAG_DUMP.md` + `PEEK_FINDINGS.md` Closed by #89.
+1P viewmodel ≠ 3P biped gun (MP honesty — fake / artistic 1P posing OK; peers must not see guns through eyeballs; Range Tech 1P / AIM TUNE · Beabim 3P sync · Lab-Rat stamps out; HANDS later): Evan lock (2026-09-09 InitialVisuals) — **holding / locked intent, not shipped**. Do **not** claim #83 5-box is full 3P kit honesty. See `PEEK_FINDINGS.md` Holding / locked intent — 1P ≠ 3P.
