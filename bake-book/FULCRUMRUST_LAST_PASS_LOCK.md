@@ -4,7 +4,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Where to read (2026-09-08)
 
-fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll. Vector mag dump (Range Tech muzzle / FX — **live steal landed #89**) → `VECTOR_MAG_DUMP.md`. Heat cards → `../heat-card-dial-sheet.md`. **1P viewmodel ≠ 3P biped gun** (MP honesty — holding / locked intent, **not shipped**) → this sheet + `PEEK_FINDINGS.md`.
+fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll. Vector mag dump (Range Tech muzzle / FX — **live steal landed #89**) → `VECTOR_MAG_DUMP.md`. Heat cards → `../heat-card-dial-sheet.md`. **1P viewmodel ≠ 3P biped gun** (MP honesty — holding / locked intent, **not shipped**) → this sheet + `PEEK_FINDINGS.md`. **Scope glass** (when LPVO — holding / **not shipped**) + **Evan asset-ask path** → this sheet + `PEEK_FINDINGS.md`. Overnight cooks steal from the shelf.
 
 ## Day-one kit
 - **SMG** basic 20-round mag
@@ -21,7 +21,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - Kit metal/grit PBR stub **landed #64** — boxes stay color-only (albedo mix + roughness/mask) on MP9-Z / SR-25 / M24; TRIMSHEET_MICRO + MetalPanel/Corroded 256² crops + scratch/print masks; gold+black tech trim hairlines, not gold-plate, not Locus veins. Store `dBXpg` greeble pack still **open**/missing. `FULCRUM_KIT` / `FULCRUM_ATELIER` read-only
 - **G** cycles MP9-Z → SR-25 → M24; **4 / 5 / 6** seat directly; **U** stays unaimed-hold cycle; **1 / 2 / 3** stay Lab-Rat curl
 - Mag chrome stays diegetic on the seated kit — well count **is** mag size (MP9-Z **20** / SR-25 **20** / M24 **5**); Hold-R peek / tap-R reload / double-tap SWAP (fulcrumRust #32); leftover discarded; no HUD ammo counter
-- **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow
+- **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow. LPVO glass (greyscale ramp / IOR / no-PiP bodycam) is **holding** until LPVO — Hypha Graphics when it lands; Range AIM TUNE placements first (#97). Do **not** claim LPVO or glass shipped
 - **N** — toggle .45 suppressor / can mounts; muzzle / flash / tracer spawn follow the kit tip (`kit_mesh::muzzle_tip_local` — front of the forward-most heat-tagged box; birdcage / can). `muzzle_socket_local` stays the authored fallback. Landed #67
 - FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
 - Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags). Live zero via **− / =** 50/100/200 wrap (fulcrumRust #78; was **O** #33). Launch is **SIM only** — HoB + gravity / zero; leftover `hob_zero` ignored; **P** unused (fulcrumRust #76). Hip honesty via `hip_honest_dir` (ads=0 on aim; ads=1 keeps the SIM solve — landed #67)
@@ -992,6 +992,43 @@ Evan lock (2026-09-09 InitialVisuals). **Holding / locked intent — not shipped
 
 See `PEEK_FINDINGS.md` Holding / locked intent — 1P ≠ 3P.
 
+## Scope glass (when LPVO lands) — holding / not shipped
+
+Evan lock (2026-09-09 InitialVisuals). **Holding until LPVO — not shipped.** Overnight cooks steal from this shelf. Do **not** claim LPVO or glass live.
+
+- **Ramp** — greyscale / black-and-white. **Not** a color ramp
+- **Curve** — fake curve of the glass + thickness; cut lines or flatten parts (Blender-style)
+- **Magnify** — IOR glass + ramp-driven magnify
+- **Shader** — bodycam optic: **no PiP**. Glass / radial / reflect in the **scope pass**
+- Live **V** iron/holo/acog + FOV stay #14/#22. Hoods stay boxes
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | AIM TUNE placements first (#97 End sheet) |
+| **Hypha Graphics** | IOR / ramp / magnify / bodycam scope pass — **when LPVO** |
+| **Augury** | Glasses stay labels only — not a second optic HUD / PiP |
+| **Lab-Rat** | Stamps — not this row |
+
+See `PEEK_FINDINGS.md` Holding — greyscale glass + Evan asset-ask.
+
+## Evan asset-ask path — holding / locked intent
+
+Evan lock (2026-09-09 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from this shelf.
+
+- Clone from Concrete Echo / aim-offset **attachment tables** first
+- If missing: **ask Evan** — he has **this week** (from 2026-09-09) to model + texture. Primitives stay scaffolding
+- Style grows with peeks (void-spore + grit floor; authored fills in)
+- Lab-Rat stamps keep **procedural grit** until the asset list lands, then bake onto authored
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | Kit / attachment clone from CE + aim-offset tables; AIM TUNE sit (#97) |
+| **Lab-Rat** | Procedural grit until the list; then bake onto authored |
+| **Evan** | This-week model + texture for missing ask |
+| **Hypha** | Does **not** invent glass/LPVO assets here |
+
+Store `dBXpg` still **open**. Kit PBR stub stays #64. Do **not** claim authored attachments / LPVO glass / Evan models shipped. See `PEEK_FINDINGS.md` Holding — greyscale glass + Evan asset-ask.
+
 ## Hypha Graphics dump (landed #86)
 
 Evan lock. **Shipped** [fulcrumRust #86](https://github.com/initialvisuals/fulcrumRust/pull/86) (2026-09-09, `13865b3f`). **Hypha** owns Options Graphics / sky / post defaults. Steal Evan’s aim-offset Settings Lighting dump onto existing fulcrumRust Graphics / post / sky dials after **#81** 19×19 open extract. Thin Options bindings only where the render path already supported the value. Persist `project.json` alongside Range `output_device`.
@@ -1141,6 +1178,8 @@ See `PEEK_FINDINGS.md` Closed by #88.
 Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open**/missing. Used what was: brand/TRIMSHEET_MICRO (+ grey); atelier textures/PBR MetalPanelRectangular / MetalCorroded (256² crops); handful of scratch / fingerprint roughness masks from the 150-roughness pack. Boxes stay color-only (stub PBR): albedo mix + roughness/mask on MP9-Z / SR-25 / M24. House DNA: **gold+black tech trim** hairlines, not gold-plate, not Locus veins. Crops vendored in fulcrumRust `assets/kit/`. Atelier read-only (`FULCRUM_KIT` / `FULCRUM_ATELIER`). Do **not** claim full metal-tech / `dBXpg` kits shipped — only this stub. See `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Still soft / seat-owned timing
+- **Scope glass** (when LPVO) — **holding / not shipped** (Evan 2026-09-09). Greyscale / B&W ramp (**not** color); fake curve + thickness (Blender-style cut/flatten); IOR + ramp-driven magnify; bodycam optic **no PiP** (glass/radial/reflect in the scope pass). Hypha Graphics when LPVO; Range AIM TUNE placements first (#97). Live **V** iron/holo/acog stay. Do **not** claim LPVO or glass shipped
+- **Evan asset-ask path** — **holding / locked intent** (Evan 2026-09-09). Clone CE / aim-offset attachment tables first; missing → ask Evan (this week to model + texture); primitives stay scaffolding. Style grows with peeks (void-spore + grit floor). Lab-Rat keeps procedural grit until the asset list, then bake onto authored. Do **not** invent a replacement pack
 - **1P viewmodel ≠ 3P biped gun** (MP honesty) — **holding / locked intent, not shipped** (Evan 2026-09-09). Range Tech owns 1P dials / AIM TUNE; Beabim owns the 3P gun / gear sync path; Lab-Rat stamps stay out. Artistic 1P posing may stay aggressive; peers must not see guns through eyeballs. Do **not** claim #83 5-box is full 3P kit honesty. HANDS later
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Near LOD raise **shipped #61** (then subdivs **32/16/4**). Live underfoot **#81 32/16/8/4**. Stamp pad stays Hypha #43 **7×7**. Live LOD recook / tunnels / runtime carve / Transvoxel rewrite still parked. Beabim peer feet `stream_anchors` **landed #83** (coordinate only)
@@ -1233,3 +1272,5 @@ Range Tech music playlist + kit metal/grit PBR stub + ±6% FX remix jitter: fulc
 Holocron viewer gift (atelier `tools_for_ai_and_dev/Holocron_Visualizer.py` + `Analyze-Holocron.ps1`): Evan dump (2026-09-08) — tree nested-rectangle file-base viewer; cut monoliths (agent context; overwrite loss). Slope/PBR plugs **landed #80**. Lab-Rat rust rewrite still waits on SVG / density-mask / monolith splits. See `TOOLS.md`.
 Vector mag dump (aim-offset / Vector feel — rect yellow-white muzzle flash + orange grit + diegetic red receiver glyphs + flash-as-local-light): clerk shelf 2026-09-09; **live steal landed #89**. Artistic auth frame stays `VECTOR_MAG_DUMP.md` (local light / optic still reference-only). Pixel dither / floor warp stay Hypha / Augury. Do **not** invent bloom / godRays or reopen orange heat cards. See `VECTOR_MAG_DUMP.md` + `PEEK_FINDINGS.md` Closed by #89.
 1P viewmodel ≠ 3P biped gun (MP honesty — fake / artistic 1P posing OK; peers must not see guns through eyeballs; Range Tech 1P / AIM TUNE · Beabim 3P sync · Lab-Rat stamps out; HANDS later): Evan lock (2026-09-09 InitialVisuals) — **holding / locked intent, not shipped**. Do **not** claim #83 5-box is full 3P kit honesty. See `PEEK_FINDINGS.md` Holding / locked intent — 1P ≠ 3P.
+Scope glass (greyscale / B&W ramp · fake curve + thickness · IOR + ramp magnify · bodycam no-PiP scope pass; Hypha Graphics when LPVO; Range AIM TUNE placements first): Evan lock (2026-09-09 InitialVisuals) — **holding until LPVO, not shipped**. Do **not** claim LPVO or glass live. See `PEEK_FINDINGS.md` Holding — greyscale glass + Evan asset-ask.
+Evan asset-ask path (clone CE / aim-offset attachment tables first; missing → ask Evan this week to model + texture; primitives stay scaffolding; style grows with peeks; Lab-Rat procedural grit until the list, then bake onto authored): Evan lock (2026-09-09 InitialVisuals) — **holding / locked intent, not shipped**. Do **not** claim authored attachments / Evan models shipped. See `PEEK_FINDINGS.md` Holding — greyscale glass + Evan asset-ask.
