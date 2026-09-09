@@ -2,36 +2,36 @@
 
 Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No Man’s Sky planetoid. Feel: Transvoxel / Lengyel-class smooth voxels, semi-detailed near, chunked far (bobgar look-language OK). Lab-Rat #38 ships the **shape-agnostic stamp / paint substrate** Hypha consumes — any authored shape → density + material; not more one-off scars. Lab-Rat #39 is the **extract-yard scale harness** for that substrate.
 
-## First big-map brief (Evan 2026-09-08)
+## First big-map brief (Evan 2026-09-08) — landed Hypha #81
 
-First true big map for fulcrumRust extract. **Brief only — do not claim shipped.** Live on this shelf remains #16 host + #23 far-cold + #43 **7×7 / 3 rings / 112 m / 12 544 m²** + near LOD **32/16/4** (#61) + #60 grit mips. This supersedes "stay on the extract yard — not a bigger world map" as the **next** host lock. The queued near-LOD A/B **landed #61**.
+First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live host is **19×19 open / 304 m / 92 416 m²** + **9×9** player-eye stream (`STREAM_RINGS` 4) + underfoot **32/16/8/4**. Stamp pad stays **7×7** / far-cold (#23 guts cold). Walls **off**. This supersedes #43 **7×7 / 112 m / 12 544 m²** as the live walk lock. #16 / #23 / #43 / #60 / #61 stay prior shipped facts.
 
 | Beat | Lock |
 |------|------|
-| **1. Higher res** | Increase terrain resolution. Queued A/B after #43 **shipped #61** (32/16/4). Further res on the 8× host stays Hypha — do not claim more shipped |
-| **2. Drop walls** | Remove outer extract walls so the yard opens |
-| **3. ~8× extend** | Extend terrain **~8×** further (Evan: further — no invented grid yet) |
-| **4. Chunks** | Break voxel into **chunks** (chunked Transvoxel, not a single bake slab) |
-| **5. Scatter / PBR / deform** | Ground scatter / dirt / otherwise PBR on Transvoxel + deformations |
-| **6. Slope materials** | Terrain materials by **slope/angle** |
-| **7. Distance load** | **Load chunks by distance from players** — listen-server aware (#34 handshake exists; terrain sync still parked) |
+| **1. Higher res** | Already **#61** (32/16/4). **#81** keeps underfoot **32/16/8/4** (8-subdiv bridge so every adjacent step 2:1). Further res stays Hypha — do not claim more shipped |
+| **2. Drop walls** | **Landed #81** — outer walls off; open horizon, soft XZ clamp |
+| **3. ~8× extend** | **Landed #81** — **19×19 / 304 m / 92 416 m²** (~8× old 7×7) |
+| **4. Chunks** | **Landed #81** — chunked Transvoxel stream, not a single bake slab |
+| **5. Scatter / PBR / deform** | Still **reserved** / Lab-Rat open — `Deform` / `GroundScatter` + `LabRatDeform` / `LabRatScatter` identity only. **No stamp bake** |
+| **6. Slope materials** | **Landed #81** — slope COL hooks (`pbr=tint` default). Vertex albedo only. NRM/GLOSS parked |
+| **7. Distance load** | **Landed #81** — **9×9** local-player stream by eyes. Listen-server peer pos still parked (#34 handshake; terrain sync parked) |
 
 ### Seat ownership
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — **8×** extend, drop walls, chunked Transvoxel + distance LOD load from players, higher res. Continues on fulcrumRust |
-| **Lab-Rat** | Stamps — slope/angle materials, dirt/scatter/deform, PBR bake-down. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) |
-| **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64** |
-| **Augury** | FoW brand / menu video **when cut ready** |
+| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Continues on fulcrumRust (peer stream / live recook parked) |
+| **Lab-Rat** | Stamps — slope COL hooks reserved on host; dirt/scatter/deform identity only. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). **No stamp bake in #81** |
+| **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64**. #79 land sway + heightfield FX kept. Heat / ballistics / binds **not touched** |
+| **Augury** | FoW brand / menu video **when cut ready**. Chrome **not touched** |
 
-#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** stays the near extract pad until Hypha extends. See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Holding.
+#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81.
 
 ## Morning lock (2026-09-07)
 
 Evan then: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat #39 `apply_yard_harness` is that test (`growth::yard_bounds` ≈ **110 m²**; flatten disk tracks it). Stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. HDRI stays Range Tech.
 
-**Wider extract chunk radius shipped #43** — `TerrainHost` **7×7 / 3 Chebyshev rings / 112 m span / ~12.5k m²** (was 5×5 / 2 rings / 80 m / 6 400 m²); one extra **far** ring only. **Near LOD raise shipped #61** — center subdiv **32** / ring-1 **16** / outer **4** (was 16/8/4). Grid/radius stay #43. **Next lock (2026-09-08) = first big-map brief** (drop walls + ~8× + chunks + player-distance load) — **not shipped.**
+**Wider extract chunk radius shipped #43** — then `TerrainHost` **7×7 / 3 Chebyshev rings / 112 m span / ~12.5k m²** (was 5×5 / 2 rings / 80 m / 6 400 m²); one extra **far** ring only. Stamp pad **still 7×7**. **Near LOD raise shipped #61** — then center subdiv **32** / ring-1 **16** / outer **4** (was 16/8/4). **Live host lock landed #81** — 19×19 open + 9×9 stream + underfoot **32/16/8/4**.
 
 ## Host (Hypha) — shipped fulcrumRust #16
 
@@ -41,12 +41,12 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 |------|--------|
 | **Crate** | crates.io **`transvoxel` 2.0** (`Gnurfos/transvoxel_rs`, Lengyel tables) — not a paste into Lab-Rat |
 | **Host** | `TerrainHost` implements Lab-Rat `VoxelHost`; `stamp_field` + `sample_channels` feed density + `VoxelMaterial` |
-| **Distance LOD** | center subdiv **32**, ring-1 subdiv **16**, outer subdiv **4** + Lengyel transition faces toward finer neighbours (**#61**; was 16/8/4). Near step **2:1** (32→16). Radius **unchanged** by #61 |
-| **Grid / radius (#43)** | `TerrainHost` **7×7** / 3 Chebyshev rings / 112 m / **12 544 m²** (was 5×5 / 2 rings / 80 m / 6 400 m²); extra **far** ring only |
+| **Distance LOD** | Live underfoot **32 / 16 / 8 / 4** + Lengyel transition faces (**#81**; was #61 32/16/4). Every adjacent step **2:1**. #61 near raise stays a prior fact |
+| **Grid / radius** | Live **#81 19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad stays **#43 7×7 / 112 m / 12 544 m²** / far-cold |
 | **Skin** | verts grade from `VoxelMaterial::tint` / `luma`; cracks / edge-wear / void-spore scale from Lab-Rat `density_stamp_2d` + `WearStamp` |
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
-| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe. Near LOD raise **shipped #61**. Next lock = **first big-map brief** (2026-09-08) — not shipped. Wider radius shipped #43 |
+| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe · listen-server peer stream. Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
 | **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm. **#43** extra far ring stays cold |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
@@ -64,7 +64,7 @@ Hardens extract cost so far chunks stay cheap — aligned with Augury Locus far-
 | **Live cold** | Growth + Locus GPU uploads skip past `ACTIVATE_M`; yard Idle still visible; cycle/curl keep ticking. **#39** near yard (harness pad ≈ **110 m²**) stays warm (`bake_guts_warm`); harness primitives are near-warm only |
 | **Smoke peek** | #23: `near_chunk=862` · `far_chunk=45` · `guts_warm=17` · `guts_cold=140` · `terrain_tris=3168` (~19× cheaper far mean). **#39 harness:** `layers=43` · `prims=216` · `yard_m2=110` · `guts_warm=75` · `guts_cold=140` · `near_chunk=858` · `far_chunk=45` · `terrain_tris=3182`. **#43 radius:** `near_chunk=858` · `far_chunk=39` · `guts_warm=75` · `guts_cold=216` · `rings=3` · `extract_m2=12544` · `yard_m2=110` · `terrain_tris=4034` · `lods=3` (~22× cheaper far mean). **#61 near LOD:** `terrain_tris=11118` · `lods=3` · `subdivs=32/16/4` · `near_chunk=3290` · `far_chunk=39` · `guts_warm=75` · `guts_cold=216` · `rings=3` · `extract_m2=12544` · `grit_mips=256/64/16` · `n=196608` · `f=768` (~84× cheaper far mean). Far cheapness holds (`far_chunk < near_chunk`) |
 
-Near yard stays the extract pad on the shipped host (expanded harness). Next lock: first big-map brief (2026-09-08) — not shipped. Steal map: Hypha chunk-LOD row + Augury enemy-activation notes. Detail: fulcrumRust `docs/TERRAIN.md` + `LOCUS_AI_LOCK.md`.
+Near yard / stamp pad stay the extract guts on the **7×7** far-cold ring. Live walk world is **#81**. Steal map: Hypha chunk-LOD row + Augury enemy-activation notes. Detail: fulcrumRust `docs/TERRAIN.md` + `LOCUS_AI_LOCK.md`.
 
 ## Consume channels (Lab-Rat #17)
 
@@ -133,7 +133,7 @@ Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md`.
 
 ## Extract-yard scale harness (Lab-Rat #39)
 
-Stay **on the extract yard** for what #39 shipped. `apply_yard_harness` is the perf/scale test of the #38 substrate — not a bigger world map on that pass. First big-map brief (2026-09-08) is the next lock — not shipped. No Standard / Monk one-off scars. HDRI stays Range Tech.
+Stay **on the extract yard** for what #39 shipped. `apply_yard_harness` is the perf/scale test of the #38 substrate — not a bigger world map on that pass. First big-map walk **landed #81**; stamp / harness pad stays **7×7**. No Standard / Monk one-off scars. HDRI stays Range Tech.
 
 | Lock | Detail |
 |------|--------|
@@ -146,18 +146,18 @@ Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/TERRAIN.md
 
 ## Wider extract chunk radius (Hypha #43)
 
-Shipped the then clerk lock: **wider chunk radius first**. Extra **far** ring only. Near LOD raise **shipped later as #61**. **Next lock (2026-09-08) = first big-map brief** — not shipped.
+Shipped the then clerk lock: **wider chunk radius first**. Extra **far** ring only. Near LOD raise **shipped later as #61**. Stamp pad **still 7×7**. Live walk lock **landed #81**.
 
 | Lock | Detail |
 |------|--------|
 | **Grid** | `TerrainHost` **5×5 → 7×7** (smallest honest odd widen) |
 | **Playable extract** | **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²) |
-| **Near LOD** | Unchanged *by #43*: then 16/8/4. **#61 shipped** the raise: **32/16/4**. Next lock = first big-map brief (not shipped) |
+| **Near LOD** | Unchanged *by #43*: then 16/8/4. **#61 shipped** the raise: **32/16/4**. **#81** live underfoot **32/16/8/4** |
 | **Far-cold** | Still `lod >= 2` → heightfield-only; shares Locus `ACTIVATE_M` **24** / `SLEEP_M` **32** |
 | **Lab-Rat stub** | `ExtractStubHost` aligned (`STUB_GRID = 7`) |
 | **Smoke peek** | `near_chunk=858 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 yard_m2=110 locus_hp=24 terrain_tris=4034 lods=3`. Far mean ~**22×** cheaper than near; extra far ring added cold guts; yard pad + Locus stay |
 
-Stay out of Atelier / HDRI / title mark on that pass. No new named scars. Next lock: first big-map brief (2026-09-08). Detail: fulcrumRust `docs/TERRAIN.md`.
+Stay out of Atelier / HDRI / title mark on that pass. No new named scars. Live walk lock **landed #81**. Detail: fulcrumRust `docs/TERRAIN.md`.
 
 ## Near LOD raise (Hypha #61)
 
@@ -171,9 +171,28 @@ Queued A/B after #43. Reuse the existing Transvoxel host — no greenfield rebui
 | **Grid / radius** | Still **7×7 / 3 Chebyshev rings / 112 m / 12 544 m²** (#43) |
 | **Grit mips** | Still **256² / 64² / 16²** on the same rings (#60). Far still heightfield-only / cold guts |
 | **Smoke peek** | `terrain_tris=11118 lods=3 subdivs=32/16/4 near_chunk=3290 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 grit_mips=256/64/16 n=196608 f=768`. Far mean ~**84×** cheaper than near |
-| **Parked** | Live LOD recook · tunnels · runtime carve. Next lock = **first big-map brief** (2026-09-08) — not shipped |
+| **Parked** | Live LOD recook · tunnels · runtime carve. Live walk lock **landed #81** (32/16/8/4 + 19×19 open) |
 
 Stay out of Range Tech guns / Augury brains / Lab-Rat stamp baking. Detail: fulcrumRust `docs/TERRAIN.md`.
+
+## First big-map open extract (Hypha #81)
+
+First true big map. Reuse the existing Transvoxel host — no greenfield rebuild. Stamp pad stays #43 **7×7** / far-cold. #79 land sway + heightfield FX kept. [PR #81](https://github.com/initialvisuals/fulcrumRust/pull/81) (`73dc8fe4`).
+
+| Lock | Detail |
+|------|--------|
+| **Extract** | **19×19 / 304 m / 92 416 m²** (~8× old 7×7) |
+| **Walls** | **Off** — open horizon, soft XZ clamp |
+| **Stream** | **9×9** window (`STREAM_RINGS` 4) by player eyes |
+| **Underfoot** | **32 / 16 / 8 / 4** — every adjacent step **2:1** (was 32/16/4; 16→4 opened voxel gaps) |
+| **Stamp pad** | Still **7×7** / far-cold (#23 guts cold) |
+| **PBR** | Slope COL hooks (`pbr=tint` default). Vertex albedo only. NRM/GLOSS parked |
+| **Lab-Rat** | `Deform` / `GroundScatter` + `LabRatDeform` / `LabRatScatter` identity reserved. **No stamp bake** |
+| **Seams** | One extract density on every LOD (ChannelField vs HeightOnly fixed) · 8-subdiv bridge so 32→16→8→4 stays 2:1 Lengyel · yard flatten outer **9.2 → 20 m** so pad eases into hills. Residual LOD pop inside a chunk / far-4 horizon parked |
+| **Smoke** | `subdivs=32/16/8/4` `extract_m2=92416` `resident=` `stream_cold=` `pbr=` |
+| **Parked** | Lab-Rat stamp bake · NRM/GLOSS GPU · listen-server peer stream · live recook · Range heat |
+
+Stay out of Range heat cards / ballistics / binds / Augury chrome. Detail: fulcrumRust `docs/TERRAIN.md`.
 
 ## Texture LOD / compression (Hypha + Lab-Rat, 2026-09-07)
 
@@ -182,7 +201,7 @@ Atelier roughness is **4k 48-bit PNG** — too fat for the yard. Do **not** ship
 | Seat | Lock |
 |------|------|
 | **Lab-Rat** | Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Quiet grit under loud scars. Wire on fulcrumRust only. **#58 landed** first vendored 256² set (`grit_{grunge,crack,dust}.png`) — the near source for #60. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Whole roughness→stamp cook still separate |
-| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61** (subdivs 32/16/4); grit mips stay 256/64/16 on the same rings. Next lock = **first big-map brief** (host 8× / chunks, not a grit-mip raise). Continues on fulcrumRust |
+| **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings**. Near **256²** (Lab-Rat #58 vendor) · mid **64²** box mip · far **16²** box mip (cheaper / softer; far drops grain hashes). In-repo `assets/stamps/grit_*.png` until Lab-Rat cooks more. Smoke `grit_mips=256/64/16 n=196608 f=768`. Near LOD raise **shipped #61**; live underfoot **#81 32/16/8/4**. Grit mips stay 256/64/16. First big-map host **landed #81** (not a grit-mip raise) |
 | **Atelier** | Plugs **open** (was read-only). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths |
 
 See `STAMP_FEEL_LOCK.md` + `AESTHETIC_DIEGETIC_LOCK.md` + `FULCRUMRUST_LAST_PASS_LOCK.md`.

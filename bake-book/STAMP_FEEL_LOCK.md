@@ -10,7 +10,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 - **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`
-- **First big-map brief (2026-09-08):** Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down on the wider host. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. **Brief only — not shipped.** Host 8× / walls / chunks stay Hypha. See `TERRAIN_NORTHSTAR.md`
+- **First big-map (2026-09-08 / landed #81):** Hypha walk is **19×19** open. Stamp / harness pad stays **7×7** / far-cold. Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down — slope COL hooks reserved on host (`pbr=tint`); deform/scatter identity only. **No stamp bake.** Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. See `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -110,17 +110,17 @@ Detail: fulcrumRust `docs/STAMPS.md` + `docs/CHANNELS.md` + `assets/stamps/READM
 
 ## Extract-yard scale harness (PR #39)
 
-Stay **on the extract yard** for what #39 shipped — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map on that pass. First big-map brief (2026-09-08) is the next lock — not shipped. No Standard / Monk one-off scars. HDRI stays Range Tech.
+Stay **on the extract yard** for what #39 shipped — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map on that pass. First big-map walk **landed #81**; stamp / harness pad stays **7×7**. Deform/scatter still open for Lab-Rat. No Standard / Monk one-off scars. HDRI stays Range Tech.
 
 | Lock | Detail |
 |------|--------|
 | **Pad** | `growth::yard_bounds` ≈ **110 m²** (baseline before harness ≈ **54 m²**); flatten disk tracks it so plots stay playable |
 | **`apply_yard_harness`** | Anonymous SDF lattice + larger paint brushes + 2D-mask convert of the three existing plots through `StampField::layers` (not a fourth named plot) |
 | **Near / far** | Near yard stays warm (`bake_guts_warm`). Far guts stay cold (Hypha #23). Harness primitives are near-warm only; smoke fails if a layer center is far. `guts_cold` stayed **140** |
-| **Host (#43)** | Lab-Rat `ExtractStubHost` rides the wider **7×7** host (`STUB_GRID = 7`). Near pad `yard_m2` ≈ **110** unchanged. Smoke may also show `rings=` / `extract_m2=` |
+| **Host (#43 / #81)** | Stamp / harness pad stays **7×7** (`STUB_GRID = 7`). Hypha walk is **#81 19×19**. Near pad `yard_m2` ≈ **110** unchanged. Smoke may also show `rings=` / `extract_m2=` |
 | **Smoke** | `growth=544 curled=580 stamps=100 structs=55 wears=117 content=173 layers=43 prims=216 yard_m2=110` · `guts_warm=75 guts_cold=140 near_chunk=858 far_chunk=45 terrain_tris=3182`. Baseline: `layers=0 prims≈content yard_m2≈54 guts_warm=32`. Far cheapness holds (`far_chunk < near_chunk`). Growth GPU boxes still under 620 |
 
-Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/STAMPS.md` / `docs/TERRAIN.md`. Hypha #43: stub host is **7×7**; smoke may also print `rings=` / `extract_m2=` (extract **12 544 m²**); yard pad stays ~110 m².
+Detail: fulcrumRust `docs/CHANNELS.md` + `docs/GROWTH_POC.md` / `docs/STAMPS.md` / `docs/TERRAIN.md`. Stamp / harness pad stays **7×7** (~110 m² / extract-pad **12 544 m²**); Hypha walk is **#81 19×19**.
 
 ## Near-spawn yard silhouette fidelity (PR #13)
 
