@@ -6,18 +6,23 @@ Parked from Evan (2026-09-07).
 
 Analysis-knowledge-core in-world labels (interacts, extract points, section samplers):
 - Thin white mono, fully embodied in world space
-- Lead lines + angular digital junk
+- **L-elbow / leader** to the world interact pin (door, loot, hatch, shaft, weapon, extract plots, Locus) — **landed #85** (`engine/src/labels.rs` `SmartLabel` / `CardPlan`)
+- Tip mark + quiet angular junk; curl/Locus edge tints. EXTRACT stays white mono
+- Not a centered HUD plate (old `-0.34, -0.268` retired for interact cards)
 - Subtle glitches / digital artifacts around the overlays
 - Spatially dynamic (not flat HUD chrome)
 
 **Ammo is not glasses.** Glasses stay labels only — never a second ammo HUD.
-Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `HDRI` / `PROC` (Goegap plate #40) · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM` (HoB zero #33 / SIM-only #76) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · `DRY` / `YARD` / `OUT` (reverb volumes #56) · lean/slide/speed/height peeks.
+Hold-**O** paints EXTRACT intent on the nearest in-front hatch/shaft — elbow card, **no popup** (Range #78 wired `Session::extract_checking`; Augury owns the glasses EXTRACT chrome — **landed #85**). Release clears. Full hatch popup (elevator / toggle / timed surface kill) still **~**.
+Glasses status strip (PLACE / clock / INSPECT / …) unchanged. Hatches stay on the **yard pad** (`-24/-24`, `18/-28`, `-28/16` + shaft `18/-12`), not GRID_ORIGIN (19×19 rim).
+Shipped label examples: stamp materials · `LOCUS  STANDARD|INKED  <brain>` · `INK HOTSPOT` · ToD/exposure · `HDRI` / `PROC` (Goegap plate #40) · `INSPECT` (hold-` #28) · `RELOAD` / `SWAP` (mag swap #32) · `BANDAGE` / `EMPTY` (bandage use #31) · `Z{n}  SIM` (HoB zero #33 / SIM-only #76) · `HEAT TUNE` (hold-J heat-tune #35) · `HOST` / `JOIN` / `PEER` (listen-server #34) · `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (down/death stub #36; #37 bind `I STIM`) · `DRY` / `YARD` / `OUT` (reverb volumes #56) · `EXTRACT` (hold-O #85) · `DOOR  F  DEPLOY` · lean/slide/speed/height peeks.
 Goegap plate (fulcrumRust #40): glasses ToD strip may show `HDRI` / `PROC` — still labels only, never a second ammo HUD.
 Bandage use (fulcrumRust #31): glasses may flash `BANDAGE` / `EMPTY` on use — still labels only, never a second ammo/health HUD. While downed unstabilized, `NEED STAB` (no consume) — still not a second health HUD (#36).
 Live HoB zero / launch (fulcrumRust #33 / **#76** SIM-only): glasses status strip `Z{n}  SIM` (e.g. `Z100  SIM`); toast `ZERO  {n} M` — labels only, never a numeric ammo HUD. **P** unused; `LAUNCH  ARCADE` / `LAUNCH  SIM` gone.
 Heat-tune dump (fulcrumRust #35): glasses may flash `HEAT TUNE` (amber-ish overlay) while J is down — still labels only, never a second ammo HUD; must not count mag rounds.
 Listen-server (fulcrumRust #34): glasses may show `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — still labels only, never a second ammo HUD.
 Down / death stub (fulcrumRust #36 + #37 bind): glasses may flash `DOWNED` · `DEAD` · `STIM` / `NO STIM` · `RALLY` · `NEED STAB` · `STAB STUB  NO NET` (and related toasts / prompts like `HOLD F  SELF-STAB STUB` / `[F] PICK UP STIM` / `STABILIZED  T HEAL / I STIM / SLASH RALLY` / `DEAD  BAG STUB` / `CORPSE RECLAIM STUB`) — still labels only, never a second health HUD. #37 names I stim on the glasses prompt (was `Y STIM`); Y is host only.
+Elbow smart-labels (fulcrumRust #85): interact cards sit off-center with an L-leader to the world pin — still labels only, never a second ammo HUD. Hold-**O** `EXTRACT` is that same chrome (no popup). Cite `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Diegetic gun chrome — **Range Tech** (Sulfur frame)
 
