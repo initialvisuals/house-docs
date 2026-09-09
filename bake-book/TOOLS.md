@@ -9,6 +9,6 @@ Atelier `tools_for_ai_and_dev/`. Not a fulcrumRust ship. Steal the idea — do n
 
 **Why:** cut down monolithic files — agent context windows, avoid overwrite loss.
 
-**Seat:** Lab-Rat owns a rust-friendly rewrite **after** slope/PBR plugs. Useful later for `channels.rs` / stamp stacks / `feel` / `kit_mesh` splits. Do **not** claim the rewrite shipped.
+**Seat:** Slope/PBR plugs **landed #80**. Lab-Rat owns a rust-friendly rewrite still waiting on SVG / density-mask / monolith splits. Useful later for `channels.rs` / stamp stacks / `feel` / `kit_mesh`. Do **not** claim the rewrite shipped.
 
 See `ATELIER_PORTFOLIO_STEAL.md`.
