@@ -4,7 +4,7 @@ Parked from Evan overnight (2026-09-07). Flat world — **not** a spherical No M
 
 ## First big-map brief (Evan 2026-09-08) — landed Hypha #81
 
-First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live host is **19×19 open / 304 m / 92 416 m²** + **9×9** player-eye stream (`STREAM_RINGS` 4) + underfoot **32/16/8/4**. **#108** amortizes cook on that same stream (cook=1/2 · prefetch=5 m · splash-pumped load-in) — not a new map size. **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). Stamp pad stays **7×7** / far-cold (#23 guts cold). Walls **off**. This supersedes #43 **7×7 / 112 m / 12 544 m²** as the live walk lock. #16 / #23 / #43 / #60 / #61 stay prior shipped facts.
+First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live host is **19×19 open / 304 m / 92 416 m²** + **#137 11×11** player-eye stream (`STREAM_RINGS` 5 · hold=2/12) + underfoot **32/16/8/4**. **#108** amortizes cook (cook=1/2 · prefetch=5 m · splash-pumped load-in) — not a new map size. **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). **#137** is the radius + warm-hold layer on top (prefetch=5+heading · hold=2/12). Stamp pad stays **7×7** / far-cold (#23 guts cold). Walls **off**. This supersedes #43 **7×7 / 112 m / 12 544 m²** as the live walk lock. #16 / #23 / #43 / #60 / #61 stay prior shipped facts.
 
 | Beat | Lock |
 |------|------|
@@ -14,24 +14,24 @@ First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live ho
 | **4. Chunks** | **Landed #81** — chunked Transvoxel stream, not a single bake slab |
 | **5. Scatter / PBR / deform** | **Landed #80** — DISP bake-down + `Deform` / `GroundScatter` filled at `8,-6` / 5 m · `-10,14` / 6 m. `PBR_HEIGHT_AMP` **0.028** · `SCATTER_AMP` **0.018** · pad half **56**. Smoke `pbr=tint plugs=slope+deform+scatter` |
 | **6. Slope materials** | **Landed #81** — Hypha slope COL hooks (`pbr=tint` default). Vertex albedo only. NRM/GLOSS parked. Lab-Rat `classify_slope` + DISP bake-down **#80** |
-| **7. Distance load** | **Landed #81** — **9×9** local-player stream by eyes. **#108** amortizes that same window (cook=1/2 · prefetch=5 m · splash-pumped load-in). **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). Beabim peer feet `stream_anchors` **landed #83** (coordinate only — Transvoxel rewrite / terrain sync still parked) |
+| **7. Distance load** | **Landed #81** — local-player stream by eyes. Live **#137 11×11** (`STREAM_RINGS` 5). **#108** amortizes cook (cook=1/2 · prefetch=5 m · splash-pumped load-in). **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). **#137** heading prefetch + hold=2/12. Beabim peer feet `stream_anchors` **landed #83** (coordinate only — Transvoxel rewrite / terrain sync still parked) |
 
 ### Seat ownership
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Stream hitch amortize **landed #108** (cook=1/2 · prefetch=5 m · splash-pumped load-in on the same 9×9). Worker STREAM extract+paint **landed #123** (`defer=worker/paint/gpu` · skip far mask-only remesh). Transvoxel UV consume **landed #112** (`promote_for_uv` + TerrainHost wear/COL honor; texture-only, never remesh). Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Biped foot plant **landed #88** — consumes #79/#81 heightfield column; mesher / LOD / stamps untouched. Continues on fulcrumRust (Transvoxel rewrite / live octree / unconstrained Sync dump parked; amortized recook under budget is shipped #108; worker/paint/gpu deepen shipped #123) |
+| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Stream hitch amortize **landed #108** (cook=1/2 · prefetch=5 m · splash-pumped load-in). Worker STREAM extract+paint **landed #123** (`defer=worker/paint/gpu` · skip far mask-only remesh). Play STREAM 11×11 + warm hold **landed #137** (`STREAM_RINGS` 5 · prefetch=5+heading · hold=2/12). Transvoxel UV consume **landed #112** (`promote_for_uv` + TerrainHost wear/COL honor; texture-only, never remesh). Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Biped foot plant **landed #88** — consumes #79/#81 heightfield column; mesher / LOD / stamps untouched. Continues on fulcrumRust (Transvoxel rewrite / live octree / unconstrained Sync dump parked; amortized recook under budget is shipped #108; worker/paint/gpu deepen shipped #123; radius + warm hold shipped #137) |
 | **Lab-Rat** | Stamps — slope/PBR/dirt/scatter/deform plugs **landed #80** (DISP bake-down + `Deform` / `GroundScatter` filled). Slope COL hooks reserved on host **#81** (Hypha vertex albedo only). Atelier **150 roughness + textures/PBR ~26 sets landed**. NRM/GLOSS GPU parked. **#81** reserved identity only — **#80** filled the plugs |
 | **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64**. #79 land sway + heightfield FX kept. Heat / ballistics / binds **not touched** |
 | **Augury** | FoW brand / menu video **when cut ready**. Chrome **not touched** |
 
-#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Stream hitch amortize **#108**. Worker STREAM extract+paint **#123**. UV consume **#112**. Lab-Rat plugs **#80**. Peer feet stream anchors **#83**. Pawn plant on that column **#88** (mesher untouched). See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #108 / #123 / #112 / #80 / #83 / #88.
+#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Stream hitch amortize **#108**. Worker STREAM extract+paint **#123**. Play STREAM 11×11 + warm hold **#137**. UV consume **#112**. Lab-Rat plugs **#80**. Peer feet stream anchors **#83**. Pawn plant on that column **#88** (mesher untouched). See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #108 / #123 / #137 / #112 / #80 / #83 / #88.
 
 ## Morning lock (2026-09-07)
 
 Evan then: **stay on the extract yard** — refine + expand it as a **scale / perf testbed**. Lab-Rat #39 `apply_yard_harness` is that test (`growth::yard_bounds` ≈ **110 m²**; flatten disk tracks it). Stamp/paint substrate (density + material channels, shape-agnostic) over one-off scars. Mesh shapes OK to play with. HDRI stays Range Tech.
 
-**Wider extract chunk radius shipped #43** — then `TerrainHost` **7×7 / 3 Chebyshev rings / 112 m span / ~12.5k m²** (was 5×5 / 2 rings / 80 m / 6 400 m²); one extra **far** ring only. Stamp pad **still 7×7**. **Near LOD raise shipped #61** — then center subdiv **32** / ring-1 **16** / outer **4** (was 16/8/4). **Live host lock landed #81** — 19×19 open + 9×9 stream + underfoot **32/16/8/4**. **#108** amortizes cook on that same 9×9 (cook=1/2 · prefetch=5 m · splash-pumped load-in). **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh).
+**Wider extract chunk radius shipped #43** — then `TerrainHost` **7×7 / 3 Chebyshev rings / 112 m span / ~12.5k m²** (was 5×5 / 2 rings / 80 m / 6 400 m²); one extra **far** ring only. Stamp pad **still 7×7**. **Near LOD raise shipped #61** — then center subdiv **32** / ring-1 **16** / outer **4** (was 16/8/4). **Live host lock landed #81** — 19×19 open + stream + underfoot **32/16/8/4**. **#108** amortizes cook (cook=1/2 · prefetch=5 m · splash-pumped load-in). **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). **#137** live window **11×11** + hold=2/12.
 
 ## Host (Hypha) — shipped fulcrumRust #16
 
@@ -42,11 +42,11 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Crate** | crates.io **`transvoxel` 2.0** (`Gnurfos/transvoxel_rs`, Lengyel tables) — not a paste into Lab-Rat |
 | **Host** | `TerrainHost` implements Lab-Rat `VoxelHost`; `stamp_field` + `sample_channels` feed density + `VoxelMaterial` |
 | **Distance LOD** | Live underfoot **32 / 16 / 8 / 4** + Lengyel transition faces (**#81**; was #61 32/16/4). Every adjacent step **2:1**. #61 near raise stays a prior fact |
-| **Grid / radius** | Live **#81 19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad stays **#43 7×7 / 112 m / 12 544 m²** / far-cold |
+| **Grid / radius** | Live **#81 19×19 / 304 m / 92 416 m²** + **#137 11×11** stream (`STREAM_RINGS` 5 · hold=2/12). Stamp pad stays **#43 7×7 / 112 m / 12 544 m²** / far-cold |
 | **Skin** | verts grade from `VoxelMaterial::tint` / `luma`; cracks / edge-wear / void-spore scale from Lab-Rat `density_stamp_2d` + `WearStamp` |
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
-| **Not day-one** | live octree / unconstrained Sync dump · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. **#114** is a shallow enterable pad network, not those parked cutouts. Amortized recook under budget **shipped #108** (cook=1/2 · prefetch=5 m). Worker extract+paint deepen **shipped #123** (`defer=worker/paint/gpu`). Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on the #79/#81 column **landed #88** (mesher untouched). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
+| **Not day-one** | live octree / unconstrained Sync dump · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. **#114** is a shallow enterable pad network, not those parked cutouts. Amortized recook under budget **shipped #108** (cook=1/2 · prefetch=5 m). Worker extract+paint deepen **shipped #123** (`defer=worker/paint/gpu`). Play STREAM 11×11 + warm hold **shipped #137** (prefetch=5+heading · hold=2/12). Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on the #79/#81 column **landed #88** (mesher untouched). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
 | **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm. **#43** extra far ring stays cold |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
@@ -183,7 +183,7 @@ First true big map. Reuse the existing Transvoxel host — no greenfield rebuild
 |------|--------|
 | **Extract** | **19×19 / 304 m / 92 416 m²** (~8× old 7×7) |
 | **Walls** | **Off** — open horizon, soft XZ clamp |
-| **Stream** | **9×9** window (`STREAM_RINGS` 4) by player eyes. **#108** amortizes cook on this same window (cook=1/2 · prefetch=5 m · splash-pumped load-in) — not a second 9×9. **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). **#83** `stream_anchors` also returns remote feet so the window can follow a peer (coordinate only — no Transvoxel rewrite) |
+| **Stream** | Live **11×11** window (`STREAM_RINGS` 5 — **#137**; #81 opened 9×9). **#108** amortizes cook (cook=1/2 · prefetch=5 m · splash-pumped load-in). **#123** deepens play (`defer=worker/paint/gpu` · skip far mask-only remesh). **#137** heading prefetch + hold=2/12. **#83** `stream_anchors` also returns remote feet so the window can follow a peer (coordinate only — no Transvoxel rewrite) |
 | **Underfoot** | **32 / 16 / 8 / 4** — every adjacent step **2:1** (was 32/16/4; 16→4 opened voxel gaps) |
 | **Stamp pad** | Still **7×7** / far-cold (#23 guts cold) |
 | **PBR** | Slope COL hooks (`pbr=tint` default). Vertex albedo only. NRM/GLOSS parked |
@@ -192,38 +192,52 @@ First true big map. Reuse the existing Transvoxel host — no greenfield rebuild
 | **Smoke** | `subdivs=32/16/8/4` `extract_m2=92416` `resident=` `stream_cold=` `pbr=` |
 | **Parked** | NRM/GLOSS GPU · Transvoxel rewrite / world sync · live octree / unconstrained Sync dump · Range heat. Amortized recook under budget **later landed #108**. Worker extract+paint deepen **later landed #123**. Lab-Rat plugs **landed later #80**. Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on this column **landed #88** (mesher / LOD / stamps untouched) |
 
-Stay out of Range heat cards / ballistics / binds / Augury chrome. Detail: fulcrumRust `docs/TERRAIN.md`. See `PEEK_FINDINGS.md` Closed by #88 / Closed by #108 / Closed by #123.
+Stay out of Range heat cards / ballistics / binds / Augury chrome. Detail: fulcrumRust `docs/TERRAIN.md`. See `PEEK_FINDINGS.md` Closed by #88 / Closed by #108 / Closed by #123 / Closed by #137.
 
 ## Stream hitch amortize (Hypha #108)
 
-Hitch *fix* layer 1 on the existing **#81 9×9** stream — not a new map size. [PR #108](https://github.com/initialvisuals/fulcrumRust/pull/108) (`b3be2974`). Hitch *visibility* stays Augury #110 (Hypha emits `STREAM` / `BAKE`, does not rebuild Home chrome). Mesher stolen (`TerrainHost` / `extract_one` / activation) — no greenfield mesher. Worker/paint/gpu deepen **later landed #123**.
+Hitch *fix* layer 1 — not a new map size. [PR #108](https://github.com/initialvisuals/fulcrumRust/pull/108) (`b3be2974`). Hitch *visibility* stays Augury #110 (Hypha emits `STREAM` / `BAKE`, does not rebuild Home chrome). Mesher stolen (`TerrainHost` / `extract_one` / activation) — no greenfield mesher. Worker/paint/gpu deepen **later landed #123**. Play STREAM 11×11 + warm hold **later landed #137**.
 
 | Lock | Detail |
 |------|--------|
-| **Load-in** | Skeleton (density + stamps + props) on frame 0; splash keeps presenting; **2** extracts / frame (`COOK_BUDGET_LOAD`) until idle; GPU upload only when the window is ready. No Sync whole **9×9** dump on one frame |
+| **Load-in** | Skeleton (density + stamps + props) on frame 0; splash keeps presenting; **2** extracts / frame (`COOK_BUDGET_LOAD`) until idle; GPU upload only when the window is ready. No Sync whole-window dump on one frame |
 | **Play** | **1** extract / frame (`COOK_BUDGET_PLAY`). Dirty jobs sorted underfoot-first via `TerrainHost::pump_stream` |
-| **Prefetch** | **5 m** face prefetch upgrades the next already-resident neighbor to lod 0 *before* the step. Does **not** open a second 9×9 |
+| **Prefetch** | **5 m** face prefetch upgrades the next already-resident neighbor to lod 0 *before* the step. Live heading prefetch **#137** |
 | **No-op** | Walk inside a cell with focus+LOD unchanged stays a no-op; stale LOD stays until the budget reaches it |
 | **Emit** | Augury Home `STREAM` / `BAKE` (`r=` `cold=` `pend=`) into #110 logger |
 | **Smoke** | `cook=1/2 prefetch=5` next to `subdivs=32/16/8/4` |
 | **Parked** | Live octree · residual soft LOD pop inside a cell · unconstrained Sync dump |
 
-Stay out of Range poses / AIM TUNE / loot · Lab-Rat UV (#101) · Beabim net · Augury Home tabs. See `PEEK_FINDINGS.md` Closed by #108 + `FULCRUMRUST_LAST_PASS_LOCK.md`. Worker extract+paint deepen: Closed by #123.
+Stay out of Range poses / AIM TUNE / loot · Lab-Rat UV (#101) · Beabim net · Augury Home tabs. See `PEEK_FINDINGS.md` Closed by #108 + `FULCRUMRUST_LAST_PASS_LOCK.md`. Worker extract+paint deepen: Closed by #123. Radius + warm hold: Closed by #137.
 
 ## Worker STREAM extract+paint (Hypha #123)
 
-Deepen of stream hitch *fix* after #108 amortize — same **#81 9×9**, not a new map size. [PR #123](https://github.com/initialvisuals/fulcrumRust/pull/123) (`b4725b8c`). Hitch *visibility* stays Augury #110 / #121 (Hypha emits only — no debugger rewrite). CHANNELS stay bake-time. Load splash stays sync.
+Deepen of stream hitch *fix* after #108 amortize — not a new map size. [PR #123](https://github.com/initialvisuals/fulcrumRust/pull/123) (`b4725b8c`). Hitch *visibility* stays Augury #110 / #121 (Hypha emits only — no debugger rewrite). CHANNELS stay bake-time. Load splash stays sync. Play STREAM 11×11 + warm hold **later landed #137**.
 
 | Lock | Detail |
 |------|--------|
 | **Play** | Worker extract+paint. Hitch thread never `sample_channels` on play Transvoxel extract. Worker owns extract+paint. Tick only applies one finished mesh then leftover paint/GPU |
 | **`defer`** | **`worker/paint/gpu`** |
-| **Cook / prefetch** | #108 stays: cook=1/2 · cook_ms **8/16** · prefetch **5 m** |
+| **Cook / prefetch** | #108 stays: cook=1/2 · cook_ms **8/16** · face prefetch **5 m**. Live heading + hold **#137** |
 | **Far remesh** | Skip far mask-only remesh when R climbs (no lod-2/3 storm on row add) |
 | **Emit** | STREAM `extract0` / `paint` / `gpu` + hitch-thread ms + r↑/cold↓ into #121 Home LOGS |
 | **Smoke** | Lab-Rat `probes=off` **and** Hypha `cook_ms` / `defer` |
 
-Stay out of Lab-Rat stamps / Range / Beabim / GATE / Augury Home chrome. Lab-Rat **#130** sandbox pedon is an off-stream leftover overlay — does **not** remesh this STREAM. Pad crawl stays **#114**. See `PEEK_FINDINGS.md` Closed by #123 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
+Stay out of Lab-Rat stamps / Range / Beabim / GATE / Augury Home chrome. Lab-Rat **#130** sandbox pedon is an off-stream leftover overlay — does **not** remesh this STREAM. Pad crawl stays **#114**. See `PEEK_FINDINGS.md` Closed by #123 + `FULCRUMRUST_LAST_PASS_LOCK.md`. Radius + warm hold: Closed by #137.
+
+## Play STREAM 11×11 + warm hold (Hypha #137)
+
+Radius + warm-return layer on #108 / #123 hitch — not a new map size. [PR #137](https://github.com/initialvisuals/fulcrumRust/pull/137) (`4ea0c1e4`; follow-up `a26628a`). Hitch *fix* layers stay #108 / #123. Hitch *visibility* stays Augury #110 / #121 / #128. Dial sheet: fulcrumRust `docs/TERRAIN.md`.
+
+| Lock | Detail |
+|------|--------|
+| **Window** | `STREAM_RINGS` **5** / **11×11** (was 4 / 9×9). Leading edge **80 m**, not 64 m |
+| **Prefetch** | **5 m** face + **walk heading** (reverse included). One cheap lod-3 look-ahead past the hot ring |
+| **Hold** | GPU halo `HOLD_RINGS` **2** + CPU TTL `RESIDENT_TTL_SECS` **12** (`hold=2/12`). Return walk promotes / republishes — no extract. Flush / smoke still drop (rim spawn-cold honest). Soft LOD pop OK |
+| **Cook / hitch** | Unchanged from #123: cook=1/2 · cook_ms **8/16** · defer=`worker/paint/gpu`. Hole-fill heading-side first. Halo-exit `hold_publish` keeps extract0 / gpu on separate play ticks. TELE MAX ~30 ms apply/queue |
+| **Smoke** | `prefetch=5+heading` `hold=2/12` `defer=worker/paint/gpu` |
+
+Stay out of Lab-Rat 7×7 stamp pad / Range / Beabim / Augury Home chrome / #131 biped / #136 landmark ride. See `PEEK_FINDINGS.md` Closed by #137 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Texture LOD / compression (Hypha + Lab-Rat, 2026-09-07)
 
