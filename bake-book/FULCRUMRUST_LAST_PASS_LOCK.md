@@ -43,7 +43,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - **LOD-tied grit / material mips** (Hypha #60): `lod_mips.rs` BC4-class 8-bit height/rough on Transvoxel rings — near **256²** (#58 vendor) / mid **64²** / far **16²**; far drops grain hashes; `sample_channels` + `stamp_wear_scale` pick the ring from world XZ; in-repo `grit_*.png` until more grit cooks. Smoke `grit_mips=256/64/16 n=196608 f=768`
 - **Wider extract chunk radius** (Hypha #43): `TerrainHost` **5×5 → 7×7**; **3 Chebyshev rings / 112 m span / 12 544 m²** (was 2 rings / 80 m / 6 400 m²); extra **far** ring only. Far-cold still `lod >= 2` + Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**. Lab-Rat `STUB_GRID = 7`. Near LOD raise **shipped #61**
 - **Near LOD raise** (Hypha #61): then bake-once Transvoxel subdivs **32/16/4** (was 16/8/4). Grid stayed #43 **7×7**. Near step **2:1**. **#81** live underfoot **32/16/8/4**. Grit mips stay **256² / 64² / 16²** (#60). Live recook / tunnels / runtime carve still parked
-- **First big-map** (Hypha #81): **landed**. Live host **19×19 / 304 m / 92 416 m²** + **9×9** player-eye stream (`STREAM_RINGS` 4) + underfoot **32/16/8/4**. Walls **off**. Stamp pad still **7×7** / far-cold. Slope COL hooks (`pbr=tint` default) — vertex albedo only; NRM/GLOSS parked. Lab-Rat `Deform` / `GroundScatter` identity reserved — **no stamp bake**. Listen-server peer pos still parked. #79 land sway + heightfield FX kept. Range heat / ballistics / binds / Augury chrome **not touched**. See `TERRAIN_NORTHSTAR.md`
+- **First big-map** (Hypha #81): **landed**. Live host **19×19 / 304 m / 92 416 m²** + **9×9** player-eye stream (`STREAM_RINGS` 4) + underfoot **32/16/8/4**. Walls **off**. Stamp pad still **7×7** / far-cold. Slope COL hooks (`pbr=tint` default) — vertex albedo only; NRM/GLOSS parked. Lab-Rat `Deform` / `GroundScatter` identity reserved — **no stamp bake**. Beabim peer feet `stream_anchors` **landed #83** (coordinate only — Transvoxel rewrite still parked). #79 land sway + heightfield FX kept. Range heat / ballistics / binds / Augury chrome **not touched**. See `TERRAIN_NORTHSTAR.md`
 - **Transvoxel extract host** (Hypha #16): crates.io `transvoxel` 2.0; live underfoot **32/16/8/4** (#81; was #61 32/16/4) + transition faces; `TerrainHost` implements `VoxelHost`; verts grade from Lab-Rat tint + wear; grimdark haze **#86** (extract **375 / 520**; hideout `haze_max` **0**); slope COL tint default #81
 - **Distance activation / far-guts cold** (Hypha #23): shared Locus `ACTIVATE_M` **24** / `SLEEP_M` **32**; far stamp guts + growth/Locus upload stay cold (~19× cheaper far mean)
 
@@ -51,7 +51,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - HP→0 **downs** (prone crawl + thin bleed) — not menu death. Bleed-out ~`BLEED_SECS` **22.0**; extra hits while downed shave `BLEED_HIT_SECS` **6.0**. Clock expiry → `DEAD` + dark bag. Shipped Augury #36; death cam / teammate net / full loot loop still parked.
 - Teammate **stabilize**, then heal with **items** (no magic heal) — hold **F** (`STABILIZE_HOLD_SECS` **1.45**); self while downed, or yard dummy when standing nearby (`REACH_M` **1.85**). Glasses `STAB STUB  NO NET` / `SELF-STAB STUB`. Solo placeholder — no fake net. Teammate net stabilize still parked.
 - Equipment required — or take off the downed body
-- **Self-revive** via revive stim on person — **I** while downed (`STIM_REVIVE_HP` **35**); day-one kit `stim: 1`; yard vial `YARD_STIM` **(3.55, 0, 3.20)** in front of dummy `YARD_DUMMY` **(3.55, 0, 4.55)** (`[F] PICK UP STIM`). Not a standing heal. Alive **I** is a no-op (no consume). **Y** is Hypha listen-server host (#34), alive only — does **not** stim. Downed Y is a no-op for both host and stim.
+- **Self-revive** via revive stim on person — **I** while downed (`STIM_REVIVE_HP` **35**); day-one kit `stim: 1`; yard vial `YARD_STIM` **(3.55, 0, 3.20)** in front of dummy `YARD_DUMMY` **(3.55, 0, 4.55)** (`[F] PICK UP STIM`). Not a standing heal. Alive **I** is a no-op (no consume). **Y** is listen-server host (#34; Beabim #83 pose), alive only — does **not** stim. Downed Y is a no-op for both host and stim.
 - Slash a downed **Locus Standard** (or similar) → **critical revive rally** — **Mouse4 / C** on a **downed or dying** Locus while you are downed or alive ≤ `RALLY_LOW_HP` **25** → `RALLY` (`RALLY_HP` **45** / `RALLY_ARMOR` **20**, stands if downed)
 - **T** bandage (+40 HP, #31) is the item heal: while downed and **not** stabilized, glasses `NEED STAB` (no consume); after stabilize, T stands you up with the heal chunk. See Down / death stub section.
 
@@ -66,7 +66,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - **G** = cycle kits MP9-Z → SR-25 → M24 (fulcrumRust #22); **4 / 5 / 6** seat directly
 - **T** = bandage use (fulcrumRust #31); **G** stays kit cycle. While downed unstabilized: `NEED STAB` (no consume); after stabilize, T stands + heals (#36)
 - **I** = stim self-revive while downed (Augury #37). Not a standing heal. Alive **I** is a no-op (no consume)
-- **Y** = listen-server host while alive (Hypha #34). Does **not** stim. Downed **Y** is a no-op (no host, no stim)
+- **Y** = listen-server host while alive (#34; Beabim #83 pose). Does **not** stim. Downed **Y** is a no-op (no host, no stim)
 - **V** = cycle optic on seated kit allow-list
 - **N** = toggle .45 suppressor / can mounts
 - **M** = map
@@ -213,7 +213,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Live grid **19×19 / 304 m / 92 416 m²** + **9×9** stream (Hypha #81). Stamp pad still **7×7** / 112 m / 12 544 m² (#43; far-cold)
 - `TerrainHost` consumes Lab-Rat `sample_channels` + `density_stamp_2d` / `WearStamp`; skin = `VoxelMaterial::tint` + #81 slope COL (`pbr=tint` default)
 - Extract atmosphere: ashen/slate/brutalist vertex paint, void-spore stamp tints, cheap distance haze **#86** (fog **375 / 520**; hideout `haze_max` **0**). Walls **off**
-- Parked: live LOD recook · tunnels · runtime carve · listen-server peer stream · NRM/GLOSS GPU. Near LOD raise **shipped #61**. First big-map **landed #81**. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer). In-repo grit mips stay until Lab-Rat cooks more — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
+- Parked: live LOD recook · tunnels · runtime carve · Transvoxel rewrite / world sync · NRM/GLOSS GPU. Peer feet `stream_anchors` **landed #83** (coordinate only). Near LOD raise **shipped #61**. First big-map **landed #81**. Texture mips / compression **shipped #60** on the same **distance rings** (near 256² / mid 64² / far 16²; far softer). In-repo grit mips stay until Lab-Rat cooks more — see Texture LOD compress. See `TERRAIN_NORTHSTAR.md` + fulcrumRust `docs/TERRAIN.md`
 
 
 ## Distance activation / far-guts cold (fulcrumRust #23)
@@ -254,7 +254,7 @@ Evan lock. **Shipped** [fulcrumRust #81](https://github.com/initialvisuals/fulcr
 |------|------|
 | **Extract** | **19×19 / 304 m / 92 416 m²** (~8× old 7×7) |
 | **Walls** | **Off** — open horizon, soft XZ clamp |
-| **Stream** | **9×9** window (`STREAM_RINGS` 4) by player eyes |
+| **Stream** | **9×9** window (`STREAM_RINGS` 4) by player eyes. Beabim #83 `stream_anchors` also returns remote feet (coordinate only) |
 | **Underfoot** | **32 / 16 / 8 / 4** — every adjacent step **2:1** (was 32/16/4) |
 | **Stamp pad** | Still **7×7** / far-cold (#23 guts cold) |
 | **PBR** | Slope COL hooks (`pbr=tint` default). Vertex albedo only. NRM/GLOSS parked |
@@ -270,7 +270,7 @@ Evan lock. **Shipped** [fulcrumRust #81](https://github.com/initialvisuals/fulcr
 | **4. Chunks** | **Landed #81** — 9×9 stream |
 | **5. Scatter / PBR / deform** | Still reserved / Lab-Rat open — identity hooks only. **No stamp bake** |
 | **6. Slope materials** | **Landed #81** — COL tint default; NRM/GLOSS parked |
-| **7. Distance load** | **Landed #81** — local-player stream. Listen-server peer pos still parked |
+| **7. Distance load** | **Landed #81** — local-player stream. Beabim peer feet `stream_anchors` **landed #83** (coordinate only — no Transvoxel rewrite) |
 
 See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Closed by #81.
 
@@ -456,14 +456,21 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - Intact / do not steal: ToD **[ ]**/K/L/,/. · −/= zero (#78) · hold-O extract intent (#78) · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · P unused (#76) · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
-## Listen-server + invite stub (fulcrumRust #34)
-- Thin `std::net` UDP hub in `engine/src/net.rs` (MyceliumEngine had no portable net crate)
-- Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
+## Listen-server pose presence + HOLD JOIN (fulcrumRust #34 + Beabim #83)
+
+Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join panel / live-profile loot trail). Hypha #34 was the handshake-only stub. [PR #83](https://github.com/initialvisuals/fulcrumRust/pull/83) (`24eaca4b`).
+
+- Thin `std::net` UDP hub in `engine/src/net.rs` (#34). Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
 - Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
+- **#83 POSE** after HELLO/WELCOME (~20 Hz): feet `xyz`, yaw, pitch, grounded, crouch. Host assigns peer ids on WELCOME and relays poses
+- Cheap **5-box** operator silhouette (slate) — not Mixamo / not Locus
+- Grounded peer Y rides the **#81 19×19 heightfield** (Range #79 snap DNA). Packet Y ignored when grounded — no phantom `y=0` slab, no floating on a lie. Airborne hops keep networked Y
+- #81 `stream_anchors` returns remote feet so the **9×9** window can follow a peer (coordinate only — no Transvoxel rewrite)
+- **HOLD JOIN** — Esc → **JOIN** → type `fulcrum://ip:port` / `fw://` / bare `ip:port` / `localhost` → Enter. No app restart. Title **JOIN** without `--join` opens the same sheet. `--join` / `FULCRUM_JOIN` still one-click
 - Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
-- Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
+- Honesty: two instances agree on **peer presence** (pose + silhouette). Both machines still sim locally — **no** world replication / shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus / stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / drops / PvEvP sim / Mixamo player body
 - Solo **Deploy** unchanged (`net=off` on smoke)
-- Does **not** steal **I** stim (#37), hold-**O** extract intent (#78), **−/=** zero (#78), **P** unused (#76), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Does **not** steal **I** stim (#37), hold-**O** extract intent (#78 / #85), **−/=** zero (#78), **P** unused (#76), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
 - Bind: **Y** alive host only (#34). Stim is **I** while downed (#37). Seats do not fight — downed Y is a no-op for host and stim.
 
 ## Down / death stub (fulcrumRust #36 + #37 bind)
@@ -471,13 +478,13 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - Constants (`engine/src/down.rs`): `BLEED_SECS` **22.0** · `BLEED_HIT_SECS` **6.0** · `STABILIZE_HOLD_SECS` **1.45** · `STIM_REVIVE_HP` **35** · `RALLY_HP` **45** / `RALLY_ARMOR` **20** / `RALLY_LOW_HP` **25** · `REACH_M` **1.85**
 - Yard props: dummy `YARD_DUMMY` **(3.55, 0, 4.55)** · stim vial `YARD_STIM` **(3.55, 0, 3.20)** (in front of dummy)
 - **I** while downed = stim self-revive (day-one kit `stim: 1`; yard vial `[F] PICK UP STIM`). Not a standing heal. Empty → glasses `NO STIM`. Success → `STIM` and stand at 35 HP. Alive **I** is a no-op (no consume).
-- **Y** while alive = Hypha listen-server host stub (#34). Does **not** stim. Downed **Y** is a no-op for both host and stim.
+- **Y** while alive = listen-server host (#34; Beabim #83 pose). Does **not** stim. Downed **Y** is a no-op for both host and stim.
 - Hold **F** = stabilize stub (self while downed, or yard dummy when standing nearby). Glasses: `STAB STUB  NO NET` / `SELF-STAB STUB`. Prompt: `HOLD F  SELF-STAB STUB`. Solo placeholder — no fake net. **F** tap near bag = light corpse-reclaim stub (hold for stab; tap on bag — shipped stub).
 - **T** bandage (+40 HP, Range Tech #31) unchanged as heal item. While downed and **not** stabilized: glasses `NEED STAB` (no consume). After stabilize: T stands you up with the heal chunk. Prompt: `STABILIZED  T HEAL / I STIM / SLASH RALLY`
 - **Mouse4 / C** knife slash on a **downed or dying** Locus while you are downed or low (≤25 HP) → `RALLY` burst (+45 HP / +20 armor, stands if downed)
 - Bleed-out ~22s → `DEAD` + dark bag; a new bleed-out **replaces** previous bag; **F** tap on bag = light corpse-reclaim stub (`DEAD  BAG STUB` / `CORPSE RECLAIM STUB`)
 - Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB` · prompts like `HOLD F  SELF-STAB STUB` / `[F] PICK UP STIM` / `STABILIZED  T HEAL / I STIM / SLASH RALLY`
-- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/,/. · −/= zero (#78) · hold-O extract intent (#78) · P unused (#76) · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` stay. **I** is stim (does not steal Y host). **Y** is host alive-only (does not steal I stim).
+- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/,/. · −/= zero (#78) · hold-O extract intent (#78) · P unused (#76) · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` / HOLD JOIN (#83) stay. **I** is stim (does not steal Y host). **Y** is host alive-only (does not steal I stim).
 - Tests that define the lock: `y_hosts_i_stims_without_stealing_binds`, `y_alive_hosts_i_downed_stims_without_crossing`.
 - Parked / still TODO (do not claim done): death cam; teammate net stabilize; timed surface kill; full extract loot loop.
 
@@ -903,14 +910,33 @@ Do **not** invent bloom / god-rays or a second sky. Do **not** claim Range heat 
 
 See `PEEK_FINDINGS.md` Closed by #87 + `AESTHETIC_DIEGETIC_LOCK.md`.
 
+## Two-instance pose sync + HOLD JOIN (Beabim — landed #83)
+
+Evan lock. **Shipped** [fulcrumRust #83](https://github.com/initialvisuals/fulcrumRust/pull/83) (2026-09-09, `24eaca4b`). Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join panel / live-profile loot trail). Hypha #34 stays the UDP hub / HELLO/WELCOME / **Y**-host / `--join` foundation. Flips handshake-only + "no in-game text field" + parked peer pos.
+
+| Dial | Lock |
+|------|------|
+| **POSE** | UDP after HELLO/WELCOME (~20 Hz): feet `xyz`, yaw, pitch, grounded, crouch. Host assigns peer ids on WELCOME and relays |
+| **Silhouette** | Cheap **5-box** operator (slate) — not Mixamo / not Locus |
+| **Grounded Y** | Rides **#81 19×19 heightfield** (Range #79 snap DNA). Packet Y ignored when grounded — no phantom `y=0` slab, no floating on a lie. Airborne hops keep networked Y |
+| **Stream anchors** | #81 `stream_anchors` returns remote feet so the **9×9** window can follow a peer (coordinate only — no Transvoxel rewrite) |
+| **HOLD JOIN** | Esc → **JOIN** → type `fulcrum://ip:port` / `fw://` / bare `ip:port` / `localhost` → Enter. No app restart. Title **JOIN** without `--join` opens the same sheet. `--join` / `FULCRUM_JOIN` still one-click |
+| **Port** | Default **7777** (`FULCRUM_PORT` override) |
+| **Glasses** | Still `HOST` / `JOIN` / `PEER` labels only — never a second ammo HUD |
+| **Binds** | **Y** host (alive) · **I** stim · hold-**O** extract untouched |
+
+**Still local (deliberately):** shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus brains + yard stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / drops. **No** world replication / PvEvP sim / Mixamo player body.
+
+See `PEEK_FINDINGS.md` Closed by #83.
+
 ## Kit metal/grit PBR stub (landed #64)
 
 Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open**/missing. Used what was: brand/TRIMSHEET_MICRO (+ grey); atelier textures/PBR MetalPanelRectangular / MetalCorroded (256² crops); handful of scratch / fingerprint roughness masks from the 150-roughness pack. Boxes stay color-only (stub PBR): albedo mix + roughness/mask on MP9-Z / SR-25 / M24. House DNA: **gold+black tech trim** hairlines, not gold-plate, not Locus veins. Crops vendored in fulcrumRust `assets/kit/`. Atelier read-only (`FULCRUM_KIT` / `FULCRUM_ATELIER`). Do **not** claim full metal-tech / `dBXpg` kits shipped — only this stub. See `AESTHETIC_DIEGETIC_LOCK.md`.
 
 ## Still soft / seat-owned timing
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
-- Near LOD raise **shipped #61** (then subdivs **32/16/4**). Live underfoot **#81 32/16/8/4**. Stamp pad stays Hypha #43 **7×7**. Live LOD recook / tunnels / runtime carve / listen-server peer stream still parked
-- First big-map host **landed #81**. Live walk is **19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad still **7×7**. Slope COL tint default; NRM/GLOSS parked. Lab-Rat deform/scatter identity reserved — **no stamp bake**. Continues on fulcrumRust
+- Near LOD raise **shipped #61** (then subdivs **32/16/4**). Live underfoot **#81 32/16/8/4**. Stamp pad stays Hypha #43 **7×7**. Live LOD recook / tunnels / runtime carve / Transvoxel rewrite still parked. Beabim peer feet `stream_anchors` **landed #83** (coordinate only)
+- First big-map host **landed #81**. Live walk is **19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad still **7×7**. Slope COL tint default; NRM/GLOSS parked. Lab-Rat deform/scatter identity reserved — **no stamp bake**. Beabim peer feet follow remotes **#83**. Continues on fulcrumRust
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **colorless muzzle heat landed #66** (sample-only UV warp; no new Graphics sliders); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**); **heat dial blend landed #71** (Range Tech; dump-dial cooking/~ → landed/X; #66 path stays); **Options Audio DEVICE landed #82** (SYSTEM DEFAULT; cycle DNA = Graphics WINDOW; persist `output_device`; thin cpal voice — not a second mixer); **Graphics dump landed #86** (thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**; bloom / godRays / brightness / gamma **no path**); **HDRI sun disc landed #87** (dump **sunSize 0.62** rides the disc)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch then **0.052** rad overlay — **#79** live punch **0.028** + inertia sway; AXIS_LOCK stay; no materials / range geo)
@@ -946,7 +972,8 @@ Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
 Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
 Live HoB zero / launch dials: fulcrumRust PR #33 (2026-09-07). Dual-path arcade↔sim **superseded #76** — **P** unused. Zero bind **superseded #78** — **−/=** 50/100/200; **O** is hold extract intent.
-Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
+Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07). Handshake-only + no in-game join field **superseded #83**.
+Beabim two-instance pose sync + HOLD JOIN (UDP **POSE** ~20 Hz; 5-box slate silhouette; grounded Y rides #81 heightfield; `stream_anchors` follow remotes; Esc → JOIN types invite; port **7777**; **Y** host / **I** stim / hold-**O** extract stay; shoot / Locus / terrain / audio stay local): fulcrumRust PR #83 (2026-09-09) — **landed**. `24eaca4b`. See `PEEK_FINDINGS.md` Closed by #83.
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
@@ -984,8 +1011,8 @@ LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far d
 Near LOD raise (16/8/4 → 32/16/4; grid/radius stay #43; grit mips stay #60): fulcrumRust PR #61 (2026-09-08) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #61.
 Authored SFX vs spatial split (Range Tech file slots / Augury Chamber spatial / Lab-Rat quiet stamps): Initial Visuals Group Chat (2026-09-07) — wiring shipped #54; day-one handmade vendor landed #62; DEVICE cycle landed #82; shot propagation still later.
 Authored SFX file slots: fulcrumRust PR #54 (2026-09-07) — wiring. Handmade atelier vendor: fulcrumRust PR #62 (2026-09-08) — **landed**. Small set, not a full CE / aim-offset pack dump.
-First big-map (drop walls · ~8× extend · chunked Transvoxel · slope COL · local-player stream): Evan dump (2026-09-08) / Hypha **#81 landed**. Stamp pad still 7×7. Scatter/deform identity reserved — **no stamp bake**. NRM/GLOSS + listen-server peer pos parked. Lab-Rat grit-slope-PBR plugs **open** / Range Tech kits+FX draw + `dBXpg` still **open**; kit PBR stub + music playlist **landed #64** / Augury FoW brand+menu video **when cut ready**. Atelier PBR batch **in** (150 roughness + textures/PBR ~26 sets). See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Closed by #81.
-Hypha 19×19 open extract + chunk stream + slope COL hooks: fulcrumRust PR #81 (2026-09-09) — **landed**. `73dc8fe4`. Underfoot **32/16/8/4**. Smoke `subdivs=32/16/8/4` `extract_m2=92416` `resident=` `stream_cold=` `pbr=`. Do **not** claim Lab-Rat stamp bake / NRM-GLOSS GPU / listen peer stream / Range heat. See `PEEK_FINDINGS.md` Closed by #81.
+First big-map (drop walls · ~8× extend · chunked Transvoxel · slope COL · local-player stream): Evan dump (2026-09-08) / Hypha **#81 landed**. Stamp pad still 7×7. Scatter/deform identity reserved — **no stamp bake**. NRM/GLOSS parked. Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Lab-Rat grit-slope-PBR plugs **open** / Range Tech kits+FX draw + `dBXpg` still **open**; kit PBR stub + music playlist **landed #64** / Augury FoW brand+menu video **when cut ready**. Atelier PBR batch **in** (150 roughness + textures/PBR ~26 sets). See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Closed by #81.
+Hypha 19×19 open extract + chunk stream + slope COL hooks: fulcrumRust PR #81 (2026-09-09) — **landed**. `73dc8fe4`. Underfoot **32/16/8/4**. Smoke `subdivs=32/16/8/4` `extract_m2=92416` `resident=` `stream_cold=` `pbr=`. Do **not** claim Lab-Rat stamp bake / NRM-GLOSS GPU / world replication / Range heat. Peer feet `stream_anchors` **landed later #83**. See `PEEK_FINDINGS.md` Closed by #81.
 Atelier clean yell + SFX remix DNA + Music playlist beds: Evan dump (2026-09-08 ~00:00 ET) — plugs **open** (was read-only). Lab-Rat grit/slope/PBR · Range Tech `dBXpg` still **open**. Music playlist + kit metal/grit PBR stub **landed #64**. Remix first ±6% jitter **landed #64**; full remix minting still **open**. Augury FoW brand/menu video when cut ready · Hypha big-map continues on fulcrumRust. Do **not** claim Lab-Rat stamp bake / NRM-GLOSS / `dBXpg` / menu video shipped. 8× open extract **is** shipped #81. See `ATELIER_PORTFOLIO_STEAL.md` + `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81.
 Range Tech music playlist + kit metal/grit PBR stub + ±6% FX remix jitter: fulcrumRust PR #64 (2026-09-08) — **landed**. Five titled beds; stub PBR on MP9-Z / SR-25 / M24; store `dBXpg` still missing. See `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Closed by #64.
 Holocron viewer gift (atelier `tools_for_ai_and_dev/Holocron_Visualizer.py` + `Analyze-Holocron.ps1`): Evan dump (2026-09-08) — tree nested-rectangle file-base viewer; cut monoliths (agent context; overwrite loss). Lab-Rat rust rewrite after slope/PBR. See `TOOLS.md`.
