@@ -5,7 +5,7 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 **Source:** aim-offset **v77** (`073955d`), hard refresh `app.js?v=20260906v77`  
 **Parked:** 2026-09-06 by InitialVisualsAdmin  
 **Live fulcrumRust defaults:** Range Tech **#71 blend** on Hypha **#66** colorless post path (was → now → stolen). v77 / later aim-offset dump stay DNA. Glasses / live sheet still drive the fields.  
-**Sibling:** Vector mag dump (muzzle rect flash / grit / glyphs) → [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md). Not heat. Do **not** reopen orange cards.
+**Sibling:** Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md). Not heat. Do **not** reopen orange cards.
 
 ## Layers
 - Master
@@ -66,3 +66,4 @@ Range Tech owns heat dials on the Hypha **#66** post path. Defaults sit **betwee
 - fulcrumRust #59 landed the v77 shimmer / lattice crawl + barrel haze RGB above — not static orange blobs. Card geometry DNA on this sheet stays the lock
 - fulcrumRust #66 landed the Hypha colorless post path (sample-only `heat_warp_uv`; barrel haze RGB from #59 is feel-lab reference — live fulcrumRust draw is colorless warp)
 - fulcrumRust #71 landed the Range Tech dump-dial blend (live defaults above). Glasses / live sheet still drive fields. #66 architecture lock stays — do **not** reopen orange cards
+- fulcrumRust #89 (Range Tech projectile feel) did **not** retune HeatDials. CE tip **0.2.8** is the preferred DNA if a later cook retunes muzzle-adjacent haze — not a heat-card rewrite, not Beabim, not profile onboard
