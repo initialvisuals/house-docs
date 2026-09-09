@@ -15,10 +15,10 @@ Parked from Evan + seat locks (2026-09-07).
 - FX bus / gunshots get spatial first
 - Shot propagation later
 
-## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62 + #64 + #82)
-Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id, plus optional `hit.wav`, in `assets/sfx/`). Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback. Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Music playlist beds **landed #64** on the same #21 Music bus. Options **DEVICE** cycle **landed #82** — same mixer stereo render → thin cpal voice; **not** a second mix tree.
+## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62 + #64 + #82 + #134)
+Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id in `assets/sfx/`). Optional single-file `hit.wav` **superseded #134** — Hit is `Slot::HIT_POOL` (`distant_small_medium_impact_bullet` / `…B` / `…C` under `assets/sfx/distant_impacts/`); retired leftover `assets/sfx/hit.wav` is not loaded. Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback (Hit: remaining pool, then grit). Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Music playlist beds **landed #64** on the same #21 Music bus. Options **DEVICE** cycle **landed #82** — same mixer stereo render → thin cpal voice; **not** a second mix tree. World FX mono fold **landed #134** — `DecodeFold::WorldMono` on `Bus::Fx` (L+R → mono on decode); Music **Keep stereo**; Voice keep / dual-mono.
 
-Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62) + playlist beds / remix jitter (#64) + Options **DEVICE** (#82). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
+Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62) + playlist beds / remix jitter (#64) + Options **DEVICE** (#82) + Hit pool + decode fold (#134). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
 
 ### Gains
 - Three buses into a **master**: **Voice** / **Music** / **FX**
@@ -32,13 +32,13 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #
 ### Day-one routes
 | Bus | Owns |
 |-----|------|
-| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land |
+| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land / **hit** (pool #134) |
 | **Voice** | UI confirm (title / pause / Options) |
 | **Music** | hideout / extract playlist **landed #64** — CONCRETE_ECHO · Terraform · The Memory of The Augury · guttertrash · A Shattered Remnant From A Collapsed Distant Star; Options Music dial still scales; missing → two-tone stub |
 
 ### Hard checks
 - Fire SFX (SMG `playFire`) **respect the FX bus** — FX `0` is silent; half FX is quieter
-- File preferred when present; missing / bad file → procedural fallback
+- File preferred when present; missing / bad file → procedural fallback (Hit: remaining `HIT_POOL`, then grit)
 - Sample rate stub **22050** for procedural cues (atelier vendor WAVs also ~22.05 kHz 16-bit mono)
 - Code: fulcrumRust `engine/src/audio.rs` + `engine/src/audio_out.rs` + Options sheet in `engine/src/menu.rs` + `assets/sfx/`
 
@@ -65,22 +65,22 @@ Upgrades the #27 phase-only two-zone stub (hideout dry vs extract industrial) to
 - **FX wet send only.** Voice / Music stay dry dual-mono. Same #21 bus tree — not a second mixer. #54 file slots still render through that FX wet send.
 - Listener follows the camera (#27 `updateListener`). **No extra bind.** Walk off the yard pad to hear outdoor.
 - Glasses peek `DRY` / `YARD` / `OUT` — labels only, never a second ammo HUD.
-- CE convolver DNA, not a send rack. **The Augury** owns volumes + FX wet send. Range Tech keeps mixer + file slots + DEVICE. Hypha keeps Options Graphics post.
+- CE convolver DNA, not a send rack. **The Augury** owns volumes + FX wet send. Range Tech keeps mixer + file slots + DEVICE + fold. Hypha keeps Options Graphics post.
 
 ### Hard checks
 - Smoke: `audio=100% zone=EXTRACT spatial=1.00 sfx=file/13` after Standard + Inked dumps + Z/F; FX `0` still silences fire
-- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural); DEVICE cycle **landed #82**; shot propagation still later
+- File-slot **wiring** shipped #54; day-one handmade vendor **landed #62** (atelier WAVs in `assets/sfx/`; missing / bad file → procedural); DEVICE cycle **landed #82**; dirt Hit pool + WorldMono fold **landed #134**; shot propagation still later
 - Code: fulcrumRust `engine/src/audio.rs` + session pose hooks in `engine/src/session.rs`
 
 ## SFX remix DNA (Evan 2026-09-08 ~00:00 ET)
 
 Range Tech. Creative reuse **OK** — pitch / speed / effects to mint new one-shots from existing packs. Indie underground vibe. Do **not** overuse the same stem. #54 wiring + #62 handmade vendor stay the live FILE_SLOTS fill. Remix is how more one-shots get minted without a full pack dump. Same #21 FX bus — not a second mixer. Voice / Music stay dry dual-mono (#56).
 
-First application **landed #64** — fire / foot / reload ±6% pitch/speed jitter on the live #62 vendor. Mixer / Options FX / Augury spatial stay honest (FX `0` still silent). Remix DNA policy stays; full remix pack minting still **open**.
+First application **landed #64** — fire / foot / reload ±6% pitch/speed jitter on the live #62 vendor. **#134** also jitters **hit**. Mixer / Options FX / Augury spatial stay honest (FX `0` still silent). Remix DNA policy stays; full remix pack minting still **open**.
 
 ## Music beds (landed #64)
 
-Shuffle of five atelier `music/` titles on hideout / extract beds: **CONCRETE_ECHO** · **Terraform** · **The Memory of The Augury** · **guttertrash** · **A Shattered Remnant From A Collapsed Distant Star**. Small 8 s / 22.05 kHz / 16-bit mono loops in fulcrumRust `assets/music/` (not the 5–11 MB MP3s). Each hideout / extract start advances the shuffle. Options Audio Music dial still scales the bed. Missing file → old two-tone stub. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). Voice / FX / Augury spatial+reverb untouched. Overrides: `FULCRUM_MUSIC` / `FULCRUM_ATELIER` read-only. Playback rides the #82 DEVICE pick (thin cpal voice).
+Shuffle of five atelier `music/` titles on hideout / extract beds: **CONCRETE_ECHO** · **Terraform** · **The Memory of The Augury** · **guttertrash** · **A Shattered Remnant From A Collapsed Distant Star**. Small 8 s / 22.05 kHz / 16-bit mono loops in fulcrumRust `assets/music/` (not the 5–11 MB MP3s). Each hideout / extract start advances the shuffle. Options Audio Music dial still scales the bed. Missing file → old two-tone stub. Same #21 Voice / Music / FX tree — not a fourth bus. Music stays dry dual-mono (#56). **#134** Music **Keep stereo** (`DecodeFold::Keep`) — 2D bed. Voice / FX / Augury spatial+reverb untouched. Overrides: `FULCRUM_MUSIC` / `FULCRUM_ATELIER` read-only. Playback rides the #82 DEVICE pick (thin cpal voice).
 
 ## Options Audio DEVICE (landed #82)
 
@@ -98,4 +98,4 @@ Range Tech. Explicit host-output pick on the Options **Audio** pane. Audio still
 | **Code** | `engine/src/audio_out.rs` — cpal enumerate + stream. Stream on window thread (`Stream` is not Sync) |
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62 · https://github.com/initialvisuals/fulcrumRust/pull/64 · https://github.com/initialvisuals/fulcrumRust/pull/82
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62 · https://github.com/initialvisuals/fulcrumRust/pull/64 · https://github.com/initialvisuals/fulcrumRust/pull/82 · https://github.com/initialvisuals/fulcrumRust/pull/134
