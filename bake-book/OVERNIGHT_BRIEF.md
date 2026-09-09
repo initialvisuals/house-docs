@@ -1,37 +1,41 @@
-# Overnight brief (2026-09-08)
+# Overnight brief (2026-09-09)
 
-Parked from Evan first big-map brief; clerk shelf cook refreshes this pulse.
+Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this shelf + fulcrumRust `docs/STEAL_MAP.md` — not chat.
 
 ## Direction
 
-- **First true big map** — extract Transvoxel: higher res, drop outer walls, extend **~8×**, chunk the voxel, load chunks by distance from players (listen-server aware). See `TERRAIN_NORTHSTAR.md`. **Brief only — not shipped.**
-- **Lab-Rat stamps** — slope/angle materials, dirt/scatter/deform, PBR bake-down **landed #80**. Atelier **150 roughness + textures/PBR ~26 sets landed**. NRM/GLOSS GPU parked (Evan **clean** yell 2026-09-08 ~00:00 ET — atelier plugs **open**)
-- **Range Tech** — kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64**. **1P viewmodel ≠ 3P biped gun** (MP honesty) is **partial shipped #91** (peer biped hip gun stub) — steal from `FULCRUMRUST_LAST_PASS_LOCK.md` / `PEEK_FINDINGS.md`. Range Tech owns 1P dials / AIM TUNE; Beabim owns the 3P gun path. Do **not** claim Mixamo / full 3P kit honesty. Lab-Rat stamps stay out. Full kit honesty / hands / gear still **open**.
-- **Scope glass** (when LPVO) — **holding / not shipped**. Greyscale / B&W ramp (**not** color) · fake curve + thickness · IOR + ramp magnify · bodycam **no PiP**. Hypha Graphics when LPVO; Range AIM TUNE placements first (#97). Steal from `FULCRUMRUST_LAST_PASS_LOCK.md` / `PEEK_FINDINGS.md`.
-- **Evan asset-ask** — clone CE / aim-offset attachment tables first; missing → ask Evan (this week from 2026-09-09 to model + texture). Primitives stay scaffolding. Lab-Rat keeps procedural grit until the list, then bake onto authored. Style grows with peeks. **Not shipped.** Steal from the shelf.
-- **Augury** — FoW brand / menu video **when cut ready**
-- **Reuse** — #16 host / #23 far-cold / #43 7×7 / **#61 32/16/4** / #60 grit mips stay the live extract; do not rebuild from zero
+- **First true big map** — **landed #81**: 19×19 open extract / 304 m / ~92k m², walls off, 9×9 player-relative stream, underfoot **32/16/8/4**. Stamp pad stays **7×7** / #23 far-cold. Soft LOD pop + underfoot hitch still open (**#108** cooking). See `TERRAIN_NORTHSTAR.md`.
+- **Lab-Rat stamps** — organic growth mesh **#69** + slope/PBR/dirt/scatter/deform **#80** landed. NRM/GLOSS GPU parked. SVG / density-mask / experiment-log still open. Blender UV dials draft **#101**.
+- **Range Tech** — Patch A feel stack through **#103** AIM TUNE live-save (`aim_live` + `aim_tune` → Hypha `project.json`). Pose ease / springs still **~**. Ergo / handling stats **·**. Store `dBXpg` still open. Scope glass holding until LPVO.
+- **1P viewmodel ≠ 3P biped gun** — **partial #91** (peer biped hip stub). Range owns 1P / AIM TUNE; Beabim owns 3P path. Full kit honesty / hands / gear still open.
+- **Scope glass** (when LPVO) — **holding**. Greyscale ramp · IOR · no PiP. Hypha Graphics when LPVO; Range AIM TUNE placements first (#97/#103).
+- **Evan asset-ask** — clone CE / aim-offset attachment tables first; missing → ask Evan this week. Primitives stay scaffolding. **Not shipped.**
+- **Augury** — elbow EXTRACT card **#85** landed; FoW brand / menu video when cut ready; CE Home debugger still * next on Patch A ledger.
+- **Reuse** — #16 host / #23 far-cold / #60 grit mips / **#81 19×19** stay the live extract; do not rebuild from zero.
 
-## Landed on main overnight (clerk pulse)
+## Landed on main overnight (clerk pulse · since ~2026-09-08 18:00 ET)
 
 | Seat | Shipped |
 |------|--------|
-| **Range Tech** | #22 SR-25/M24 · #24 day/night+sky · #25 wall lean · #28 hold-` inspect · **#62 atelier SFX** · **#64 playlist + kit PBR stub + ±6% remix jitter** · **#67 Patch A muzzle** |
-| **Hypha** | #16 Transvoxel host · #23 far-guts cold · #24 sky lights (with Range) · **#43 7×7 radius** · **#60 grit mips** · **#61 32/16/4** · **#90 warp floor 0.01** |
-| **Augury** | #18 Locus Standard · #26 Locus Inked |
-| **Lab-Rat** | #20 void-spore + concrete wear · #38 stamp/paint substrate · #39 yard harness · **#58 quiet grit** · **#80 slope/PBR/dirt/scatter/deform** |
-| **Clerk** | CREDITS planted in-PR; shelf #43/#58/#60/#61/#62/#64/#67/#90 dials into bake-book; **#72 Patch A notes ledger + legend** (`X`/`~`/`*`/`·` + seats); **clean yell** (2026-09-08 ~00:00 ET); Holocron gift parked in `TOOLS.md` |
+| **Range Tech** | #67 muzzle tip · #68 ADS DoF · #71 heat dump-dial · #76 SIM-only · #78 hold-O / −/= / grounded slide · #79 land sway + heightfield FX · #82 Audio DEVICE · #84 H tilt · #87 HDRI sun · #89 projectile feel · #94/#98/#99/#100 hip·low-hip·cant · #97 End AIM TUNE · **#103** live-save |
+| **Hypha** | #66 colorless heat · #81 19×19 + stream + slope COL · #86 Graphics dump · #88 biped foot plant · #90 warp floor 0.01 · (#87 sun with Range) |
+| **Lab-Rat** | #69 organic growth mesh · #80 slope/PBR/dirt/scatter/deform |
+| **Augury** | #85 diegetic elbow smart-labels (hold-O EXTRACT) |
+| **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub |
+| **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #90 (and #103 in flight) |
 
 ## Still cooking
 
 | Seat | Open |
 |------|------|
-| **Hypha** | **First big-map brief** (2026-09-08) — **not shipped**. Continues on fulcrumRust. Live remains #43 **7×7 / 3 rings / 112 m / 12 544 m²** + near LOD **32/16/4** (#61) + #60 mips. Owns: drop outer walls · **~8×** extend · chunked Transvoxel · **load chunks by distance from players** (listen-server aware). **#46 Options guts + #55 GPU post landed** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray). **#90 WARP landed** (`warp_strength` default **0.01**; STEAL_MAP Augury pixellation **partial**; Augury aesthetic only — do not steal into Range). Menus/settings chrome stays Augury. **Scope glass** (greyscale ramp / IOR / no-PiP) **holding until LPVO** — Hypha Graphics when it lands. Do **not** claim glass shipped |
-| **Lab-Rat** | Slope/PBR/dirt/scatter/deform plugs **landed #80**. Atelier PBR batch **in**. NRM/GLOSS GPU parked. SVG / density-mask / experiment-log still open. #58/#60/#80 stay the live yard plugs. Holocron rust rewrite still waits on those leftovers — see `TOOLS.md`. **Asset-ask** — keep procedural grit until the list lands, then bake onto authored. Do **not** invent a replacement pack |
-| **Augury** | FoW title/main menu layout + settings clone cooking (clone FoW OG; #41 title mark already landed) — **not done**. FoW brand / menu video **when cut ready**. FoW OG input manager in scope |
-| **Range Tech** | Quality/flag options on the #42 `build.bat` still cooking / open. Kits + FX draw-distance retune on the wider yard. Store `dBXpg` still **open** (kit metal/grit PBR stub **landed #64**). Music playlist beds **landed #64**. **SFX remix DNA** (pitch/speed/effects; indie underground; don’t overuse the same stem) — first ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**. **Embodied feel pass landed #57** / **Evan peek landed #59** / **#62 SFX vendor landed** / **#67 Patch A muzzle landed**. **1P ≠ 3P** **partial shipped #91** — 1P / AIM TUNE stay Range; do **not** push artistic 1P poses onto the peer mesh (Beabim stub is biped-honest hip, not 1P `muzzle_world()`). **Scope glass** — AIM TUNE placements first (#97); Hypha owns glass when LPVO. **Asset-ask** — clone CE / aim-offset attachment tables first; missing → ask Evan this week |
-| **Beabim** | Invite leftover + peer names + gun pose **landed #91**. **1P ≠ 3P** — **partial shipped** (biped hip gun stub). Full 3P kit honesty / hands / gear still **open**. #83 5-box is pose presence; #91 adds INVITE leftover / fade-in names / 3-box stub — not Mixamo / not full kit honesty. Steal from `FULCRUMRUST_LAST_PASS_LOCK.md` |
+| **Hypha** | **#108** amortize stream cook — squash walk / load-in hitch (Windows busy cursor; voxel stream suspect). Soft LOD pop inside a chunk parked. Scope glass holding until LPVO. Bloom/godRays no path. |
+| **Lab-Rat** | Draft **#101** Blender UV dials on stamp/PBR/grit. NRM/GLOSS GPU parked. SVG / density-mask / experiment-log open. Asset-ask grit until Evan list. |
+| **Augury** | FoW title/main menu + settings clone not done. CE Home debugger + hitch logger * next (ledger). Menu video · Holocron · stash · enemies beyond Inked parked. |
+| **Range Tech** | Draft **#106** milsim wording / invalid Rust hotfix. Pose ease / springs **~**. Ergo / handling **·**. `dBXpg` open. Full remix minting open. Quality/flag on `build.bat` open. |
+| **Beabim** | Draft **#102** live-profile loot trail after #91. Full 3P kit honesty / hands / gear open. |
 
-Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path. Do **not** claim the big map shipped.
+Morning eyes: Hypha **#108** hitch (Evan bedtime yell). Range pose springs. Augury Home logger when greenlit. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
 
-Source of truth: `docs/STEAL_MAP.md` in fulcrumRust + this shelf. Open A asks: repo-root `patch notes A.txt` (#72) — do **not** invent PR numbers.
+Deliberately still out: CE editor, shooting-range levels, web CE, live pycelium mesocosm on hot path.
+
+Source of truth: `docs/STEAL_MAP.md` in fulcrumRust + this shelf.
