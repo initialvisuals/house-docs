@@ -10,7 +10,7 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 - **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`
-- **First big-map (2026-09-08 / landed #81):** Hypha walk is **19×19** open. Stamp / harness pad stays **7×7** / far-cold. Lab-Rat owns slope/angle materials, dirt/scatter/deform, PBR bake-down — slope COL hooks reserved on host (`pbr=tint`); deform/scatter identity only. **No stamp bake.** Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. See `TERRAIN_NORTHSTAR.md`
+- **First big-map (2026-09-08 / landed #81 + #80):** Hypha walk is **19×19** open. Stamp / harness pad stays **7×7** / far-cold. Slope COL hooks reserved on host (`pbr=tint`) — Hypha #81 vertex albedo only. Lab-Rat slope/PBR/dirt/scatter/deform plugs **landed #80** (DISP bake-down + `Deform` / `GroundScatter` filled at `8,-6` / `-10,14`). NRM/GLOSS GPU parked. Atelier **150 roughness + textures/PBR ~26 sets landed**. See `TERRAIN_NORTHSTAR.md`
 
 ## Smart material stamps + sit-on-surface structures (PR #15)
 
@@ -81,11 +81,11 @@ Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANN
 
 ## Texture compression — greyscale bake-down (2026-09-07)
 
-Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open**. Whole roughness→stamp cook is **not** done.
+Atelier roughness packs are **large** (4k 48-bit PNG). Do **not** ship raw 4k 48-bit into the yard. Lab-Rat owns the bake-down; Hypha owns ring mips. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). **#58** is the first landed bake-down sample set (256² 8-bit-style packs) — the near source. Hypha ring-mips **landed #60**. Slope/PBR/dirt/scatter/deform plugs **landed #80**. Atelier **150 roughness + textures/PBR ~26 sets landed**. Whole roughness→stamp cook is **not** done (SVG / density-mask / experiment-log still open).
 
 | Lock | Detail |
 |------|--------|
-| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only**. **#58 landed** first in-repo set: `assets/stamps/grit_{grunge,crack,dust}.png`. Grit / slope / PBR plugs **open** |
+| **Lab-Rat** | Bake greyscales **down before density** — 8-bit / half-res / BC4-style height packs. Quiet grit under loud scars (webbing / mushroom / Inked leftover stay landmarks). Wire on **fulcrumRust only**. **#58 landed** first in-repo set: `assets/stamps/grit_{grunge,crack,dust}.png`. Slope/PBR/dirt/scatter/deform plugs **landed #80** |
 | **Hypha** | LOD-tied mips / compression **landed #60** on Transvoxel **distance rings** — grit vs loud scars (near **256²** Lab-Rat vendor; mid **64²**; far **16²** cheaper / softer). See `TERRAIN_NORTHSTAR.md` |
 | **Atelier** | Plugs **open** (was read-only). HDRI + PBR batch landed. #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. See `ATELIER_PORTFOLIO_STEAL.md` |
 
@@ -108,9 +108,26 @@ Lab-Rat. Feel lock: quiet authored grit + loud scars now has in-repo vendored he
 
 Detail: fulcrumRust `docs/STAMPS.md` + `docs/CHANNELS.md` + `assets/stamps/README.md`.
 
+## Slope/PBR + dirt/scatter/deform plugs (PR #80)
+
+Lab-Rat. Fills the Hypha reserved deform/scatter slots and bakes PBR greyscales down onto the stamp pad. **Not** Hypha vertex COL bind (#81). **Not** NRM/GLOSS GPU. Stamp pad stays **7×7**.
+
+| Lock | Detail |
+|------|--------|
+| **Slope** | `classify_slope` tags dirt / sand / rock / concrete / organic on the stamp pad |
+| **Stamps** | `StampKind::Deform` / `GroundScatter` + `HookKind::LabRatDeform` / `LabRatScatter` at #81 XZ (`8,-6` / 5 m · `-10,14` / 6 m) |
+| **PBR bake-down** | 256² greyscale DISP + 64² COL/NRM thumbs (CliffJagged / GroundClay / ConcreteWall / GroundMoss — not 4k 48-bit) |
+| **COL hooks** | `pbr::ColHook` / `col_png` / `hypha_col_alias` — Hypha can consume. Lab-Rat does **not** own vertex COL |
+| **Dials** | `PBR_HEIGHT_AMP` **0.028** m · `SCATTER_AMP` **0.018** m · `STAMP_PAD_HALF_M` **56** m |
+| **Load** | vendored; `FULCRUM_GRIT` then `FULCRUM_ATELIER` (read-only) |
+| **Smoke** | `pbr=tint plugs=slope+deform+scatter` + Hypha `gfx=` |
+| **Still parked** | NRM/GLOSS GPU · SVG / density-mask / experiment-log · whole roughness→stamp |
+
+Detail: house `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Closed by #80 + fulcrumRust `docs/STAMPS.md`.
+
 ## Extract-yard scale harness (PR #39)
 
-Stay **on the extract yard** for what #39 shipped — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map on that pass. First big-map walk **landed #81**; stamp / harness pad stays **7×7**. Deform/scatter still open for Lab-Rat. No Standard / Monk one-off scars. HDRI stays Range Tech.
+Stay **on the extract yard** for what #39 shipped — scale/perf harness for the #38 stamp/paint substrate. Not a bigger world map on that pass. First big-map walk **landed #81**; stamp / harness pad stays **7×7**. Deform/scatter plugs **landed #80**. No Standard / Monk one-off scars. HDRI stays Range Tech.
 
 | Lock | Detail |
 |------|--------|

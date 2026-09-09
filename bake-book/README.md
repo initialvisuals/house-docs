@@ -34,7 +34,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
-- Holocron file-base viewer (Evan gift; Lab-Rat rust rewrite after slope/PBR) → [`TOOLS.md`](TOOLS.md)
+- Holocron file-base viewer (Evan gift; slope/PBR plugs landed #80; Lab-Rat rust rewrite still waits on SVG / density-mask) → [`TOOLS.md`](TOOLS.md)
 
 ## Brand DNA
 
