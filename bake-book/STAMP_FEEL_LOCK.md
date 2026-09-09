@@ -6,8 +6,8 @@ Parked from Evan → Lab-Rat → steal map (PR #3, 2026-09-07).
 - **Void-spore terraforming:** hellish mushroom / 2D density cracks = Lab-Rat visual DNA for Hypha terrain (PR #20)
 - **Locus obsidian veins:** black **obsidian + gold crack veins** — loud-scar stamp material on **Inked / Monk** pads. Pairs with void-spore grit. Distinct from Range Tech kit chrome (gold+black **tech trim**, not gold-plate). **Do not put Locus veins on gun kits** (Initial Visuals Group Chat 2026-09-07)
 - Influence is **quiet** (BT black / chiral gold vibe) — **do not name-drop** franchises in shelf, READMEs, or public copy; no pastiche chase.
-- **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts
-- **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim
+- **Stamp volume:** stretch **up** into voxels (compounds, ladders/stairs, height extrusions) more than deep tunnel guts. **#114** Union lip around the crawl mouth stretches **up** (compound)
+- **World depth:** stay **shallow** unless a compound needs a basement — not a deep tunnel sim. **#114** is a shallow enterable Subtract network under the pad (mouth bowl `CRAWL_DROP` **0.38** m, above `SLAB_Y0` **−0.7**) — not a tunnel sim
 - **Multiple stamps** → height/structure into voxel at rigidize-on-spawn
 - **Texture compress (2026-09-07):** atelier roughness packs are **4k 48-bit PNG** — too large. Bake greyscales **down before density** (8-bit / half-res / BC4-style height packs). Do **not** ship raw 4k 48-bit into the yard. **#58 landed** the first bake-down sample set (256² 8-bit-style packs). Quiet grit under loud scars. Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). Hypha ring-mip texture LOD **landed #60** — see `TERRAIN_NORTHSTAR.md`. **Blender UV dials landed #101** — scale/offset/rotate tiles stamp/PBR/grit without shrinking geo (identity default; `FULCRUM_UV`). Hypha Transvoxel UV consume **landed #112** (`promote_for_uv` + wear/COL honor; texture-only). Stamp +Y stays AXIS_LOCK
 - **First big-map (2026-09-08 / landed #81 + #80):** Hypha walk is **19×19** open. Stamp / harness pad stays **7×7** / far-cold. Slope COL hooks reserved on host (`pbr=tint`) — Hypha #81 vertex albedo only. Lab-Rat slope/PBR/dirt/scatter/deform plugs **landed #80** (DISP bake-down + `Deform` / `GroundScatter` filled at `8,-6` / `-10,14`). NRM/GLOSS GPU parked. Atelier **150 roughness + textures/PBR ~26 sets landed**. See `TERRAIN_NORTHSTAR.md`
@@ -39,7 +39,7 @@ Evan lock: terrain look is **Transvoxel** (seamless LOD). Lab-Rat does **not** o
 | **Ownership** | Hypha hosts Transvoxel + far-chunk simplify; Lab-Rat only stamps + channels |
 | **Peek leftover** | CPU boxes stay readable; consume path is the sample channels |
 
-Shipped: Hypha #16 `TerrainHost` + crates.io `transvoxel` 2.0 samples channels into chunks. Steal-next: live LOD recook / tunnel cutouts; Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md` + `docs/TERRAIN.md`.
+Shipped: Hypha #16 `TerrainHost` + crates.io `transvoxel` 2.0 samples channels into chunks. Steal-next: live LOD recook / tunnel cutouts (full guts still open — **#114** is a shallow pad network, not those cutouts); Augury spawn filters prefer rock/concrete, avoid organic. Detail: fulcrumRust `docs/STAMPS.md` + `docs/TERRAIN.md`.
 
 
 ## Void-spore terraforming + density-driven wear (PR #20)
@@ -74,7 +74,7 @@ Evan direction: stop one-off stamp content (Standard scar, Monk AOE, extra yard 
 | **Paint** | `StampField::paint` / `ChannelStack::paint` — writes are real today; brush UX stubbed. `density_delta > 0` puffs solid; `< 0` + Subtract carves; material-only with density 0 on existing solid |
 | **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer for compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
 | **2D mask** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` — #39 harness applies it on the three existing plots via `StampField::layers` as a shallow anonymous scale test (still not a fourth named plot) |
-| **Consumers stay** | Sit-on-surface leftovers (ellipsoids); concrete/void-spore wear (ribbons — prefer capsule for new work); Inked hotspot under `growth::INKED_HOTSPOT`; yard plots + curl **1 / 2 / 3** (still CPU boxes; #39 also writes `primitive_from_density_2d` into `layers`); Hypha reserved StampSlots empty until fed. `sample_channels` / `fill_chunk_samples` still the Hypha consume path |
+| **Consumers stay** | Sit-on-surface leftovers (ellipsoids); concrete/void-spore wear (ribbons — prefer capsule for new work); Inked hotspot under `growth::INKED_HOTSPOT`; yard plots + curl **1 / 2 / 3** (still CPU boxes; #39 also writes `primitive_from_density_2d` into `layers`); **#114** shallow Subtract crawl network (mouth → pocket; prone radii **0.42–0.50**; glasses `CRAWL  SUBTRACT`); Hypha reserved StampSlots empty until fed. `sample_channels` / `fill_chunk_samples` still the Hypha consume path |
 | **Ownership** | Lab-Rat writes; Hypha remeshes. Out of scope: Transvoxel tables/LOD, Locus AI, guns, 3D paint editor, live carve |
 
 Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANNELS.md`.
