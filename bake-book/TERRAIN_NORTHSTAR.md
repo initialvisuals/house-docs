@@ -20,12 +20,12 @@ First true big map for fulcrumRust extract. **Landed #81** (2026-09-09). Live ho
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Continues on fulcrumRust (Transvoxel rewrite / live recook parked) |
+| **Hypha** | Host — **8×** / walls off / chunk stream / local-player distance load **landed #81**. Beabim peer feet `stream_anchors` **landed #83** (coordinate only). Biped foot plant **landed #88** — consumes #79/#81 heightfield column; mesher / LOD / stamps untouched. Continues on fulcrumRust (Transvoxel rewrite / live recook parked) |
 | **Lab-Rat** | Stamps — slope COL hooks reserved on host; dirt/scatter/deform identity only. Atelier **150 roughness + textures/PBR ~26 sets landed**; grit / slope / PBR plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). **No stamp bake in #81** |
 | **Range Tech** | Kits + FX draw-distance on the wider yard; kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**; Music playlist beds **landed #64**. #79 land sway + heightfield FX kept. Heat / ballistics / binds **not touched** |
 | **Augury** | FoW brand / menu video **when cut ready**. Chrome **not touched** |
 
-#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Peer feet stream anchors **#83**. See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #83.
+#16 / #23 / #43 / #60 / #61 stay shipped facts. #39 yard pad ≈ **110 m²** + stamp pad **7×7** stay the near extract / far-cold guts. Live walk world is **#81**. Peer feet stream anchors **#83**. Pawn plant on that column **#88** (mesher untouched). See `FULCRUMRUST_LAST_PASS_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81 / #83 / #88.
 
 ## Morning lock (2026-09-07)
 
@@ -46,7 +46,7 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Skin** | verts grade from `VoxelMaterial::tint` / `luma`; cracks / edge-wear / void-spore scale from Lab-Rat `density_stamp_2d` + `WearStamp` |
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
-| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. Peer feet `stream_anchors` **landed #83** (coordinate only). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
+| **Not day-one** | live LOD recook · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on the #79/#81 column **landed #88** (mesher untouched). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
 | **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm. **#43** extra far ring stays cold |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
@@ -190,9 +190,9 @@ First true big map. Reuse the existing Transvoxel host — no greenfield rebuild
 | **Lab-Rat** | `Deform` / `GroundScatter` + `LabRatDeform` / `LabRatScatter` identity reserved. **No stamp bake** |
 | **Seams** | One extract density on every LOD (ChannelField vs HeightOnly fixed) · 8-subdiv bridge so 32→16→8→4 stays 2:1 Lengyel · yard flatten outer **9.2 → 20 m** so pad eases into hills. Residual LOD pop inside a chunk / far-4 horizon parked |
 | **Smoke** | `subdivs=32/16/8/4` `extract_m2=92416` `resident=` `stream_cold=` `pbr=` |
-| **Parked** | Lab-Rat stamp bake · NRM/GLOSS GPU · Transvoxel rewrite / world sync · live recook · Range heat. Peer feet `stream_anchors` **landed #83** (coordinate only) |
+| **Parked** | Lab-Rat stamp bake · NRM/GLOSS GPU · Transvoxel rewrite / world sync · live recook · Range heat. Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on this column **landed #88** (mesher / LOD / stamps untouched) |
 
-Stay out of Range heat cards / ballistics / binds / Augury chrome. Detail: fulcrumRust `docs/TERRAIN.md`.
+Stay out of Range heat cards / ballistics / binds / Augury chrome. Detail: fulcrumRust `docs/TERRAIN.md`. See `PEEK_FINDINGS.md` Closed by #88.
 
 ## Texture LOD / compression (Hypha + Lab-Rat, 2026-09-07)
 
@@ -212,4 +212,4 @@ Evan: one **`.hdr`** day plate (2k–4k). **#40** landed Poly Haven **Goegap** 4
 
 ## Not this shelf
 
-Locus AI (Augury) · guns (Range Tech) · CE editor / range levels / web CE.
+Locus **brains** (Augury) · guns (Range Tech) · CE editor / range levels / web CE. Hypha #88 consumes the #79/#81 heightfield column for pawn plant — not a mesher rewrite, not Augury brains.
