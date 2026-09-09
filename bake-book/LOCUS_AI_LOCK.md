@@ -5,7 +5,7 @@ Durable dial / peek lock from The Augury yard slice. Steal state *shape* from CE
 ## Ownership
 - **The Augury** owns Locus brains, distance activation, yard spawn pads, hurtbox hitscan hook into Range Tech tracers
 - **Range Tech** owns kit tracers / HoB / recoil (Augury only adds living hurtbox stop + damage)
-- **Hypha** owns Transvoxel / window / load gate + shared `activation` gate for far chunk guts (`activation.rs`; same `ACTIVATE_M` / `SLEEP_M`)
+- **Hypha** owns Transvoxel / window / load gate + shared `activation` gate for far chunk guts (`activation.rs`; same `ACTIVATE_M` / `SLEEP_M`). Extract Locus **plant** on the #79/#81 heightfield **landed #88** (`tick_on`; `step` no longer writes `pos.y = 0`). Hideout / unit tests keep flat-floor `tick`. Brains still Augury
 - **Lab-Rat** owns stamps / growth plots (Standard pad **right of creeper**; Inked pad **left of 2D webbing**); Lab-Rat #30 owns the **loud growth stamp** under the Inked pad; ink disc remains Augury chrome
 
 ## Distance activation (far guts stay cold)
@@ -40,6 +40,6 @@ Near body: `LOCUS  STANDARD  IDLE|ALERT|…` or `LOCUS  INKED  IDLE|ALERT|…`. 
 Title → Deploy → hideout door (**W** / **F**) → extract yard:
 - **Standard:** look slightly **right** of mushroom / past creeper → ash/bone biped, rust-orange eyes
 - **Inked:** look slightly **left** of 2D webbing → dark hood, cyan eyes, standing on the loud ink / void-spore hotspot (ink disc still Augury chrome)
-LMB (or seated kit) wounds either; far map guts stay cold — only these two yard bodies warm.
+LMB (or seated kit) wounds either; far map guts stay cold — only these two yard bodies warm. Extract soles follow the heightfield (**#88**); pad XZ above is spawn, not a y=0 floor pin.
 
-Source: fulcrumRust `engine/src/locus.rs` + PR #18 + PR #26; Lab-Rat stamp under Inked pad = PR #30 (`growth::INKED_HOTSPOT`); shared gate `engine/src/activation.rs` + Hypha PR #23. Steal map Augury Locus row → **partial** (Standard + Inked shipped; family TODO remains).
+Source: fulcrumRust `engine/src/locus.rs` + PR #18 + PR #26; Lab-Rat stamp under Inked pad = PR #30 (`growth::INKED_HOTSPOT`); shared gate `engine/src/activation.rs` + Hypha PR #23; extract plant `engine/src/plant.rs` + Hypha PR #88. Steal map Augury Locus row → **partial** (Standard + Inked shipped; family TODO remains). Brains still Augury — plant is Hypha.
