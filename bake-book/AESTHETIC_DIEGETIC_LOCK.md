@@ -55,7 +55,7 @@ Aesthetic lock for Lab-Rat stamps + Range Tech FX contrast (wet-lab → main via
 House `AESTHETIC_DIEGETIC_LOCK` on the Transvoxel host — terrain reads **grim/dense**, not a bright sandbox:
 - **Ashen wash / slate sides / brutalist** vertex paint from Lab-Rat `VoxelMaterial::tint` (no second material story)
 - Proc **edge-wear / hairline cracks** + denser mid-frequency rubble; void-spore stamp peek tints
-- Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged
+- Extract clear is **dimmer** + dual colder lights + **cheap distance haze** (`fs_world`); hideout stays small / unfogged. Graphics dump defaults **#86**: extract fog **375 / 520** (hideout `haze_max` **0**) · cam **0.05 / 2000**
 - Performant first — bake-once mesh, no live carve day-one
 - **Texture density (2026-09-07):** yard reads **quiet grit + loud scars**. Lab-Rat **#58 landed** first vendored 256² bake-downs under loud scars (`sample_channels` quiet height + `grit::rough` wear). Greyscales bake down before density (8-bit / half-res / BC4-style) — not raw atelier **4k 48-bit PNG**. Hypha LOD-tied mips **landed #60** (near 256² / mid 64² / far 16² on Transvoxel distance rings so far grit does not shout). Atelier plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET) — Lab-Rat grit / slope / PBR cooking, **not** shipped. Range Tech kit metal/grit PBR stub **landed #64** (boxes only; not Lab-Rat terrain plugs)
 - Detail: `TERRAIN_NORTHSTAR.md` + `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/TERRAIN.md`
@@ -66,9 +66,10 @@ Feel-lab clock drives extract atmosphere — still grim/dense, not a bright sand
 - **One ToD sample** lights ambient / key / fill / fog + procedural dome together (**no XOR sky**). #40 Goegap plate rides the same sample.
 - **`EXTRACT_SKY_LUMA` 0.20** crushes noon so day stays ashen; default clock **06:21**; Goegap plate shipped #40
 - Night fades the day plate back to the procedural dome (stars stay); missing file stays procedural (honest)
-- **/** toggles Goegap plate on/off — does **not** steal **M**
+- **/** toggles Goegap plate on/off — does **not** steal **M**. **#86:** `skyHdri` already default on; **/** still toggles
 - Hideout stays authored interior / unfogged — ToD does not leak inside
 - Glasses may show `06:21  DAWN  EXP 1.44  HDRI` (or `PROC` when plate off / missing) as labels only — never a second ammo HUD
+- Graphics dump defaults **#86** on this same extract sky (not a second sky): fog **375 / 520** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · clouds **0.63** · sunPunch **0.51** · cam **0.05 / 2000**. Exposure keyboard still unbound after **#78**; **,** / **.** clouds still work
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
 ## Digital / diegetic spatial audio (shipped Hypha + Augury #27 + #56)
@@ -101,14 +102,14 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 - Still no second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
-## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46; GPU post #55)
+## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46; GPU post #55; Graphics dump #86)
 
-#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + persist. GPU post stack live **#55** (AO/AA/CA/grain/DoF; toggles change the image). HUD / glasses still draw after post. Labels-only glasses lock unchanged. Logo/title mark #41 still stands.
+#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + persist. GPU post stack live **#55** (AO/AA/CA/grain/DoF; toggles change the image). HUD / glasses still draw after post. Graphics dump defaults **#86** (fog / cam / sky — not bloom / god-rays). Labels-only glasses lock unchanged. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md` |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md`. Graphics dump **#86** — thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; do **not** invent bloom / god-ray / sunSize / brightness / gamma |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
