@@ -31,6 +31,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Glyph HUD decode → [`../glyph-legend.md`](../glyph-legend.md)
 - Heat dials → [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md)
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)
+- AIM TUNE Pos X travel (Range Tech **#138** ±0.50) → fulcrumRust [`docs/AIM_TUNE_X_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/AIM_TUNE_X_DIAL_SHEET.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
