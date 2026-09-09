@@ -4,7 +4,8 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 
 **Source:** aim-offset **v77** (`073955d`), hard refresh `app.js?v=20260906v77`  
 **Parked:** 2026-09-06 by InitialVisualsAdmin  
-**Live fulcrumRust defaults:** Range Tech **#71 blend** on Hypha **#66** colorless post path (was → now → stolen). v77 / later aim-offset dump stay DNA. Glasses / live sheet still drive the fields.
+**Live fulcrumRust defaults:** Range Tech **#71 blend** on Hypha **#66** colorless post path (was → now → stolen). v77 / later aim-offset dump stay DNA. Glasses / live sheet still drive the fields.  
+**Sibling:** Vector mag dump (muzzle rect flash / grit / glyphs) → [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md). Not heat. Do **not** reopen orange cards.
 
 ## Layers
 - Master
