@@ -4,7 +4,7 @@ Canonical feel / systems answers. Steal map + seats update from this sheet.
 
 ## Where to read (2026-09-08)
 
-fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll.
+fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRAIN.md`, `docs/MILESTONE_01_PLAYABLE.md`, `docs/CHANNELS.md`, plus `STAMPS.md` / `GROWTH_POC.md`. Patch A feedback checkpoint is repo-root `patch notes A.txt` (#72) — `X` / `~` / `*` / `·` ledger + seat owners; not a replacement for STEAL_MAP or MILESTONE. House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`. Steal from the shelf + steal map. Not chat scroll. Vector mag dump (Range Tech muzzle / FX) → `VECTOR_MAG_DUMP.md`. Heat cards → `../heat-card-dial-sheet.md`.
 
 ## Day-one kit
 - **SMG** basic 20-round mag
@@ -129,6 +129,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Tracer speed / gravity / length from the SMG feel sheet. **#59:** tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`
 - **#67 Patch A:** spawn + flash sit on the kit heat-box front (`kit_mesh::muzzle_tip_local`), not the feel-lab socket center (`muzzle_local` z=−0.405). Hip launch uses `hip_honest_dir` (ads=0 stays on **aim**; ads=1 keeps the SIM HoB/zero solve) so the 100 m HoB loft from a right-low hip muzzle is not a close-range up+right miss. Streak is feel-lab tip→impact: `tracer_len` is length again (not a 0.55 m receiver skip); back of the streak clamped to the tip. Distant speed scale kept once the slug is past the gun. Did **not** fight Hypha #66 / did **not** ship heat color. Lab-Rat terrain untouched
 - FX draw-distance (hide-not-despawn, fulcrumRust #19 + #47): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** (clamp 8–200 via `live_casing`) · `decal_draw_m` **700** (clamp 50–2000) — walking back restores; they do not fill forever
+- Next muzzle / FX look steal: Vector mag dump → `VECTOR_MAG_DUMP.md` (rect yellow-white flash + orange grit + diegetic red receiver glyphs + flash-as-local-light). Range Tech owns the cook. Do **not** steal pixel dither / floor warp from that frame (Hypha / Augury). Do **not** reopen orange heat cards / invent bloom / godRays
 
 ## Props / audio / growth
 - Destructible crates, boxes, cabinets with drawers from FoW
@@ -679,6 +680,11 @@ Range Tech leftover feel-lab stack on the same #12/#19 `TracerField`. Tip alread
 - Intact / do not steal: tracers / muzzle flash / #19 draw-distance stay; kits / lean / ToD+HDRI / knife / bandage / reload / heat-tune / Locus / Transvoxel / listen-server unchanged. Mag chrome stays diegetic — no second ammo HUD
 - #51 AXIS_LOCK: FX long/thin axis is **sim barrel +Z** (`axis::sim_barrel_basis`) — not camera/viewmodel −Z, not CE +X. Brass toss stays camera-right; brass long axis is barrel +Z. Do not rotate Lab-Rat stamps to fix sideways plugs. See `AXIS_LOCK.md`
 - See fulcrumRust `engine/src/tracers.rs` + `engine/src/feel.rs` (`FxDrawDials`) + `engine/src/kit_mesh.rs` (`ejectionPort`) + `engine/src/axis.rs` + STEAL_MAP FX rows
+- Next flash / grit / glyph cook steals from `VECTOR_MAG_DUMP.md`, not chat — see Vector mag dump
+
+## Vector mag dump (Range Tech — shelf)
+
+Evan aim-offset / Vector feel reference. Steal muzzle / FX from `VECTOR_MAG_DUMP.md`, not chat. **Range Tech** owns rect yellow-white flash + orange grit + flash-as-local-light + diegetic red receiver glyphs. Hypha / Augury own pixel dither + floor warp separately. Do **not** reopen orange heat cards or invent bloom / godRays. Live spawn stays `#67` kit-tip; flash long axis stays sim barrel **+Z**. Not a Vector kit swap.
 
 ## Windows one-click release builder (fulcrumRust #42 + #48)
 
@@ -1016,3 +1022,4 @@ Hypha 19×19 open extract + chunk stream + slope COL hooks: fulcrumRust PR #81 (
 Atelier clean yell + SFX remix DNA + Music playlist beds: Evan dump (2026-09-08 ~00:00 ET) — plugs **open** (was read-only). Lab-Rat grit/slope/PBR · Range Tech `dBXpg` still **open**. Music playlist + kit metal/grit PBR stub **landed #64**. Remix first ±6% jitter **landed #64**; full remix minting still **open**. Augury FoW brand/menu video when cut ready · Hypha big-map continues on fulcrumRust. Do **not** claim Lab-Rat stamp bake / NRM-GLOSS / `dBXpg` / menu video shipped. 8× open extract **is** shipped #81. See `ATELIER_PORTFOLIO_STEAL.md` + `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Closed by #81.
 Range Tech music playlist + kit metal/grit PBR stub + ±6% FX remix jitter: fulcrumRust PR #64 (2026-09-08) — **landed**. Five titled beds; stub PBR on MP9-Z / SR-25 / M24; store `dBXpg` still missing. See `EXTRACTION_AUDIO_LOCK.md` + `PEEK_FINDINGS.md` Closed by #64.
 Holocron viewer gift (atelier `tools_for_ai_and_dev/Holocron_Visualizer.py` + `Analyze-Holocron.ps1`): Evan dump (2026-09-08) — tree nested-rectangle file-base viewer; cut monoliths (agent context; overwrite loss). Lab-Rat rust rewrite after slope/PBR. See `TOOLS.md`.
+Vector mag dump (aim-offset / Vector feel — rect yellow-white muzzle flash + orange grit + diegetic red receiver glyphs + flash-as-local-light): clerk shelf 2026-09-09 — **not shipped**. Range Tech owns the next muzzle / FX cook. Pixel dither / floor warp stay Hypha / Augury. Do **not** invent bloom / godRays or reopen orange heat cards. See `VECTOR_MAG_DUMP.md` + `PEEK_FINDINGS.md` Vector mag dump.

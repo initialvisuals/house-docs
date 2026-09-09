@@ -5,6 +5,7 @@ Shared contracts for the atelier: bake leftovers, HUD legends, dial sheets, meth
 | Doc | Purpose |
 |-----|--------|
 | [`heat-card-dial-sheet.md`](heat-card-dial-sheet.md) | Aim-offset v77 barrel heat artistic-auth dials |
+| [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md) | Aim-offset Vector mag dump — muzzle rect flash / grit / glyphs |
 | [`glyph-legend.md`](glyph-legend.md) | Pycelium 3×5 HUD decode + analysis-knowledge-core |
 | [`bake-book/README.md`](bake-book/README.md) | Dial shelf — readable enough for seats without reading every `.rs`. fulcrumRust keeps STEAL_MAP / AXIS / TERRAIN / milestone / CHANNELS |
 | [`bake-book/AXIS_LOCK.md`](bake-book/AXIS_LOCK.md) | Three-space axis lock (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate) |

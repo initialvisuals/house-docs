@@ -33,6 +33,7 @@ Ammo lives on the weapon:
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
 - Heat-tune dump (fulcrumRust #35): hold **J** still cooks diegetic barrel energy / tip cards + lobe on the same path; glasses `HEAT TUNE` only (amber-ish overlay) — never a numeric ammo HUD; must not count mag rounds
 - Optic hoods + .45 can are Range Tech attachments (**V** / **N**, kit allow-list); glasses still labels only
+- Vector mag dump (shelf): diegetic **red** receiver glyphs + rect muzzle flash / grit / local light steal from `VECTOR_MAG_DUMP.md` — not glasses, not a second ammo HUD, not heat orange cards
 - World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
 - Live HoB zero / launch (fulcrumRust #33 / **#76** SIM-only): glasses may show `Z{n}  SIM` (e.g. `Z100  SIM`) and toast `ZERO  {n} M` — still labels only, never a numeric ammo HUD. **P** unused; `LAUNCH  ARCADE` / `LAUNCH  SIM` gone
