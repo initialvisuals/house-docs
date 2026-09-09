@@ -74,7 +74,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - **Z** = drop held kit as world bag (fulcrumRust #19); **F** = pickup / swap. Hideout door is **F** only (#51 — walk-into-door does not auto-deploy). **F** tap near death bag = light corpse-reclaim stub; hold **F** = stabilize stub (self / yard dummy) or `[F] PICK UP STIM` when applicable — shipped stub (fulcrumRust #36)
 - **Space** = CE hop + one air hop + land overlay (same #59 hop — **not** a second land system). `JUMP_FORCE` **12** / `|GRAVITY|` **30** / one air hop **unchanged**. **#79** softener: punch **0.028** rad · duck **0.08 m** · shake **0.14** gate **13** (normal hop ~12 does not shake) · sway eye **0.014** / yaw **0.012** / roll **0.018** · decay **4.6**. Horizontal move must not eat `vel.y`. Landed #59; softener #79. Prior FPS-first **"no double-jump"** / single-hop-only (#51) is superseded (same way #51 superseded earlier "no jump")
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
-- **− / =** = step live zero 50 / 100 / 200 m wrap (fulcrumRust #78). Exposure keyboard unbound (no second pair; sky `nudge_exposure` may still exist). **, / .** = cloud cover (extract only; hideout unfogged). **#86:** clouds default **0.63** (was 0; **,** / **.** still nudge); **/** HDRI toggle stays
+- **− / =** = step live zero 50 / 100 / 200 m wrap (fulcrumRust #78). Exposure keyboard unbound (no second pair; sky `nudge_exposure` may still exist). **, / .** = cloud cover (extract only; hideout unfogged). **#86:** clouds default **0.63** (was 0; **,** / **.** still nudge); **/** HDRI toggle stays. **#87:** dump **sunSize 0.62** rides the disc
 - **O** (hold) = raid extract-check intent (`Session::extract_checking`; fulcrumRust #78). **Not** zero. Hideout is a no-op. Augury EXTRACT elbow card **landed #85** (no popup). Full hatch popup (elevator / toggle / timed kill) still **~**. **P** unused after #76 (no arcade↔sim; no new bind)
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
@@ -275,14 +275,14 @@ Evan lock. **Shipped** [fulcrumRust #81](https://github.com/initialvisuals/fulcr
 See `TERRAIN_NORTHSTAR.md` + `PEEK_FINDINGS.md` Closed by #81.
 
 ## Extract day/night clock + procedural sky (fulcrumRust #24)
-- Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside). **#86** locks the dump defaults on this same path — not a second sky
+- Feel-lab Settings **Lighting** DNA on extract only; hideout stays authored interior / unfogged (ToD does not leak inside). **#86** locks the dump defaults on this same path — not a second sky. **#87** completed the HDRI sun disc on that same sample
 - Default clock **06:21** (`TOD_DEFAULT` 6.35); sun path rise ~6:05 / set ~19:42; noon elev **56°**
-- Dials: **[ / ]** ±30 min · **K** dawn→noon→dusk→night · **L** live cycle (`LIVE_HOURS_PER_SEC` 0.25) · **, / .** clouds (step 0.10) · **/** Goegap plate on/off (#40; does not steal **M**). **#78:** **− / =** step zero (was exposure). Exposure keyboard unbound — no second pair; sky `nudge_exposure` may still exist (leftover mul **1.44**). **#86:** clouds default **0.63** (was 0; **,** / **.** still nudge); **/** HDRI toggle stays
-- **No XOR sky** — one ToD sample drives ambient / key / fill / fog + procedural dome; dual color-aware lights. #40 plate rides the same sample.
-- **#86 dump lock** — fog **375 / 520** (`LightingFrame` haze start/range; was 16 / 48) · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** (already `sky::AMB_MUL` / `FILL_MUL` / `HEMI_MUL` / `KEY_MUL` / `RIM_MUL` / `MOON_MUL`) · exp **1.44** (already `sky::EXPOSURE_MUL`) · `sunPunch` **0.51** (existing sky disc/halo `sun_dir.w`) · `skyHdri` on · cam **0.05 / 2000** (`perspective_rh` / post linear-Z; was 0.06 / 280). Hideout `haze_max` **0**
-- Grimdark: `EXTRACT_SKY_LUMA` **0.20** crushes noon to ashen (house aesthetic lock); Day HDRI shipped #40 (Goegap 4k; missing file stays procedural)
+- Dials: **[ / ]** ±30 min · **K** dawn→noon→dusk→night · **L** live cycle (`LIVE_HOURS_PER_SEC` 0.25) · **, / .** clouds (step 0.10) · **/** Goegap plate on/off (#40; does not steal **M**). **#78:** **− / =** step zero (was exposure). Exposure keyboard unbound — no second pair; sky `nudge_exposure` may still exist (leftover mul **1.44**). **#86:** clouds default **0.63** (was 0; **,** / **.** still nudge); **/** HDRI toggle stays. **#87:** dump **sunSize 0.62** rides the procedural disc/halo
+- **No XOR sky** — one ToD sample drives ambient / key / fill / fog + procedural dome; dual color-aware lights. #40 plate rides the same sample. **#87** completed the HDRI sun disc (not a second sky)
+- **#86 dump lock** — fog **375 / 520** (`LightingFrame` haze start/range; was 16 / 48) · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** (already `sky::AMB_MUL` / `FILL_MUL` / `HEMI_MUL` / `KEY_MUL` / `RIM_MUL` / `MOON_MUL`) · exp **1.44** (already `sky::EXPOSURE_MUL`) · `sunPunch` **0.51** (existing sky disc/halo `sun_dir.w`) · `skyHdri` on · cam **0.05 / 2000** (`perspective_rh` / post linear-Z; was 0.06 / 280). Hideout `haze_max` **0**. **#87:** **sunSize 0.62** now drives disc/halo exponents (`mix(1800, 80)`) — no longer parked
+- Grimdark: `EXTRACT_SKY_LUMA` **0.20** crushes noon to ashen (house aesthetic lock); Day HDRI shipped #40 (Goegap 4k; missing file stays procedural). **#87:** sky keeps Reinhard × **0.20**; solar texels use white-point **8 × 0.55** (was Reinhard w=1 × 0.20 everywhere — ~0.21 hole)
 - Glasses on extract: `HH:MM  BAND  EXP x.xx  HDRI|PROC` labels only — never a second ammo HUD
-- See `AESTHETIC_DIEGETIC_LOCK.md` + Hypha Graphics dump (#86) + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
+- See `AESTHETIC_DIEGETIC_LOCK.md` + Hypha Graphics dump (#86) + HDRI sun disc (#87) + fulcrumRust `engine/src/sky.rs` / `engine/src/hdri.rs`
 
 ## Wall-clamped Q/E lean polish (fulcrumRust #25 + #59)
 - Range Tech aim-offset / Engine #3 polish on existing #12 lean — no controller rebuild
@@ -548,9 +548,9 @@ See `STAMP_FEEL_LOCK.md` + fulcrumRust `docs/STAMPS.md` / `docs/CHANNELS.md`.
 Range Tech day plate on the #24 extract clock. Hideout stays authored interior / unfogged.
 
 - Asset: Poly Haven **Goegap** 4k Radiance RGBE (~22MB, CC0 / Greg Zaal). `engine/build.rs` fetches **one** file at build time into `engine/assets/hdris/` (not a submodule, not the atelier texture dump). Atelier raw is fallback. Missing file → procedural dome (honest).
-- Feel: Radiance RGBE decode → equirect sky/env (`engine/src/hdri.rs`). Same ToD sample still drives ambient / key / fill / fog / dome — **no XOR sky**. Plate yaw tracks the clock sun. Night fades the day plate back to the procedural dome (stars stay).
-- Grimdark: `EXTRACT_SKY_LUMA` **0.20** keeps noon ashen
-- **/** toggles Goegap plate on/off — does **not** steal **M** (map). Existing ToD dials: **[ / ]** · **K** · **L** · **, / .**. **#78:** **− / =** is zero (was exposure). Exposure keyboard unbound (no second pair). **#86:** `skyHdri` already default on; **/** still toggles; clouds default **0.63**
+- Feel: Radiance RGBE decode → equirect sky/env (`engine/src/hdri.rs`). Same ToD sample still drives ambient / key / fill / fog / dome — **no XOR sky**. Plate yaw tracks the clock sun. Night fades the day plate back to the procedural dome (stars stay). **#87** completed the HDRI sun disc on that same sample (not a second sky)
+- Grimdark: `EXTRACT_SKY_LUMA` **0.20** keeps noon ashen. **#87:** sky keeps Reinhard × **0.20**; solar texels use white-point **8 × 0.55** + knee-compress (was Reinhard w=1 × 0.20 everywhere — ~0.21 hole)
+- **/** toggles Goegap plate on/off — does **not** steal **M** (map). Existing ToD dials: **[ / ]** · **K** · **L** · **, / .**. **#78:** **− / =** is zero (was exposure). Exposure keyboard unbound (no second pair). **#86:** `skyHdri` already default on; **/** still toggles; clouds default **0.63**. **#87:** dump **sunSize 0.62** rides the disc/halo (`mix(1800, 80)`); HDRI live complements disc **0.55 / 0.18**
 - Glasses: `06:21  DAWN  EXP 1.44  HDRI` (or `PROC` when plate off / missing) — labels only, never a second ammo HUD
 - Smoke: `clock=06:21 hdri=goegap` (or procedural)
 - Intact / do not steal: Lab-Rat stamps, Hypha Transvoxel, Augury Locus / down / death, listen-server, kits, knife, bandage, reload, heat-tune, **M** map
@@ -588,20 +588,20 @@ Augury chrome on the existing FoW title (#11/#41) and HOLD pause shell. Logo sea
 | **Esc** | Hypha pane / Audio → Options → title/pause |
 | **Mark** | #41 seat stands: `MARK_MAX_W` **1.70** / `MARK_MAX_H` **0.40** / `MARK_CENTER_Y` **0.58** |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / tab guts / persist shipped #46. GPU post stack live #55 (toggles change the image; not full HDR bloom / god-ray). **#66** colorless heat warp and **#68** ADS near sit on that same pass / same Options **DOF**. **#86** Graphics dump fills thin FOG / CAM rows on that Graphics pane — does **not** invent bloom / god-ray / sunSize / brightness / gamma paths.
+See `AESTHETIC_DIEGETIC_LOCK.md`. Hypha window / tab guts / persist shipped #46. GPU post stack live #55 (toggles change the image; not full HDR bloom / god-ray). **#66** colorless heat warp and **#68** ADS near sit on that same pass / same Options **DOF**. **#86** Graphics dump fills thin FOG / CAM rows on that Graphics pane — does **not** invent bloom / god-ray / brightness / gamma paths. **#87:** dump **sunSize 0.62** rides the sky disc (no longer parked).
 
-## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46; GPU post #55; colorless heat #66; ADS near #68; Graphics dump #86)
+## Menus / settings ownership (Evan dump 2026-09-07; Augury shell #45; Hypha guts #46; GPU post #55; colorless heat #66; ADS near #68; Graphics dump #86; HDRI sun #87)
 
-Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + persist shipped #46. GPU post stack live **#55** — toggles change the image (AO/AA/CA/grain/DoF). **#66** colorless muzzle heat and **#68** ADS near DoF sit on that same pass. **#86** Graphics dump locks fog / cam / sky defaults + thin Options FOG / CAM rows. Honest: not the full Mycelium HDR bloom / god-ray / contact-shadow chain — do **not** invent those paths. Logo/title mark #41 still stands.
+Augury shell polish shipped #45 (title + HOLD chrome + Options list shell + logo seat). Hypha Graphics/Gameplay/Controls guts + window mode + persist shipped #46. GPU post stack live **#55** — toggles change the image (AO/AA/CA/grain/DoF). **#66** colorless muzzle heat and **#68** ADS near DoF sit on that same pass. **#86** Graphics dump locks fog / cam / sky defaults + thin Options FOG / CAM rows. **#87** completed the HDRI sun disc (dump **sunSize 0.62** rides the disc). Honest: not the full Mycelium HDR bloom / god-ray / contact-shadow chain — do **not** invent bloom / god-ray / brightness / gamma paths. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
 | **Augury** | Title + HOLD analysis-core chrome (#45). Options list shell. Logo/title mark #41. Layout/colors/buttons remain Augury |
-| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only). **#68** ADS near + far on that same Options **DOF** flag. **Graphics dump landed #86** — thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + sky / post defaults (fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**). Do **not** invent bloom / godRays / sunSize / brightness / gamma. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS` (fog / cam sit alongside Range `output_device`). **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
+| **Hypha** | Graphics / Gameplay / Controls tab guts + window mode + persist — **shipped #46**. GPU post stack **#55** (AO/AA/CA(+strength)/grain/DoF) — toggles change the image; HUD/glasses still after post. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only). **#68** ADS near + far on that same Options **DOF** flag. **Graphics dump landed #86** — thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + sky / post defaults (fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**). **HDRI sun disc landed #87** — dump **sunSize 0.62** rides the disc. Do **not** invent bloom / godRays / brightness / gamma. Borderless default; windowed 1280×720; exclusive (borderless fallback). Persist `project.json` / `FULCRUM_SETTINGS` (fog / cam sit alongside Range `output_device`). **Not** packed into Range Tech ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips hook Transvoxel distance rings — see Texture LOD compress |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46). Options **DEVICE** cycle **landed #82** on that pane (SYSTEM DEFAULT; persist `output_device`; thin cpal voice — not a second mixer). Owns `barrel_energy` / heat dials / heat-tune hold-J. Live heat defaults are the **#71 blend** (v77 / dump stay DNA). ADS viewmodel DoF dials **landed #68** on Hypha’s #55 pass (same Options **DOF**). Hypha owns the #66 colorless heat post path |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
-Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#68 sections stay (including #66 colorless heat). Graphics dump defaults live on **#86**.
+Esc Hypha pane / Audio → Options → title/pause. Still no second ammo HUD. See `AESTHETIC_DIEGETIC_LOCK.md`. Existing #12–#68 sections stay (including #66 colorless heat). Graphics dump defaults live on **#86**. HDRI sun disc live on **#87**.
 
 ## Hypha Options guts (fulcrumRust #46)
 
@@ -610,7 +610,7 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | Dial | Lock |
 |------|------|
 | **Window** | Live via winit. **Borderless** = default launch. **Windowed** = decorated 1280×720. **Exclusive** = exclusive video mode when OS/GPU expose one, else borderless fallback. Also `--windowed` / `FULCRUM_WINDOW` (`borderless` / `windowed` / `exclusive`) |
-| **Post** | Live GPU passes **#55**. AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist via #46 `project.json` / `FULCRUM_SETTINGS` and change the image. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only — no world-pipeline orange card). **#68** ADS near + far on that same Options **DOF** flag — no second composer, no new Graphics sliders. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. HUD/glasses still after post. Honest: not full HDR bloom / god-ray / contact-shadow — **#86** does **not** invent those paths |
+| **Post** | Live GPU passes **#55**. AO, AA, CA (+ strength default **0.35**, step **0.05**, range **0–1**), film grain, DoF persist via #46 `project.json` / `FULCRUM_SETTINGS` and change the image. **#66** colorless muzzle heat (`heat_warp_uv` before scene sample; lattice = post input only — no world-pipeline orange card). **#68** ADS near + far on that same Options **DOF** flag — no second composer, no new Graphics sliders. Must **not** pack into Range Tech ToD / Goegap / HDRI uniforms. HUD/glasses still after post. Honest: not full HDR bloom / god-ray / contact-shadow — **#86** does **not** invent those paths. **#87** sunSize rides the sky disc (not a post slider) |
 | **FOG / CAM** | **#86** thin live rows on this pane: **FOG** (extract `haze_max`; hideout stays **0**) · **FOG NEAR / FOG FAR** **375 / 520** · **CAM NEAR / CAM FAR** **0.05 / 2000**. Persist `project.json` alongside Range `output_device` |
 | **Graphics hint** | `POST LIVE · AA ON · WINDOW LIVE · A/D NUDGE` |
 | **Gameplay** | Glasses labels toggle + crosshair toggle (real — drop quads when off). Hint: `SHOOT FEEL STAYS · ENTER TOGGLE` |
@@ -619,7 +619,7 @@ Filled the disabled `HYPHA` stub tabs on Augury’s #45 Options list. Not a seco
 | **Persist** | `project.json` in cwd, or `FULCRUM_SETTINGS=/path/to.json`. #82 `output_device` lives on the same file |
 | **Esc** | Hypha pane / Audio → Options → title or HOLD (same stack as #45) |
 
-See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. Does not dump atelier into Options Graphics. GPU stack that made toggles change the image is #55. Colorless heat warp on that stack is #66. ADS near layer on that stack is #68. Graphics dump fog / cam / sky defaults are **#86**.
+See `AESTHETIC_DIEGETIC_LOCK.md`. No second ammo HUD. Does not dump atelier into Options Graphics. GPU stack that made toggles change the image is #55. Colorless heat warp on that stack is #66. ADS near layer on that stack is #68. Graphics dump fog / cam / sky defaults are **#86**. HDRI sun disc is **#87**.
 
 ## Hypha GPU post stack (fulcrumRust #55)
 
@@ -636,7 +636,7 @@ Follows #46 Settings Graphics toggles. Flags already persisted via `project.json
 - Not packed into Range Tech ToD / Goegap lighting params
 - Smoke: `post=aa` (default AA on); keeps #54 `sfx=file/`
 - Headless naga parse/validate of the post WGSL
-- Honest: toggles change the image. Not the full Mycelium HDR bloom / god-ray / contact-shadow chain. **#86** does **not** invent bloom / godRays / sunSize / brightness / gamma paths
+- Honest: toggles change the image. Not the full Mycelium HDR bloom / god-ray / contact-shadow chain. **#86** does **not** invent bloom / godRays / brightness / gamma paths. **#87:** dump **sunSize 0.62** rides the sky disc (no longer parked)
 - Stay out: Atelier, Range Tech bat/HDRI ToD/shoot feel/FX file slots, Augury title mark/HOLD/reverb
 
 See `AESTHETIC_DIEGETIC_LOCK.md` + Colorless muzzle heat (#66) + ADS viewmodel DoF (#68).
@@ -825,8 +825,9 @@ Evan lock. **Shipped** [fulcrumRust #86](https://github.com/initialvisuals/fulcr
 | **Exposure keyboard** | Still unbound after **#78** (no second pair; sky `nudge_exposure` may still exist) |
 | **,** / **.** | Clouds still work (step 0.10) |
 | **/** | HDRI toggle stays |
-| **Do not invent** | bloom **0.08** · godRays **2** · sunSize **0.62** · brightness / gamma **1 / 1** — no existing GPU path |
-| **Parked** | Heat haze dials — Range **#71**. HDRI sun blow-out — shared with Range; `sunPunch` set, no new shader |
+| **Do not invent** | bloom **0.08** · godRays **2** · brightness / gamma **1 / 1** — no existing GPU path |
+| **sunSize** | dump **0.62** — parked here; **#87** now rides the sky disc/halo (`mix(1800, 80)`) |
+| **Parked** | Heat haze dials — Range **#71**. HDRI sun black-out / blow-out **completed #87** (shared Range Tech + Hypha) |
 
 | Seat | Owns |
 |------|------|
@@ -835,9 +836,9 @@ Evan lock. **Shipped** [fulcrumRust #86](https://github.com/initialvisuals/fulcr
 | **Lab-Rat** | Stamps — **not** this PR |
 | **Augury** | Chrome untouched (Hypha only fills the Graphics list) |
 
-Do **not** invent bloom / god-ray / sunSize / brightness / gamma paths. Do **not** claim Range Audio DEVICE / H tilt / terrain / stamps as this PR.
+Do **not** invent bloom / god-ray / brightness / gamma paths. sunSize is **no longer parked** — see HDRI sun disc (#87). Do **not** claim Range Audio DEVICE / H tilt / terrain / stamps as this PR.
 
-See `PEEK_FINDINGS.md` Closed by #86.
+See `PEEK_FINDINGS.md` Closed by #86 + Closed by #87.
 
 ## Augury elbow smart-labels (landed #85)
 
@@ -863,6 +864,45 @@ Do **not** claim full extract popup / elevator / toggle / timed kill shipped. Do
 
 See `PEEK_FINDINGS.md` Closed by #85 + `AESTHETIC_DIEGETIC_LOCK.md`.
 
+## HDRI sun black-out / blow-out (landed #87)
+
+Evan lock. **Shipped** [fulcrumRust #87](https://github.com/initialvisuals/fulcrumRust/pull/87) (2026-09-09, `5f2577d6`). **Range Tech + Hypha** on the #86 dump base. Softens the Goegap plate solar region + procedural disc so the sun is a disc, not a crushed hole or a white spec. Same ToD sample still lights dome + plate — **no second sky**. Ledger: HDRI sun **·→X**.
+
+| Path | was (#86) | now (#87) |
+|------|-----------|-----------|
+| plate tone | Reinhard w=1 × 0.20 everywhere (~0.21 hole) | sky keeps grimdark Reinhard × **0.20**; solar texels white-point **8 × 0.55**; knee-compress so bilinear / f16 cannot spike Inf |
+| disc | `pow(dot, 1400)` × 1.8 × `(1 − hdri×0.55)` needle | dump **sunSize 0.62** → `mix(1800, 80)`; HDRI live complements disc **0.55 / 0.18** |
+| after exposure | hard clip / white spec | local shoulder: core ~(0.12, 0.95); asymptote **0.95** + clamp **0.96** |
+
+| Dump key | Value | This PR |
+|----------|--------|---------|
+| fogNear / fogFar | **375 / 520** | unchanged (#86) |
+| lightKeyMul | **2.11** | unchanged (other light*Mul stay) |
+| exposureMul | **1.44** | unchanged |
+| clouds | **0.63** | unchanged |
+| sunPunch | **0.51** | unchanged |
+| sunSize | **0.62** | **was** parked / `pow(1400)` needle → **now** disc/halo softness |
+| skyHdri | **true** | unchanged; **/** still toggles |
+| camNear / camFar | **0.05 / 2000** | unchanged |
+
+| Dial | Lock |
+|------|------|
+| **Not a second sky** | Same ToD sample lights dome + plate |
+| **bloom / godRays** | still **no path** |
+| **brightness / gamma** | still **no path** |
+| **Smoke** | `gfx=fog/375/520 cam=0.05/2000 clouds=0.63 punch=0.51 size=0.62` |
+
+| Seat | Owns |
+|------|------|
+| **Range Tech + Hypha** | HDRI sun disc / plate solar-region tone (#87) |
+| **Hypha** | Options Graphics / sky / post defaults (#86) — dump fog / cam / punch stay |
+| **Range Tech** | Heat / binds / ballistics / Audio DEVICE — **not** this PR |
+| **Augury** | Chrome — **not** this PR |
+
+Do **not** invent bloom / god-rays or a second sky. Do **not** claim Range heat / Augury chrome / Lab-Rat stamps as this PR.
+
+See `PEEK_FINDINGS.md` Closed by #87 + `AESTHETIC_DIEGETIC_LOCK.md`.
+
 ## Kit metal/grit PBR stub (landed #64)
 
 Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open**/missing. Used what was: brand/TRIMSHEET_MICRO (+ grey); atelier textures/PBR MetalPanelRectangular / MetalCorroded (256² crops); handful of scratch / fingerprint roughness masks from the 150-roughness pack. Boxes stay color-only (stub PBR): albedo mix + roughness/mask on MP9-Z / SR-25 / M24. House DNA: **gold+black tech trim** hairlines, not gold-plate, not Locus veins. Crops vendored in fulcrumRust `assets/kit/`. Atelier read-only (`FULCRUM_KIT` / `FULCRUM_ATELIER`). Do **not** claim full metal-tech / `dBXpg` kits shipped — only this stub. See `AESTHETIC_DIEGETIC_LOCK.md`.
@@ -871,10 +911,10 @@ Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open
 - Exact day-one world: single medium instance vs hub+tunnel+extract (Hypha chooses if Evan didn’t hard-pick)
 - Near LOD raise **shipped #61** (then subdivs **32/16/4**). Live underfoot **#81 32/16/8/4**. Stamp pad stays Hypha #43 **7×7**. Live LOD recook / tunnels / runtime carve / listen-server peer stream still parked
 - First big-map host **landed #81**. Live walk is **19×19 / 304 m / 92 416 m²** + **9×9** stream. Stamp pad still **7×7**. Slope COL tint default; NRM/GLOSS parked. Lab-Rat deform/scatter identity reserved — **no stamp bake**. Continues on fulcrumRust
-- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **colorless muzzle heat landed #66** (sample-only UV warp; no new Graphics sliders); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**); **heat dial blend landed #71** (Range Tech; dump-dial cooking/~ → landed/X; #66 path stays); **Options Audio DEVICE landed #82** (SYSTEM DEFAULT; cycle DNA = Graphics WINDOW; persist `output_device`; thin cpal voice — not a second mixer); **Graphics dump landed #86** (thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**; bloom / godRays / sunSize / brightness / gamma **no path**)
+- Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **colorless muzzle heat landed #66** (sample-only UV warp; no new Graphics sliders); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**); **heat dial blend landed #71** (Range Tech; dump-dial cooking/~ → landed/X; #66 path stays); **Options Audio DEVICE landed #82** (SYSTEM DEFAULT; cycle DNA = Graphics WINDOW; persist `output_device`; thin cpal voice — not a second mixer); **Graphics dump landed #86** (thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**; bloom / godRays / brightness / gamma **no path**); **HDRI sun disc landed #87** (dump **sunSize 0.62** rides the disc)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch then **0.052** rad overlay — **#79** live punch **0.028** + inertia sway; AXIS_LOCK stay; no materials / range geo)
-- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**; **#84** chest-cross tilt pitch/yaw/roll **0.08 / 0.32 / 0.39** — not a mesh mirror); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30** / one air hop **unchanged**); **#79** land softener punch **0.028** · duck **0.08 m** · shake **0.14** gate **13** + inertia sway; heat motion v77 shimmer stays Range Tech spatial input / `barrel_energy` / hold-J; **live tell is Hypha colorless post UV warp landed #66** (lattice = post input only; no world-pipeline orange card); tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **−/=** zero + #59 tracers-until-impact stay; **P** unused (#76); **O** is hold extract intent (#78). #67 did **not** fight #66 and did **not** ship heat color. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). #68 did **not** ship heat color (live tell is Hypha #66). **Heat dial blend landed #71** — dump-dial cooking/~ → landed/X; live defaults sit between old bake and the dump (haze **0.07** / size **0.83** / scaleX **0.396** / lobe **0.698**); #66 colorless path stays; no orange card redraw. **SIM-only launch landed #76** — one HoB + gravity / zero model; arcade aim-dir dead; leftover `hob_zero` ignored; **P** unused; **−/=** 50/100/200 (#78); #67 hip honesty on the single SIM model. **Hold-O extract / −/= zero / grounded slide landed #78** — raid `Session::extract_checking`; **O** is **not** zero; Augury EXTRACT elbow card **landed #85** (no popup); hatch elevator / toggle / timed kill still **~**; midair Shift+Ctrl cannot float-slide. **Land sway softener + heightfield FX landed #79** — same #59 hop overlay (**not** a second land system); punch **0.028** / duck **0.08** / shake **0.14** gate **13** + sway eye/yaw/roll + decay **4.6**; brass / tracers / marks snap to extract heightfield / wall support; `first_hit` walls-only; AXIS_LOCK +Z unchanged. Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map host **landed #81**. **Options Audio DEVICE landed #82** — SYSTEM DEFAULT; A/D or arrows / Enter / click (Graphics WINDOW DNA); persist `output_device` (empty / `default` / `system` = OS default); missing pin kept, playback falls back to OS default; same #21 mixer → thin cpal voice; UI tick on the new pick. **H shoulder-swap tilt landed #84** — chest-cross pitch/yaw/roll **0.08 / 0.32 / 0.39** on existing ADS cant DNA; travel stays #59; not a capsule/eye slide, not a mesh mirror, no `scale.x = −1`. PreferredHand / new-profile onboard stays house/Hypha parked. **Hypha Graphics dump landed #86** — Options FOG / CAM NEAR/FAR + sky / post defaults (fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51**); exposure keyboard still unbound after #78; **,** / **.** clouds still work; **/** HDRI toggle stays; do **not** invent bloom / god-ray / sunSize / brightness / gamma. Range heat / binds / ballistics / Audio DEVICE **not touched**. Shot propagation still later
+- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**; **#84** chest-cross tilt pitch/yaw/roll **0.08 / 0.32 / 0.39** — not a mesh mirror); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30** / one air hop **unchanged**); **#79** land softener punch **0.028** · duck **0.08 m** · shake **0.14** gate **13** + inertia sway; heat motion v77 shimmer stays Range Tech spatial input / `barrel_energy` / hold-J; **live tell is Hypha colorless post UV warp landed #66** (lattice = post input only; no world-pipeline orange card); tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **−/=** zero + #59 tracers-until-impact stay; **P** unused (#76); **O** is hold extract intent (#78). #67 did **not** fight #66 and did **not** ship heat color. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). #68 did **not** ship heat color (live tell is Hypha #66). **Heat dial blend landed #71** — dump-dial cooking/~ → landed/X; live defaults sit between old bake and the dump (haze **0.07** / size **0.83** / scaleX **0.396** / lobe **0.698**); #66 colorless path stays; no orange card redraw. **SIM-only launch landed #76** — one HoB + gravity / zero model; arcade aim-dir dead; leftover `hob_zero` ignored; **P** unused; **−/=** 50/100/200 (#78); #67 hip honesty on the single SIM model. **Hold-O extract / −/= zero / grounded slide landed #78** — raid `Session::extract_checking`; **O** is **not** zero; Augury EXTRACT elbow card **landed #85** (no popup); hatch elevator / toggle / timed kill still **~**; midair Shift+Ctrl cannot float-slide. **Land sway softener + heightfield FX landed #79** — same #59 hop overlay (**not** a second land system); punch **0.028** / duck **0.08** / shake **0.14** gate **13** + sway eye/yaw/roll + decay **4.6**; brass / tracers / marks snap to extract heightfield / wall support; `first_hit` walls-only; AXIS_LOCK +Z unchanged. Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map host **landed #81**. **Options Audio DEVICE landed #82** — SYSTEM DEFAULT; A/D or arrows / Enter / click (Graphics WINDOW DNA); persist `output_device` (empty / `default` / `system` = OS default); missing pin kept, playback falls back to OS default; same #21 mixer → thin cpal voice; UI tick on the new pick. **H shoulder-swap tilt landed #84** — chest-cross pitch/yaw/roll **0.08 / 0.32 / 0.39** on existing ADS cant DNA; travel stays #59; not a capsule/eye slide, not a mesh mirror, no `scale.x = −1`. PreferredHand / new-profile onboard stays house/Hypha parked. **Hypha Graphics dump landed #86** — Options FOG / CAM NEAR/FAR + sky / post defaults (fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51**); exposure keyboard still unbound after #78; **,** / **.** clouds still work; **/** HDRI toggle stays; do **not** invent bloom / god-ray / brightness / gamma. **HDRI sun disc landed #87** — dump **sunSize 0.62** rides the procedural disc/halo (no longer parked); plate solar-region tone + soft disc; not a second sky. Range heat / binds / ballistics / Audio DEVICE **not touched**. Shot propagation still later
 - Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61**; live underfoot **#81 32/16/8/4**; grit mips stay. First big-map host **landed #81**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first; grit / slope / PBR **open**. Range Tech kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**. Music playlist beds **landed #64**. Augury FoW brand / menu video **when cut ready**
 - **SFX remix DNA** (2026-09-08 ~00:00 ET): creative reuse OK — pitch / speed / effects to mint new one-shots from existing packs; indie underground vibe; don’t overuse the same stem. #62 vendor stays the live FILE_SLOTS fill. First ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**
@@ -896,7 +936,7 @@ Audio buses Voice / Music / FX: fulcrumRust PR #21 (2026-09-07).
 Transvoxel extract host: fulcrumRust PR #16 (2026-09-07).
 SR-25 + M24 kit stubs: fulcrumRust PR #22 (2026-09-07).
 Distance activation / far-guts cold: fulcrumRust PR #23 (2026-09-07).
-Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07). **−/=** exposure **superseded #78** — keyboard unbound; **−/=** is zero.
+Extract day/night clock + procedural sky: fulcrumRust PR #24 (2026-09-07). **−/=** exposure **superseded #78** — keyboard unbound; **−/=** is zero. HDRI sun disc **completed #87**.
 Wall-clamped Q/E lean polish: fulcrumRust PR #25 (2026-09-07).
 Locus Inked on yard: fulcrumRust PR #26 (2026-09-07).
 Day-one binaural / positional stereo on FX: fulcrumRust PR #27 (2026-09-07).
@@ -913,7 +953,7 @@ Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).
 Shape-agnostic stamp/paint substrate: fulcrumRust PR #38 (2026-09-07).
 Extract-yard scale harness: fulcrumRust PR #39 (2026-09-07).
 Quiet grit greyscales (vendored 256² + sample_channels quiet height + grit::rough wear): fulcrumRust PR #58 (2026-09-07) — **landed**. Atelier read-only. Near source for Hypha #60 ring-mips.
-Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07). **−/=** exposure **superseded #78**.
+Goegap day plate on extract ToD: fulcrumRust PR #40 (2026-09-07). **−/=** exposure **superseded #78**. HDRI sun disc **completed #87**.
 FoW title mark on the #11 shell: fulcrumRust PR #41 (2026-09-07).
 Windows one-click release builder: fulcrumRust PR #42 (2026-09-07).
 Windows builder stay-open + `build.log` tee: fulcrumRust PR #48 (2026-09-07).
@@ -937,7 +977,8 @@ Range Tech land sway softener + heightfield-grounded FX: fulcrumRust PR #79 (202
 Range Tech Options Audio output DEVICE (SYSTEM DEFAULT via cpal `default_output_device()`; A/D or arrows / Enter / click cycle; persist `output_device`; missing pin kept, playback falls back to OS default; same #21 mixer → thin cpal voice; UI tick on the new pick; Stream on window thread — not Sync): fulcrumRust PR #82 (2026-09-09) — **landed**. `12676383`. Bus dials unchanged. Not a second mix tree. See `PEEK_FINDINGS.md` Closed by #82 + `EXTRACTION_AUDIO_LOCK.md`.
 Range Tech H shoulder-swap tilt (chest-cross pitch/yaw/roll **0.08 / 0.32 / 0.39** on existing ViewmodelDials / ADS cant DNA; travel stays #59 hip +X ~0.10 → ~−0.041 / `shoulder_x_min` **−0.055** / ads_keep **0.32** / `shoulder_viewmodel` **0.12**; not a capsule/eye slide, not a mesh mirror, no `scale.x = −1`; PreferredHand / new-profile onboard stays house/Hypha parked): fulcrumRust PR #84 (2026-09-09) — **landed**. `7d7e18f5`. See `PEEK_FINDINGS.md` Closed by #84.
 Augury elbow smart-labels (thin white analysis-core card + L-elbow / leader to the world interact pin; not a centered HUD; hold-**O** EXTRACT elbow card, no popup; EXTRACT white mono; no second ammo HUD; hatches on yard pad `-24/-24` · `18/-28` · `-28/16` + shaft `18/-12`; hatch elevator / toggle / timed kill still **~**): fulcrumRust PR #85 (2026-09-09) — **landed**. `f3d60a24`. See `PEEK_FINDINGS.md` Closed by #85 + `AESTHETIC_DIEGETIC_LOCK.md`.
-Hypha Graphics dump (Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist `project.json`; fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**; bloom / godRays / sunSize / brightness / gamma **no path**; heat haze stays Range #71): fulcrumRust PR #86 (2026-09-09) — **landed**. `13865b3f`. See `PEEK_FINDINGS.md` Closed by #86.
+Hypha Graphics dump (Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist `project.json`; fog **375 / 520** · cam **0.05 / 2000** · clouds **0.63** · sunPunch **0.51** · light*Mul **0.11 / 0.41 / 0.61 / 2.11 / 1.65 / 1.06** · exp **1.44** · skyHdri on; hideout `haze_max` **0**; bloom / godRays / brightness / gamma **no path**; heat haze stays Range #71; **sunSize 0.62** was parked — **#87** rides the disc): fulcrumRust PR #86 (2026-09-09) — **landed**. `13865b3f`. See `PEEK_FINDINGS.md` Closed by #86.
+Range Tech + Hypha HDRI sun black-out / blow-out (Goegap plate solar-region tone + dump **sunSize 0.62** soft disc; sky Reinhard × 0.20 / solar white-point **8 × 0.55**; disc `mix(1800, 80)` + HDRI complement **0.55 / 0.18**; local shoulder 0.95 / clamp 0.96; #86 fog / punch / exp / cam stay; not a second sky; bloom / godRays still no path): fulcrumRust PR #87 (2026-09-09) — **landed**. `5f2577d6`. See `PEEK_FINDINGS.md` Closed by #87.
 Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD **shipped #60** (256/64/16; far softer; atelier read-only). Further roughness→stamp still open. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Closed by #60 / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far drops grain hashes; atelier read-only): fulcrumRust PR #60 (2026-09-07) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #60.
 Near LOD raise (16/8/4 → 32/16/4; grid/radius stay #43; grit mips stay #60): fulcrumRust PR #61 (2026-09-08) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #61.
