@@ -34,6 +34,7 @@ Ammo lives on the weapon:
 - Barrel heat stays diegetic on the gun unless a separate heat-tell says otherwise
 - Heat-tune dump (fulcrumRust #35): hold **J** still cooks diegetic barrel energy / tip cards + lobe on the same path; glasses `HEAT TUNE` only (amber-ish overlay) — never a numeric ammo HUD; must not count mag rounds
 - Aim-offset tuner (fulcrumRust #97): **End** opens the live viewmodel / attachment offset sheet on existing ViewmodelDials + kit_mesh optic/can sockets; glasses `AIM TUNE` only — never a numeric ammo HUD. Home stays Augury. #94 RH hip authored defaults stay until Evan nudges
+- **1P viewmodel ≠ 3P biped + weapons + gear** (MP honesty, 2026-09-09): artistic 1P posing (hip fire / canted CQC) may stay aggressive; peers must not see guns through eyeballs. **Holding / locked intent — not shipped.** Range Tech owns 1P / AIM TUNE; Beabim owns 3P sync. Do **not** claim #83 5-box is kit honesty. See `FULCRUMRUST_LAST_PASS_LOCK.md`
 - Optic hoods + .45 can are Range Tech attachments (**V** / **N**, kit allow-list); glasses still labels only
 - Vector mag dump (shelf): diegetic **red** receiver glyphs + rect muzzle flash / grit / local light steal from `VECTOR_MAG_DUMP.md` — not glasses, not a second ammo HUD, not heat orange cards
 - World drop/pickup (fulcrumRust #19): chrome travels with the loose kit UUID; empty hands hide viewmodel / heat — still no HUD ammo counter
