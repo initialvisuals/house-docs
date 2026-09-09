@@ -501,9 +501,9 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - Intact / do not steal: ToD **[ ]**/K/L/,/. · −/= zero (#78) · hold-O extract intent (#78) · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · P unused (#76) · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
-## Listen-server pose presence + HOLD JOIN (fulcrumRust #34 + Beabim #83; invite leftover #91)
+## Listen-server pose presence + HOLD JOIN (fulcrumRust #34 + Beabim #83; invite leftover #91; loot trail #102)
 
-Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join panel / live-profile loot trail). Hypha #34 was the handshake-only stub. [PR #83](https://github.com/initialvisuals/fulcrumRust/pull/83) (`24eaca4b`). Invite leftover + peer names + gun pose **landed #91** (`c4d75c11`) — #83 stays the pose / HOLD JOIN foundation.
+Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join panel / live-profile loot trail). Hypha #34 was the handshake-only stub. [PR #83](https://github.com/initialvisuals/fulcrumRust/pull/83) (`24eaca4b`). Invite leftover + peer names + gun pose **landed #91** (`c4d75c11`). Live-profile loot trail **landed #102** (`6fc0d5d6`) — #83 stays the pose / HOLD JOIN foundation.
 
 - Thin `std::net` UDP hub in `engine/src/net.rs` (#34). Title **HOST** / **JOIN**; in-game **Y** while alive arms listen-server; `--host` / `--join fulcrum://ip:port` (also bare `host:port` and `fw://`); env `FULCRUM_JOIN`
 - Default port **7777** (`FULCRUM_PORT` override). LAN iface if OS has one, else loopback
@@ -513,7 +513,8 @@ Seat: **Beabim** owns this MP slice (listen-server / two-instance sync / join pa
 - #81 `stream_anchors` returns remote feet so the **9×9** window can follow a peer (coordinate only — no Transvoxel rewrite)
 - **HOLD JOIN** — Esc → **JOIN** → type `fulcrum://ip:port` / `fw://` / bare `ip:port` / `localhost` → Enter. No app restart. Title **JOIN** without `--join` opens the same sheet. `--join` / `FULCRUM_JOIN` still one-click. **#91** leftover INVITE + `fulcrum.invite` seeds the field
 - Glasses labels only: `HOST  fulcrum://ip:port` (#91; was `HOST  ip:port`), then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
-- Honesty: two instances agree on **peer presence** (pose + silhouette). Both machines still sim locally — **no** world replication / shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus / stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / drops / PvEvP sim / Mixamo player body
+- **#102 KIND_LOOT** on the #91 UDP leftover. Host relays; both sides apply drop/take by `InstanceId`. Hairline `{NAME} DROP/TAKE KIT` via `plan_name_tag` (`FULCRUM_NAME` / HOST / P{id}). Starting kits stay local. Solo `net=off` unchanged — no trail chrome
+- Honesty: two instances agree on **peer presence** (pose + silhouette) + **#102** kit loot trail. Both machines still sim locally — **no** world replication / shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus / bodies / enemies / stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / death-pool / PvEvP sim / Mixamo player body
 - Solo **Deploy** unchanged (`net=off` on smoke)
 - Does **not** steal **I** stim (#37), hold-**O** extract intent (#78 / #85), **−/=** zero (#78), **P** unused (#76), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
 - Bind: **Y** alive host only (#34). Stim is **I** while downed (#37). Seats do not fight — downed Y is a no-op for host and stim.
@@ -1261,10 +1262,11 @@ Evan lock. **Shipped** [fulcrumRust #83](https://github.com/initialvisuals/fulcr
 | **Port** | Default **7777** (`FULCRUM_PORT` override) |
 | **Glasses** | Still `HOST` / `JOIN` / `PEER` labels only — never a second ammo HUD. **#91** glasses `HOST  fulcrum://ip:port` |
 | **Binds** | **Y** host (alive; #91 re-copy while hosting) · **I** stim · hold-**O** extract untouched |
+| **Loot trail** | **#102** KIND_LOOT on the #91 leftover — host-relayed Z/F by `InstanceId`; hairline `{NAME} DROP/TAKE KIT` |
 
-**Still local (deliberately):** shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus brains + yard stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / drops. **No** world replication / PvEvP sim / Mixamo player body.
+**Still local (deliberately):** shoot / HoB / heat / brass / land feel / H tilt (#84) / audio device (#82) / Graphics dump (#86) / HDRI sun (#87) / Locus brains + yard stamps / COL / deform / scatter / Transvoxel rewrite / Augury elbow / hatch UX (#85) / world seed / ToD / drops (**later landed #102** kit trail; Locus / bodies / enemies still local). **No** world replication / PvEvP sim / Mixamo player body.
 
-See `PEEK_FINDINGS.md` Closed by #83. Invite leftover / names / gun stub: Closed by #91.
+See `PEEK_FINDINGS.md` Closed by #83. Invite leftover / names / gun stub: Closed by #91. Loot trail: Closed by #102.
 
 ## Invite leftover + peer names + gun pose (Beabim — landed #91)
 
@@ -1283,9 +1285,27 @@ Evan lock. **Shipped** [fulcrumRust #91](https://github.com/initialvisuals/fulcr
 | **Plant** | Grounded feet consume Hypha #88 `plant_simple_root` on the #81 heightfield (coordinate only — no foot-plant / Transvoxel rewrite). Gun Y rides the same snap |
 | **1P ≠ 3P** | **Partial.** Peer gun is a biped hip stub. Does **not** publish 1P `muzzle_world()` — no #94/#98/#99 hip / low-hip / artistic cant on the remote operator. Do **not** claim Mixamo / full 3P kit honesty |
 
-**Still local (deliberately):** shoot / HoB / heat / brass · Range #89 CE projectiles · #94/#98/#99 1P hip · #97 AIM TUNE · Lab-Rat #80 stamps / COL / deform / scatter / UV · Hypha #88 foot-plant rewrite / Transvoxel / pixellation · Augury elbow / hatch UX (#85) · PreferredHand / new-profile onboard · live-profile loot trail · Clerk Patch A ledger restamp.
+**Still local (deliberately):** shoot / HoB / heat / brass · Range #89 CE projectiles · #94/#98/#99 1P hip · #97 AIM TUNE · Lab-Rat #80 stamps / COL / deform / scatter / UV · Hypha #88 foot-plant rewrite / Transvoxel / pixellation · Augury elbow / hatch UX (#85) · PreferredHand / new-profile onboard · live-profile loot trail **later landed #102** · Clerk Patch A ledger restamp.
 
-See `PEEK_FINDINGS.md` Closed by #91.
+See `PEEK_FINDINGS.md` Closed by #91. Loot trail: Closed by #102.
+
+## Live-profile loot trail (Beabim — landed #102)
+
+Evan lock. **Shipped** [fulcrumRust #102](https://github.com/initialvisuals/fulcrumRust/pull/102) (2026-09-09, `6fc0d5d6`). Seat: **Beabim** owns this MP slice (listen-server / invite / pose / live-profile loot trail). Hypha #34 + Beabim #83 / #91 stay the UDP hub / HELLO/WELCOME / **Y**-host / HOLD JOIN / INVITE leftover / names / gun stub foundation. Flips local-only Z/F after two-instance pose.
+
+| Dial | Lock |
+|------|------|
+| **KIND_LOOT** | On the #91 UDP leftover. Host relays; both sides apply drop/take by `InstanceId` |
+| **Crumbs** | Hairline `{NAME} DROP/TAKE KIT` via `plan_name_tag` (thin white mono). `FULCRUM_NAME` / HOST / P{id} from #91. **Not** Augury EXTRACT / hatch elbows |
+| **Host Z** | Other instance sees the loose kit + `HOST DROP …` |
+| **Other F** | Host loses that id + `P1 TAKE …` |
+| **Starting kits** | Local (each instance keeps minted loadout). Swap is DROP then TAKE |
+| **Pose / gun stub** | #91 unchanged (biped hip, **1P ≠ 3P** partial) |
+| **Solo** | `net=off` unchanged — no trail chrome |
+
+**Still local (deliberately):** shoot / HoB / heat / brass / Range #89 · Locus / bodies / enemies (next cook) · 1P hip / low-hip / cant / AIM TUNE / #103 live-save · Lab-Rat stamps / UV · Augury hatch / EXTRACT elbows · PreferredHand / full live-profile stash / death-pool · mid-air drop bounce (remote sees settled rest)
+
+See `PEEK_FINDINGS.md` Closed by #102.
 
 ## Biped foot plant / terrain follow (Hypha — landed #88)
 
@@ -1333,7 +1353,7 @@ Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open
 - Atelier: plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 / #80 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Lab-Rat slope/PBR/dirt/scatter/deform plugs **landed #80**. Further roughness → stamp stays on **fulcrumRust only** — bake-down first; SVG / density-mask / experiment-log still open. Range Tech kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**. Music playlist beds **landed #64**. Augury FoW brand / menu video **when cut ready**
 - **SFX remix DNA** (2026-09-08 ~00:00 ET): creative reuse OK — pitch / speed / effects to mint new one-shots from existing packs; indie underground vibe; don’t overuse the same stem. #62 vendor stays the live FILE_SLOTS fill. First ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**
 - Holocron (Evan gift 2026-09-08): atelier `Holocron_Visualizer.py` + `Analyze-Holocron.ps1` — tree nested-rectangle viewer for file bases. Cut down monoliths (agent context; overwrite loss). Slope/PBR plugs **landed #80**. Lab-Rat rust-friendly rewrite still waits on SVG / density-mask / monolith splits. Later: `channels.rs` / stamp stacks / `feel` / `kit_mesh`. See `TOOLS.md`. Do **not** claim rewrite shipped
-- PreferredHand + new-profile onboard — **parked** house/Hypha. **#84** / **#91** / **#94** / **#97** / **#98** / **#99** / **#100** / **#103** did **not** ship it
+- PreferredHand + new-profile onboard — **parked** house/Hypha. **#84** / **#91** / **#94** / **#97** / **#98** / **#99** / **#100** / **#102** / **#103** did **not** ship it
 - Augury glasses EXTRACT chrome **landed #85** (elbow card, no popup). Hatch elevator / toggle / timed surface kill still **open**
 - Growth PoCs after window exists
 - Shot propagation on the spatial FX path (binaural day-one landed #27; reverb volumes landed #56; file-slot wiring landed #54; handmade vendor landed #62; DEVICE cycle landed #82)
@@ -1360,9 +1380,10 @@ Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
 Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
 Live HoB zero / launch dials: fulcrumRust PR #33 (2026-09-07). Dual-path arcade↔sim **superseded #76** — **P** unused. Zero bind **superseded #78** — **−/=** 50/100/200; **O** is hold extract intent.
-Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07). Handshake-only + no in-game join field **superseded #83**. Leftover INVITE + names + gun stub **landed #91**.
-Beabim two-instance pose sync + HOLD JOIN (UDP **POSE** ~20 Hz; 5-box slate silhouette; grounded Y rides #81 heightfield; `stream_anchors` follow remotes; Esc → JOIN types invite; port **7777**; **Y** host / **I** stim / hold-**O** extract stay; shoot / Locus / terrain / audio stay local): fulcrumRust PR #83 (2026-09-09) — **landed**. `24eaca4b`. Grounded silhouettes share Hypha #88 `plant_simple_root`. Invite leftover + names + gun stub **later landed #91**. See `PEEK_FINDINGS.md` Closed by #83.
-Beabim invite leftover + peer names + gun pose (INVITE sheet after HOST / `--host` / Deploy; pause **INVITE**; Enter copies; glasses `HOST  fulcrum://ip:port`; **Y** while hosting re-copies; file leftover `fulcrum.invite` LAN + LOOP `127.0.0.1`; clipboard best-effort; HELLO + NAME → `FULCRUM_NAME` else **HOST** / **P{id}**; fade-in white mono over remote head; POSE + muzzle `xyz` + gun yaw/pitch; 3-box biped hip gun stub; does **not** publish 1P `muzzle_world()`; loot trail still later): fulcrumRust PR #91 (2026-09-09) — **landed**. `c4d75c11`. See `PEEK_FINDINGS.md` Closed by #91.
+Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07). Handshake-only + no in-game join field **superseded #83**. Leftover INVITE + names + gun stub **landed #91**. Loot trail **landed #102**.
+Beabim two-instance pose sync + HOLD JOIN (UDP **POSE** ~20 Hz; 5-box slate silhouette; grounded Y rides #81 heightfield; `stream_anchors` follow remotes; Esc → JOIN types invite; port **7777**; **Y** host / **I** stim / hold-**O** extract stay; shoot / Locus / terrain / audio stay local): fulcrumRust PR #83 (2026-09-09) — **landed**. `24eaca4b`. Grounded silhouettes share Hypha #88 `plant_simple_root`. Invite leftover + names + gun stub **later landed #91**. Loot trail **later landed #102**. See `PEEK_FINDINGS.md` Closed by #83.
+Beabim invite leftover + peer names + gun pose (INVITE sheet after HOST / `--host` / Deploy; pause **INVITE**; Enter copies; glasses `HOST  fulcrum://ip:port`; **Y** while hosting re-copies; file leftover `fulcrum.invite` LAN + LOOP `127.0.0.1`; clipboard best-effort; HELLO + NAME → `FULCRUM_NAME` else **HOST** / **P{id}**; fade-in white mono over remote head; POSE + muzzle `xyz` + gun yaw/pitch; 3-box biped hip gun stub; does **not** publish 1P `muzzle_world()`; loot trail **later landed #102**): fulcrumRust PR #91 (2026-09-09) — **landed**. `c4d75c11`. See `PEEK_FINDINGS.md` Closed by #91.
+Beabim live-profile loot trail (KIND_LOOT host-relayed Z/F by `InstanceId`; hairline `{NAME} DROP/TAKE KIT` via `plan_name_tag`; `FULCRUM_NAME` / HOST / P{id}; starting kits stay local; swap is DROP then TAKE; solo `net=off` no trail chrome; 1P≠3P held #91; Locus / bodies / enemies still local): fulcrumRust PR #102 (2026-09-09) — **landed**. `6fc0d5d6`. See `PEEK_FINDINGS.md` Closed by #102.
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
 Augury I-stim / Y-host bind: fulcrumRust PR #37 (2026-09-07).

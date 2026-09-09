@@ -21,7 +21,7 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | **Hypha** | #66 colorless heat · #81 19×19 + stream + slope COL · #86 Graphics dump · #88 biped foot plant · #90 warp floor 0.01 · (#87 sun with Range) |
 | **Lab-Rat** | #69 organic growth mesh · #80 slope/PBR/dirt/scatter/deform |
 | **Augury** | #85 diegetic elbow smart-labels (hold-O EXTRACT) |
-| **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub |
+| **Beabim** | #83 pose sync + HOLD JOIN · #91 INVITE leftover + peer names + gun stub · **#102** live-profile loot trail |
 | **Clerk** | Patch A ledger #72/#74/#75/#92/#95/#104/#105 + CREDITS trails; bake-book shelves through #90 (and #103 in flight) |
 
 ## Still cooking
@@ -32,7 +32,7 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 | **Lab-Rat** | Draft **#101** Blender UV dials on stamp/PBR/grit. NRM/GLOSS GPU parked. SVG / density-mask / experiment-log open. Asset-ask grit until Evan list. |
 | **Augury** | FoW title/main menu + settings clone not done. CE Home debugger + hitch logger * next (ledger). Menu video · Holocron · stash · enemies beyond Inked parked. |
 | **Range Tech** | Draft **#106** milsim wording / invalid Rust hotfix. Pose ease / springs **~**. Ergo / handling **·**. `dBXpg` open. Full remix minting open. Quality/flag on `build.bat` open. |
-| **Beabim** | Draft **#102** live-profile loot trail after #91. Full 3P kit honesty / hands / gear open. |
+| **Beabim** | Live-profile loot trail **landed #102**. Next cook: Locus / bodies / enemies sync (still local). Full 3P kit honesty / hands / gear open. |
 
 Morning eyes: Hypha **#108** hitch (Evan bedtime yell). Range pose springs. Augury Home logger when greenlit. Do **not** invent PR numbers — open A asks live in repo-root `patch notes A.txt`.
 
