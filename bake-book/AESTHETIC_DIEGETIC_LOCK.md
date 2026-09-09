@@ -111,14 +111,14 @@ Grim lowfi title — Evan’s Fulcrum of Will header is the wordmark on the #11 
 - Still no second ammo HUD
 - Detail: `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust `engine/src/brand.rs`
 
-## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46; GPU post #55; Graphics dump #86)
+## Menus / settings (Augury shell shipped #45; Hypha guts shipped #46; GPU post #55; Graphics dump #86; WARP #90)
 
-#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + persist. GPU post stack live **#55** (AO/AA/CA/grain/DoF; toggles change the image). HUD / glasses still draw after post. Graphics dump defaults **#86** (fog / cam / sky — not bloom / god-rays). **#87** completed the HDRI sun disc (dump **sunSize 0.62** rides the disc). Labels-only glasses lock unchanged. Logo/title mark #41 still stands.
+#45 shipped title + HOLD analysis-core polish + Options list shell. #46 filled the disabled `HYPHA` stub tabs — Graphics/Gameplay/Controls guts + window mode + persist. GPU post stack live **#55** (AO/AA/CA/grain/DoF; toggles change the image). HUD / glasses still draw after post. Graphics dump defaults **#86** (fog / cam / sky — not bloom / god-rays). **#87** completed the HDRI sun disc (dump **sunSize 0.62** rides the disc). **#90** FoW pixellation / floor-warp: Hypha owns the post dial (`warp_strength` default **0.01**; Options Graphics **WARP**); Augury owns the aesthetic note only — do **not** claim Augury shipped the dial. Labels-only glasses lock unchanged. Logo/title mark #41 still stands.
 
 | Seat | Owns |
 |------|------|
-| **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41 |
-| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md`. Graphics dump **#86** — thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; do **not** invent bloom / god-ray / brightness / gamma. **#87:** dump **sunSize 0.62** rides the sky disc |
+| **Augury** | Title + HOLD chrome (#45): thin white mono, tight white frames, white hairline, darker ground. HOLD = **SYSTEM PAUSED** (CE pause language); Resume / Options / Quit to menu. Options list **Graphics / Audio / Gameplay / Controls**. Layout/colors/buttons remain Augury. Logo/title mark already #41. FoW pixellation / floor-warp: **aesthetic note only** — Hypha owns the post dial **#90** |
+| **Hypha** | Tab guts **shipped #46**: borderless-fullscreen **default**; windowed 1280×720; exclusive (borderless fallback). Graphics / Gameplay / Controls guts + persist. GPU post **#55** — AO/AA/CA(+strength)/grain/DoF change the image; HUD/glasses still after post — **not** packed into ToD / Goegap / HDRI uniforms. Steal from CE/Mycelium. Does **not** dump atelier into Options Graphics. LOD-tied texture mips **landed #60** on Transvoxel distance rings — see `TERRAIN_NORTHSTAR.md`. Graphics dump **#86** — thin Options **FOG / FOG NEAR / FOG FAR / CAM NEAR / CAM FAR** + persist; do **not** invent bloom / god-ray / brightness / gamma. **#87:** dump **sunSize 0.62** rides the sky disc. **Pixellation / floor-warp landed #90** — Options **WARP** after CAM FAR; `warp_strength` default **0.01** (lowest positive CE-like step; mix toward CE PIXEL SCALE **2**). Hypha owns the post dial |
 | **Range Tech** | Audio mixer stays #21 Voice/Music/FX (untouched by #46) |
 | **Input** | FoW OG input manager also in scope (steal into fulcrumRust) — still cooking |
 
@@ -147,6 +147,6 @@ Day-one handmade SFX vendor **landed #62** — that is audio files, not these co
 | **Nivanh Chanthara** / **Mortal Shell** artists / **Maciej Kuciara** | Gritty, detailed, believable-yet-unbelievable; layered technique |
 | **Sulfur** | Diegetic mag dots + readable floor hotspots (language only) |
 
-Also: FoW lowfi skin; Lab-Rat stamps as bake north-stars (not live stew).
+Also: FoW lowfi skin; Lab-Rat stamps as bake north-stars (not live stew). FoW pixellation / floor-warp aesthetic is live via Hypha post **#90** (`warp_strength` **0.01**); Augury aesthetic note only — do not steal into Range.
 
 Source of truth: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
