@@ -46,7 +46,7 @@ First Transvoxel extract terrain host (flat world, not a planetoid). Bake-once a
 | **Skin** | verts grade from `VoxelMaterial::tint` / `luma`; cracks / edge-wear / void-spore scale from Lab-Rat `density_stamp_2d` + `WearStamp` |
 | **Atmosphere** | darker clear + colder dual lights + cheap distance haze in `fs_world` (hideout stays unfogged) |
 | **Hooks** | sit-on-surface structures stay; `AuguryLocusSpawn` reserved on a rise |
-| **Not day-one** | live octree / unconstrained Sync dump · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. Amortized recook under budget **shipped #108** (cook=1/2 · prefetch=5 m). Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on the #79/#81 column **landed #88** (mesher untouched). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
+| **Not day-one** | live octree / unconstrained Sync dump · tunnel cutouts · runtime carve · globe · Transvoxel rewrite / world sync. **#114** is a shallow enterable pad network, not those parked cutouts. Amortized recook under budget **shipped #108** (cook=1/2 · prefetch=5 m). Peer feet `stream_anchors` **landed #83** (coordinate only). Pawn plant on the #79/#81 column **landed #88** (mesher untouched). Near LOD raise **shipped #61**. First big-map **landed #81**. Wider radius / stamp pad shipped #43 |
 | **Far guts (#23)** | Shared Locus `ACTIVATE_M`/`SLEEP_M`; far stamp guts + growth/Locus upload stay cold. **#39** near harness pad stays warm. **#43** extra far ring stays cold |
 
 North-star refs still hold: https://transvoxel.org + Lengyel · [bobgar demo](https://bobgar.itch.io) look-language · ling0x as swap candidate (not vendored). Detail: fulcrumRust `docs/TERRAIN.md`.
@@ -127,7 +127,7 @@ Technology lock for Hypha consume — **not** another mesher and **not** Transvo
 | **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
 | **2D mask / pycelium** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` — #39 harness applies it on the three existing plots via `StampField::layers` as a shallow anonymous scale test (still not a fourth named plot) |
 
-`ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl). Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
+`ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl, **#114** shallow Subtract crawl). Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
 
 Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md`.
 
@@ -171,7 +171,7 @@ Queued A/B after #43. Reuse the existing Transvoxel host — no greenfield rebui
 | **Grid / radius** | Still **7×7 / 3 Chebyshev rings / 112 m / 12 544 m²** (#43) |
 | **Grit mips** | Still **256² / 64² / 16²** on the same rings (#60). Far still heightfield-only / cold guts |
 | **Smoke peek** | `terrain_tris=11118 lods=3 subdivs=32/16/4 near_chunk=3290 far_chunk=39 guts_warm=75 guts_cold=216 rings=3 extract_m2=12544 grit_mips=256/64/16 n=196608 f=768`. Far mean ~**84×** cheaper than near |
-| **Parked** | Live octree / unconstrained Sync dump · tunnels · runtime carve. Live walk lock **landed #81** (32/16/8/4 + 19×19 open). Stream hitch amortize **later landed #108** |
+| **Parked** | Live octree / unconstrained Sync dump · tunnels · runtime carve (**#114** is a shallow pad network, not those parked tunnels). Live walk lock **landed #81** (32/16/8/4 + 19×19 open). Stream hitch amortize **later landed #108** |
 
 Stay out of Range Tech guns / Augury brains / Lab-Rat stamp baking. Detail: fulcrumRust `docs/TERRAIN.md`.
 
