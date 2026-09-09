@@ -24,7 +24,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - **V** — cycle optic on the seated kit’s allow-list (SMG iron/holo/acog; SR-25 + scope; M24 iron/scope); ADS pose + FOV follow
 - **N** — toggle .45 suppressor / can mounts; muzzle / flash / tracer spawn follow the kit tip (`kit_mesh::muzzle_tip_local` — front of the forward-most heat-tagged box; birdcage / can). `muzzle_socket_local` stays the authored fallback. Landed #67
 - FOV lock: hip **90** · iron ADS **60** · holo ADS **60** · acog ADS **25**
-- Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags). Live zero + arcade↔sim via **O** / **P** (fulcrumRust #33). Hip honesty via `hip_honest_dir` (ads=0 on aim; ads=1 keeps the solve — landed #67)
+- Per-kit ballistics (`FeelSheet::fire`): MP9-Z AUTO ~1200 rpm / 300 m/s / kick 1.0 · SR-25 SEMI 0.14 s / 785 m/s / kick 1.15 · M24 bolt 0.65 s / 810 m/s / kick 1.75; HoB / muzzle / heat τ on the feel sheet (attachments do not invent new gameplay mags). Live zero via **O** 50/100/200 (fulcrumRust #33). Launch is **SIM only** — HoB + gravity / zero; leftover `hob_zero` ignored; **P** unused (fulcrumRust #76). Hip honesty via `hip_honest_dir` (ads=0 on aim; ads=1 keeps the SIM solve — landed #67)
 
 ## First playable flow
 1. **Loading screens** cover bake/hitch — player never sees hitching except true CPU/geo overload
@@ -75,7 +75,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - **Space** = CE hop + one air hop + land duck **0.14 m** + shake **0.2** (impact > 8). `JUMP_FORCE` **12** / `|GRAVITY|` **30**. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad overlay stays. Landed #59. Prior FPS-first **"no double-jump"** / single-hop-only (#51) is superseded (same way #51 superseded earlier "no jump")
 - **[ / ]** = extract clock ±30 min (fulcrumRust #24); **K** = dawn/noon/dusk/night snap; **L** = live cycle
 - **− / =** = exposure; **, / .** = cloud cover (extract only; hideout unfogged)
-- **O** = cycle live zero presets 50 → 100 → 200 m (fulcrumRust #33); **P** = arcade ↔ sim launch (`hob_zero`)
+- **O** = cycle live zero presets 50 → 100 → 200 m (fulcrumRust #33); **P** unused after #76 (no arcade↔sim; no new bind)
 - **X** = prone
 - Canted hold + high/low ready from aim-offset
 - **H** = viewmodel **crossover shoulder / left-corner peek** on the existing FoW H bind (landed #59). Authored hip +X ~**0.10** (right); springs across the chest to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Not a capsule/eye slide, not a full mirror, not infinite travel. Help remaps off H
@@ -92,7 +92,7 @@ fulcrumRust owns the port docs: `docs/STEAL_MAP.md`, `docs/AXIS.md`, `docs/TERRA
 - Variable walk; **hold Shift** = sprint; power slide via the Shift→Ctrl rising edge above
 - Hideout door **F** only (#51) — walk-into-door no longer auto-deploys. Must press F
 - **Space** — CE hop + one air hop + land duck / shake (landed #59). `JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8. Horizontal move must not eat `vel.y`. #57 land punch **0.052** rad stays. Prior FPS-first "no double-jump" / #51 single-jump-only is superseded
-- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM|ARCADE` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` / `HDRI` / `PROC` (ToD strip, fulcrumRust #40) / `DRY` / `YARD` / `OUT` (reverb volumes #56) labels only — never a second ammo/health HUD
+- Glasses may show `SLIDE` / `SPD` / `HT` / stamp material / `LOCUS  STANDARD|INKED  <brain>` / `INK HOTSPOT` / `INSPECT` / `RELOAD` / `SWAP` / `BANDAGE` / `EMPTY` / `Z{n}  SIM` / `HEAT TUNE` / `HOST` / `JOIN` / `PEER` / `DOWNED` / `DEAD` / `STIM` / `NO STIM` / `RALLY` / `NEED STAB` / `STAB STUB  NO NET` / `HDRI` / `PROC` (ToD strip, fulcrumRust #40) / `DRY` / `YARD` / `OUT` (reverb volumes #56) labels only — never a second ammo/health HUD
 
 ## AXIS_LOCK (fulcrumRust #51)
 
@@ -127,7 +127,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 ## Visible shot feedback (fulcrumRust #12 + #19 + #59 + #67)
 - LMB spends a round → muzzle flash + ballistic tracer + spark burst + hit mark (feel-lab language)
 - Tracer speed / gravity / length from the SMG feel sheet. **#59:** tracers live until impact (feel-lab sanity **180 s**, linger **2 s**). Every strike plays FX `hit` (optional `hit.wav` if present; else procedural 780 Hz grit + 220→90). Graze still pings `ricochet`
-- **#67 Patch A:** spawn + flash sit on the kit heat-box front (`kit_mesh::muzzle_tip_local`), not the feel-lab socket center (`muzzle_local` z=−0.405). Hip launch uses `hip_honest_dir` (ads=0 stays on **aim**; ads=1 keeps the #33 arcade/sim solve) so the 100 m HoB loft from a right-low hip muzzle is not a close-range up+right miss. Streak is feel-lab tip→impact: `tracer_len` is length again (not a 0.55 m receiver skip); back of the streak clamped to the tip. Distant speed scale kept once the slug is past the gun. Did **not** fight Hypha #66 / did **not** ship heat color. Lab-Rat terrain untouched
+- **#67 Patch A:** spawn + flash sit on the kit heat-box front (`kit_mesh::muzzle_tip_local`), not the feel-lab socket center (`muzzle_local` z=−0.405). Hip launch uses `hip_honest_dir` (ads=0 stays on **aim**; ads=1 keeps the SIM HoB/zero solve) so the 100 m HoB loft from a right-low hip muzzle is not a close-range up+right miss. Streak is feel-lab tip→impact: `tracer_len` is length again (not a 0.55 m receiver skip); back of the streak clamped to the tip. Distant speed scale kept once the slug is past the gun. Did **not** fight Hypha #66 / did **not** ship heat color. Lab-Rat terrain untouched
 - FX draw-distance (hide-not-despawn, fulcrumRust #19 + #47): `muzzle_draw_m` **28** (clamp 8–80) · `spark_draw_m` **55** (clamp 8–200) · `casing_draw_m` **55** (clamp 8–200 via `live_casing`) · `decal_draw_m` **700** (clamp 50–2000) — walking back restores; they do not fill forever
 
 ## Props / audio / growth
@@ -136,7 +136,7 @@ Supersedes stale #12 wording where it conflicts. Lean / slide / Ctrl-height / wh
 - Living mycelium growth-enemy (gas/freeze/burn curl; sprint-grow) = Lab-Rat DNA hosted on extraction map
 
 ## Control DNA resolution
-- **Locked** by fulcrumRust #12 + #51 + #59 + **#66** + **#67** + **#71**: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **#59** landed Q/E flip + deepen, CE hop + air hop + land duck/shake, H viewmodel crossover, heat v77 look (spatial input), tracers-until-impact + FX `hit`. **#66** landed the live heat tell as colorless post UV warp (Hypha; lattice = post input only). **#67 Patch A** sits on top of #33 **O**/**P** + #59 tracers: kit-tip spawn + hip aim-dir honesty + tip→impact streak clamp (did not fight #66). **#71** landed the Range Tech dump-dial blend on that #66 path (cooking/~ → landed/X). No remaining soft overlap on height / wheel. Lean / hop / H / hip-fire muzzle no longer cooking. Orange world heat cards are **not** the live path.
+- **Locked** by fulcrumRust #12 + #51 + #59 + **#66** + **#67** + **#71** + **#76**: FoW scheme + aim-offset feel with Evan bind overrides above. #51 dizzy-play is the live look / strafe / door. **#59** landed Q/E flip + deepen, CE hop + air hop + land duck/shake, H viewmodel crossover, heat v77 look (spatial input), tracers-until-impact + FX `hit`. **#66** landed the live heat tell as colorless post UV warp (Hypha; lattice = post input only). **#67 Patch A** sits on top of #33 **O** + #76 SIM-only + #59 tracers: kit-tip spawn + hip aim-dir honesty + tip→impact streak clamp (did not fight #66). **#71** landed the Range Tech dump-dial blend on that #66 path (cooking/~ → landed/X). No remaining soft overlap on height / wheel. Lean / hop / H / hip-fire muzzle no longer cooking. Orange world heat cards are **not** the live path.
 - **/** = Goegap plate on/off (fulcrumRust #40). Does **not** steal **M** (map).
 - **Embodied feel pass landed #57** — Range Tech. Aim-offset guns / attachments / controller transposed at **medium** vs CE / FoW (outside materials and range geometry). Dials: look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-ready **6.2** · slide carry **10.3 / 0.98 / 1.02** · jump land punch **0.052** rad overlay. `AXIS_LOCK` three spaces stay. See section below.
 
@@ -314,30 +314,45 @@ See `PEEK_FINDINGS.md` Closed by #59 + `AESTHETIC_DIEGETIC_LOCK.md`.
 - Intact / do not steal: knife, bandage, lean, inspect, ToD, kits
 - Viewmodel: `reload_t` mag-out dip; inspect overlay still wins over reload dip
 
-## Live HoB zero / launch dials (fulcrumRust #33)
-- Per-kit rpm / recoil / HoB sheet was already authored (#22); this PR makes zero distance + arcade↔sim **live**
-- Constants: `ZERO_PRESETS_M` **[50.0, 100.0, 200.0]** m; default `zero_dist_m` **100**; default `hob_zero` **true** (SIM)
-- **O** — cycle live zero presets 50 → 100 → 200 → 50 (HoB solve). Shared across MP9-Z / SR-25 / M24 so G-swap does not hide the solve (`FeelSheet::cycle_zero`)
-- **P** — arcade (aim-dir launch) ↔ sim (height-over-bore + ballistic zero) via `hob_zero` (`FeelSheet::toggle_hob_zero`). Shared launch mode across kits
-- Honesty: changing zero preset changes muzzle **launch dir** only (not muzzle position); arcade vs sim launch dirs differ; sim aims up to meet sight zero; arcade launches along aim
-- **#67 sits on top** — does not replace **O**/**P**. `hip_honest_dir` blends aim → solved by existing ADS↔hip weight: ads=0 stays on aim; ads=1 keeps this arcade/sim solve. **O**/**P** still change the zero; they bite when aimed. Not a new cone
-- Toast: `ZERO  {n} M` / `LAUNCH  ARCADE` / `LAUNCH  SIM` (age **1.2s**, `Slot::Cycle`)
-- Glasses status strip (labels only, never a second ammo HUD): `Z{zero_dist_m:.0}  SIM|ARCADE` e.g. `Z100  SIM`
+## Live HoB zero / launch dials (fulcrumRust #33; SIM-only #76)
+- Per-kit rpm / recoil / HoB sheet was already authored (#22); #33 made zero distance + arcade↔sim **live**. **#76 supersedes the dual path** — launch is **SIM only** (HoB + gravity / zero); arcade aim-dir dead; leftover `hob_zero` ignored
+- Constants: `ZERO_PRESETS_M` **[50.0, 100.0, 200.0]** m; default `zero_dist_m` **100**. Leftover `hob_zero` stays sheet-shaped (`HOB_ZERO_DEFAULT` **true**) — gameplay no longer reads it
+- **O** — cycle live zero presets 50 → 100 → 200 → 50 (HoB solve). Shared across MP9-Z / SR-25 / M24 so G-swap does not hide the solve (`FeelSheet::cycle_zero`). **Stays**
+- **P** — unused after #76 (no new bind). `FeelSheet::toggle_hob_zero` + session **P** apply gone; **P** no longer sets an input edge. Then #33 arcade (aim-dir) ↔ sim (HoB + ballistic zero)
+- Honesty: changing zero preset changes muzzle **launch dir** only (not muzzle position). **#76:** one SIM model (`solve_ballistic_launch` — not a precomputed bake). Sim aims up to meet sight zero. Arcade aim-dir return in `muzzle_and_launch` is dead
+- **#67 sits on top** — does not replace **O**. `hip_honest_dir` blends aim → solved by existing ADS↔hip weight: ads=0 stays on aim; ads=1 keeps this SIM solve. **O** still changes the zero; it bites when aimed. **P** does not. Not a new cone. Per-kit recoil / `yaw_walk` stay (MP9-Z kick 1.0 · SR-25 1.15 · M24 1.75)
+- Toast: `ZERO  {n} M` (age **1.2s**, `Slot::Cycle`). `LAUNCH  ARCADE` / `LAUNCH  SIM` gone with **P**
+- Glasses status strip (labels only, never a second ammo HUD): `Z{zero_dist_m:.0}  SIM` e.g. `Z100  SIM` — never `ARCADE`
 - Intact / do not steal: **[ / ]** stay ToD clock; **− / =** stay exposure; **9 / 0** left free; does not steal **T** / **C** / **R** / **Q** / **E** / **Z** / **B** / **V** / **N** / **U** / **`** / **F** / **X** / **H** / **1** / **2** / **3** / **G** / **Mouse4**; tip→impact tracers / muzzle / sparks stay; reload / knife / bandage / lean / inspect / ToD stay seated
 
 ## Patch A muzzle tip + honest hip fire (Range Tech — landed #67)
 
-Evan lock. **Shipped** [fulcrumRust #67](https://github.com/initialvisuals/fulcrumRust/pull/67) (2026-09-08, `258b90fb`). **Range Tech** owns it. Focused ballistics / tracers / muzzle slice — no new systems, no heat-card color, no Lab-Rat terrain, no fight with Hypha #66 (colorless post warp **landed #66**). **O**/**P** HoB zero + arcade↔sim (#33) and #59 tracers-until-impact + FX `hit` stay; Patch A sits on top.
+Evan lock. **Shipped** [fulcrumRust #67](https://github.com/initialvisuals/fulcrumRust/pull/67) (2026-09-08, `258b90fb`). **Range Tech** owns it. Focused ballistics / tracers / muzzle slice — no new systems, no heat-card color, no Lab-Rat terrain, no fight with Hypha #66 (colorless post warp **landed #66**). **O** HoB zero (#33) + **#76 SIM-only** and #59 tracers-until-impact + FX `hit` stay; Patch A sits on top. **P** unused.
 
 | Dial | Was | Now |
 |------|-----|-----|
 | **Spawn origin** | Feel-lab socket center (`muzzle_local` z=−0.405, flash-hider middle) | Front face of the forward-most **heat-tagged kit box** (birdcage / can) via `kit_mesh::muzzle_tip_local` (same DNA the viewmodel already draws). `muzzle_socket_local` stays the authored fallback |
-| **Hip launch** | SIM 100 m HoB from a right-low hip muzzle → close-range **up + right** of the reticle | `hip_honest_dir`: ads=0 stays on **aim**; ads=1 keeps the arcade/sim solve. Existing ADS↔hip weight + **P** arcade dir. Not a new cone. **O**/**P** still change the zero; they bite when aimed |
+| **Hip launch** | SIM 100 m HoB from a right-low hip muzzle → close-range **up + right** of the reticle | `hip_honest_dir`: ads=0 stays on **aim**; ads=1 keeps the SIM HoB/zero solve. Existing ADS↔hip weight. Not a new cone. **O** still changes the zero; it bites when aimed. **P** unused (#76) |
 | **Streak** | `tracer_len` (0.55 m) used as a **receiver skip**; then a 10 m box drawn backward through the gun | Spawn **on the tip**. `tracer_len` is length again. Back of the streak clamped to the tip (feel-lab tip→impact). Distant speed scale kept once the slug is past the gun |
 
 Do **not** claim first big-map / `dBXpg` / full metal-tech kits / Lab-Rat atelier plugs shipped. Heat tell is Hypha #66 colorless post warp — this PR did not fight #66 and did not ship heat color. Music playlist beds **are** shipped #64. Kit metal/grit PBR stub **is** shipped #64.
 
 See `PEEK_FINDINGS.md` Closed by #67.
+
+## SIM-only launch (Range Tech — landed #76)
+
+Evan lock. **Shipped** [fulcrumRust #76](https://github.com/initialvisuals/fulcrumRust/pull/76) (2026-09-09, `28be5580`). **Range Tech** owns it. Flips #33’s dual-path launch to one live model. No projectile rewrite, no heat, no terrain. Ledger: `[X] sim-default / single model (#76 Range Tech)`.
+
+| Dial | Was | Now |
+|------|-----|-----|
+| **Launch path** (`hob_zero` / `muzzle_and_launch`) | **P** arcade↔sim (`false` = aim-dir, `true` = HoB + gravity / zero) | **SIM only** — live HoB + gravity / zero solve; arcade aim-dir branch dead; leftover `hob_zero` ignored |
+| **P** | arcade↔sim toggle | unused (no new bind). `toggle_hob_zero` + session **P** apply gone; **P** no longer sets an input edge |
+| **O** | cycle 50 / 100 / 200 m zero | still cycles those presets (`FeelSheet::cycle_zero`) |
+| kit recoil / `yaw_walk` | MP9-Z kick 1.0 · SR-25 1.15 · M24 1.75 + distinct walks | unchanged |
+
+“Bake” here is **not** a precomputed trajectory. `solve_ballistic_launch` stays the existing feel-lab low-arc solve so shots share one deterministic model. **#67** hip honesty stays on top: ads=0 on aim; ads=1 keeps this SIM solve. Glasses `Z{n}  SIM` only — never `ARCADE`. Toast `ZERO  {n} M` stays; `LAUNCH  ARCADE` / `LAUNCH  SIM` gone.
+
+See `PEEK_FINDINGS.md` Closed by #76.
 
 ## Colorless muzzle heat (Hypha — landed #66)
 
@@ -390,7 +405,7 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - Same cook path: `FeelState.barrel_energy` still climbs so the tip lattice feeds `post.heat` (#66) for live dialing (no second heat cook). Lattice is post input only — no world-pipeline orange card
 - Ammo dial cheat: mag **still spends** while holding; **release refills** the seated mag via `DayOneKit::refill_mag` (tops stick to `smg_mag_size`, does **not** spend a reserve)
 - Glasses: `HEAT TUNE` label only (amber-ish overlay) — never a second ammo HUD; must not count mag rounds
-- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O/P zero/launch · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
+- Intact / do not steal: ToD **[ ]**/K/L/−/=/,/. · lean Q/E · inspect ` · reload R · knife Mouse4/C · bandage T · O zero (#33) · P unused (#76) · I stim · Y host · O/P/T/C/R/Q/E/Z/B/V/N/U/`/F/X/H/G/I/Y/1/2/3/Mouse4
 - Tests that define the lock: `heat_tune_climbs_energy_without_camera_punch`, `heat_tune_does_not_fight_tod_lean_inspect_reload_knife_bandage_zero`, `heat_tune_glasses_do_not_count_mag`, `j_is_heat_tune_hold_without_stealing_binds`
 
 ## Listen-server + invite stub (fulcrumRust #34)
@@ -400,7 +415,7 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - Glasses labels only: `HOST  ip:port`, then `JOIN` / `PEER` after HELLO/WELCOME — never a second ammo HUD
 - Honesty: handshake / presence only — both machines still sim locally; **no** world replication / shoot/Locus/terrain/audio rewrite / PvEvP sim
 - Solo **Deploy** unchanged (`net=off` on smoke)
-- Does **not** steal **I** stim (#37), **O**/**P** HoB zero (#33), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
+- Does **not** steal **I** stim (#37), **O** HoB zero (#33), **P** unused (#76), hold-**J** heat-tune (#35), or T/C/R/Q/E/Z/B/V/N/U/`/F/M/1/2/3/Mouse4
 - Bind: **Y** alive host only (#34). Stim is **I** while downed (#37). Seats do not fight — downed Y is a no-op for host and stim.
 
 ## Down / death stub (fulcrumRust #36 + #37 bind)
@@ -414,7 +429,7 @@ See `heat-card-dial-sheet.md` + `PEEK_FINDINGS.md` Closed by #71.
 - **Mouse4 / C** knife slash on a **downed or dying** Locus while you are downed or low (≤25 HP) → `RALLY` burst (+45 HP / +20 armor, stands if downed)
 - Bleed-out ~22s → `DEAD` + dark bag; a new bleed-out **replaces** previous bag; **F** tap on bag = light corpse-reclaim stub (`DEAD  BAG STUB` / `CORPSE RECLAIM STUB`)
 - Glasses/toasts labels only (never a second ammo/health HUD): `DOWNED` · `DEAD` · `STIM` · `NO STIM` · `STIM  PICKUP` · `STAB STUB  NO NET` · `RALLY` · `NEED STAB` · `DEAD  BAG STUB` · `CORPSE RECLAIM STUB` · prompts like `HOLD F  SELF-STAB STUB` / `[F] PICK UP STIM` / `STABILIZED  T HEAL / I STIM / SLASH RALLY`
-- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/−/=/,/. · O/P zero/launch · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` stay. **I** is stim (does not steal Y host). **Y** is host alive-only (does not steal I stim).
+- Intact / do not steal: **T** stays bandage · knife Mouse4/C · lean Q/E · inspect ` · reload R · kits G/4/5/6 · curl 1/2/3 · ToD **[ ]**/K/L/−/=/,/. · O zero (#33) · P unused (#76) · hold-J heat-tune · listen-server title HOST/JOIN + `--host` / `--join` stay. **I** is stim (does not steal Y host). **Y** is host alive-only (does not steal I stim).
 - Tests that define the lock: `y_hosts_i_stims_without_stealing_binds`, `y_alive_hosts_i_downed_stims_without_crossing`.
 - Parked / still TODO (do not claim done): death cam; teammate net stabilize; timed surface kill; full extract loot loop.
 
@@ -705,7 +720,7 @@ Range Tech. Store `dBXpg` greeble pack was **not** on the shelf — still **open
 - Menus / settings: Augury title+HOLD chrome + Options shell shipped #45; Hypha Graphics/Gameplay/Controls + window + persist shipped #46; GPU post stack shipped **#55** (AO/AA/CA/grain/DoF; smoke `post=aa`; not full bloom/god-ray); **colorless muzzle heat landed #66** (sample-only UV warp; no new Graphics sliders); **ADS viewmodel DoF landed #68** (ADS near + far on the same Options **DOF**); **heat dial blend landed #71** (Range Tech; dump-dial cooking/~ → landed/X; #66 path stays)
 - One-click Windows `build.bat` **landed as Hypha #42 + Range Tech #48** (always pause + `build.log` tee); quality/flag options still cooking / open (Lab-Rat mirror for pycelium later — no dials invented here)
 - Embodied feel pass: Range Tech medium dials **landed #57** (look inertia queue **26**; ADS **0.86** / **6.4**; sprint high-ready **6.2**; slide **10.3 / 0.98 / 1.02**; land punch **0.052** rad overlay; AXIS_LOCK stay; no materials / range geo)
-- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer stays Range Tech spatial input / `barrel_energy` / hold-J; **live tell is Hypha colorless post UV warp landed #66** (lattice = post input only; no world-pipeline orange card); tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **O**/**P** + #59 tracers-until-impact stay. #67 did **not** fight #66 and did **not** ship heat color. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). #68 did **not** ship heat color (live tell is Hypha #66). **Heat dial blend landed #71** — dump-dial cooking/~ → landed/X; live defaults sit between old bake and the dump (haze **0.07** / size **0.83** / scaleX **0.396** / lobe **0.698**); #66 colorless path stays; no orange card redraw. Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map brief **not shipped**. Shot propagation still later
+- Evan peek feel **landed #59**: H viewmodel crossover (hip +X ~0.10 → partial left ~−0.041, cap `shoulder_x_min` −0.055; ADS **0.32**); lean flip + deepen (**Q = peek right** / **E = peek left**; depth **0.5 / 0.5**); CE hop + air hop (`JUMP_FORCE` **12** / `|GRAVITY|` **30**; land duck **0.14 m** + shake **0.2** when impact > 8); heat motion v77 shimmer stays Range Tech spatial input / `barrel_energy` / hold-J; **live tell is Hypha colorless post UV warp landed #66** (lattice = post input only; no world-pipeline orange card); tracers live until impact + FX `hit`. Day-one handmade SFX vendor **landed #62**. **Patch A muzzle landed #67** — kit-tip spawn (`muzzle_tip_local`) + `hip_honest_dir` + tip→impact streak clamp. **O** + #59 tracers-until-impact stay; **P** unused (#76). #67 did **not** fight #66 and did **not** ship heat color. **ADS viewmodel DoF landed #68** — ADS near + far on the same #55 pass / same Options **DOF** (radius **0.0048**; taps **12**; near fade 0.90→2.20 m; breath mul **1.6 parked**). #68 did **not** ship heat color (live tell is Hypha #66). **Heat dial blend landed #71** — dump-dial cooking/~ → landed/X; live defaults sit between old bake and the dump (haze **0.07** / size **0.83** / scaleX **0.396** / lobe **0.698**); #66 colorless path stays; no orange card redraw. **SIM-only launch landed #76** — one HoB + gravity / zero model; arcade aim-dir dead; leftover `hob_zero` ignored; **O** 50/100/200 stay; #67 hip honesty on the single SIM model. Lab-Rat terrain untouched. Music playlist beds **landed #64**. Kit metal/grit PBR stub **landed #64**. Store `dBXpg` still **open**. First big-map brief **not shipped**. Shot propagation still later
 - Texture compression (2026-09-07): atelier roughness packs are **4k 48-bit PNG** — too large. Do **not** ship raw 4k 48-bit into the yard. Lab-Rat **#58 quiet grit greyscales landed** (vendored 256² bake-downs + `sample_channels` quiet height + `grit::rough` wear — the near source). Hypha LOD-tied mips **shipped #60** on Transvoxel **distance rings** (near 256² / mid 64² / far 16²; far softer). Do **not** claim the whole roughness→stamp cook. Near LOD raise **shipped #61** (subdivs 32/16/4; grit mips stay). Next lock = **first big-map brief**. See `STAMP_FEEL_LOCK.md` + `TERRAIN_NORTHSTAR.md`
 - Atelier: plugs **open** (Evan **clean** yell 2026-09-08 ~00:00 ET). PBR batch **in** (150 roughness + textures/PBR ~26 sets). #58 `FULCRUM_GRIT=` / `FULCRUM_ATELIER=` stay read-only **load** paths. Further Lab-Rat roughness → stamp stays on **fulcrumRust only** — bake-down first; grit / slope / PBR **open**. Range Tech kit metal/grit PBR stub **landed #64**; store `dBXpg` still **open**. Music playlist beds **landed #64**. Augury FoW brand / menu video **when cut ready**
 - **SFX remix DNA** (2026-09-08 ~00:00 ET): creative reuse OK — pitch / speed / effects to mint new one-shots from existing packs; indie underground vibe; don’t overuse the same stem. #62 vendor stays the live FILE_SLOTS fill. First ±6% fire/foot/reload jitter **landed #64**; full remix minting still **open**
@@ -734,7 +749,7 @@ Hold-` inspect pose: fulcrumRust PR #28 (2026-09-07).
 Lab-Rat Inked void-spore hotspot: fulcrumRust PR #30 (2026-09-07).
 Bandage use stub: fulcrumRust PR #31 (2026-09-07).
 Mag reload DNA: fulcrumRust PR #32 (2026-09-07).
-Live HoB zero / arcade↔sim launch: fulcrumRust PR #33 (2026-09-07).
+Live HoB zero / launch dials: fulcrumRust PR #33 (2026-09-07). Dual-path arcade↔sim **superseded #76** — **O** 50/100/200 stay; **P** unused.
 Listen-server + invite stub: fulcrumRust PR #34 (2026-09-07).
 Heat-tune dump (hold-J): fulcrumRust PR #35 (2026-09-07).
 Down / death stub: fulcrumRust PR #36 (2026-09-07).
@@ -757,9 +772,10 @@ Menus / settings ownership: Evan dump (2026-09-07) — Augury shell shipped #45;
 Embodied feel pass (aim-offset × CE/FoW medium dials, Range Tech): fulcrumRust PR #57 (2026-09-07) — **landed**.
 Evan peek feel (lean flip + deepen, CE hop + air hop, heat v77 look, H crossover, tracers-until-impact + FX `hit`): fulcrumRust PR #59 (2026-09-07) — **landed**. See `PEEK_FINDINGS.md` Closed by #59.
 Hypha colorless muzzle heat (sample-only `heat_warp_uv`; lattice = post input only; no world-pipeline orange card): fulcrumRust PR #66 (2026-09-08) — **landed**. Range Tech keeps `barrel_energy` / heat dials / hold-J. Live defaults are the **#71 blend**. See `PEEK_FINDINGS.md` Closed by #66.
-Range Tech Patch A muzzle (kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp): fulcrumRust PR #67 (2026-09-08) — **landed**. Sits on #33 **O**/**P** + #59 tracers-until-impact; does not replace them. Did not fight Hypha #66 / did not ship heat color. Lab-Rat terrain untouched. See `PEEK_FINDINGS.md` Closed by #67.
+Range Tech Patch A muzzle (kit-tip spawn + `hip_honest_dir` + tip→impact streak clamp): fulcrumRust PR #67 (2026-09-08) — **landed**. Sits on #33 **O** + #76 SIM-only + #59 tracers-until-impact; does not replace them. Did not fight Hypha #66 / did not ship heat color. Lab-Rat terrain untouched. See `PEEK_FINDINGS.md` Closed by #67.
 Range Tech ADS viewmodel DoF (ADS near + far on #55 stack; radius **0.0048** / taps **12** / near fade 0.90→2.20 m; breath mul **1.6 parked**): fulcrumRust PR #68 (2026-09-08) — **landed**. Same Options **DOF** / `project.json` `depth_of_field`. See `PEEK_FINDINGS.md` Closed by #68.
 Range Tech heat dial blend toward aim-offset dump (was→now→stolen on the #66 post path; haze **0.07** / size **0.83** / scaleX **0.396** / lobe **0.698**; dump-dial cooking/~ → landed/X): fulcrumRust PR #71 (2026-09-08) — **landed**. #66 architecture stays; no orange card redraw. Glasses / live sheet still drive fields. See `PEEK_FINDINGS.md` Closed by #71 + `heat-card-dial-sheet.md`.
+Range Tech SIM-only launch (one HoB + gravity / zero model; arcade aim-dir dead; leftover `hob_zero` ignored; **P** unused; **O** 50/100/200 stay; #67 hip honesty + per-kit recoil/`yaw_walk` stay): fulcrumRust PR #76 (2026-09-09) — **landed**. Not a precomputed bake. See `PEEK_FINDINGS.md` Closed by #76.
 Texture LOD compress + atelier read-only: clerk lock, Initial Visuals (2026-09-07). Lab-Rat **#58 quiet grit greyscales landed** (vendored bake-downs); Hypha ring-mip texture LOD **shipped #60** (256/64/16; far softer; atelier read-only). Further roughness→stamp still open. Quiet influence — no franchise name-drop. See `PEEK_FINDINGS.md` Closed by #60 / `STAMP_FEEL_LOCK.md` / `TERRAIN_NORTHSTAR.md`.
 LOD-tied grit / material mips (near 256² / mid 64² / far 16² BC4-style; far drops grain hashes; atelier read-only): fulcrumRust PR #60 (2026-09-07) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #60.
 Near LOD raise (16/8/4 → 32/16/4; grid/radius stay #43; grit mips stay #60): fulcrumRust PR #61 (2026-09-08) — **landed**. Hypha. See `PEEK_FINDINGS.md` Closed by #61.
