@@ -127,7 +127,7 @@ Technology lock for Hypha consume — **not** another mesher and **not** Transvo
 | **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
 | **2D mask / pycelium** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` — #39 harness applies it on the three existing plots via `StampField::layers` as a shallow anonymous scale test (still not a fourth named plot) |
 
-`ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl, **#114** shallow Subtract crawl). Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
+`ChannelOp`: Union / Subtract / Paint / Replace. `StampField::layers` (authored extras) vs `StampField::content` (compiled consumers: sit-on-surface, wear, Inked hotspot, yard/curl, **#114** shallow Subtract crawl; **#127** probe consume appends at bake). **#130** sandbox pedon is an off-stream leftover overlay — `StampField::layers` / `stream_rev` stay cold; STREAM remesh stays Hypha **#123**; pad crawl stays **#114**. Hypha `sample_channels` / `fill_chunk_samples` unchanged. Lab-Rat writes; Hypha remeshes.
 
 Detail: fulcrumRust `docs/CHANNELS.md` + house `STAMP_FEEL_LOCK.md`.
 
@@ -223,7 +223,7 @@ Deepen of stream hitch *fix* after #108 amortize — same **#81 9×9**, not a ne
 | **Emit** | STREAM `extract0` / `paint` / `gpu` + hitch-thread ms + r↑/cold↓ into #121 Home LOGS |
 | **Smoke** | Lab-Rat `probes=off` **and** Hypha `cook_ms` / `defer` |
 
-Stay out of Lab-Rat stamps / Range / Beabim / GATE / Augury Home chrome. See `PEEK_FINDINGS.md` Closed by #123 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
+Stay out of Lab-Rat stamps / Range / Beabim / GATE / Augury Home chrome. Lab-Rat **#130** sandbox pedon is an off-stream leftover overlay — does **not** remesh this STREAM. Pad crawl stays **#114**. See `PEEK_FINDINGS.md` Closed by #123 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Texture LOD / compression (Hypha + Lab-Rat, 2026-09-07)
 
