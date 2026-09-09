@@ -32,7 +32,7 @@ Ammo lives on the weapon:
 - Hold-` inspect (fulcrumRust #28): reload-lift look-over overlay so the receiver faces the lens; glasses may flash `INSPECT` — still no numeric ammo HUD
 - Live HoB zero / launch (fulcrumRust #33 / **#76** SIM-only): glasses may show `Z{n}  SIM` (e.g. `Z100  SIM`) and toast `ZERO  {n} M` — still labels only, never a numeric ammo HUD. **P** unused; `LAUNCH  ARCADE` / `LAUNCH  SIM` gone
 - Kit chrome taste (Initial Visuals Group Chat 2026-09-07): **gold paired with black** — **tech trim**, not gold-plate. Distinct from Locus **obsidian + gold crack veins** — **do not put Locus veins on gun kits**. Stamp side: `STAMP_FEEL_LOCK.md`. **#64** stub PBR applies that DNA on MP9-Z / SR-25 / M24 boxes (albedo mix + roughness/mask; TRIMSHEET_MICRO + MetalPanel/Corroded crops + scratch/print masks) — not gold-plate, not Locus veins. Store `dBXpg` still **open**
-- **Crossover shoulder / left-corner peek** (landed #59): **H** springs the **viewmodel** across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Not a body slide, not full swap / infinite travel. Mag chrome travels with the kit. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
+- **Crossover shoulder / left-corner peek** (travel landed #59; chest-cross tilt **landed #84**): **H** springs the **viewmodel** across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Extra left probe `shoulder_viewmodel` **0.12**. Tilt pitch/yaw/roll **0.08 / 0.32 / 0.39** on existing ADS cant DNA. Not a body slide, not a mesh mirror / `scale.x = −1`, not infinite travel. Mag chrome travels with the kit. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`
 
 ## Readable floor hotspots
 
@@ -122,7 +122,7 @@ Look inertia queue **26** · ADS look **0.86** / blend **6.4** · sprint high-re
 
 Day-one handmade SFX vendor **landed #62** — that is audio files, not these controller dials. #12 + #51 look/strafe/door stay. **#59** landed Q/E flip + CE hop + H crossover.
 
-**Crossover shoulder / left-corner peek** (landed #59): **H** springs the viewmodel across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Not a body slide. Not full weapon swap / infinite travel. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
+**Crossover shoulder / left-corner peek** (travel landed #59; chest-cross tilt **landed #84**): **H** springs the viewmodel across the chest from authored hip +X ~**0.10** to a partial left (~**−0.041**, cap `shoulder_x_min` **−0.055**). ADS keeps **0.32**. Tilt pitch/yaw/roll **0.08 / 0.32 / 0.39**. Not a body slide. Not a mesh mirror / `scale.x = −1`. Existing H bind, not a new key. Quiet influence — no franchise name-drop. See `FULCRUMRUST_LAST_PASS_LOCK.md`.
 
 ## Influence north-stars (shortcut aesthetics)
 
