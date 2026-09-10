@@ -75,7 +75,7 @@ Graphics pane wiring (rows + persist on `project.json`) is Hypha. Texture / mipm
 | **HIP** | Non-ADS look | **Landed #163.** Controls **HIP** (`hip_look_mul`) **1.00**. Separate from ADS. Same lock |
 | **ADS** | Aim look, **separate** from hip | **Landed #163.** Controls **ADS** (`ads_look_mul`) **1.00**. Feel-sheet ADS weight **0.86** / blend **6.4** stay DNA (**#57** / **#113** scales blend by kit ergo) — Options ADS is a user mul on top, default **1.00**. Do not invent a new ADS multiplier |
 
-Range Tech owns V/H + hip vs ADS — **shipped #163**. Hypha owns FOV + Graphics pane — **shipped #164**. AIM TUNE PX-wall cook is Range **parallel** (`shoulder_x_max` **±0.50** already **#138**) — not this sheet’s implementation. AIM TUNE LIVE per-kit pull **#167** is also Range parallel (`aim_live` + `aim_tune.*`; no new keys) — not this sheet.
+Range Tech owns V/H + hip vs ADS — **shipped #163**. Hypha owns FOV + Graphics pane — **shipped #164**. AIM TUNE PX-wall cook is Range **parallel** (`shoulder_x_max` **±0.50** already **#138**) — not this sheet’s implementation. AIM TUNE LIVE per-kit pull **#167** + two-exe persist **#169** are also Range parallel (`aim_live` + `aim_tune.*`; no new keys; absolute path · flush absorb · `project.json.lock`) — not this sheet.
 
 ## Landed #164 — Graphics RES / FOV / AA / AO / POST
 
@@ -128,7 +128,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 |------|------|
 | **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164**. Persist path already hosts `default_hip` (**#165**) |
 | **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
-| **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Powder **B later landed #166** |
+| **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** + two-exe persist **#169** parallel (not this sheet). Powder **B later landed #166** |
 | **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
 | **Beabim** | Off unless net-related |
 | **Clerk** | This sheet |
@@ -138,7 +138,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 - **Invented default numbers.** Do not invent slider mins / maxes / steps beyond stolen #164 chrome honesty (FOV 70–110 / step 1 is **not** tip-locked). Mouse V/H / hip / ADS steal **#163** only. Graphics steal **#164** only.
 - **Powder C** until Evan locks. Do not invent powder ids or C numbers. Powder **B later landed #166**.
 - **Shotgun Low-later.** Hook only (`default_hip_override`). Do **not** claim a shotgun kit or forced-Low shipped.
-- **fulcrumRust #167** AIM TUNE live-save — **landed** (Range parallel persist cook — not this sheet).
+- **fulcrumRust #167** AIM TUNE live-save + **#169** two-exe persist — **landed** (Range parallel persist cook — not this sheet). Absolute `FULCRUM_SETTINGS` / cwd path · flush absorb · `project.json.lock`. Two-instance is **not** a soft follow.
 - **PX clamp fix** is Range cook (**#138** `shoulder_x_max` **±0.50** · **#159** `TUNE_POS_X_ABS` **0.50**), not this sheet’s implementation.
 - Bloom / godRays / brightness / gamma — still **no path** (**#86**).
 - Scope glass / LPVO — still holding until LPVO (Hypha Graphics when it lands).
