@@ -1759,6 +1759,28 @@ Evan AHA (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.
 
 Powder A/B/C parked until Evan locks. Do **not** claim the climb, factions, void remesh, or safe-drop shipped.
 
+## Holding / locked intent — Options shelf (res / graphics / sens / remap / Tab)
+
+Evan lock (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `OPTIONS_SHELF.md` — not chat. Do **not** invent numeric defaults unless already tip-locked elsewhere. No code.
+
+- **Intent:** flesh out Options with resolution, graphics quality, FOV, mouse/aim sens, remaps, Tab inventory press-toggle. Refer Concrete Echo for remap patterns
+- **Resolution:** dropdown Native · 1280×720 · 1920×1080 · Ultrawide 2560×1080 · 2560×1440 · 3840×2160 (4K) · ultrawide 4K class (3840×1600 class — do not invent exact) · 3440×1440 (Evan native curved UW) · Steam survey fill when cooked (do not invent a long fake list)
+- **Graphics:** AA Type dropdown · AA strength · texture quality · mipmap quality · AO quality · post-processing quality (overall)
+- **Camera / feel:** FOV slider · mouse V/H separate · aim / ADS sensitivity **separate** from hip / normal look
+- **Input:** remapping missing — steal CE patterns (Augury). Tab → inventory: press to open, press again to close — **no hold-flash** while bouncing Tab
+- **STREAM:** `StreamPolicy` window/wide/resident already Hypha — link TERRAIN / LAST_PASS; do not re-own here
+
+| Seat | Owns |
+|------|------|
+| **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring |
+| **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
+| **Range Tech** | Mouse V/H sens, hip vs ADS aim sens; AIM TUNE PX-wall cook parallel |
+| **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
+| **Beabim** | Off unless net-related |
+| **Clerk** | `OPTIONS_SHELF.md` |
+
+Invented default numbers parked. Powder A/B/C parked. PX clamp fix is Range cook, not this sheet’s implementation. Do **not** claim resolution / FOV slider / V·H·ADS split / remaps / Tab press-toggle shipped.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
