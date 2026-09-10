@@ -13,7 +13,7 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
-fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
 
 ## What to drop here
 
@@ -33,6 +33,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)
 - AIM TUNE Pos X travel (Range Tech **#138** ±0.50) → fulcrumRust [`docs/AIM_TUNE_X_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/AIM_TUNE_X_DIAL_SHEET.md)
 - PVP leftover (Beabim **#133** KIND_PVP default off · hide names · KIND_BRASS · eye 1.60/1.62 · rim respawn · **#139** HOST session board / no-127 invite · **#141** PVP honesty / PeerBody leftover / HP-AR Sync / unique pads) → fulcrumRust [`docs/PVP_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/PVP_DIAL_SHEET.md)
+- Wound feel / 1P screen-react (Range Tech **#143** — suppress-near soft short blur · armour jostle + soft blur no red · HP stronger jostle + blur + red fade · envelope `--===--------` · never full-strength blur · 1P local; Hypha `post.wound` [blur, red]; hooks Beabim KIND_PVP Hit not Sync; Death/Slain stays Augury) → fulcrumRust [`docs/WOUND_FEEL_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/WOUND_FEEL_DIAL_SHEET.md)
 - Landmark AABB ride (Hypha **#136** — `RIDE_STEP` 0.50 · `RIDE_SKIN` 0.06 · `SUPPORT_STEP` 0.25) → fulcrumRust [`docs/LANDMARK_RIDE.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/LANDMARK_RIDE.md)
 - 3P biped / PeerBody (Hypha **#131** — eye 1.60 · head 1.62 centered · left-offset killed) → fulcrumRust [`docs/BIPED_3P_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BIPED_3P_DIAL_SHEET.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
