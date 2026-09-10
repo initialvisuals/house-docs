@@ -1,10 +1,10 @@
 # Options shelf (FoW settings UI)
 
-House contract for FoW Options / settings UI (2026-09-10). **Partial shipped #163 + #164 + #165** — Range Tech Controls mouse V/H + hip/ADS · Hypha Graphics **RES / FOV / AA / AA STR / AO / POST** · Range Tech **READY HIP** Chest/Low + two-pose **U**. Remaps / Tab press-toggle stay **holding / locked intent**. Steal from this sheet + fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md) + [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md), not chat. Do **not** invent numeric defaults unless already tip-locked elsewhere. No code. Clerk owns this sheet.
+House contract for FoW Options / settings UI (2026-09-10). **Partial shipped #163 + #164 + #165 + #172** — Range Tech Controls mouse V/H + hip/ADS · Hypha Graphics **RES / FOV / AA / AA STR / AO / POST** · Range Tech **READY HIP** Chest/Low + two-pose **U** · Lab-Rat **TEXTURE / MIPMAP**. Remaps / Tab press-toggle stay **holding / locked intent**. Steal from this sheet + fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md) + [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md) + [`docs/OPTIONS_TEXTURE_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_TEXTURE_DIAL_SHEET.md), not chat. Do **not** invent numeric defaults unless already tip-locked elsewhere. No code. Clerk owns this sheet.
 
 Flesh out Options with resolution, graphics quality, FOV, mouse/aim sens, remaps, Tab inventory press-toggle. Refer Concrete Echo for remap patterns.
 
-Shipped Options shell stays: Augury list chrome **#45** · Hypha Graphics/Gameplay/Controls guts **#46** · GPU post **#55** · Graphics dump **#86** · WARP **#90** · Range Audio mixer **#21** + DEVICE **#82** · Range Controls mouse V/H + hip/ADS **#163** · Hypha Graphics shelf **#164** · Range **READY HIP** **#165**. This sheet is the **next** pane flesh-out — not a second overlay. Canonical mouse-sens + Graphics dials live on fulcrumRust — house [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) + [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) are pointers, not second tables.
+Shipped Options shell stays: Augury list chrome **#45** · Hypha Graphics/Gameplay/Controls guts **#46** · GPU post **#55** · Graphics dump **#86** · WARP **#90** · Range Audio mixer **#21** + DEVICE **#82** · Range Controls mouse V/H + hip/ADS **#163** · Hypha Graphics shelf **#164** · Range **READY HIP** **#165** · Lab-Rat **TEXTURE / MIPMAP** **#172**. This sheet is the **next** pane flesh-out — not a second overlay. Canonical mouse-sens + Graphics + texture dials live on fulcrumRust — house [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) + [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) + [`OPTIONS_TEXTURE.md`](OPTIONS_TEXTURE.md) are pointers, not second tables.
 
 ## READY HIP (Range Tech — landed #165)
 
@@ -52,18 +52,18 @@ Window mode already live **#46**: Borderless default · Windowed decorated 1280�
 
 ## Graphics
 
-Quality / type rows. Hypha Graphics pane **landed #164**. Texture / mipmap stay Lab-Rat.
+Quality / type rows. Hypha Graphics pane **landed #164**. Texture / mipmap **landed #172** (Lab-Rat).
 
-| Dial | Intent | Tip lock (stolen #164 — do not invent past this) |
-|------|--------|--------------------------------------------------|
-| **AA Type** | Dropdown | **FXAA / OFF**. Default FXAA. Live AA is luma-edge FXAA (**#55** Mycelium `fxaa.rs`). TAA later. Do not invent a longer type list |
-| **AA STR** | Strength on the chosen AA | **0–1** on the live #55 mix. Default **0.5** = pass knob. **Not** CA strength **0.35** / step **0.05** (**#46**) |
-| **Texture quality** | Lab-Rat vendor COL lane | Near grit vendor **256²** (**#58** / **#144** `pbr=vendor`). Not an Options default invented here. **Not** #164 |
-| **Mipmap quality** | Lab-Rat `lod_mips` / `FULCRUM_UV` | Hypha LOD rings near **256²** / mid **64²** / far **16²** (**#60**). Rings stay STREAM/LOD — not an Options default invented here. **Not** #164 |
-| **AO** | Quality on the #55 SSAO pass | **OFF / LOW / HIGH**. Default Off. Low = live #55 8-tap · r **0.55**. High = Mycelium **24**-tap, same 0.55 radius. No invented radius |
-| **POST** | Overall post quality | **OFF / LOW / HIGH**. Default **HIGH**. Off skips Options post (AO/AA/CA/grain/DoF/WARP). Low = AA only (if FXAA). High honors individual flags. Heat #66 + wound #143 stay. Bloom / godRays / brightness / gamma **no path** (**#86**) |
+| Dial | Intent | Tip lock (stolen — do not invent past this) |
+|------|--------|---------------------------------------------|
+| **AA Type** | Dropdown | **FXAA / OFF**. Default FXAA. Live AA is luma-edge FXAA (**#55** Mycelium `fxaa.rs`). TAA later. Do not invent a longer type list. **#164** |
+| **AA STR** | Strength on the chosen AA | **0–1** on the live #55 mix. Default **0.5** = pass knob. **Not** CA strength **0.35** / step **0.05** (**#46**). **#164** |
+| **Texture quality** | Lab-Rat vendor COL lane | **Landed #172.** **TEXTURE** default **HIGH**. LOW 16² · MED 64² · HIGH 256² · ULTRA 256². Ultra === High — tip already ships 256² (`pbr=vendor`). Persist `texture_quality`. Not atelier 3K. Not a 4k atlas |
+| **Mipmap quality** | Lab-Rat `lod_mips` / `FULCRUM_UV` | **Landed #172.** **MIPMAP** default **MED**. LOW +1 ring · MED identity · HIGH −1 · ULTRA −2. Bias after `promote_for_uv` / `MATERIAL_HOLD_M`. High ≈ `FULCRUM_UV` scale 2; Ultra ≈ scale 4 (lod-2 bridge → near 256²; lod-3 horizon → mid 64²). Persist `mipmap_quality`. Chunk metres **16** stay |
+| **AO** | Quality on the #55 SSAO pass | **OFF / LOW / HIGH**. Default Off. Low = live #55 8-tap · r **0.55**. High = Mycelium **24**-tap, same 0.55 radius. No invented radius. **#164** |
+| **POST** | Overall post quality | **OFF / LOW / HIGH**. Default **HIGH**. Off skips Options post (AO/AA/CA/grain/DoF/WARP). Low = AA only (if FXAA). High honors individual flags. Heat #66 + wound #143 stay. Bloom / godRays / brightness / gamma **no path** (**#86**). **#164** |
 
-Graphics pane wiring (rows + persist on `project.json`) is Hypha. Texture / mipmap *authority* is Lab-Rat (vendor COL / `lod_mips` / `FULCRUM_UV`). Do not dump atelier into Options Graphics.
+Graphics pane wiring (rows + persist on `project.json`) is Hypha. Texture / mipmap *authority* is Lab-Rat (vendor COL / `lod_mips` / `FULCRUM_UV`) — **landed #172**. Do not dump atelier into Options Graphics.
 
 ## Camera / feel
 
@@ -105,6 +105,19 @@ Steal from fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.
 
 Feel-lab `MoveDials.look_sens` **0.0022** + FOV-matched ADS weight stay DNA — these are user muls on top. Persist `project.json` on the existing Hypha save path. Default all-1.00 Options ⇒ same look as the old single LOOK **1.00**. Invert Y stays.
 
+## Landed #172 — Graphics TEXTURE / MIPMAP (Lab-Rat)
+
+Steal from fulcrumRust [`docs/OPTIONS_TEXTURE_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_TEXTURE_DIAL_SHEET.md) (merge `3ca49f27`). House pointer [`OPTIONS_TEXTURE.md`](OPTIONS_TEXTURE.md). Do **not** invent numbers. CREDITS + STEAL_MAP already claimed in-PR — house shelf only.
+
+Rows sit under **STREAM** on Options → GRAPHICS. A/D or Enter cycles. Persist `project.json` on the existing Hypha save path. #152 crawl lock held. Buildings sample COL live; terrain + desert regrade in place (no remesh / STREAM). `FULCRUM_TEXTURE` / `FULCRUM_MIPMAP` override at boot.
+
+| Row | Persist | Lock |
+|-----|---------|------|
+| **TEXTURE** | `texture_quality` | Default **HIGH**. LOW 16² · MED 64² · HIGH 256² · ULTRA 256². Ultra === High — tip already ships 256² (`pbr=vendor`). Not atelier 3K |
+| **MIPMAP** | `mipmap_quality` | Default **MED**. LOW +1 ring · MED identity · HIGH −1 · ULTRA −2. Bias after `promote_for_uv` / `MATERIAL_HOLD_M`. High ≈ `FULCRUM_UV` scale 2; Ultra ≈ scale 4 (lod-2 → near 256²; lod-3 → mid 64²). Chunk metres **16** stay |
+
+#152 held: `STABLE_LOCUS_RES` **16** · `MATERIAL_HOLD_M` **2.5** · `LUMA_GRAIN` ±**0.08**. Height / DISP stay bilinear. Smoke `tex=high/256` · `mip=med`. Hypha RES / FOV / AA / AO / POST / WARP / STREAM stay **#164**. Do **not** invent 4k atlases or new STREAM rings.
+
 ## Landed — Options READY HIP (#165)
 
 See **READY HIP** above. Persist `default_hip`. Shotgun Low-later remains a parked hook. Do **not** invent PreferredHand HAND L/R Options chrome from this pass. Do **not** claim Powder B.
@@ -126,8 +139,8 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164**. Persist path already hosts `default_hip` (**#165**) |
-| **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
+| **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164**. Persist path already hosts `default_hip` (**#165**) + `texture_quality` / `mipmap_quality` (**#172**) |
+| **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) — **landed #172** |
 | **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** + two-exe persist **#169** parallel (not this sheet). Powder **B later landed #166** |
 | **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
 | **Beabim** | Off unless net-related |
@@ -135,7 +148,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 
 ## Explicitly parked
 
-- **Invented default numbers.** Do not invent slider mins / maxes / steps beyond stolen #164 chrome honesty (FOV 70–110 / step 1 is **not** tip-locked). Mouse V/H / hip / ADS steal **#163** only. Graphics steal **#164** only.
+- **Invented default numbers.** Do not invent slider mins / maxes / steps beyond stolen #164 chrome honesty (FOV 70–110 / step 1 is **not** tip-locked). Mouse V/H / hip / ADS steal **#163** only. Graphics steal **#164** only. TEXTURE / MIPMAP steal **#172** only.
 - **Powder C** until Evan locks. Do not invent powder ids or C numbers. Powder **B later landed #166**.
 - **Shotgun Low-later.** Hook only (`default_hip_override`). Do **not** claim a shotgun kit or forced-Low shipped.
 - **fulcrumRust #167** AIM TUNE live-save + **#169** two-exe persist — **landed** (Range parallel persist cook — not this sheet). Absolute `FULCRUM_SETTINGS` / cwd path · flush absorb · `project.json.lock`. Two-instance is **not** a soft follow.
@@ -145,4 +158,4 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 - STREAM / `StreamPolicy` window / wide / resident — Hypha TERRAIN / LAST_PASS. Not this shelf.
 - **fulcrumRust #171** Locus Voidspore yard leftover — **landed** (Lab-Rat leftover, not this sheet). Texture / mipmap still cooking. Do **not** claim Options texture / mip from #171.
 
-See `PEEK_FINDINGS.md` Closed by #165 + Holding / locked intent — Options shelf. Overnight cooks steal from this sheet.
+See `PEEK_FINDINGS.md` Closed by #165 + Closed by #172 + Holding / locked intent — Options shelf. Overnight cooks steal from this sheet.

@@ -23,6 +23,7 @@ Feel-lab `MoveDials.look_sens` **0.0022** + feel ADS weight **0.86** / blend **6
 
 - Options READY HIP **#165** already landed (sibling — CHEST / LOW HIP, persist `default_hip`). Do **not** restamp those rows here. Do **not** claim Powder B landed
 - Hypha Graphics **RES / FOV / AA / AA STR / AO / POST** later landed **#164** — see [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md)
+- Lab-Rat **TEXTURE / MIPMAP** later landed **#172** — see [`OPTIONS_TEXTURE.md`](OPTIONS_TEXTURE.md)
 - Augury remap / Tab inventory press-toggle
 - PreferredHand A later landed **#168** — see [`PREFERRED_HAND_A.md`](PREFERRED_HAND_A.md)
 - fulcrumRust **#167** AIM TUNE LIVE per-kit persist — **landed** (Range parallel — not this sheet)

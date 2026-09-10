@@ -17,11 +17,11 @@ CREDITS + STEAL_MAP already claimed in-PR — house shelf only.
 | **AO** | `ao_quality` | **OFF / LOW / HIGH**. Default Off. Low = live #55 8-tap · r **0.55**. High = Mycelium **24**-tap, same 0.55 radius. No invented radius |
 | **POST** | `post_quality` | **OFF / LOW / HIGH**. Default **HIGH**. Off skips Options post. Low = AA only. Heat #66 + wound #143 stay |
 
-WINDOW / CA / GRAIN / DOF / FOG / CAM / WARP / STREAM unchanged. Old `"ao"` / `"aa"` bools still load. Lab-Rat texture / mipmap stay out.
+WINDOW / CA / GRAIN / DOF / FOG / CAM / WARP / STREAM unchanged. Old `"ao"` / `"aa"` bools still load. Lab-Rat texture / mipmap **later landed #172** — see [`OPTIONS_TEXTURE.md`](OPTIONS_TEXTURE.md).
 
 ## Still cooking (do not claim)
 
-- Lab-Rat texture / mipmap quality
+- Lab-Rat texture / mipmap quality **later landed #172** — see [`OPTIONS_TEXTURE.md`](OPTIONS_TEXTURE.md)
 - Augury remap / Tab inventory press-toggle
 - Options READY HIP **#165** already landed (sibling). Powder B — do **not** claim landed
 - fulcrumRust **#167** AIM TUNE live-save — **not** this cook
