@@ -11,6 +11,7 @@ Shared contracts for the atelier: bake leftovers, HUD legends, dial sheets, meth
 | [`glyph-legend.md`](glyph-legend.md) | Pycelium 3×5 HUD decode + analysis-knowledge-core |
 | [`bake-book/README.md`](bake-book/README.md) | Dial shelf — readable enough for seats without reading every `.rs`. fulcrumRust keeps STEAL_MAP / AXIS / TERRAIN / milestone / CHANNELS |
 | [`bake-book/AXIS_LOCK.md`](bake-book/AXIS_LOCK.md) | Three-space axis lock (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate) |
+| [`bake-book/HOLD_POSE_SPINE.md`](bake-book/HOLD_POSE_SPINE.md) | Grip-invariant PreferredHand A / AIM TUNE pose architecture — **holding / locked intent**, parked until Evan refresh |
 | [`README-AUDIT-2026-09-06.md`](README-AUDIT-2026-09-06.md) | Public README methodology parity snapshot |
 
 **Initial Visuals** — tools, sims, games, and experiments.

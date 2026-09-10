@@ -32,6 +32,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Options shelf (FoW settings UI — res / graphics / FOV / V·H·ADS sens / remap / Tab press-toggle — **holding / locked intent**, not shipped) → [`OPTIONS_SHELF.md`](OPTIONS_SHELF.md)
 - Terrain tune iterator (FoW live dials + **Refresh** / partial remesh — **holding / locked intent**, not shipped; peek default **underfoot + Refresh**) → [`TERRAIN_TUNE.md`](TERRAIN_TUNE.md)
 - Ballistics spine (arc **A** leftover — Beabim leftover/net **landed #160**; Range loft DNA + AIM TUNE **MODEL** stash **landed #161**; `hitscan` / `ballistic_A` stash; powder A/B/C **parked**) → [`BALLISTICS_SPINE.md`](BALLISTICS_SPINE.md) + fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BALLISTICS_A_DIAL_SHEET.md)
+- Hold pose spine (grip-invariant PreferredHand **A** / AIM TUNE — **holding / locked intent**, parked until Evan refresh) → [`HOLD_POSE_SPINE.md`](HOLD_POSE_SPINE.md)
 - Glyph HUD decode → [`../glyph-legend.md`](../glyph-legend.md)
 - Heat dials (Range Tech **#129** CE tip 0.2.8 field · **#155** visible hold-J warp) → [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md) + [`HEAT_WARP_DIAL_SHEET.md`](HEAT_WARP_DIAL_SHEET.md)
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)

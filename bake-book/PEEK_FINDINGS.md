@@ -1956,6 +1956,27 @@ Evan lock (2026-09-10 InitialVisuals). Tip **#160 → #161** complete. **Beabim 
 
 Do **not** claim powder A/B/C shipped. Hitscan stays stashed, not deleted.
 
+## Holding / locked intent — hold pose spine (PreferredHand A; parked until Evan refresh)
+
+Evan lock (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Parked until Evan refresh. Overnight cooks steal from `HOLD_POSE_SPINE.md` — not chat. Do **not** invent dial numbers. No code.
+
+- **Spine:** poses sit on the **hold/grip bone**; guns hang from attach sockets relative to that hold
+- **Optic class:** iron sights classified as an **optic class** — one class offset; ADS transitions to the active glass of the selected weapon
+- **PreferredHand A:** one pose bank + **HAND L/R mirror** — not full L+R authored pairs per gun×optic
+- **L/R shoulder:** HAND flip + lean hinge (Hypha tip). Not a second per-gun bank
+- **Grip invariant:** **hold/grip socket** is the spatial invariant across kits. Muzzle / suppressor / optic / grips are **child sockets** — attachment swaps move barrel tip, not the hold bank
+- **Ballistics loft:** uses **muzzle child**, not hold bone
+- **L/R overrides:** explicit only where asymmetric (cant/inspect) later if A fails — **not week wrap**
+
+| Seat | Owns |
+|------|------|
+| **Range Tech** | AIM TUNE / PreferredHand cook after refresh (pose bank on hold/grip · optic class · HAND L/R mirror A) |
+| **Hypha** | Lean hinge (tip). PreferredHand enum / profile **#116** already landed |
+| **Beabim** | 3P attach honesty — remote kit hangs from the same hold invariant (1P ≠ 3P held) |
+| **Clerk** | `HOLD_POSE_SPINE.md` |
+
+Full per-gun L+R banks parked. Glasses N / numpad parked. Ballistics #161 rebase separate. Do **not** claim grip-invariant A, optic-class ADS, or HAND mirror shipped.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
