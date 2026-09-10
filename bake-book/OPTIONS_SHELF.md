@@ -1,10 +1,36 @@
 # Options shelf (FoW settings UI)
 
-House contract for FoW Options / settings UI (2026-09-10). **Partial shipped #163 + #164** — Range Tech Controls mouse V/H + hip/ADS · Hypha Graphics **RES / FOV / AA / AA STR / AO / POST**. Remaps / Tab press-toggle stay **holding / locked intent**. Steal from this sheet + fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md) + [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md), not chat. Do **not** invent numeric defaults unless already tip-locked elsewhere. No code. Clerk owns this sheet.
+House contract for FoW Options / settings UI (2026-09-10). **Partial shipped #163 + #164 + #165** — Range Tech Controls mouse V/H + hip/ADS · Hypha Graphics **RES / FOV / AA / AA STR / AO / POST** · Range Tech **READY HIP** Chest/Low + two-pose **U**. Remaps / Tab press-toggle stay **holding / locked intent**. Steal from this sheet + fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md) + [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md), not chat. Do **not** invent numeric defaults unless already tip-locked elsewhere. No code. Clerk owns this sheet.
 
 Flesh out Options with resolution, graphics quality, FOV, mouse/aim sens, remaps, Tab inventory press-toggle. Refer Concrete Echo for remap patterns.
 
-Shipped Options shell stays: Augury list chrome **#45** · Hypha Graphics/Gameplay/Controls guts **#46** · GPU post **#55** · Graphics dump **#86** · WARP **#90** · Range Audio mixer **#21** + DEVICE **#82** · Range Controls mouse V/H + hip/ADS **#163** · Hypha Graphics shelf **#164**. This sheet is the **next** pane flesh-out — not a second overlay. Canonical mouse-sens + Graphics dials live on fulcrumRust — house [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) + [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) are pointers, not second tables.
+Shipped Options shell stays: Augury list chrome **#45** · Hypha Graphics/Gameplay/Controls guts **#46** · GPU post **#55** · Graphics dump **#86** · WARP **#90** · Range Audio mixer **#21** + DEVICE **#82** · Range Controls mouse V/H + hip/ADS **#163** · Hypha Graphics shelf **#164** · Range **READY HIP** **#165**. This sheet is the **next** pane flesh-out — not a second overlay. Canonical mouse-sens + Graphics dials live on fulcrumRust — house [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) + [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) are pointers, not second tables.
+
+## READY HIP (Range Tech — landed #165)
+
+Steal fulcrumRust [`docs/OPTIONS_DEFAULT_HIP_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_DEFAULT_HIP_DIAL_SHEET.md). Merge `9b8121b1`. CREDITS + STEAL_MAP already claimed in-PR — house shelf only. Do **not** invent dials.
+
+Gameplay pane row **READY HIP** · **CHEST** / **LOW HIP**. Enter / click / A/D toggle. Same Hypha persist as glasses / crosshair.
+
+| Pick | Role | Persist |
+|------|------|---------|
+| **Chest** | Tip default. Walking ready-hip (`hip`, Y **−0.2128**). | `default_hip`: `"chest"` |
+| **Low hip** | Options other. Shotgun low-ready (`hip_low`, Y **−0.3528**). | `default_hip`: `"low"` |
+
+Parse aliases: `chest` / `ready` / `hip` · `low` / `low_hip` / `hip_low`. Missing key = Chest.
+
+Spawn / hideout ready / extract deploy / death+PVP respawn / quit-to-menu restart seat the chosen hip. Canted is **not** a spawn pose.
+
+In-play **U** is **two poses**: chosen default hip ↔ **canted**. No Chest → LowHip → Canted ladder. Hold-**Mouse5** still forces `ads_cant` from the default hip without stealing U. RMB from canted is CQC ADS. RMB from Low (when that is the default) stays iron/optic — **#99**.
+
+Authored `hip` / `hip_low` / `hip_cant` + AIM TUNE WEAPON poses stay. Play does not cycle all three.
+
+`Settings::ready_hold(kind)` is `default_hip.resolve(kind)` — seat and U both go through it.
+
+**Shotgun Low-later** is a parked design note only (`WeaponKind::default_hip_override` → `Option<DefaultHip>` hook). Day-one MP9-Z / SR-25 / M24 return `None`. **Do not claim shotgun Low shipped.**
+
+Controls **MOUSE H/V + HIP/ADS** stay planted **#163** (`OPTIONS_MOUSE_SENS`) — not this cook. Do **not** duplicate those rows here.
+
 
 ## Resolution
 
@@ -79,9 +105,9 @@ Steal from fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.
 
 Feel-lab `MoveDials.look_sens` **0.0022** + FOV-matched ADS weight stay DNA — these are user muls on top. Persist `project.json` on the existing Hypha save path. Default all-1.00 Options ⇒ same look as the old single LOOK **1.00**. Invert Y stays.
 
-## Holding — Options default hip (Chest vs Low) — not this shelf
+## Landed — Options READY HIP (#165)
 
-Evan lock. Options default hip **Chest (default)** vs **Low** toggle. In-play two poses only (chosen hip + canted). Shotgun may force Low later. Do **not** add READY HIP persist rows here. Do **not** claim the hip toggle or Powder B landed. Do **not** invent implementation. #168 play U stays two poses without restamping this seat.
+See **READY HIP** above. Persist `default_hip`. Shotgun Low-later remains a parked hook. Do **not** invent PreferredHand HAND L/R Options chrome from this pass. Do **not** claim Powder B.
 
 ## Input
 
@@ -100,9 +126,9 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 
 | Seat | Owns |
 |------|------|
-| **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164** |
+| **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164**. Persist path already hosts `default_hip` (**#165**) |
 | **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
-| **Range Tech** | Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Options default hip Chest vs Low + Powder B still cooking — do **not** claim landed |
+| **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Powder B still cooking — do **not** claim landed |
 | **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
 | **Beabim** | Off unless net-related |
 | **Clerk** | This sheet |
@@ -111,11 +137,11 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 
 - **Invented default numbers.** Do not invent slider mins / maxes / steps beyond stolen #164 chrome honesty (FOV 70–110 / step 1 is **not** tip-locked). Mouse V/H / hip / ADS steal **#163** only. Graphics steal **#164** only.
 - **Powder A/B/C** until Evan locks. Do not invent powder ids or dials. Do **not** claim Powder B landed.
-- **Options default hip Chest vs Low toggle.** Do **not** add READY HIP rows on this shelf. Do **not** claim the hip toggle landed.
+- **Shotgun Low-later.** Hook only (`default_hip_override`). Do **not** claim a shotgun kit or forced-Low shipped.
 - **fulcrumRust #167** AIM TUNE live-save — **landed** (Range parallel persist cook — not this sheet).
 - **PX clamp fix** is Range cook (**#138** `shoulder_x_max` **±0.50** · **#159** `TUNE_POS_X_ABS` **0.50**), not this sheet’s implementation.
 - Bloom / godRays / brightness / gamma — still **no path** (**#86**).
 - Scope glass / LPVO — still holding until LPVO (Hypha Graphics when it lands).
 - STREAM / `StreamPolicy` window / wide / resident — Hypha TERRAIN / LAST_PASS. Not this shelf.
 
-See `PEEK_FINDINGS.md` Holding / locked intent — Options shelf. Overnight cooks steal from this sheet.
+See `PEEK_FINDINGS.md` Closed by #165 + Holding / locked intent — Options shelf. Overnight cooks steal from this sheet.
