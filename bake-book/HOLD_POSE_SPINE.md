@@ -18,7 +18,7 @@ Poses sit on the **hold/grip bone**. Guns hang from attach sockets relative to t
 | **L/R shoulder** | HAND flip + lean hinge (Hypha tip). Not a second per-gun bank. Leftover H dest ~**−0.041** is **not** the live left pose |
 | **Grip invariant** | **Hold/grip socket** is the spatial invariant across kits. Muzzle / suppressor / optic / grips are **child sockets** — attachment swaps move barrel tip, not the hold bank |
 | **Ballistics loft** | Uses **muzzle child**, not hold bone |
-| **AIM TUNE** | **Landed #168.** Panel shows **HAND · kit · pose**. Left numbers are the mirror. Live-save schema **landed #167** (sibling persist — not this spine) |
+| **AIM TUNE** | **Landed #168.** Panel shows **HAND · kit · pose**. Left numbers are the mirror. Live-save schema **landed #167** + two-exe persist **#169** (sibling persist — not this spine) |
 | **ADS crosshair** | **Landed #168.** 2D plus hides when `ads_factor` **> 0.5**. Hip + U-cycle canted keep it |
 | **L/R overrides** | Explicit L/R overrides only where asymmetric (cant/inspect) later if A fails — **not week wrap** |
 
@@ -45,7 +45,7 @@ Play U stays two poses (chosen hip ↔ canted). READY HIP persist **already land
 These stay facts. This sheet does **not** claim they already implemented grip-invariant A.
 
 - PreferredHand enum + NEW PROFILE onboard **landed #116** (Hypha). Right default · `project.json` permanent vs live · death clears live · extract→stash stub. `shoulder_t` seats Range H. **#168** consumes the enum for home seat + live HAND chrome. **No** `scale.x = −1`
-- AIM TUNE End sheet **#97** / live-save **#103** / per-kit pull **#167** / PX **#138** / **#159**. Poses **#94 / #98 / #99 / #100** · hold springs **#109**. Canted optic ATTACH **#150**
+- AIM TUNE End sheet **#97** / live-save **#103** / per-kit pull **#167** / two-exe persist **#169** / PX **#138** / **#159**. Poses **#94 / #98 / #99 / #100** · hold springs **#109**. Canted optic ATTACH **#150**
 - Hypha 3P lean hinge **#145**. Beabim held 3P kit clone **#153**. House lock **1P ≠ 3P** held
 - Options READY HIP **landed #165** (CHEST / LOW HIP, persist `default_hip`, in-play **U** = chosen hip ↔ canted). This spine does **not** own those rows
 
@@ -65,9 +65,9 @@ These stay facts. This sheet does **not** claim they already implemented grip-in
 - **Full per-gun L+R banks.** A is the path. Do not author gun×optic L+R pairs this wrap
 - **Glasses N / numpad.** Not this sheet
 - **Ballistics #161 rebase.** Separate. Loft still uses **muzzle child**, not hold bone — do not fold that rebase into this cook
-- **fulcrumRust #167** AIM TUNE live-save — **landed** (sibling persist cook — not this spine)
+- **fulcrumRust #167** AIM TUNE live-save + **#169** two-exe persist — **landed** (sibling persist cook — not this spine). Absolute `FULCRUM_SETTINGS` / cwd path · flush absorb · `project.json.lock`. Two-instance is **not** a soft follow
 - **Powder A/B/C.** Do **not** claim Powder B landed
 - **READY HIP persist / Chest vs Low Options row.** **Already landed #165** (sibling). This spine does **not** own those rows. See `OPTIONS_SHELF.md`
 - Explicit L/R overrides for asymmetric cant/inspect — later if A fails. **Not week wrap**
 
-See `PEEK_FINDINGS.md` Closed by #167 + Closed by #168 + Closed by #165. Overnight cooks steal from this sheet.
+See `PEEK_FINDINGS.md` Closed by #167 + Closed by #169 + Closed by #168 + Closed by #165. Overnight cooks steal from this sheet.
