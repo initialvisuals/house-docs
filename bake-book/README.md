@@ -13,7 +13,7 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
-fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, `STAMP_PBR_DIAL_SHEET.md`, `HEAT_WARP_DIAL_SHEET.md`, `MP_WEAPON_DIAL_SHEET.md`, `SOFT_RIM_DIAL_SHEET.md`, `BALLISTICS_A_DIAL_SHEET.md`, `OPTIONS_MOUSE_SENS_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, `STAMP_PBR_DIAL_SHEET.md`, `HEAT_WARP_DIAL_SHEET.md`, `MP_WEAPON_DIAL_SHEET.md`, `SOFT_RIM_DIAL_SHEET.md`, `BALLISTICS_A_DIAL_SHEET.md`, `OPTIONS_MOUSE_SENS_DIAL_SHEET.md`, `OPTIONS_GRAPHICS_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
 
 ## What to drop here
 
@@ -29,7 +29,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 
 - Axis lock (cam −Z / CE +X / barrel +Z) → [`AXIS_LOCK.md`](AXIS_LOCK.md)
 - Progression spine (FoW SP climb inside PvPvE + factions — **holding / locked intent**, not shipped) → [`PROGRESSION_SPINE.md`](PROGRESSION_SPINE.md)
-- Options shelf (FoW settings UI — res / graphics / FOV / remap / Tab press-toggle — **holding / locked intent**; Range mouse V/H + hip/ADS **landed #163**) → [`OPTIONS_SHELF.md`](OPTIONS_SHELF.md) + house pointer [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) → fulcrumRust [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md)
+- Options shelf (FoW settings UI — Graphics/RES/FOV **landed #164** · Controls mouse **landed #163** · remaps/Tab still **holding**) → [`OPTIONS_SHELF.md`](OPTIONS_SHELF.md) + house pointers [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) + [`OPTIONS_MOUSE_SENS.md`](OPTIONS_MOUSE_SENS.md) → fulcrumRust [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md) + [`docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_MOUSE_SENS_DIAL_SHEET.md)
 - Terrain tune iterator (FoW live dials + **Refresh** / partial remesh — **holding / locked intent**, not shipped; peek default **underfoot + Refresh**) → [`TERRAIN_TUNE.md`](TERRAIN_TUNE.md)
 - Ballistics spine (arc **A** leftover — Beabim leftover/net **landed #160**; Range loft DNA + AIM TUNE **MODEL** stash **landed #161**; `hitscan` / `ballistic_A` stash; powder A/B/C **parked**) → [`BALLISTICS_SPINE.md`](BALLISTICS_SPINE.md) + fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BALLISTICS_A_DIAL_SHEET.md)
 - Hold pose spine (grip-invariant PreferredHand **A** / AIM TUNE — **holding / locked intent**, parked until Evan refresh) → [`HOLD_POSE_SPINE.md`](HOLD_POSE_SPINE.md)

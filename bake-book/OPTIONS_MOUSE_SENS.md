@@ -22,8 +22,9 @@ Feel-lab `MoveDials.look_sens` **0.0022** + feel ADS weight **0.86** / blend **6
 ## Still cooking (do not claim)
 
 - Options default hip **Chest (default)** vs **Low** toggle. In-play two poses only (chosen hip + canted). Shotgun may force Low later. Range still cooking this tip + Powder B separately. Do **not** invent implementation.
-- Hypha res / FOV slider / AA / AO / post / WARP / STREAM
+- Hypha res / FOV / AA / AO / post **landed #164** — house [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md) + fulcrumRust [`docs/OPTIONS_GRAPHICS_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/OPTIONS_GRAPHICS_DIAL_SHEET.md). WARP / STREAM already Hypha (not this cook)
 - Augury remap / Tab inventory press-toggle
 - PreferredHand live in AIM TUNE dialogue
+- Lab-Rat texture / mipmap · TAA · bloom / godRays
 
-See `PEEK_FINDINGS.md` Closed by #163 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
+See `PEEK_FINDINGS.md` Closed by #163 + Closed by #164 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
