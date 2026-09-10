@@ -1877,6 +1877,7 @@ Range Tech Evan peek feel **landed #59**. Hypha ring-mip texture LOD **landed #6
 | LIVE off | stub | Still does not write `aim_tune`. Leftover stash is not gated. |
 
 - Intact / out of scope: End PX ±0.50 (#159) · Options `look_mul` (#163) · Beabim leftover stash · PreferredHand · powder · Options hip Chest/Low · Hypha Graphics guts · Lab-Rat stamps · Augury Home. Per-kit `pull_aim` (#167) stays. Two-instance is **not** a soft follow
+- **Northstar (Evan 2026-09-10):** AIM TUNE LIVE = **authoring only**. Bake peeks into kit DNA for all players when banks feel right — **not** a per-player profile. Do **not** invent a player-profile persist path. Do **not** claim the bake-into-kit-DNA cook shipped
 - Detail: house `AIM_TUNE_LIVE_SAVE.md` + `HOLD_POSE_SPINE.md` + `FULCRUMRUST_LAST_PASS_LOCK.md` + fulcrumRust [`docs/AIM_TUNE_LIVE_SAVE.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/AIM_TUNE_LIVE_SAVE.md) (merge tip `ea342444`). CREDITS / STEAL_MAP stay sources of truth
 
 ## Closed by fulcrumRust #164 (2026-09-10)
@@ -2100,6 +2101,7 @@ Evan lock (2026-09-10 InitialVisuals). **Partial shipped #168** — Range one ri
 - **Grip invariant:** **hold/grip socket** is the spatial invariant across kits. Muzzle / suppressor / optic / grips are **child sockets**
 - **Ballistics loft:** uses **muzzle child**, not hold bone
 - **Already shipped (siblings):** AIM TUNE LIVE persist **#103** + per-kit pull **#167** + two-exe persist **#169** — not this spine's pose-bank cook
+- **Northstar (Evan 2026-09-10):** AIM TUNE LIVE = **authoring only**. Bake peeks into kit DNA for all players when banks feel right — **not** a per-player profile. Bake-into-DNA is **not** shipped
 - **Parked:** full per-gun L+R banks · glasses N / numpad · Powder **C** (Powder **B later landed #166**). READY HIP persist **already landed #165** (sibling — do **not** restamp)
 - **L/R overrides:** explicit only where asymmetric (cant/inspect) later if A fails — **not week wrap**
 

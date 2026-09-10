@@ -19,6 +19,7 @@ Poses sit on the **hold/grip bone**. Guns hang from attach sockets relative to t
 | **Grip invariant** | **Hold/grip socket** is the spatial invariant across kits. Muzzle / suppressor / optic / grips are **child sockets** — attachment swaps move barrel tip, not the hold bank |
 | **Ballistics loft** | Uses **muzzle child**, not hold bone |
 | **AIM TUNE** | **Landed #168.** Panel shows **HAND · kit · pose**. Left numbers are the mirror. Live-save schema **landed #167** + two-exe persist **#169** (sibling persist — not this spine) |
+| **LIVE is authoring** | Evan lock (2026-09-10). AIM TUNE LIVE = **authoring only**. Bake peeks into kit DNA for all players when banks feel right — **not** a per-player profile. Do **not** invent a player-profile path. Bake-into-DNA is **not** shipped |
 | **ADS crosshair** | **Landed #168.** 2D plus hides when `ads_factor` **> 0.5**. Hip + U-cycle canted keep it |
 | **L/R overrides** | Explicit L/R overrides only where asymmetric (cant/inspect) later if A fails — **not week wrap** |
 
@@ -65,8 +66,8 @@ These stay facts. This sheet does **not** claim they already implemented grip-in
 - **Full per-gun L+R banks.** A is the path. Do not author gun×optic L+R pairs this wrap
 - **Glasses N / numpad.** Not this sheet
 - **Ballistics #161 rebase.** Separate. Loft still uses **muzzle child**, not hold bone — do not fold that rebase into this cook
-- **fulcrumRust #167** AIM TUNE live-save + **#169** two-exe persist — **landed** (sibling persist cook — not this spine). Absolute `FULCRUM_SETTINGS` / cwd path · flush absorb · `project.json.lock`. Two-instance is **not** a soft follow
-- **Powder A/B/C.** Do **not** claim Powder B landed
+- **fulcrumRust #167** AIM TUNE live-save + **#169** two-exe persist — **landed** (sibling persist cook — not this spine). Absolute `FULCRUM_SETTINGS` / cwd path · flush absorb · `project.json.lock`. Two-instance is **not** a soft follow. LIVE = **authoring only** (Evan 2026-09-10) — bake into kit DNA when banks feel right; **not** a per-player profile. Bake-into-DNA is **not** shipped
+- **Powder A/B/C.** Powder **B later landed #166**. Do **not** claim Powder C landed
 - **READY HIP persist / Chest vs Low Options row.** **Already landed #165** (sibling). This spine does **not** own those rows. See `OPTIONS_SHELF.md`
 - Explicit L/R overrides for asymmetric cant/inspect — later if A fails. **Not week wrap**
 

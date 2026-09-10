@@ -23,6 +23,12 @@ Hideout and raid share one Hypha `project.json` (`FULCRUM_SETTINGS` if set, else
 
 End PX ±0.50 (#159), Options `look_mul` (#163), and Beabim leftover stash stay. PreferredHand / powder / Options hip Chest/Low are other seats.
 
+## Northstar (Evan 2026-09-10)
+
+AIM TUNE LIVE = **authoring only**. Bake peeks into kit DNA for all players when banks feel right — **not** a per-player profile.
+
+Do **not** invent a player-profile persist path. Do **not** claim the bake-into-kit-DNA cook shipped. #103 / #167 / #169 stay the atelier LIVE persist (absolute path · per-kit pull · flush absorb · `project.json.lock`).
+
 ## Two-instance (HOST + peer) — landed #169
 
 Lab-Rat / Evan: two exes can show different AIM TUNE peeks. Two holes, not a net pose — both **landed #169** (Range CLEAN). Not a soft follow.
