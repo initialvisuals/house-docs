@@ -4,8 +4,8 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 
 **Source:** aim-offset **v77** (`073955d`), hard refresh `app.js?v=20260906v77`  
 **Parked:** 2026-09-06 by InitialVisualsAdmin  
-**Live fulcrumRust defaults:** Range Tech **#129** CE tip **0.2.8** lock on Hypha **#66** colorless post path (was #71 blend → now CE tip → stolen dump). #71 blend / aim-offset dump stay DNA landmarks — not live. Glasses / live sheet still drive the fields.  
-**Sibling:** Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md). Not heat. Do **not** reopen orange cards.
+**Live fulcrumRust defaults:** Range Tech **#129** CE tip **0.2.8** field on Hypha **#66** colorless post path (was #71 blend → now CE tip → stolen dump). **#155** restores visible hold-J tip warp on that same field (shader gate **0.001** + lattice×**1.35** at the CE floor). #71 blend / aim-offset dump stay DNA landmarks — not live. Glasses / live sheet still drive the fields.  
+**Sibling:** Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`bake-book/VECTOR_MAG_DUMP.md`](bake-book/VECTOR_MAG_DUMP.md). Warp *range* / shader gate (**landed #155**) → [`bake-book/HEAT_WARP_DIAL_SHEET.md`](bake-book/HEAT_WARP_DIAL_SHEET.md). Not heat cards. Do **not** reopen orange cards. Options Graphics **WARP** is Hypha pixellation — not barrel heat.
 
 ## Layers
 - Master
@@ -34,9 +34,9 @@ Canonical artistic-auth params for barrel heat cards. Steal into MyceliumEngine 
 ## Persist
 - Copy-settings persists all of the above (artistic authorization → solidify defaults)
 
-## fulcrumRust live defaults (Range Tech — landed #129 CE tip 0.2.8)
+## fulcrumRust live defaults (Range Tech — landed #129 CE tip 0.2.8; warp visible #155)
 
-Range Tech owns heat dials on the Hypha **#66** post path. Live `HeatDials` + post strength/radius are Evan's locked CE tuner from `_CONCRETE_ECHO_` `4_15_26` `barrelHeatCanon.ts` (house-locked 2026-09-09). Past #71 dump-blend. #66 colorless post path stays. #89 projectile feel untouched. Cards do the look; barrel warp at enable floor; **no fog blob**. Tip-anchored lattice DNA stays. No second heat system. No orange card redraw. Glasses / live sheet still drive these fields.
+Range Tech owns heat dials on the Hypha **#66** post path. Live `HeatDials` + card field are Evan's locked CE tuner from `_CONCRETE_ECHO_` `4_15_26` `barrelHeatCanon.ts` (house-locked 2026-09-09). Past #71 dump-blend. #66 colorless post path stays. #89 projectile feel untouched. Cards author the field; **#155** sells barrel warp at the CE enable floor (`haze_strength` **0.01**); **no fog blob**. Tip-anchored lattice DNA stays. No second heat system. No orange card redraw. Glasses / live sheet still drive these fields. Options Graphics **WARP** stays Hypha pixellation.
 
 WAS = **#71 blend** (prior live / DNA). STOLEN = aim-offset dump (DNA). NOW = CE tip **0.2.8**.
 
@@ -56,11 +56,13 @@ WAS = **#71 blend** (prior live / DNA). STOLEN = aim-offset dump (DNA). NOW = CE
 | heatHazeLobeSize | lobe | 0.698 | **0.40** | 0.35 |
 | masters / heatGrabSplit | master, barrel_haze, ground_haze, grab_split | true | true | true |
 
-### Post strength + radius (still #66 path)
+### Post strength + radius (still #66 path; warp sold #155)
 
-- **Strength:** `visual * haze`. Haze **0.01** is the enable-floor (subtle warp; #71 remap 0.01→lattice×1.35 was the fog). **0** still kills warp (Options / glasses / live sheet)
-- **Radius:** scale/cap **0.40 / 0.08** (muzzle-adjacent; short cards + tight lobe kill the blob). Lattice bbox still anchors. Tip-weighted lattice energy + energy-weighted post UV so the field sits on the can, not a haze cloud
-- WGSL `heat_warp_uv` unchanged (sample-only UV displace). Overlay disc lobe stays parked (`HEAT_LOBE_DISCS = 0`)
+- **Strength:** `visual × (lattice_emissive_mean × 1.35) × haze_warp_mul(haze)` (**#155**). Haze **0** = off · **0.01** = CE enable floor (mul **1.00** → strength **0.81** at lattice 0.60) · **0.11** = stolen max (mul **1.20**). `#129` `visual * haze` at the floor was **0.01** — shader early-out `< 0.01` then × **0.010** (~0.0001 UV) made hold-J invisible. **0** still kills warp
+- **Shader gate:** **`strength < 0.001`** (was 0.01 — fought the enable floor). UV scale **0.010** (#66) — strength 0.81 → ~0.008 UV tip shimmer
+- **Radius:** scale/cap **0.40 / 0.08** (muzzle-adjacent; short cards `scale_x/y` **0.28/0.86** + tight lobe kill the blob). Lattice bbox still anchors. Tip-weighted lattice energy + energy-weighted post UV so the field sits on the can, not a haze cloud
+- WGSL `heat_warp_uv` sample-only UV displace. Overlay disc lobe stays parked (`HEAT_LOBE_DISCS = 0`)
+- Options Graphics **WARP** (`post.warp_strength`) is Hypha floor pixellation — it does **not** feed Range heat
 
 ## Steal notes
 - Engine/CE: mirror dials as presentation-only until gameplay needs heat
@@ -69,4 +71,5 @@ WAS = **#71 blend** (prior live / DNA). STOLEN = aim-offset dump (DNA). NOW = CE
 - fulcrumRust #66 landed the Hypha colorless post path (sample-only `heat_warp_uv`; barrel haze RGB from #59 is feel-lab reference — live fulcrumRust draw is colorless warp)
 - fulcrumRust #71 landed the Range Tech dump-dial blend (DNA / prior blend — **not live**). Glasses / live sheet still drive fields. #66 architecture lock stays — do **not** reopen orange cards
 - fulcrumRust #89 (Range Tech projectile feel) did **not** retune HeatDials. Heat stays Range dials; vector mag dump stays #89
-- fulcrumRust #129 locked live HeatDials to CE tip **0.2.8** (`_CONCRETE_ECHO_` `4_15_26` `barrelHeatCanon.ts`, house-locked 2026-09-09; merge `54c558a`). Cards do the look; barrel warp at enable floor; no fog blob. Past #71 dump-blend. #66 colorless post path stays. #89 projectile feel untouched
+- fulcrumRust #129 locked live HeatDials to CE tip **0.2.8** (`_CONCRETE_ECHO_` `4_15_26` `barrelHeatCanon.ts`, house-locked 2026-09-09; merge `54c558a`). Cards author the field; #66 colorless post path stays. #89 projectile feel untouched
+- fulcrumRust #155 restored visible hold-J tip warp on that CE field (`d3d7848c`). `haze_strength` **0** / **0.01** / **0.11**. Post `visual × lattice × 1.35` at the floor (× **1.20** at 0.11). Shader gate **0.001**. UV scale **0.010**. Radius **0.40 / 0.08**. Tip cards `scale_x/y` **0.28/0.86** unchanged. Options **WARP** stays Hypha pixellation. Steal [`bake-book/HEAT_WARP_DIAL_SHEET.md`](bake-book/HEAT_WARP_DIAL_SHEET.md)
