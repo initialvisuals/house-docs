@@ -143,5 +143,6 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 - Bloom / godRays / brightness / gamma — still **no path** (**#86**).
 - Scope glass / LPVO — still holding until LPVO (Hypha Graphics when it lands).
 - STREAM / `StreamPolicy` window / wide / resident — Hypha TERRAIN / LAST_PASS. Not this shelf.
+- **fulcrumRust #171** Locus Voidspore yard leftover — **landed** (Lab-Rat leftover, not this sheet). Texture / mipmap still cooking. Do **not** claim Options texture / mip from #171.
 
 See `PEEK_FINDINGS.md` Closed by #165 + Holding / locked intent — Options shelf. Overnight cooks steal from this sheet.
