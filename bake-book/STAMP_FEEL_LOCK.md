@@ -49,7 +49,7 @@ Lab-Rat visual DNA for Hypha terrain. FoW / post-apoc grimdark — hellish void 
 | Lock | Detail |
 |------|--------|
 | **2D density stamp** | Shared `growth::density_stamp_2d` — veins + anastomosis rings + grit + spore core (yard + wear driver) |
-| **Yard silhouettes** | Void-spore 2D webbing / hellish mushroom / spore-tipped creeper; **fourth scar under Inked** (`INKED_HOTSPOT`, not a new plot); curl **1 / 2 / 3** unchanged (Inked pad shares the 2D field) |
+| **Yard silhouettes** | Void-spore 2D webbing / hellish mushroom / spore-tipped creeper; **fourth scar under Inked** (`INKED_HOTSPOT`, not a new plot); curl **1 / 2 / 3** unchanged (Inked pad shares the 2D field). **#171** looping Locus Voidspore leftover (ink + purple tips) sits left of spawn on the growth GPU path — not a fourth named plot |
 | **Concrete wear** | `WearKind::ConcreteCrack` / `ConcreteEdge` from the 2D field onto brutalist perimeter masses |
 | **Void-spore bleed** | `WearKind::VoidSporeWeb` + `VoidSporeBloom` on organic cells (terraforming volume); **`VoidSporeCrack`** on the Inked pad |
 | **Inked AOE hotspot** | Pinned `VoidSporeWeb` + `VoidSporeCrack` at `growth::INKED_HOTSPOT` **(−5.10, 0, 8.20)** / reach **1.55**; denser/louder than quiet 2D grit; Lab-Rat leftover, not Augury disc |
@@ -74,7 +74,7 @@ Evan direction: stop one-off stamp content (Standard scar, Monk AOE, extra yard 
 | **Paint** | `StampField::paint` / `ChannelStack::paint` — writes are real today; brush UX stubbed. `density_delta > 0` puffs solid; `< 0` + Subtract carves; material-only with density 0 on existing solid |
 | **Mesh→voxel** | `MeshStamp` → `voxelize_mesh` (step ~0.10–0.25 m, pad) → `SampledVolume` → `stamp_volume` (prefer for compounds); `stamp_mesh` for small live SDF. World meters, Y-up, CCW outside |
 | **2D mask** | `Mask2D` → `Primitive::height_mask`; helper `primitive_from_density_2d` — #39 harness applies it on the three existing plots via `StampField::layers` as a shallow anonymous scale test (still not a fourth named plot) |
-| **Consumers stay** | Sit-on-surface leftovers (ellipsoids); concrete/void-spore wear (ribbons — prefer capsule for new work); Inked hotspot under `growth::INKED_HOTSPOT`; yard plots + curl **1 / 2 / 3** (still CPU boxes; #39 also writes `primitive_from_density_2d` into `layers`); **#114** shallow Subtract crawl network (mouth → pocket; prone radii **0.42–0.50**; glasses `CRAWL  SUBTRACT`); **#127** probe consume writes onto those same `layers` at bake; **#130** pedon is a separate leftover overlay (`StampField::layers` stay cold — STREAM stays Hypha #123). Hypha reserved StampSlots empty until fed. `sample_channels` / `fill_chunk_samples` still the Hypha consume path |
+| **Consumers stay** | Sit-on-surface leftovers (ellipsoids); concrete/void-spore wear (ribbons — prefer capsule for new work); Inked hotspot under `growth::INKED_HOTSPOT`; yard plots + curl **1 / 2 / 3** (still CPU boxes; #39 also writes `primitive_from_density_2d` into `layers`); **#114** shallow Subtract crawl network (mouth → pocket; prone radii **0.42–0.50**; glasses `CRAWL  SUBTRACT`); **#127** probe consume writes onto those same `layers` at bake; **#130** pedon is a separate leftover overlay (`StampField::layers` stay cold — STREAM stays Hypha #123); **#171** Locus Voidspore yard leftover (matrix **10×4×10** · origin XZ **−3.55, 2.35** · tip purple `[0.68, 0.20, 0.86]`; growth GPU leftover — not CHANNELS remesh). Hypha reserved StampSlots empty until fed. `sample_channels` / `fill_chunk_samples` still the Hypha consume path |
 | **Ownership** | Lab-Rat writes; Hypha remeshes. Out of scope: Transvoxel tables/LOD, Locus AI, guns, 3D paint editor, live carve |
 
 Closed-form feed: `field.stamp(Primitive::…)`. Detail: fulcrumRust `docs/CHANNELS.md`.
@@ -149,7 +149,7 @@ Peeks must read **growth**, not graybox slabs. Same three plots / cycle / curl b
 | **ORGANIC 3D** | Thin bent stem + volva, wide cap (gills/dome), side fruit, plume webbing — mushroom, not a brick pillar |
 | **CREEPER** | Low olive tubes on meandering tendrils with forks; soil-hugging anastomosis; short AABB steps so diagonals stay tubes |
 
-CPU boxes, no collide; mesh under existing growth buffers. **Fourth leftover (not a plot):** loud ink/void scar under Inked at `INKED_HOTSPOT`. Detail lives in fulcrumRust `docs/GROWTH_POC.md`.
+CPU boxes, no collide; mesh under existing growth buffers. **Fourth leftover (not a plot):** loud ink/void scar under Inked at `INKED_HOTSPOT`. **#171 leftover (not a plot):** looping Locus Voidspore colony left of spawn — ink + purple tips; steal house [`VOIDSPORE.md`](VOIDSPORE.md) + fulcrumRust `docs/VOIDSPORE_DIAL_SHEET.md`. Detail lives in fulcrumRust `docs/GROWTH_POC.md`.
 
 ## Curl on growth plots (PR #9)
 
