@@ -128,7 +128,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 |------|------|
 | **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring — **landed #164**. Persist path already hosts `default_hip` (**#165**) |
 | **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
-| **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Powder B still cooking — do **not** claim landed |
+| **Range Tech** | **READY HIP** Chest/Low **landed #165**. Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Powder **B later landed #166** |
 | **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
 | **Beabim** | Off unless net-related |
 | **Clerk** | This sheet |
@@ -136,7 +136,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 ## Explicitly parked
 
 - **Invented default numbers.** Do not invent slider mins / maxes / steps beyond stolen #164 chrome honesty (FOV 70–110 / step 1 is **not** tip-locked). Mouse V/H / hip / ADS steal **#163** only. Graphics steal **#164** only.
-- **Powder A/B/C** until Evan locks. Do not invent powder ids or dials. Do **not** claim Powder B landed.
+- **Powder C** until Evan locks. Do not invent powder ids or C numbers. Powder **B later landed #166**.
 - **Shotgun Low-later.** Hook only (`default_hip_override`). Do **not** claim a shotgun kit or forced-Low shipped.
 - **fulcrumRust #167** AIM TUNE live-save — **landed** (Range parallel persist cook — not this sheet).
 - **PX clamp fix** is Range cook (**#138** `shoulder_x_max` **±0.50** · **#159** `TUNE_POS_X_ABS` **0.50**), not this sheet’s implementation.
