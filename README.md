@@ -12,7 +12,7 @@ Shared contracts for the atelier: bake leftovers, HUD legends, dial sheets, meth
 | [`bake-book/README.md`](bake-book/README.md) | Dial shelf — readable enough for seats without reading every `.rs`. fulcrumRust keeps STEAL_MAP / AXIS / TERRAIN / milestone / CHANNELS |
 | [`bake-book/AXIS_LOCK.md`](bake-book/AXIS_LOCK.md) | Three-space axis lock (cam −Z / CE +X / barrel +Z; Lab-Rat +Y separate) |
 | [`bake-book/HOLD_POSE_SPINE.md`](bake-book/HOLD_POSE_SPINE.md) | Grip-invariant PreferredHand A / AIM TUNE — **landed #168** one right bank + sagittal HAND L/R mirror |
-| [`bake-book/OPTIONS_SHELF.md`](bake-book/OPTIONS_SHELF.md) | FoW Options — **READY HIP landed #165** (Chest/Low + two-pose U); Graphics **#164** + mouse **#163** shipped; remaps / Tab still holding |
+| [`bake-book/OPTIONS_SHELF.md`](bake-book/OPTIONS_SHELF.md) | FoW Options — **READY HIP landed #165** (Chest/Low + two-pose U); Graphics **#164** + mouse **#163** + Lab-Rat TEXTURE/MIPMAP **#172** shipped; remaps / Tab still holding |
 | [`README-AUDIT-2026-09-06.md`](README-AUDIT-2026-09-06.md) | Public README methodology parity snapshot |
 
 **Initial Visuals** — tools, sims, games, and experiments.
