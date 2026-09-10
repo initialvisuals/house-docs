@@ -13,7 +13,7 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
-fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, `STAMP_PBR_DIAL_SHEET.md`, `HEAT_WARP_DIAL_SHEET.md`, `MP_WEAPON_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, `STAMP_PBR_DIAL_SHEET.md`, `HEAT_WARP_DIAL_SHEET.md`, `MP_WEAPON_DIAL_SHEET.md`, `SOFT_RIM_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
 
 ## What to drop here
 
@@ -42,6 +42,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Stamp / building / terrain PBR polish (Lab-Rat **#144** — rocks 3-lobe shade/face/chip · buildings Concrete grade + face UVs · default `pbr=vendor` 256² COL · five thumbs + concrete NRM; texture+UV only; chunk 16 m held) → fulcrumRust [`docs/STAMP_PBR_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STAMP_PBR_DIAL_SHEET.md)
 - Visible barrel heat warp (Range Tech **#155** — `haze_strength` **0** off / **0.01** CE enable floor / **0.11** stolen max; post `visual × lattice × 1.35` at the floor; shader gate **0.001**; tip cards `scale_x/y` **0.28/0.86**; Options **WARP** is Hypha pixellation) → [`HEAT_WARP_DIAL_SHEET.md`](HEAT_WARP_DIAL_SHEET.md) + fulcrumRust [`docs/HEAT_WARP_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/HEAT_WARP_DIAL_SHEET.md)
 - Hideout hub (FoW pre-raid friend hub — Beabim leftover **landed #153**; floorplan metres **pending Evan tip**) → [`HIDEOUT_HUB.md`](HIDEOUT_HUB.md)
+- Soft rim leftover (Augury **#156** — glasses `SIGNAL  THINS` / `CARRIER  LOST` + death-DNA glitch + FX `Slot::Crackle`; Hypha `RimHook` physics read-only `RIM_SOFT_M` **24** / world rim ~**422**; approach **0.08** → peak **0.28** · block **0.36** · chroma **0.012**; no Slain plate) → fulcrumRust [`docs/SOFT_RIM_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/SOFT_RIM_DIAL_SHEET.md)
 - FoW palette / `FOW_*` color kit (`fow_palette/v1`) → [`../FOW_PALETTE.md`](../FOW_PALETTE.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths

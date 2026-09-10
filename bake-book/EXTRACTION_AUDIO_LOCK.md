@@ -15,7 +15,7 @@ Parked from Evan + seat locks (2026-09-07).
 - FX bus / gunshots get spatial first
 - Shot propagation later
 
-## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62 + #64 + #82 + #134)
+## Voice / Music / FX buses (fulcrumRust #21 + #54 + #62 + #64 + #82 + #134 + #156)
 Range Tech feel-lab Settings **Audio** DNA — **not a DAW**. File-slot **wiring** shipped #54 (`sfx.slots[id]`): `mixer.play(Slot::*)` loads `assets/sfx/<id>.wav` (or `FULCRUM_SFX` override dir) onto the **same** #21 FX bus. Day-one handmade atelier vendor **landed #62** (one 22.05 kHz 16-bit mono WAV per FILE_SLOTS id in `assets/sfx/`). Optional single-file `hit.wav` **superseded #134** — Hit is `Slot::HIT_POOL` (`distant_small_medium_impact_bullet` / `…B` / `…C` under `assets/sfx/distant_impacts/`); retired leftover `assets/sfx/hit.wav` is not loaded. Options Audio FX dial scales the buffer. Missing / bad file → existing procedural fallback (Hit: remaining pool, then grit). Small handmade set — not a full CE / aim-offset pack dump. Shot propagation still later. `.ogg` names reserved; decode WAV-only this beat. Music playlist beds **landed #64** on the same #21 Music bus. Options **DEVICE** cycle **landed #82** — same mixer stereo render → thin cpal voice; **not** a second mix tree. World FX mono fold **landed #134** — `DecodeFold::WorldMono` on `Bus::Fx` (L+R → mono on decode); Music **Keep stereo**; Voice keep / dual-mono.
 
 Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #62) + playlist beds / remix jitter (#64) + Options **DEVICE** (#82) + Hit pool + decode fold (#134). Augury (**Chamber**) owns spatial path (#27 HRTF/ITD) + authored CE reverb volumes + FX wet send (#56). Not a second mixer. Hypha keeps Options Graphics post.
@@ -32,7 +32,7 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #
 ### Day-one routes
 | Bus | Owns |
 |-----|------|
-| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land / **hit** (pool #134) |
+| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land / **hit** (pool #134) / **crackle** (soft rim leftover **#156** — `Slot::Crackle` procedural radio breakup, retrigger **0.42** s; not Music loop) |
 | **Voice** | UI confirm (title / pause / Options) |
 | **Music** | hideout / extract playlist **landed #64** — CONCRETE_ECHO · Terraform · The Memory of The Augury · guttertrash · A Shattered Remnant From A Collapsed Distant Star; Options Music dial still scales; missing → two-tone stub |
 
@@ -98,4 +98,4 @@ Range Tech. Explicit host-output pick on the Options **Audio** pane. Audio still
 | **Code** | `engine/src/audio_out.rs` — cpal enumerate + stream. Stream on window thread (`Stream` is not Sync) |
 
 Source: https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STEAL_MAP.md
-PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62 · https://github.com/initialvisuals/fulcrumRust/pull/64 · https://github.com/initialvisuals/fulcrumRust/pull/82 · https://github.com/initialvisuals/fulcrumRust/pull/134
+PRs: https://github.com/initialvisuals/fulcrumRust/pull/21 · https://github.com/initialvisuals/fulcrumRust/pull/27 · https://github.com/initialvisuals/fulcrumRust/pull/31 · https://github.com/initialvisuals/fulcrumRust/pull/54 · https://github.com/initialvisuals/fulcrumRust/pull/56 · https://github.com/initialvisuals/fulcrumRust/pull/62 · https://github.com/initialvisuals/fulcrumRust/pull/64 · https://github.com/initialvisuals/fulcrumRust/pull/82 · https://github.com/initialvisuals/fulcrumRust/pull/134 · https://github.com/initialvisuals/fulcrumRust/pull/156
