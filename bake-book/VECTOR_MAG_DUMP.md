@@ -5,7 +5,7 @@ Canonical artistic-auth frame for Range Tech muzzle / FX cooks. Steal into fulcr
 **Source:** Evan aim-offset **Vector mag dump** (feel reference frame)  
 **Parked:** 2026-09-09  
 **Live fulcrumRust steal:** Range Tech **#89** (projectile feel) on existing `TracerField` — rect slab + debris + slug/wake + punch/scuff flash + fire-pulse glyphs. No new physics.  
-**Sibling:** heat cards stay on [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md) — this sheet is muzzle / FX, not heat. Do **not** reopen orange cards. **#89** did **not** retune HeatDials. Live heat is Range Tech **#129** CE tip **0.2.8** on Hypha `#66` (#71 blend is DNA).
+**Sibling:** heat cards stay on [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md) — this sheet is muzzle / FX, not heat. Warp *range* / shader gate → [`HEAT_WARP_DIAL_SHEET.md`](HEAT_WARP_DIAL_SHEET.md). Do **not** reopen orange cards. **#89** did **not** retune HeatDials. Live heat field is Range Tech **#129** CE tip **0.2.8** on Hypha `#66` (#71 blend is DNA). Visible hold-J tip warp **landed #155**.
 
 House-docs does not vendor the PNG. The frame lives in the **InitialVisuals chat attachment** / Range cook context. Dials below are the lock.
 
@@ -38,11 +38,11 @@ Range Tech **landed #89** on existing `TracerField` / AXIS_LOCK sim barrel **+Z*
 | Scuff sparks | **4–6**, 0.15–0.28 s, amber |
 | Receiver glyphs | **fire pulse** red/orange on dump |
 
-Local light / optic remain **reference-only** unless already on the feel sheet. Heat stays on `heat-card-dial-sheet.md` — Range Tech **#129** landed the CE tip **0.2.8** retune. Heat stays Range dials; vector mag dump stays **#89**.
+Local light / optic remain **reference-only** unless already on the feel sheet. Heat stays on `heat-card-dial-sheet.md` — Range Tech **#129** landed the CE tip **0.2.8** field; **#155** sells hold-J tip warp. Heat stays Range dials; vector mag dump stays **#89**.
 
 ## Not this shelf
 
-Pixellation / dither walls and floor warp are **Hypha Graphics / Augury**. Do **not** claim them here. Do **not** invent bloom / godRays paths (`#86` parked those). Do **not** reopen heat orange cards (`#66` path / `#71` DNA / live `#129` CE tip). **#89** did not ship a kit mesh rewrite, Aim-offset Home debugger, Beabim sync, or profile onboard.
+Pixellation / dither walls and floor warp are **Hypha Graphics / Augury**. Do **not** claim them here. Do **not** invent bloom / godRays paths (`#86` parked those). Do **not** reopen heat orange cards (`#66` path / `#71` DNA / live `#129` CE tip / `#155` warp). **#89** did not ship a kit mesh rewrite, Aim-offset Home debugger, Beabim sync, or profile onboard.
 
 ## Ownership
 
@@ -57,7 +57,7 @@ Pixellation / dither walls and floor warp are **Hypha Graphics / Augury**. Do **
 - Overnight muzzle / FX cooks steal from **this sheet**, not chat. Live #89 already took the rect slab / debris / slug / wake / punch-scuff / fire-pulse glyphs
 - Local light is flash-as-light on the can / gun front / nearby floor — not a second heat system, not bloom — still **reference-only** unless already on the feel sheet
 - Red receiver glyphs are diegetic kit chrome (sharp emissive), not glasses / not a second ammo HUD. Live #89 pulses them on fire
-- Heat stay on `heat-card-dial-sheet.md` + Hypha `#66` colorless post. Live HeatDials are **#129** CE tip 0.2.8. No orange card redraw
-- Intact siblings: `#12` flash/spark/mark · `#19`/`#47` draw-distance · `#51` barrel +Z · `#67` kit-tip spawn · `#71` heat blend DNA · **`#129` CE tip live** · `#76` SIM · `#79` heightfield snap · **`#89` live steal**
+- Heat stay on `heat-card-dial-sheet.md` + Hypha `#66` colorless post. Live HeatDials field is **#129** CE tip 0.2.8. Visible hold-J warp **#155**. No orange card redraw
+- Intact siblings: `#12` flash/spark/mark · `#19`/`#47` draw-distance · `#51` barrel +Z · `#67` kit-tip spawn · `#71` heat blend DNA · **`#129` CE tip field** · **`#155` hold-J warp** · `#76` SIM · `#79` heightfield snap · **`#89` live steal**
 
 See `FULCRUMRUST_LAST_PASS_LOCK.md` Visible shot feedback + Projectile feel (#89) · `PEEK_FINDINGS.md` Closed by #89.
