@@ -1539,7 +1539,7 @@ Do **not** invent a color glass ramp, a PiP scope, a live LPVO kit, or a replace
 
 ## Holding / locked intent — progression spine + factions (not shipped)
 
-Evan AHA (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `PROGRESSION_SPINE.md` — not chat. Do **not** invent numbers, PR ids, faction names, maps, or dial values. No code.
+Evan AHA (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `PROGRESSION_SPINE.md` — not chat. Do **not** invent numbers, PR ids, maps, or dial values. No code. Lumina / Unbound names are soft-locked on `PROGRESSION_SPINE.md`.
 
 - **Spine:** secret single-player progression inside a PvPvE game — sandbox that still climbs
 - **FoW hub test:** open-world 3D with complex AI (STALKER-like); enemies spawn/change; items change per map generation; bake positions into the **instance seed** so each run differs; enemies change each other and the environment
@@ -1547,7 +1547,7 @@ Evan AHA (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.
 - **Gates:** systems/abilities behind possessing/interacting with items of interest; events gated by skills unlocked, item collection amounts, enemy kills (category / time / area)
 - **Climb:** skill trees + totems + special gear + artifacts that change gameplay / open strategy. Not only random loot + random kills
 - **PvP lane:** kill each other for fun or for serious — stays a lane beside the spine
-- **Factions:** two large opposing factions; each has a core NPC in a specified map/area; supply items, gear, upgrades, attachments, guns, tasks; offer **safe drop-off** into the open-zone (world instance). Later: separate maps connected by tunnels and elevators
+- **Factions:** two large opposing factions; each has a core NPC in a specified map/area; supply items, gear, upgrades, attachments, guns, tasks; offer **safe drop-off** into the open-zone (world instance). Later: separate maps connected by tunnels and elevators. Lumina / Unbound names are soft-locked on `PROGRESSION_SPINE.md` (soft hooks only — do not hardcode narrative).
 
 | Seat | Owns |
 |------|------|
