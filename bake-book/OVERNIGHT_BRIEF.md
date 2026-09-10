@@ -15,6 +15,7 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 - **Evan asset-ask** — clone CE / aim-offset attachment tables first; missing → ask Evan this week. Primitives stay scaffolding. **Not shipped.**
 - **Augury** — elbow EXTRACT card **#85** landed; Death/Slain **landed #146** (PvE bleed-out envelope · Slain plate · PRESS SPACE → `claim_place_spawn` / #141 pads; PVP down does not play Slain); FoW brand / menu video when cut ready; CE Home debugger still * next on Patch A ledger.
 - **Reuse** — #16 host / #23 far-cold / #60 grit mips / **#81 19×19** prior 8× / live **#142 37×37** stay the extract; do not rebuild from zero.
+- **Progression spine + factions** — **holding / locked intent**. Secret single-player climb inside PvPvE; FoW hub test (instance-seed bake); void bubble + mycelium volume paint; gates / skill trees / totems / artifacts; PvP stays a lane; two opposing factions + core NPCs + safe drop-off. Steal from `PROGRESSION_SPINE.md` — not chat. Lumina / Unbound names are soft-locked on `PROGRESSION_SPINE.md`. No invented maps or dial numbers. Powder A/B/C parked until Evan locks. **Not shipped.**
 
 ## Landed on main overnight (clerk pulse · since ~2026-09-08 18:00 ET)
 

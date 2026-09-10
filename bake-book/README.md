@@ -28,6 +28,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 ## Related house notes
 
 - Axis lock (cam −Z / CE +X / barrel +Z) → [`AXIS_LOCK.md`](AXIS_LOCK.md)
+- Progression spine (FoW SP climb inside PvPvE + factions — **holding / locked intent**, not shipped) → [`PROGRESSION_SPINE.md`](PROGRESSION_SPINE.md)
 - Glyph HUD decode → [`../glyph-legend.md`](../glyph-legend.md)
 - Heat dials → [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md)
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)

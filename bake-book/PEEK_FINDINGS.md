@@ -1595,6 +1595,29 @@ Hypha Graphics owns the glass shader **when LPVO**. Range Tech seats AIM TUNE pl
 
 Do **not** invent a color glass ramp, a PiP scope, a live LPVO kit, or a replacement pack. Store `dBXpg` still **open**. Kit PBR stub stays #64. See `FULCRUMRUST_LAST_PASS_LOCK.md` Scope glass + Evan asset-ask path.
 
+## Holding / locked intent — progression spine + factions (not shipped)
+
+Evan AHA (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `PROGRESSION_SPINE.md` — not chat. Do **not** invent numbers, PR ids, maps, or dial values. No code. Lumina / Unbound names are soft-locked on `PROGRESSION_SPINE.md`.
+
+- **Spine:** secret single-player progression inside a PvPvE game — sandbox that still climbs
+- **FoW hub test:** open-world 3D with complex AI (STALKER-like); enemies spawn/change; items change per map generation; bake positions into the **instance seed** so each run differs; enemies change each other and the environment
+- **Void bubble:** alters a local area; mutates enemies into higher forms; mycelium tech expands this. Lab-Rat = volume paint (food/poison/moisture + specimen) → density mask; Hypha remeshes **once per seed**, not per-frame
+- **Gates:** systems/abilities behind possessing/interacting with items of interest; events gated by skills unlocked, item collection amounts, enemy kills (category / time / area)
+- **Climb:** skill trees + totems + special gear + artifacts that change gameplay / open strategy. Not only random loot + random kills
+- **PvP lane:** kill each other for fun or for serious — stays a lane beside the spine
+- **Factions:** two large opposing factions; each has a core NPC in a specified map/area; supply items, gear, upgrades, attachments, guns, tasks; offer **safe drop-off** into the open-zone (world instance). Later: separate maps connected by tunnels and elevators. Lumina / Unbound names are soft-locked on `PROGRESSION_SPINE.md` (soft hooks only — do not hardcode narrative).
+
+| Seat | Owns |
+|------|------|
+| **Lab-Rat** | Void volume paint → density mask; faction yard / tunnel / safe-drop stamp+UV when built |
+| **Hypha** | Instance seed bake + STREAM/hold; remesh void mask once; map stitch later |
+| **Range Tech** | Kit/powder/attachment dial **authority** gated by faction supply + totems/skills (canted/LPVO/zero/heat/pellet honesty) |
+| **Beabim** | Net / PvP leftover ray / invite / safe-drop sync honesty |
+| **Augury** | Gated chrome / faction NPC glasses / death stays death |
+| **Clerk** | `PROGRESSION_SPINE.md` + CREDITS when cooks land |
+
+Powder A/B/C parked until Evan locks. Do **not** claim the climb, factions, void remesh, or safe-drop shipped.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
