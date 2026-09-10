@@ -31,6 +31,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Progression spine (FoW SP climb inside PvPvE + factions — **holding / locked intent**, not shipped) → [`PROGRESSION_SPINE.md`](PROGRESSION_SPINE.md)
 - Options shelf (FoW settings UI — res / graphics / FOV / V·H·ADS sens / remap / Tab press-toggle — **holding / locked intent**, not shipped) → [`OPTIONS_SHELF.md`](OPTIONS_SHELF.md)
 - Terrain tune iterator (FoW live dials + **Refresh** / partial remesh — **holding / locked intent**, not shipped; peek default **underfoot + Refresh**) → [`TERRAIN_TUNE.md`](TERRAIN_TUNE.md)
+- Ballistics spine (arc **A** leftover + `hitscan` / `ballistic_A` model stash — **holding / locked intent**, not shipped) → [`BALLISTICS_SPINE.md`](BALLISTICS_SPINE.md)
 - Glyph HUD decode → [`../glyph-legend.md`](../glyph-legend.md)
 - Heat dials (Range Tech **#129** CE tip 0.2.8 field · **#155** visible hold-J warp) → [`../heat-card-dial-sheet.md`](../heat-card-dial-sheet.md) + [`HEAT_WARP_DIAL_SHEET.md`](HEAT_WARP_DIAL_SHEET.md)
 - Vector mag dump (muzzle rect flash / grit / glyphs — live steal **landed #89**) → [`VECTOR_MAG_DUMP.md`](VECTOR_MAG_DUMP.md)

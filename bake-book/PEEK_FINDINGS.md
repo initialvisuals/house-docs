@@ -1876,6 +1876,26 @@ Evan lock (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped
 
 Invented step ranges parked until Lab-Rat sheets them. Soft LOD pop parked. AIM TUNE / Options tip cooks parked. Do **not** claim the live tune panel shipped.
 
+## Holding / locked intent — ballistics spine (arc A + model stash; not shipped)
+
+Evan lock (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `BALLISTICS_SPINE.md` — not chat. Do **not** invent powder numbers, sample dt, or drag coeffs. No code.
+
+- **Tip problem:** PVP leftover hit is **hitscan** (straight eye ray · **500 m** · look dir · flat `SMG_PELLET`). Visual `KIND_SHOT` tracers are **ballistic** (look dir + kit gravity, **no HoB/zero loft on the wire**). Sniper range: HP tags on the look-line while the victim sees the pellet drop short
+- **Locked cook A:** physical bullets do colliding. HOST one shared launch solve (seed + loft + gravity samples) drives leftover **and** peer streak. Client predicts visual only; HOST leftover is truth. **Not** hitscan as primary feel
+- **Fairness:** later MOA / bloom / spread ride the same shared HOST solve — **no** separate hitscan cheat path once powder locks
+- **North star:** Tarkov / Arma / DayZ fly projectiles (arc sampled in short steps; hit where the sim is)
+- **Model stash:** do **not** throw away current hitscan. AIM TUNE / debugger restore `hitscan` (current tip) / `ballistic_A` (arc-sample leftover). Quick revert. Extra debug OK on internal build; strip later
+- **Parked:** powder A/B/C (rifle falloff) until Evan picks; invented sample dt / drag coeffs; options B/C (loft-straight / arcade straighten) as interim only if yelled — default cook is **A**
+
+| Seat | Owns |
+|------|------|
+| **Beabim** | `KIND_SHOT` / leftover wire · HOST shared solve · fairness seed |
+| **Range Tech** | `muzzle_and_launch` loft/zero · tracer DNA · model stash UI in AIM TUNE / debugger |
+| **Hypha / Lab-Rat / Augury** | Off |
+| **Clerk** | `BALLISTICS_SPINE.md` |
+
+Do **not** claim arc leftover, HOST shared solve, or the model-stash UI shipped. Hitscan stays the live tip until a cook is greenlit.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:
