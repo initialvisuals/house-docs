@@ -13,7 +13,7 @@ Park screenshots, param notes, and qualitative callouts next to the glyph legend
 
 This folder is a **reference shelf**, not a science claim. Numbers and shots are sim artifacts unless a row is marked measured.
 
-fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
+fulcrumRust owns the port docs (`docs/STEAL_MAP.md`, `AXIS.md`, `TERRAIN.md`, `MILESTONE_01_PLAYABLE.md`, `CHANNELS.md`, `PVP_DIAL_SHEET.md`, `BIPED_3P_DIAL_SHEET.md`, `WOUND_FEEL_DIAL_SHEET.md`, `STAMP_PBR_DIAL_SHEET.md`, plus stamps / growth). House-docs bake-book is the **dial shelf** — readable enough for seats without reading every `.rs`.
 
 ## What to drop here
 
@@ -37,6 +37,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - 4× world + pend coalesce (Hypha **#142** — 37×37 / 592 m / ~350k · STREAM held 11×11 · `coalesce=2/2` · rim 288 m) → fulcrumRust [`docs/TERRAIN.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/TERRAIN.md) + [`docs/SPAWNS.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/SPAWNS.md)
 - Landmark AABB ride (Hypha **#136** — `RIDE_STEP` 0.50 · `RIDE_SKIN` 0.06 · `SUPPORT_STEP` 0.25) → fulcrumRust [`docs/LANDMARK_RIDE.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/LANDMARK_RIDE.md)
 - 3P biped / PeerBody (Hypha **#131** — eye 1.60 · head 1.62 centered · left-offset killed) → fulcrumRust [`docs/BIPED_3P_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BIPED_3P_DIAL_SHEET.md)
+- Stamp / building / terrain PBR polish (Lab-Rat **#144** — rocks 3-lobe shade/face/chip · buildings Concrete grade + face UVs · default `pbr=vendor` 256² COL · five thumbs + concrete NRM; texture+UV only; chunk 16 m held) → fulcrumRust [`docs/STAMP_PBR_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STAMP_PBR_DIAL_SHEET.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
