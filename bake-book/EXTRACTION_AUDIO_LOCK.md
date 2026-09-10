@@ -32,7 +32,7 @@ Range Tech owns Voice / Music / FX mixer + authored file-slot SFX (#21 + #54 + #
 ### Day-one routes
 | Bus | Owns |
 |-----|------|
-| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land / **hit** (pool #134) / **crackle** (soft rim leftover **#156** — `Slot::Crackle` procedural radio breakup, retrigger **0.42** s; not Music loop) |
+| **FX** | weapon fire / dry / reload / cycle / pickup / putdown / Locus / swipe / wrap / ricochet / footstep / slide / jump / land / **hit** (pool #134) / **crackle** (soft rim leftover **#156** — `Slot::Crackle` procedural radio breakup, retrigger **0.42** s; holds with **#158** spring-stop BLOCK; not Music loop) |
 | **Voice** | UI confirm (title / pause / Options) |
 | **Music** | hideout / extract playlist **landed #64** — CONCRETE_ECHO · Terraform · The Memory of The Augury · guttertrash · A Shattered Remnant From A Collapsed Distant Star; Options Music dial still scales; missing → two-tone stub |
 
