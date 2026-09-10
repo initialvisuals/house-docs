@@ -1537,6 +1537,29 @@ Hypha Graphics owns the glass shader **when LPVO**. Range Tech seats AIM TUNE pl
 
 Do **not** invent a color glass ramp, a PiP scope, a live LPVO kit, or a replacement pack. Store `dBXpg` still **open**. Kit PBR stub stays #64. See `FULCRUMRUST_LAST_PASS_LOCK.md` Scope glass + Evan asset-ask path.
 
+## Holding / locked intent — hideout hub (pre-raid soft rules; metres pending)
+
+Evan lock (2026-09-10 InitialVisuals). **Holding / locked intent — not shipped.** Overnight cooks steal from `HIDEOUT_HUB.md` — not chat. Soft rules are **dial-locked**. Floorplan metres are **pending Evan tip**. Do **not** invent hall / wing / ceiling numbers. No code.
+
+- **Intent:** pre-raid hub to fuck around with friends before extract. Stash + loadouts. Port more from aim-offset into a long range hall **once metres land**
+- **No-loot downs:** in hideout, downs do **not** drop gear
+- **Crisp flash:** hit feedback = crisp red → black flash → fade back to normal. **Not** Slain. **Not** death climb
+- **15 s protect:** after crisp, **15 s** damage protection (stop annoying grief). Do **not** invent a second window
+- **Raid is normal:** outside hideout / in world raid = loot, death, #143 wound feel, Beabim PvP. Raid may still use damage shader feedback (wound feel)
+- **Volume pending:** larger / taller / wider compound — T or H with an L, plus a long shooting-range hall. Lab-Rat Concrete / UV off the **#144** shelf **when Evan tips** hall length / wing width / ceiling height. Shape words only until then
+- **Visible bipeds:** PeerBody in the hideout starting room — **Beabim** seat. Gun KIND cook stays separate
+
+| Seat | Owns |
+|------|------|
+| **Lab-Rat** | T·H·L + range hall boxes **when metres tip**; Concrete / UV off the **#144** shelf |
+| **Range Tech** | aim-offset range toys **after metres**; crisp flash dial sheet (reuse #143 wound DNA, **not** Slain); Music already on hideout (**#64**) |
+| **Beabim** | PeerBody visible in starting room; no-loot + **15 s** protect KIND; gun KIND cook **separate** |
+| **Augury** | Crisp overlay chrome **if needed**; soft-rim desert stays **separate** (**#151**) |
+| **Hypha** | landmark ride / STREAM cover the bigger floor **when volume lands**; stay **off** volume sculpt |
+| **Clerk** | `HIDEOUT_HUB.md` |
+
+Powder A/B/C parked. Invented floorplan metres parked. Bigger progression / faction systems parked. Do **not** claim the hub volume, hideout no-loot, or 15 s protect KIND shipped.
+
 ## Controller lock (Evan bind wins)
 
 Shipped in fulcrumRust #12. Overrides soft aim-offset wheel-height where they disagreed:

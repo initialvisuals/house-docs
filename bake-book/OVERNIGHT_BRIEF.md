@@ -14,6 +14,7 @@ Clerk shelf cook pulse after the missed 2026-09-08 run. Steal dials from this sh
 - **Scope glass** (when LPVO) — **holding**. Greyscale ramp · IOR · no PiP. Hypha Graphics when LPVO; Range AIM TUNE placements first (#97/#103).
 - **Evan asset-ask** — clone CE / aim-offset attachment tables first; missing → ask Evan this week. Primitives stay scaffolding. **Not shipped.**
 - **Augury** — elbow EXTRACT card **#85** landed; FoW brand / menu video when cut ready; CE Home debugger still * next on Patch A ledger.
+- **Hideout hub** — **holding / locked intent**. Pre-raid friend hub (stash + loadouts). Soft rules **locked**: hideout downs do **not** drop gear · crisp red→black flash→fade (not Slain / not death climb) · **15 s** protect after crisp. Volume metres **pending Evan tip** (T·H·L + range hall — do **not** invent hall/wing/ceiling). PeerBody visible in starting room (Beabim). Steal from `HIDEOUT_HUB.md` — not chat. **Not shipped.**
 - **Reuse** — #16 host / #23 far-cold / #60 grit mips / **#81 19×19** prior 8× / live **#142 37×37** stay the extract; do not rebuild from zero.
 
 ## Landed on main overnight (clerk pulse · since ~2026-09-08 18:00 ET)
