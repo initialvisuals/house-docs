@@ -45,6 +45,7 @@ Range Tech owns the AIM TUNE / PreferredHand **cook after refresh**. #116 stays 
 - **Full per-gun L+R banks.** A is the path. Do not author gun×optic L+R pairs this wrap
 - **Glasses N / numpad.** Not this sheet
 - **Ballistics #161 rebase.** Separate. Loft still uses **muzzle child**, not hold bone — do not fold that rebase into this cook
+- **Options default hip Chest vs Low toggle.** Evan locked intent (Chest default). In-play two poses only (chosen hip + canted); shotgun may force Low later. Range still cooking this tip + Powder B separately — not this spine’s implementation. Do **not** claim the hip toggle or Powder B landed. See `OPTIONS_SHELF.md`
 - Explicit L/R overrides for asymmetric cant/inspect — later if A fails. **Not week wrap**
 
 See `PEEK_FINDINGS.md` Holding / locked intent — hold pose spine. Overnight cooks steal from this sheet.
