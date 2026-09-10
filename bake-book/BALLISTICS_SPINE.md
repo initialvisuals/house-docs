@@ -1,12 +1,12 @@
 # Ballistics spine (arc A + model stash)
 
-House contract for leftover vs visual honesty (2026-09-10). **Beabim leftover/net half SHIPPED** via fulcrumRust [#160](https://github.com/initialvisuals/fulcrumRust/pull/160) (`e0803dc1967418fef7bdd7e04a31c2a3b2f681ed`). Range Tech loft DNA + AIM TUNE stash chrome still **open** (tip [#161](https://github.com/initialvisuals/fulcrumRust/pull/161) CONFLICTING — do **not** claim shipped; do **not** invent a merge). Steal from this sheet + fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BALLISTICS_A_DIAL_SHEET.md) — not chat. Do **not** invent powder numbers, sample dt, or drag coeffs. Clerk owns this sheet.
+House contract for leftover vs visual honesty (2026-09-10). Tip order **#160 → #161** complete. **Beabim leftover/net half SHIPPED** via fulcrumRust [#160](https://github.com/initialvisuals/fulcrumRust/pull/160) (`e0803dc1967418fef7bdd7e04a31c2a3b2f681ed`). **Range Tech loft DNA + AIM TUNE leftover stash SHIPPED** via fulcrumRust [#161](https://github.com/initialvisuals/fulcrumRust/pull/161) (merge `4f47875376683f922c99adc7d7eb45a0736dc8a1`). Steal from this sheet + fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BALLISTICS_A_DIAL_SHEET.md) — not chat. Do **not** invent powder numbers, sample dt, or drag coeffs. Clerk owns this sheet.
 
-## Problem (tip — leftover/net closed by #160)
+## Problem (tip — leftover/net closed by #160 · Range closed by #161)
 
 Was: PVP leftover hit is **hitscan** (straight eye ray · **500 m** · look dir · flat `SMG_PELLET`) while visual `KIND_SHOT` tracers are **ballistic** (look dir + kit gravity, **no HoB/zero loft on the wire**). Sniper range: HP tags on the look-line while the victim sees the pellet drop short.
 
-**#160** closed the leftover/net half: HOST leftover + `KIND_SHOT.dir` share the launch loft. Range tracer visual DNA is still open.
+**#160** closed the leftover/net half: HOST leftover + `KIND_SHOT.dir` share the launch loft. **#161** closed the Range half: 1P loft DNA + tracer streak + AIM TUNE **MODEL** write the same `leftover_hit` stash.
 
 ## Locked direction
 
@@ -24,9 +24,9 @@ Do **not** throw away the hitscan model. Stash / restore:
 | Model | Meaning | Status |
 |-------|---------|--------|
 | `ballistic_A` | Arc-sample leftover (locked cook). Default | **Live #160** |
-| `hitscan` | Straight look-line eye ray | Stashed — `FULCRUM_LEFTOVER` / `project.json` `leftover_hit` / `Session::set_leftover_hit_model` |
+| `hitscan` | Straight look-line eye ray | Stashed — `FULCRUM_LEFTOVER` / `project.json` `leftover_hit` / `Session::set_leftover_hit_model` / Range AIM TUNE **MODEL** (**#161**) |
 
-Quick revert. Extra debug is OK on the internal build; strip later. Range wires AIM TUNE / debugger chrome later — leftover/net switch already ships.
+Quick revert. Extra debug is OK on the internal build; strip later. Range AIM TUNE **MODEL** + TELE/PERF `LEFTOVER` read/write this same key — no second `ballistic_model` persist.
 
 ## What shipped (#160 · Beabim leftover/net)
 
@@ -44,11 +44,23 @@ Canonical numbers live on fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https:
 
 CREDITS Beabim Shipped line + STEAL_MAP Net/ballistics claim already planted in #160. House shelf only.
 
+## What shipped (#161 · Range loft DNA + AIM TUNE stash)
+
+Range Tech. Consumes Beabim leftover/net (**#160**). Does **not** fork KIND_SHOT / leftover collide / HOST shared solve. Steal the Range section on fulcrumRust [`docs/BALLISTICS_A_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BALLISTICS_A_DIAL_SHEET.md) — not chat.
+
+| Piece | Path | Notes |
+|-------|------|-------|
+| 1P loft DNA | `muzzle_and_launch` + `hip_honest_dir` + MOA | Same body Beabim publishes as `KIND_SHOT.dir`. No `NetShot.loft`, no 48-byte KIND, no unused-byte model flag. |
+| Tracer streak | `TracerField` + `feel::step_ballistic` | Local + peer streaks follow the lofted `ShotEvent` (dir / speed / gravity). Hitscan leftover stash does **not** flatten the streak. |
+| AIM TUNE MODEL | End · INS cycle WEAPON → ATTACH → MODEL | Writes Beabim `leftover_hit` (`hitscan` / `ballistic_A`). Persist that key. No `ballistic_model`. |
+| Debugger | TELE / PERF `LEFTOVER` line | Reads the same enum. Not a new Augury tab. |
+
+CREDITS Range Shipped line + STEAL_MAP ballistics / AIM TUNE claim already planted in #161. House shelf only.
+
 ## Still open
 
-- **Range Tech** — consume #160 loft DNA + AIM TUNE leftover stash chrome. Tip **#161** CONFLICTING. Do **not** claim shipped.
 - **Powder A/B/C** (rifle falloff) until Evan picks.
-- Tracer visual DNA. Hypha STREAM. Augury. Hub protect. `KIND_LOOT_WORLD`. Locus yard **80 m**.
+- Hypha STREAM. Augury chrome. Hub protect. `KIND_LOOT_WORLD`. Locus yard **80 m**.
 
 ## Parked
 
@@ -61,8 +73,8 @@ CREDITS Beabim Shipped line + STEAL_MAP Net/ballistics claim already planted in 
 | Seat | Owns |
 |------|------|
 | **Beabim** | `KIND_SHOT` / leftover wire · HOST shared solve · fairness seed — **shipped #160** |
-| **Range Tech** | `muzzle_and_launch` loft/zero · tracer DNA · model stash UI in AIM TUNE / debugger — **still open** (consume #160 loft DNA; tip #161 CONFLICTING) |
+| **Range Tech** | `muzzle_and_launch` loft/zero · tracer DNA · model stash UI in AIM TUNE / debugger — **shipped #161** (consume #160 loft DNA) |
 | **Hypha / Lab-Rat / Augury** | Off |
 | **Clerk** | This sheet |
 
-See `PEEK_FINDINGS.md` Closed by #160 + Holding / locked intent — Range #161 / powder parked. Overnight cooks steal from this sheet + fulcrumRust `docs/BALLISTICS_A_DIAL_SHEET.md`.
+See `PEEK_FINDINGS.md` Closed by #160 + Closed by #161 + Holding / locked intent — powder parked. Overnight cooks steal from this sheet + fulcrumRust `docs/BALLISTICS_A_DIAL_SHEET.md`.
