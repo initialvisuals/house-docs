@@ -21,7 +21,7 @@ Feel-lab `MoveDials.look_sens` **0.0022** + feel ADS weight **0.86** / blend **6
 
 ## Still cooking (do not claim)
 
-- Options default hip **Chest (default)** vs **Low** toggle. Do **not** add READY HIP rows here. Do **not** claim Powder B landed
+- Options READY HIP **#165** already landed (sibling — CHEST / LOW HIP, persist `default_hip`). Do **not** restamp those rows here. Do **not** claim Powder B landed
 - Hypha Graphics **RES / FOV / AA / AA STR / AO / POST** later landed **#164** — see [`OPTIONS_GRAPHICS.md`](OPTIONS_GRAPHICS.md)
 - Augury remap / Tab inventory press-toggle
 - PreferredHand A later landed **#168** — see [`PREFERRED_HAND_A.md`](PREFERRED_HAND_A.md)

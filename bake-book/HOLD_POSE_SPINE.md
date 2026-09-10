@@ -38,7 +38,7 @@ Steal from fulcrumRust [`docs/PREFERRED_HAND_A_DIAL_SHEET.md`](https://github.co
 
 **H** is the live HAND flip. PreferredHand onboard (#116) seats the home (`shoulder_t` 0 or 1). Leftover `shoulder_cross_*` / `shoulder_x_min` stay DNA for End PX leftover-wall arith (`−cross_x + x_min` ≈ **+0.226**) — **not** applied to the live left hold. End PX box stays **±0.50**. WEAPON Fine/Coarse **+X** while HAND L writes authored −X so the gun still walks toward camera-right on screen. ATTACH stays socket-local.
 
-Play U stays two poses (chosen hip ↔ canted). Do **not** add READY HIP persist rows on this spine.
+Play U stays two poses (chosen hip ↔ canted). READY HIP persist **already landed #165** (sibling — this spine does **not** own those rows).
 
 ## Already shipped (siblings — do not restamp)
 
@@ -47,6 +47,7 @@ These stay facts. This sheet does **not** claim they already implemented grip-in
 - PreferredHand enum + NEW PROFILE onboard **landed #116** (Hypha). Right default · `project.json` permanent vs live · death clears live · extract→stash stub. `shoulder_t` seats Range H. **#168** consumes the enum for home seat + live HAND chrome. **No** `scale.x = −1`
 - AIM TUNE End sheet **#97** / live-save **#103** / per-kit pull **#167** / PX **#138** / **#159**. Poses **#94 / #98 / #99 / #100** · hold springs **#109**. Canted optic ATTACH **#150**
 - Hypha 3P lean hinge **#145**. Beabim held 3P kit clone **#153**. House lock **1P ≠ 3P** held
+- Options READY HIP **landed #165** (CHEST / LOW HIP, persist `default_hip`, in-play **U** = chosen hip ↔ canted). This spine does **not** own those rows
 
 #116 stays the onboard enum. #168 is the pose-bank mirror + chrome.
 
@@ -54,7 +55,7 @@ These stay facts. This sheet does **not** claim they already implemented grip-in
 
 | Seat | Owns |
 |------|------|
-| **Range Tech** | AIM TUNE / PreferredHand A cook — **landed #168** (pose bank on hold/grip · optic class · HAND L/R mirror A · HAND chrome · ADS crosshair hide) |
+| **Range Tech** | AIM TUNE / PreferredHand A cook — **landed #168** (pose bank on hold/grip · optic class · HAND L/R mirror A · HAND chrome · ADS crosshair hide). READY HIP **#165** already landed (sibling — Chest/Low + two-pose **U**; this spine does **not** own those rows) |
 | **Hypha** | Lean hinge (tip). PreferredHand enum / profile **#116** already landed |
 | **Beabim** | 3P attach honesty — remote kit hangs from the same hold invariant (1P ≠ 3P held) |
 | **Clerk** | This sheet |
@@ -66,7 +67,7 @@ These stay facts. This sheet does **not** claim they already implemented grip-in
 - **Ballistics #161 rebase.** Separate. Loft still uses **muzzle child**, not hold bone — do not fold that rebase into this cook
 - **fulcrumRust #167** AIM TUNE live-save — **landed** (sibling persist cook — not this spine)
 - **Powder A/B/C.** Do **not** claim Powder B landed
-- **READY HIP persist / Chest vs Low Options row.** Do **not** add READY HIP dials here. #168 play U stays two poses without restamping that seat. See `OPTIONS_SHELF.md`
+- **READY HIP persist / Chest vs Low Options row.** **Already landed #165** (sibling). This spine does **not** own those rows. See `OPTIONS_SHELF.md`
 - Explicit L/R overrides for asymmetric cant/inspect — later if A fails. **Not week wrap**
 
-See `PEEK_FINDINGS.md` Closed by #167 + Closed by #168. Overnight cooks steal from this sheet.
+See `PEEK_FINDINGS.md` Closed by #167 + Closed by #168 + Closed by #165. Overnight cooks steal from this sheet.

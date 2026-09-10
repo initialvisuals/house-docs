@@ -23,7 +23,7 @@ WINDOW / CA / GRAIN / DOF / FOG / CAM / WARP / STREAM unchanged. Old `"ao"` / `"
 
 - Lab-Rat texture / mipmap quality
 - Augury remap / Tab inventory press-toggle
-- Options default hip Chest vs Low + Powder B — do **not** claim landed
+- Options READY HIP **#165** already landed (sibling). Powder B — do **not** claim landed
 - fulcrumRust **#167** AIM TUNE live-save — **not** this cook
 - Bloom / godRays / brightness / gamma — still **no path** (#86)
 

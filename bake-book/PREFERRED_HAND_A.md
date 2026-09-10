@@ -23,7 +23,7 @@ End PX **±0.50** held. Leftover `shoulder_cross_*` / `shoulder_x_min` stay DNA 
 
 - fulcrumRust **#167** AIM TUNE live-save — **not** this cook
 - Powder A/B/C. Do **not** claim Powder B landed
-- READY HIP persist / Chest vs Low Options row — do **not** restamp here. #168 play U stays two poses (chosen hip ↔ canted) without adding READY HIP dials
+- READY HIP persist **#165** already landed (sibling — do **not** restamp here). #168 play U stays two poses (chosen hip ↔ canted)
 - Hypha 3P lean boxes. Augury death / downed strip. Lab-Rat stamps
 
 See `PEEK_FINDINGS.md` Closed by #168 + `FULCRUMRUST_LAST_PASS_LOCK.md`.
