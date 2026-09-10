@@ -39,6 +39,7 @@ Prefer filenames like `YYYY-MM-DD_preset_note.png` plus a one-line note in a sib
 - Landmark AABB ride (Hypha **#136** — `RIDE_STEP` 0.50 · `RIDE_SKIN` 0.06 · `SUPPORT_STEP` 0.25) → fulcrumRust [`docs/LANDMARK_RIDE.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/LANDMARK_RIDE.md)
 - 3P biped / PeerBody (Hypha **#131** — eye 1.60 · head 1.62 centered · left-offset killed) → fulcrumRust [`docs/BIPED_3P_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/BIPED_3P_DIAL_SHEET.md)
 - Stamp / building / terrain PBR polish (Lab-Rat **#144** — rocks 3-lobe shade/face/chip · buildings Concrete grade + face UVs · default `pbr=vendor` 256² COL · five thumbs + concrete NRM; texture+UV only; chunk 16 m held) → fulcrumRust [`docs/STAMP_PBR_DIAL_SHEET.md`](https://github.com/initialvisuals/fulcrumRust/blob/main/docs/STAMP_PBR_DIAL_SHEET.md)
+- FoW palette / `FOW_*` color kit (`fow_palette/v1`) → [`../FOW_PALETTE.md`](../FOW_PALETTE.md)
 - Pycelium experiment-log PR (when merged) → `docs/EXPERIMENT_LOG.md` in `initialvisuals/pycelium`
 - Bake metric targets: fusion rate, cord vs explorative tips, C:N hunting paths
 - Atelier public-portfolio steal (store `W3np6` / `dBXpg` + seat ownership) → [`ATELIER_PORTFOLIO_STEAL.md`](ATELIER_PORTFOLIO_STEAL.md)
