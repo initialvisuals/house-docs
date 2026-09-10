@@ -26,7 +26,7 @@ Do **not** author a second pose bank per gun. Do **not** move the hold bank when
 These stay facts. This sheet does **not** claim they already implemented grip-invariant A.
 
 - PreferredHand enum + NEW PROFILE onboard **landed #116** (Hypha). Right default · `project.json` permanent vs live · death clears live · extract→stash stub. `shoulder_t` seats Range H. **No** `scale.x = −1`
-- AIM TUNE End sheet **#97** / live-save **#103** / PX **#138**. Poses **#94 / #98 / #99 / #100** · hold springs **#109**. Canted optic ATTACH **#150**
+- AIM TUNE End sheet **#97** / live-save **#103** / per-kit pull **#167** / PX **#138**. Poses **#94 / #98 / #99 / #100** · hold springs **#109**. Canted optic ATTACH **#150**
 - Hypha 3P lean hinge **#145**. Beabim held 3P kit clone **#153**. House lock **1P ≠ 3P** held
 
 Range Tech owns the AIM TUNE / PreferredHand **cook after refresh**. #116 stays the onboard enum. This spine is the pose bank after Evan refresh.
@@ -48,4 +48,4 @@ Range Tech owns the AIM TUNE / PreferredHand **cook after refresh**. #116 stays 
 - **Options default hip Chest vs Low toggle.** Evan locked intent (Chest default). In-play two poses only (chosen hip + canted); shotgun may force Low later. Range still cooking this tip + Powder B separately — not this spine’s implementation. Do **not** claim the hip toggle or Powder B landed. See `OPTIONS_SHELF.md`
 - Explicit L/R overrides for asymmetric cant/inspect — later if A fails. **Not week wrap**
 
-See `PEEK_FINDINGS.md` Holding / locked intent — hold pose spine. Overnight cooks steal from this sheet.
+See `PEEK_FINDINGS.md` Holding / locked intent — hold pose spine + Closed by #167. Overnight cooks steal from this sheet.

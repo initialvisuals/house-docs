@@ -49,7 +49,7 @@ Graphics pane wiring (rows + persist on `project.json`) is Hypha. Texture / mipm
 | **HIP** | Non-ADS look | **Landed #163.** Controls **HIP** (`hip_look_mul`) **1.00**. Separate from ADS. Same lock |
 | **ADS** | Aim look, **separate** from hip | **Landed #163.** Controls **ADS** (`ads_look_mul`) **1.00**. Feel-sheet ADS weight **0.86** / blend **6.4** stay DNA (**#57** / **#113** scales blend by kit ergo) — Options ADS is a user mul on top, default **1.00**. Do not invent a new ADS multiplier |
 
-Range Tech owns V/H + hip vs ADS — **shipped #163**. Hypha owns the FOV slider + Graphics pane seat. AIM TUNE PX-wall cook is Range **parallel** (`shoulder_x_max` **±0.50** already **#138**) — not this sheet’s implementation.
+Range Tech owns V/H + hip vs ADS — **shipped #163**. Hypha owns the FOV slider + Graphics pane seat. AIM TUNE PX-wall cook is Range **parallel** (`shoulder_x_max` **±0.50** already **#138**) — not this sheet’s implementation. AIM TUNE LIVE per-kit pull **#167** is also Range parallel (`aim_live` + `aim_tune.*`; no new keys) — not this sheet.
 
 ## Landed #163 — Controls mouse V/H + hip/ADS
 
@@ -87,7 +87,7 @@ STREAM Options (`StreamPolicy` window / wide / resident) already **Hypha**. Link
 |------|------|
 | **Hypha** | Resolution, FOV, AA type/strength, AO, post quality, Graphics pane wiring |
 | **Lab-Rat** | Texture quality, mipmap quality (vendor COL / `lod_mips` / `FULCRUM_UV`) |
-| **Range Tech** | Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet). Options default hip Chest vs Low + Powder B still cooking — do **not** claim landed |
+| **Range Tech** | Mouse V/H + hip/ADS **landed #163**; AIM TUNE PX-wall cook parallel (**#138** / **#159** already landed — not this sheet); AIM TUNE LIVE per-kit pull **#167** parallel (not this sheet). Options default hip Chest vs Low + Powder B still cooking — do **not** claim landed |
 | **Augury** | Input remapping (CE), Tab inventory press-toggle no hold-flash |
 | **Beabim** | Off unless net-related |
 | **Clerk** | This sheet |
